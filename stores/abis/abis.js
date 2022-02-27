@@ -10,6 +10,7 @@ import { tokenABI } from './tokenABI'
 import { veDistABI } from './veDistABI'
 import { minterABI } from './minterABI'
 import { wftmABI } from './wftmABI'
+import { solidlyLibraryABI } from './solidlyLibraryABI'
 
 export default {
   erc20ABI,
@@ -23,5 +24,6 @@ export default {
   veDistABI,
   tokenABI,
   minterABI,
-  wftmABI
+  wftmABI,
+  solidlyLibraryABI
 }

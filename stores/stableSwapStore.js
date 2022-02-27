@@ -2835,29 +2835,36 @@ class Store {
         return null
       }
 
+      const libraryContract = new web3.eth.Contract(CONTRACTS.LIBRARY_ABI, CONTRACTS.LIBRARY_ADDRESS)
       let totalRatio = 1
 
       for(let i = 0; i < bestAmountOut.routes.length; i++) {
-        if(bestAmountOut.routes[i].stable == true) {
+        let amountIn = bestAmountOut.receiveAmounts[i]
+        let amountOut = bestAmountOut.receiveAmounts[i+1]
 
-        } else {
-          const reserves = await routerContract.methods.getReserves(bestAmountOut.routes[i].from, bestAmountOut.routes[i].to, bestAmountOut.routes[i].stable).call()
-          let amountIn = 0
-          let amountOut = 0
-          if(i == 0) {
-            amountIn = sendFromAmount
-            amountOut = bestAmountOut.receiveAmounts[i+1]
-          } else {
-            amountIn = bestAmountOut.receiveAmounts[i]
-            amountOut = bestAmountOut.receiveAmounts[i+1]
-          }
+        const res = await libraryContract.methods.getTradeDiff(amountIn, bestAmountOut.routes[i].from, bestAmountOut.routes[i].to, bestAmountOut.routes[i].stable).call()
 
-          const amIn = BigNumber(amountIn).div(reserves.reserveA)
-          const amOut = BigNumber(amountOut).div(reserves.reserveB)
-          const ratio = BigNumber(amOut).div(amIn)
+        const ratio = BigNumber(res.b).div(res.a)
+        totalRatio = BigNumber(totalRatio).times(ratio).toFixed(18)
 
-          totalRatio = BigNumber(totalRatio).times(ratio).toFixed(18)
-        }
+        // if(bestAmountOut.routes[i].stable == true) {
+        //
+        // } else {
+        //   const reserves = await routerContract.methods.getReserves(bestAmountOut.routes[i].from, bestAmountOut.routes[i].to, bestAmountOut.routes[i].stable).call()
+        //   if(i == 0) {
+        //     amountIn = sendFromAmount
+        //     amountOut = bestAmountOut.receiveAmounts[i+1]
+        //   } else {
+        //     amountIn = bestAmountOut.receiveAmounts[i]
+        //     amountOut = bestAmountOut.receiveAmounts[i+1]
+        //   }
+        //
+        //   const amIn = BigNumber(amountIn).div(reserves.reserveA)
+        //   const amOut = BigNumber(amountOut).div(reserves.reserveB)
+        //   const ratio = BigNumber(amOut).div(amIn)
+        //
+        //   totalRatio = BigNumber(totalRatio).times(ratio).toFixed(18)
+        // }
       }
 
       const priceImpact = BigNumber(1).minus(totalRatio).times(100).toFixed(18)
