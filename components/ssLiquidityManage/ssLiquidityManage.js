@@ -987,6 +987,10 @@ export default function ssLiquidityManage() {
   }
 
   const renderTokenSelect = () => {
+    if(vestNFTs.length === 0) {
+      return null
+    }
+    
     return (
       <div className={ classes.textField}>
         <div className={ classes.mediumInputContainer}>

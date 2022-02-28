@@ -10,7 +10,7 @@
 
 ## Deployment
 - [Testnet](https://testnet.solidly.exchange/)
-- [Live](https://prod.solidly.exchange/)
+- [Live](https://solidly.exchange/)
 
 ## Getting started
 - Make sure to have nodejs installed. This app is built using [Next.js](https://nextjs.org/learn/basics/create-nextjs-app) and [react](https://reactjs.org/docs/getting-started.html).
