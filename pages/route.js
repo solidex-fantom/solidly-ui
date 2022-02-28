@@ -16,6 +16,7 @@ function Route({ changeTheme, ...props }) {
     return <Swap props={props} changeTheme={changeTheme} />;
   } else if (activePath.includes("/liquidity")) {
     if(activePath.includes("/liquidity/0x")) {
+      router.push(activePath)
       return <LiquidityAddress props={props} changeTheme={changeTheme} />;
     } else {
       return <Liquidity props={props} changeTheme={changeTheme} />;

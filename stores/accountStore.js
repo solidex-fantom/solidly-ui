@@ -1,7 +1,8 @@
 import async from 'async';
 import {
   ACTIONS,
-  CONTRACTS
+  CONTRACTS,
+  FALLBACK_RPC
 } from './constants';
 import Multicall from '@dopex-io/web3-multicall';
 
@@ -209,8 +210,12 @@ class Store {
     return new Web3(provider);
   };
 
-  getMulticall = async () => {
-    const web3 = await this.getWeb3Provider()
+  getMulticall = async (fallback) => {
+    let web3 = await this.getWeb3Provider()
+    if(fallback) {
+      web3 = new Web3(new Web3.providers.HttpProvider(FALLBACK_RPC))
+    }
+
     const multicall = new Multicall({
       multicallAddress: CONTRACTS.MULTICALL_ADDRESS,
       provider: web3,
