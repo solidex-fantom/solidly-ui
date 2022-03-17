@@ -12,7 +12,7 @@
 		"symbol": "SOLID",
 		"decimals": 18,
 		"chainId": 250,
-		"logoURI": "https://prod.solidly.exchange/Solidly-O.svg"
+		"logoURI": "https://solidly.exchange/Solidly-O.svg"
 	}, {
 		"chainId": 250,
 		"name": "Aave",
