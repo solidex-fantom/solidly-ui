@@ -5,15 +5,16 @@ import { NetworkConnector } from "@web3-react/network-connector";
 
 const POLLING_INTERVAL = 12000;
 const RPC_URLS = {
-  250: "https://rpc.ftm.tools",
-  4002: "https://rpc.testnet.fantom.network"
+  2222: "https://evm.kava.io",
+  2221: "https://evm.testnet.kava.io"
 };
 
+
 let obj = {}
-if(process.env.NEXT_PUBLIC_CHAINID == 250) {
-  obj = { 250: RPC_URLS[250] }
+if(process.env.NEXT_PUBLIC_CHAINID == 2222) {
+  obj = { 2222: RPC_URLS[2222] }
 } else {
-  obj = { 4002: RPC_URLS[4002] }
+  obj = { 2221: RPC_URLS[2221] }
 }
 
 export const network = new NetworkConnector({ urls: obj });
@@ -24,8 +25,8 @@ export const injected = new InjectedConnector({
 
 export const walletconnect = new WalletConnectConnector({
   rpc: {
-    250: RPC_URLS[250],
-    4002: RPC_URLS[4002]
+    2222: RPC_URLS[2222],
+    2221: RPC_URLS[2221]
   },
   chainId: parseInt(process.env.NEXT_PUBLIC_CHAINID),
   bridge: "https://bridge.walletconnect.org",
@@ -35,6 +36,6 @@ export const walletconnect = new WalletConnectConnector({
 
 export const walletlink = new WalletLinkConnector({
   url: RPC_URLS[process.env.NEXT_PUBLIC_CHAINID],
-  appName: "Solidly",
+  appName: "Équilibre",
   chainId: parseInt(process.env.NEXT_PUBLIC_CHAINID),
 });

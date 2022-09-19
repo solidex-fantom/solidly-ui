@@ -14,11 +14,11 @@ export const VE_TOKEN_DECIMALS = 18
 export const VE_TOKEN_LOGO = 'https://prod.solidly.exchange/Solidly-O.svg'
 export const VE_TOKEN_ABI = abis.veTokenABI
 
-export const WFTM_ADDRESS = '0x27Ce41c3cb9AdB5Edb2d8bE253A1c6A64Db8c96d'
-export const WFTM_NAME = 'Wrapped Fantom'
-export const WFTM_SYMBOL = 'WFTM'
-export const WFTM_DECIMALS = 18
-export const WFTM_ABI = abis.wftmABI
+export const WKAVA_ADDRESS = '0x27Ce41c3cb9AdB5Edb2d8bE253A1c6A64Db8c96d'
+export const WKAVA_NAME = 'Wrapped Fantom'
+export const WKAVA_SYMBOL = 'WKAVA'
+export const WKAVA_DECIMALS = 18
+export const WKAVA_ABI = abis.wftmABI
 
 export const FTM_ADDRESS = 'FTM'
 export const FTM_NAME = 'Fantom'

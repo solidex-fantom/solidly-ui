@@ -1,50 +1,55 @@
 import abis from "../abis";
 
-export const GOV_TOKEN_ADDRESS = '0x888EF71766ca594DED1F0FA3AE64eD2941740A20'
-export const GOV_TOKEN_NAME = 'Solid'
-export const GOV_TOKEN_SYMBOL = 'SOLID'
-export const GOV_TOKEN_DECIMALS = 18
-export const GOV_TOKEN_LOGO = 'https://prod.solidly.exchange/Solidly-O.svg'
-export const GOV_TOKEN_ABI = abis.tokenABI
+export const GOV_TOKEN_ADDRESS = "0x6C2A54580666D69CF904a82D8180F198C03ece67";
+export const GOV_TOKEN_NAME = "Équilibre";
+export const GOV_TOKEN_SYMBOL = "EQ";
+export const GOV_TOKEN_DECIMALS = 18;
+export const GOV_TOKEN_LOGO = "https://prod.solidly.exchange/Solidly-O.svg";
+export const GOV_TOKEN_ABI = abis.tokenABI;
 
-export const VE_TOKEN_ADDRESS = '0xcBd8fEa77c2452255f59743f55A3Ea9d83b3c72b'
-export const VE_TOKEN_NAME = 'veNFT'
-export const VE_TOKEN_SYMBOL = 'veNFT'
-export const VE_TOKEN_DECIMALS = 18
-export const VE_TOKEN_LOGO = 'https://prod.solidly.exchange/Solidly-O.svg'
-export const VE_TOKEN_ABI = abis.veTokenABI
+//VotingEscrow
+export const VE_TOKEN_ADDRESS = "0x298A097904ac1bCbD13b2AC61fE1a7F051F1a7bd";
+export const VE_TOKEN_NAME = "veNFT";
+export const VE_TOKEN_SYMBOL = "veNFT";
+export const VE_TOKEN_DECIMALS = 18;
+export const VE_TOKEN_LOGO = "https://prod.solidly.exchange/Solidly-O.svg";
+export const VE_TOKEN_ABI = abis.veTokenABI;
 
-export const WFTM_ADDRESS = '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83'
-export const WFTM_NAME = 'Wrapped Fantom'
-export const WFTM_SYMBOL = 'WFTM'
-export const WFTM_DECIMALS = 18
-export const WFTM_ABI = abis.wftmABI
+export const WKAVA_ADDRESS = "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b";
+export const WKAVA_NAME = "Wrapped Kava";
+export const WKAVA_SYMBOL = "WKAVA";
+export const WKAVA_DECIMALS = 18;
+export const WKAVA_ABI = abis.wftmABI;
 
-export const FTM_ADDRESS = 'FTM'
-export const FTM_NAME = 'Fantom'
-export const FTM_SYMBOL = 'FTM'
-export const FTM_DECIMALS = 18
-export const FTM_LOGO = 'https://assets.coingecko.com/coins/images/4001/large/Fantom.png'
+export const KAVA_ADDRESS = "KAVA";
+export const KAVA_NAME = "Kava";
+export const KAVA_SYMBOL = "KAVA";
+export const KAVA_DECIMALS = 18;
+export const KAVA_LOGO =
+  "https://assets.coingecko.com/coins/images/4001/large/Fantom.png";
 
-export const FACTORY_ADDRESS = '0x3fAaB499b519fdC5819e3D7ed0C26111904cbc28'
-export const FACTORY_ABI = abis.factoryABI
+// PairFactory
+export const FACTORY_ADDRESS = "0x66Cd011aDfF20f2B4bA60cDd30099B5E09CcACd1";
+export const FACTORY_ABI = abis.factoryABI;
+// Classic Router
+export const ROUTER_ADDRESS = "0x5Ba67865851e5918b31BFD010F50cf1d47164c58";
+export const ROUTER_ABI = abis.routerABI;
+//RewardsDistributor
+export const VE_DIST_ADDRESS = "0x48cc3608F6ca5300dD1535ADbb4fe1CF452Ed51A";
+//export const VE_DIST_ADDRESS_FTM = "0xA5CEfAC8966452a78d6692837b2ba83d19b57d07";
+export const VE_DIST_ABI = abis.veDistABI;
 
-export const ROUTER_ADDRESS = '0xa38cd27185a464914D3046f0AB9d43356B34829D'
-export const ROUTER_ABI = abis.routerABI
+export const VOTER_ADDRESS = "0x5341E6A0900cdCF828624C43Ea7f69C216e37f0B";
+export const VOTER_ABI = abis.voterABI;
 
-export const VE_DIST_ADDRESS = '0xA5CEfAC8966452a78d6692837b2ba83d19b57d07'
-export const VE_DIST_ABI = abis.veDistABI
+export const LIBRARY_ADDRESS = "0x0754f8a15bD635dB8C47107Ae16c3aaa373593E1";
+export const LIBRARY_ABI = abis.solidlyLibraryABI;
 
-export const VOTER_ADDRESS = '0xdC819F5d05a6859D2faCbB4A44E5aB105762dbaE'
-export const VOTER_ABI = abis.voterABI
+export const ERC20_ABI = abis.erc20ABI;
+export const PAIR_ABI = abis.pairABI;
+export const GAUGE_ABI = abis.gaugeABI;
+export const BRIBE_ABI = abis.bribeABI;
+export const TOKEN_ABI = abis.tokenABI;
 
-export const LIBRARY_ADDRESS = '0x0f68551237a7effe35600524c0dd4989bf8208e9'
-export const LIBRARY_ABI = abis.solidlyLibraryABI
-
-export const ERC20_ABI = abis.erc20ABI
-export const PAIR_ABI = abis.pairABI
-export const GAUGE_ABI = abis.gaugeABI
-export const BRIBE_ABI = abis.bribeABI
-export const TOKEN_ABI = abis.tokenABI
-
-export const MULTICALL_ADDRESS = '0x11473d6e641df17cd6331d45b135e35b49edbea8'
+//!This is not used anywhere, meanwhile we are researching we leave it
+export const MULTICALL_ADDRESS = "0x11473d6e641df17cd6331d45b135e35b49edbea8";
