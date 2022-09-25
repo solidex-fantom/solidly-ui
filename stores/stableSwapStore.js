@@ -1438,12 +1438,12 @@ class Store {
       let sendValue = null
 
       if(token0.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token1.address, isStable, sendAmount1, sendAmount1Min, sendAmount0Min, account.address, deadline]
         sendValue = sendAmount0
       }
       if(token1.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token0.address, isStable, sendAmount0, sendAmount0Min, sendAmount1Min, account.address, deadline]
         sendValue = sendAmount1
       }
@@ -1713,12 +1713,12 @@ class Store {
       let sendValue = null
 
       if(token0.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token1.address, isStable, sendAmount1, sendAmount1Min, sendAmount0Min, account.address, deadline]
         sendValue = sendAmount0
       }
       if(token1.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token0.address, isStable, sendAmount0, sendAmount0Min, sendAmount1Min, account.address, deadline]
         sendValue = sendAmount1
       }
@@ -1935,12 +1935,12 @@ class Store {
       let sendValue = null
 
       if(token0.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token1.address, pair.isStable, sendAmount1, sendAmount1Min, sendAmount0Min, account.address, deadline]
         sendValue = sendAmount0
       }
       if(token1.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token0.address, pair.isStable, sendAmount0, sendAmount0Min, sendAmount1Min, account.address, deadline]
         sendValue = sendAmount1
       }
@@ -2259,12 +2259,12 @@ class Store {
       let sendValue = null
 
       if(token0.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token1.address, pair.isStable, sendAmount1, sendAmount1Min, sendAmount0Min, account.address, deadline]
         sendValue = sendAmount0
       }
       if(token1.address === 'KAVA') {
-        func = 'addLiquidityKAVA'
+        func = 'addLiquidityETH'
         params = [token0.address, pair.isStable, sendAmount0, sendAmount0Min, sendAmount1Min, account.address, deadline]
         sendValue = sendAmount1
       }
@@ -3083,12 +3083,12 @@ class Store {
       let sendValue = null
 
       if(fromAsset.address === 'KAVA') {
-        func = 'swapExactKAVAForTokens'
+        func = 'swapExactETHForTokens'
         params = [sendMinAmountOut, quote.output.routes, account.address, deadline]
         sendValue = sendFromAmount
       }
       if(toAsset.address === 'KAVA') {
-        func = 'swapExactTokensForKAVA'
+        func = 'swapExactTokensForETH'
       }
 
       this._callContractWait(web3, routerContract, func, params, account, gasPrice, null, null, swapTXID, (err) => {

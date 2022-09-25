@@ -26,7 +26,7 @@ export const KAVA_NAME = "Kava";
 export const KAVA_SYMBOL = "KAVA";
 export const KAVA_DECIMALS = 18;
 export const KAVA_LOGO =
-  "https://assets.coingecko.com/coins/images/4001/large/Fantom.png";
+  "https://assets.coingecko.com/coins/images/9761/large/kava.png";
 
 // PairFactory
 export const FACTORY_ADDRESS = "0x66Cd011aDfF20f2B4bA60cDd30099B5E09CcACd1";
