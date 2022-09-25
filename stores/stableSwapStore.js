@@ -14,6 +14,7 @@ import stores from "./"
 import tokenlist from '../token-list.json';
 
 import BigNumber from "bignumber.js"
+import {LIQUIDITY_PAIRS} from "./constants/mocks";
 const fetch = require("node-fetch")
 
 class Store {
@@ -826,7 +827,7 @@ class Store {
       return pairsCall.data
     } catch(ex) {
       console.log(ex)
-      return []
+      return LIQUIDITY_PAIRS || []
     }
   }
 
