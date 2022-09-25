@@ -51,5 +51,4 @@ export const GAUGE_ABI = abis.gaugeABI;
 export const BRIBE_ABI = abis.bribeABI;
 export const TOKEN_ABI = abis.tokenABI;
 
-//!This is not used anywhere, meanwhile we are researching we leave it
-export const MULTICALL_ADDRESS = "0x11473d6e641df17cd6331d45b135e35b49edbea8";
+export const MULTICALL_ADDRESS = "0x7ED7bBd8C454a1B0D9EdD939c45a81A03c20131C";
