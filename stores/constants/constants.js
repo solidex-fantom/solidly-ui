@@ -6,11 +6,11 @@ import * as actions from './actions'
 let isTestnet = process.env.NEXT_PUBLIC_CHAINID == 2221
 
 // URLS
-let scan = 'https://explorer.kava.io'
+let scan = 'https://explorer.kava.io/'
 let cont = contracts
 
 if(isTestnet) {
-  scan = 'https://explorer.testnet.kava.io'
+  scan = 'https://explorer.testnet.kava.io/'
   cont = contractsTestnet
 }
 
