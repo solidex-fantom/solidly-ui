@@ -227,8 +227,6 @@ function Header(props) {
       });
     } catch (err) {
         
-      console.log(err)
-
       if (err.code === 4902) {
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
