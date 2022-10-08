@@ -11,8 +11,6 @@ import * as moment from "moment"
 import { formatCurrency } from '../utils'
 import stores from "./"
 
-import tokenlist from '../token-list.json';
-
 import BigNumber from "bignumber.js"
 import {LIQUIDITY_PAIRS} from "./constants/mocks";
 const fetch = require("node-fetch")
