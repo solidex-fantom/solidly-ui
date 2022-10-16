@@ -812,7 +812,7 @@ class Store {
 
   _getRouteAssets = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/routes`, { method: 'get' })
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/configuration`, { method: 'get' })
       const routeAssetsCall = await response.json()
       return routeAssetsCall.data
     } catch(ex) {
