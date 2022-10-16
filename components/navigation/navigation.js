@@ -177,7 +177,7 @@ function Navigation(props) {
         )}
         {renderSubNav(
             'Bribe',
-            'bribe/create',
+            'bribe',
         )}
         {renderSubNav(
           'Whitelist',
