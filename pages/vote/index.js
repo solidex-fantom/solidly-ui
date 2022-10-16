@@ -47,7 +47,7 @@ function Vote({ changeTheme }) {
         </div>
         :
         <Paper className={classes.notConnectedContent}>
-          <div className={classes.sphere}></div>
+          
           <div className={classes.contentFloat}>
           <Typography className={classes.mainHeadingNC} variant='h1'>Vote</Typography>
           <Typography className={classes.mainDescNC} variant='body2'>

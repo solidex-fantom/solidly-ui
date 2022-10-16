@@ -812,7 +812,7 @@ class Store {
 
   _getRouteAssets = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/routes`, { method: 'get' })
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/routes`, { method: 'get' })
       const routeAssetsCall = await response.json()
       return routeAssetsCall.data
     } catch(ex) {
@@ -2826,7 +2826,13 @@ class Store {
       }
 
       // some path logic. Have a base asset (KAVA) swap from start asset to KAVA, swap from KAVA back to out asset. Don't know.
-      const routeAssets = this.getStore('routeAssets')
+      // const routeAssets = this.getStore('routeAssets')
+      const routeAssets = [
+        {'address': '0x6C2A54580666D69CF904a82D8180F198C03ece67'}, 
+        {'address': '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f'},
+        {'address': CONTRACTS.KAVA_ADDRESS}
+      ]
+
       const { fromAsset, toAsset, fromAmount } = payload.content
 
       const routerContract = new web3.eth.Contract(CONTRACTS.ROUTER_ABI, CONTRACTS.ROUTER_ADDRESS)
@@ -2839,6 +2845,9 @@ class Store {
       let addy0 = fromAsset.address
       let addy1 = toAsset.address
 
+      console.log('addy0', addy0)
+      console.log('addy1', addy1)
+
       if(fromAsset.address === 'KAVA') {
         addy0 = CONTRACTS.WKAVA_ADDRESS
       }
@@ -2846,10 +2855,15 @@ class Store {
         addy1 = CONTRACTS.WKAVA_ADDRESS
       }
 
+      console.log('routeAssets', routeAssets)            
+
       const includesRouteAddress = routeAssets.filter((asset) => {
         return (asset.address.toLowerCase() == addy0.toLowerCase() || asset.address.toLowerCase() == addy1.toLowerCase())
       })
+      
 
+      console.log('includesRouteAddress', includesRouteAddress)
+      
       let amountOuts = []
 
       if(includesRouteAddress.length === 0) {
@@ -4331,6 +4345,9 @@ class Store {
 
 
   searchWhitelist = async (payload) => {
+
+    console.log('SEARCH_WHITELIST', payload)
+    
     try {
       const account = stores.accountStore.getStore("account")
       if (!account) {

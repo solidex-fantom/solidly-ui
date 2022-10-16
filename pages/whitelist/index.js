@@ -20,6 +20,10 @@ function Vesting({ changeTheme }) {
   useEffect(() => {
     const accountConfigure = () => {
       const accountStore = stores.accountStore.getStore('account');
+      
+
+      console.log('accountStore', accountStore)
+
       setAccount(accountStore);
       closeUnlock();
     };
@@ -46,12 +50,12 @@ function Vesting({ changeTheme }) {
   return (
     <div className={classes.ffContainer}>
       {account && account.address ?
-        <div className={classes.connected}>
+        <div className={classes.connected}>          
           <WhitelistTokens />
         </div>
       :
         <Paper className={classes.notConnectedContent}>
-          <div className={classes.sphere}></div>
+          
           <div className={classes.contentFloat}>
             <Typography className={classes.mainHeadingNC} variant='h1'>Whitelist Tokens</Typography>
             <Typography className={classes.mainDescNC} variant='body2'>Whitelist tokens to be used in Solidly Gauges.</Typography>

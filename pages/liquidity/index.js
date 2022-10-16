@@ -51,7 +51,7 @@ function Liquidity({ changeTheme }) {
         </div>
          :
         <Paper className={classes.notConnectedContent}>
-          <div className={classes.sphere}></div>
+          
           <div className={classes.contentFloat}>
             <Typography className={classes.mainHeadingNC} variant='h1'>Liquidity Pools</Typography>
             <Typography className={classes.mainDescNC} variant='body2'>

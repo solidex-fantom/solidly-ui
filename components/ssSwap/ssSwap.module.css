@@ -13,9 +13,11 @@
   width: 100%;
   padding: 24px;
   display: flex;
-  flex-direction: column;
-  -webkit-box-shadow: 0 13px 30px 0 rgba(7,9,18,0.1) !important;
-  box-shadow: 0 13px 30px 0 rgba(7,9,18,0.1) !important;
+  flex-direction: column;  
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  box-shadow: 1px 1px #0D142E;
 }
 
 .smallerText {
@@ -79,6 +81,7 @@
   padding: 12px;
   min-height: 100px;
   cursor: pointer;
+  
 }
 
 .displayDualIconContainer {
