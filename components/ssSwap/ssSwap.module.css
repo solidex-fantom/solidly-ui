@@ -47,10 +47,10 @@
 .massiveInputContainer {
   display: flex;
   flex-wrap: wrap;
-  border-radius: 10px;
+  border: none;
   width: 100%;
   align-items: center;
-  background: rgb(33, 43, 72);
+  background: transparent;
 }
 
 .error {
@@ -135,15 +135,6 @@
 
 .withBalanceToggle {
   margin-left: 12px !important;
-}
-
-.displayAssetIcon {
-  border: 1px solid rgba(126, 153, 176, 0.2);
-  border-radius: 50px;
-  background: rgb(33, 43, 72);
-  width: 100px;
-  height: 100px;
-  padding: 10px;
 }
 
 .displayAssetIconSmall {
@@ -362,7 +353,7 @@
 }
 
 .swapIconSubContainer {
-  background: #161B2C;
+  
   border-radius: 9px;
   height: 38px;
   z-index: 1;
@@ -374,7 +365,11 @@
   font-size: 30px !important;
   background: rgb(33, 43, 72);
   margin: 4px;
-  border-radius: 6px;
+  
+
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
 
 .swapInfoContainer {

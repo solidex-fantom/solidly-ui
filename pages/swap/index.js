@@ -42,32 +42,15 @@ function Swap({ changeTheme }) {
     <div className={classes.ffContainer}>
       {account && account.address ?
 
-        <Paper className={classes.notConnectedContent}>            
-
-                <div className={classes.sphere}>                                    
-
-                  <div className={classes.swapSpc}></div>
-
-                  <Typography className={classes.mainHeadingNC} variant='h1'>Swap</Typography>
-                  <Typography className={classes.mainDescNC} variant='body2'>
-                    Enjoy minimal slippage, low swapping fees and deep liquidity.
-                  </Typography>
-                </div>        
-
-                
-
-                <div className={classes.swapComp}>                                    
-                    <SwapComponent/>
-                </div>              
-
-                          
-        </Paper>
+         <Paper className={classes.notConnectedContent}>            
+                <div className={classes.sphere}></div>                         
+                <SwapComponent />
+         </Paper>
               
          :
 
          <Paper className={classes.notConnectedContent}>
 
-            <div className={classes.sphere}></div>
             <div className={classes.contentFloat}>
                 <Typography className={classes.mainHeadingNC} variant='h1'>Swap</Typography>
                 <Typography className={classes.mainDescNC} variant='body2'>
