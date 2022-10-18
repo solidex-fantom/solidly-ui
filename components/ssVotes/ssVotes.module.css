@@ -16,7 +16,9 @@
 }
 
 .tableContainer {
-  border: 1px solid rgba(126, 153, 176, 0.2);
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -75,6 +77,7 @@
   font-weight: 700 !important;
   width: 100%;
   min-width: 200px !important;
+  
 }
 
 .buttonOverride:hover {
@@ -88,6 +91,7 @@
   font-weight: 700 !important;
   min-width: 200px !important;
   max-height: 48px;
+  
 }
 
 .buttonOverrideFixed:hover {
@@ -99,11 +103,18 @@
   border-radius: 12px;
 }
 
+.searchVote {
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+}
+
 .searchContainer {
   flex: 1;
   display: flex;
   width: 100%;
   padding: 0px 24px !important;
+  
 }
 
 .topBarContainer {
@@ -112,6 +123,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  
 }
 
 .mediumInputContainer {
@@ -122,12 +134,16 @@
   align-items: center;
   background: rgb(33, 43, 72);
   padding: 0 20px;
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
 
 .mediumInputAssetSelect {
   width: 74px;
   min-height: 50px;
   height: 100%;
+  
 }
 
 .mediumInputAmount {
@@ -151,6 +167,7 @@
   justify-content: space-between !important;
   width: calc(100% - 24px);
   padding: 6px 12px;
+  
 }
 
 .smallerText {
@@ -189,6 +206,7 @@
 
   .searchContainer {
     padding: 0px !important;
+    
   }
 }
 

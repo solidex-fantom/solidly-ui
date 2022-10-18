@@ -1,4 +1,4 @@
-import { Typography, Button, Paper, SvgIcon } from "@material-ui/core"
+import { Typography, Button, Paper, Grid } from "@material-ui/core"
 import SSRewards from '../../components/ssRewards'
 
 import React, { useState, useEffect } from 'react';
@@ -47,7 +47,19 @@ function Rewards({ changeTheme }) {
     <div className={classes.ffContainer}>
       {account && account.address ?
         <div className={classes.connected}>
-          <SSRewards />
+
+          <Grid container alignItems="center" justifyContent="center">
+
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <div  className={classes.gridBanner}></div>
+          </Grid>    
+                    
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <SSRewards />
+          </Grid>
+
+          </Grid>         
+          
         </div>
          :
         <Paper className={classes.notConnectedContent}>

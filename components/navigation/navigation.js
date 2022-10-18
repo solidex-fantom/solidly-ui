@@ -146,7 +146,7 @@ function Navigation(props) {
           'swap',
         )}
         {renderSubNav(
-          'Liquidity',
+          'Pools',
           'liquidity',
         )}
         {renderSubNav(
@@ -162,7 +162,7 @@ function Navigation(props) {
           'rewards',
         )}
         {renderSubNav(
-          'Whitelist',
+          'Bribe',
           'whitelist',
         )}
       </ToggleButtonGroup>

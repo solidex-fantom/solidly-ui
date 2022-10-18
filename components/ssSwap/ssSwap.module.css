@@ -8,6 +8,7 @@
   align-items: center;
 }
 
+
 .swapContainer {
   max-width: 485px;
   width: 100%;
@@ -116,6 +117,7 @@
   padding: 24px;
   height: 600px;
   overflow-y: scroll;
+  
 }
 
 .manageLocalContainer {

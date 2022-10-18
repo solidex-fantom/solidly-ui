@@ -235,6 +235,9 @@ const useStyles = makeStyles((theme) => ({
   buttonOverride: {
     color: 'rgb(6, 211, 215)',
     background: 'rgb(23, 52, 72)',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
     fontWeight: '700',
     width: '100%',
     '&:hover': {
@@ -246,7 +249,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '0px',
   },
   tableContainer: {
-    border: '1px solid rgba(104, 108, 122, 0.25)',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Button, Paper, SvgIcon } from "@material-ui/core";
+import { Typography, Button, Paper, Grid } from "@material-ui/core";
 import Gauges from '../../components/ssVotes';
 import Unlock from '../../components/unlock';
 import classes from './vote.module.css';
@@ -43,7 +43,19 @@ function Vote({ changeTheme }) {
 
       {account && account.address ?
         <div className={classes.connected}>
-          <Gauges />
+
+          <Grid container alignItems="center" justifyContent="center">
+
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <div  className={classes.gridBanner}></div>
+          </Grid>    
+                    
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <Gauges />
+          </Grid>
+
+          </Grid>              
+          
         </div>
         :
         <Paper className={classes.notConnectedContent}>

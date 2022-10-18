@@ -124,7 +124,7 @@ export default function ssVotes() {
         <div className={ classes.mediumInputContainer}>
           <Grid container>
             <Grid item lg='auto' md='auto' sm={12} xs={12}>
-              <Typography variant="body2" className={ classes.smallText }>Please select your veNFT:</Typography>
+              <Typography variant="body2" className={ classes.smallText }>Please select your veVARA:</Typography>
             </Grid>
 
             <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -182,7 +182,7 @@ export default function ssVotes() {
           </Grid>
           <Grid item lg={true} md={true} sm={12} xs={12}>
             <TextField
-              className={classes.searchContainer}
+              className={classes.searchVote}
               variant="outlined"
               fullWidth
               placeholder="KAVA, MIM, 0x..."

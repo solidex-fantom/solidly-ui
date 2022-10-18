@@ -9,6 +9,23 @@
   justify-content: center;
 }
 
+.gridSwapCenter {
+  width: calc(100%) !important;
+  background: rgba(17,23,41,0.2) !important;
+  text-align: center;
+  padding: 50px;
+  height: calc(100vh);
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-radius: 0 !important;
+  position: fixed;
+  top: 50px;
+}
+
 .notConnectedContent {
   width: calc(100%) !important;
   background: rgba(17,23,41,0.2) !important;
@@ -35,20 +52,17 @@
   display: inline-block;      
 }
 
-.swapSpc {
-  margin-bottom: 10px;
+.descTp {
+  margin-top: 100px;
 }
 
-.sphere {
-  
-  display: inline-block;    
-  width: 420px;
+.sphere {      
   height: 420px;  
   background-image: url('/images/Balls_at_balance_-_Graphic.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  }
+}
 
 
 .overviewIcon {
@@ -75,6 +89,16 @@
   width: calc(100% - 180px) !important;
 }
 
+.mainHeadingSwap {
+  margin-top: 20px;
+  
+  text-align: center !important;
+  font-size: 46px !important;
+  font-family: 'Monument' !important;
+  font-weight: 100 !important;
+  color: #FFFFFF;
+}
+
 .mainHeadingNC {
   text-align: center !important;
   font-size: 30px !important;
@@ -86,7 +110,7 @@
 .mainDescNC {
   margin: 30px auto !important;
   text-align: center !important;
-  color: #7E99B0;
+  color: #FFFFFF;
   font-size: 18px !important;
   max-width: 800px;
   line-height: 1.8rem !important;

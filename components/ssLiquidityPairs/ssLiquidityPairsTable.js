@@ -350,8 +350,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '30px',
     background: 'rgb(25, 33, 56)',
   },
-  overrideTableHead: {
-    borderBottom: '1px solid rgba(126,153,176,0.15) !important',
+  overrideTableHead: {        
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
     '@media (max-width: 1000px)': {
         display: 'none',
       },
@@ -366,10 +366,16 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     display: 'flex',
     width: '100%',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
   },
   buttonOverride: {
     width: '100%',
     color: 'rgb(6, 211, 215)',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
     background: 'rgb(23, 52, 72)',
     fontWeight: '700',
     '&:hover': {
@@ -381,7 +387,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '0px',
   },
   tableContainer: {
-    border: '1px solid rgba(126,153,176,0.2)',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -389,7 +397,8 @@ const useStyles = makeStyles((theme) => ({
   },
   filterButton: {
     background: '#111729',
-    border: '1px solid rgba(126,153,176,0.3)',
+    border: '1px solid',
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
     color: '#06D3D7',
     width: '100%',
     height: '94.5%',

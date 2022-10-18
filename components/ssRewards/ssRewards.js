@@ -144,7 +144,7 @@ export default function ssRewards() {
         <div className={ classes.mediumInputContainer}>
           <Grid container>
             <Grid item lg='auto' md='auto' sm={12} xs={12}>
-              <Typography variant="body2" className={ classes.helpText }>Please select your veNFT:</Typography>
+              <Typography variant="body2" className={ classes.helpText }>Please select your veVARA:</Typography>
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
             <div className={ classes.mediumInputAmount }>

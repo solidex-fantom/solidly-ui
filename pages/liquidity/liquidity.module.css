@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .ffContainer {
   min-height: 100vh;
   width: 100%;
@@ -6,6 +8,10 @@
   margin-top: 0px;
   padding-top: 100px;
   position: relative;
+}
+
+.connected {
+  background: none;  
 }
 
 .notConnectedContent {
@@ -30,18 +36,12 @@
   z-index: 9;
 }
 
-.sphere {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.sphere {      
   width: 420px;
-  height: 420px;
-  background-image: url('/images/sphere_001.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.42;
+  height: 320px;
+  background-image: url('/images/Toboganes_7.png');
+  background-size: contain;  
+  background-repeat: no-repeat;    
 }
 
 .overviewIcon {
@@ -57,10 +57,8 @@
   width: calc(100% - 180px) !important;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
 .mainDesc {
-  margin: 20px auto 0px auto !important;
+  margin: 50px auto 50px auto !important;
   text-align: left !important;
   color: rgb(104,108,122);
   font-size: 18px !important;
@@ -68,6 +66,8 @@
   font-weight: 300 !important;
   width: calc(100% - 180px) !important;
 }
+
+
 
 .mainHeadingNC {
   text-align: center !important;
@@ -114,6 +114,21 @@
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
+
+.gridBanner {    
+  
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
+  margin: 50px auto 0px auto !important;
+  max-width: 1400px;
+  height: 120px;
+  
+  width: calc(100% - 180px);
+}
+
+
+
 
 @media screen and (max-width: 1600px) {
 

@@ -1,4 +1,4 @@
-import { Typography, Button, Paper, SvgIcon } from "@material-ui/core"
+import { Typography, Button, Paper, Grid } from "@material-ui/core"
 import LiquidityPairs from '../../components/ssLiquidityPairs'
 
 import React, { useState, useEffect } from 'react';
@@ -46,24 +46,34 @@ function Liquidity({ changeTheme }) {
   return (
     <div className={classes.ffContainer}>
       {account && account.address ?
+
         <div className={classes.connected}>
-          <LiquidityPairs />
+          
+          <Grid container alignItems="center" justifyContent="center">
+
+              <Grid item lg={12} md={12} sm={12} xs={12}>
+                <div  className={classes.gridBanner}></div>
+              </Grid>    
+                        
+              <Grid item lg={12} md={12} sm={12} xs={12}>
+                <LiquidityPairs />
+              </Grid>
+
+          </Grid>              
+
+              
         </div>
          :
         <Paper className={classes.notConnectedContent}>
           
           <div className={classes.contentFloat}>
+            
             <Typography className={classes.mainHeadingNC} variant='h1'>Liquidity Pools</Typography>
-            <Typography className={classes.mainDescNC} variant='body2'>
-            Create a pair or add liquidity to existing stable or volatile Liquidity Pairs.
-            </Typography>
-            <Button
-            disableElevation
-            className={classes.buttonConnect}
-            variant="contained"
-            onClick={onAddressClicked}>
-            {account && account.address && <div className={`${classes.accountIcon} ${classes.metamask}`}></div>}
-            <Typography>Connect Wallet to Continue</Typography>
+            <Typography className={classes.mainDescNC} variant='body2'>Create a pair or add liquidity to existing stable or volatile Liquidity Pairs.</Typography>
+
+            <Button disableElevation className={classes.buttonConnect} variant="contained" onClick={onAddressClicked}>
+                  {account && account.address && <div className={`${classes.accountIcon} ${classes.metamask}`}></div>}
+                  <Typography>Connect Wallet to Continue</Typography>
             </Button>
           </div>
         </Paper>
