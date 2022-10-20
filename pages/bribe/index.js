@@ -52,11 +52,15 @@ function Bribes({ changeTheme }) {
     setUnlockOpen(false);
   };
 
+  const redirectToCreate = () => {
+    router.push('/bribe/create')
+  }
+
   return (
     <div className={classes.ffContainer}>
       {account && account.address ?
         <div className={classes.connected}>
-          <SSBribes />
+          <SSBribes redirectToCreate={redirectToCreate}/>
         </div>
          :
          <Paper className={classes.notConnectedContent}>

@@ -176,6 +176,10 @@ function Navigation(props) {
           'rewards',
         )}
         {renderSubNav(
+            'Bribe',
+            'bribe',
+        )}
+        {renderSubNav(
           'Whitelist',
           'whitelist',
         )}

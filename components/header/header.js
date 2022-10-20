@@ -218,14 +218,30 @@ function Header(props) {
 
   const switchChain = async () => {
     let hexChain = '0x'+Number(process.env.NEXT_PUBLIC_CHAINID).toString(16)
+    console.log('hexChain', hexChain)
+
     try {
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: hexChain }],
       });
-    } catch (switchError) {
-      console.log("switch error",switchError)
+    } catch (err) {
+        
+      if (err.code === 4902) {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainName: 'Kava EVM Co-Chain',
+              chainId: process.env.NEXT_PUBLIC_CHAINID,
+              nativeCurrency: { name: 'KAVA', decimals: 18, symbol: 'KAVA' },
+              rpcUrls: ['https://evm.kava.io']
+            }
+          ]
+        });
+      }
     }
+
   }
 
   const setQueueLength = (length) => {

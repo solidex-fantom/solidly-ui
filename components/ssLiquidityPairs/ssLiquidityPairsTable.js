@@ -815,7 +815,7 @@ export default function EnhancedTable({ pairs }) {
                       }
                       { !(row && row.token0 && row.token0.balance) &&
                         <div className={ classes.inlineEnd }>
-                          <Skeleton variant="rect"width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
+                          <Skeleton variant="rect" width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
                         </div>
                       }
                       { (row && row.token1 && row.token1.balance) &&
@@ -857,7 +857,7 @@ export default function EnhancedTable({ pairs }) {
                       }
                       { !(row && row.balance && row.totalSupply) &&
                         <div className={ classes.inlineEnd }>
-                          <Skeleton variant="rect"width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
+                          <Skeleton variant="rect" width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
                         </div>
                       }
                     </TableCell>
@@ -915,7 +915,7 @@ export default function EnhancedTable({ pairs }) {
                       }
                       { !(row && row.reserve0 && row.token0) &&
                         <div className={ classes.inlineEnd }>
-                          <Skeleton variant="rect"width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
+                          <Skeleton variant="rect" width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
                         </div>
                       }
                       { (row && row.reserve1 && row.token1) &&
@@ -930,7 +930,7 @@ export default function EnhancedTable({ pairs }) {
                       }
                       { !(row && row.reserve1 && row.token1) &&
                         <div className={ classes.inlineEnd }>
-                          <Skeleton variant="rect"width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
+                          <Skeleton variant="rect" width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
                         </div>
                       }
                     </TableCell>
@@ -949,7 +949,7 @@ export default function EnhancedTable({ pairs }) {
                           }
                           { !(row && row.gauge && row.gauge.reserve0 && row.token0) &&
                             <div className={ classes.inlineEnd }>
-                              <Skeleton variant="rect"width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
+                              <Skeleton variant="rect" width={120} height={16} style={{ marginTop: '1px', marginBottom: '1px' }} />
                             </div>
                           }
                           { (row && row.gauge && row.gauge.reserve1 && row.token1) &&

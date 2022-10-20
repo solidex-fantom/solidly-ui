@@ -11,9 +11,8 @@ import * as moment from "moment"
 import { formatCurrency } from '../utils'
 import stores from "./"
 
-import tokenlist from '../token-list.json';
-
 import BigNumber from "bignumber.js"
+import {LIQUIDITY_PAIRS} from "./constants/mocks";
 const fetch = require("node-fetch")
 
 class Store {
@@ -783,10 +782,13 @@ class Store {
 
   _getBaseAssets = async () => {
     try {
-      //const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/assets`, { method: 'get' })
-      //const res = await response.json()
-      //const baseAssets = Object.values(res.data);
-      const baseAssets = tokenlist;
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/assets`, { method: 'get' })
+      const res = await response.json()
+      const baseAssets = Object.values(res.data);
+
+      console.log('baseAssets', baseAssets)
+
+      //const baseAssets = tokenlist;
 
       const nativeKAVA = {
         address: CONTRACTS.KAVA_ADDRESS,
@@ -810,7 +812,7 @@ class Store {
 
   _getRouteAssets = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/routes`, { method: 'get' })
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/configuration`, { method: 'get' })
       const routeAssetsCall = await response.json()
       return routeAssetsCall.data
     } catch(ex) {
@@ -821,12 +823,12 @@ class Store {
 
   _getPairs = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/pairs`, { method: 'get' })
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/pairs`, { method: 'get' })
       const pairsCall = await response.json()
       return pairsCall.data
     } catch(ex) {
       console.log(ex)
-      return []
+      return LIQUIDITY_PAIRS || []
     }
   }
 
