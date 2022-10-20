@@ -1,4 +1,3 @@
-//! DON'T HAVE ONE TO COMPARE
 //* DONE WITH THE RAW CONTRACT
 import { erc20ABI } from './erc20ABI'
 // * REVIEW DONE
@@ -10,15 +9,15 @@ import { pairABI } from './pairABI'
 //* REVIEW DONE
 import { routerABI } from './routerEQABI'
 //* REVIEW DONE
-import { voterABI } from './voterABI'
-//! REVIEW PENDING
-import { gaugeABI } from './gaugeABI'
+import { voterABI } from './voterEQABI'
+
+import { gaugeABI } from './gaugeEQABI'
 //! REVIEW PENDING
 import { bribeABI } from './bribeABI'
 //* REVIEW DONE
 import { tokenABI } from './tokenABI'
 //* REVIEW DONE
-import { veDistABI } from './veDistABI'
+import { veDistABI } from './veDistEQABI'
 //* REVIEW DONE
 import { minterABI } from './minterABI'
 //* REVIEW DONE
