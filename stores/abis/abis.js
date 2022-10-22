@@ -13,7 +13,7 @@ import { voterABI } from './voterEQABI'
 
 import { gaugeABI } from './gaugeEQABI'
 //! REVIEW PENDING
-import { bribeABI } from './bribeABI'
+import { bribeABI } from './bribeEQABI'
 //* REVIEW DONE
 import { tokenABI } from './tokenABI'
 //* REVIEW DONE
@@ -24,6 +24,8 @@ import { minterABI } from './minterABI'
 import { wkavaABI as wftmABI } from './wkavaABI' 
 //* REVIEW DONE
 import { solidlyLibraryABI } from './solidlyLibraryABI'
+
+import { wrappedBribeFactoryABI } from './wrappedBribeFactoryABI'
 
 export default {
   erc20ABI,
@@ -38,5 +40,6 @@ export default {
   tokenABI,
   minterABI,
   wftmABI,
-  solidlyLibraryABI
+  solidlyLibraryABI,
+  wrappedBribeFactoryABI,
 }
