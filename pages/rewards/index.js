@@ -47,19 +47,7 @@ function Rewards({ changeTheme }) {
     <div className={classes.ffContainer}>
       {account && account.address ?
         <div className={classes.connected}>
-
-          <Grid container alignItems="center" justifyContent="center">
-
-          <Grid item lg={12} md={12} sm={12} xs={12}>
-            <div  className={classes.gridBanner}></div>
-          </Grid>    
-                    
-          <Grid item lg={12} md={12} sm={12} xs={12}>
-            <SSRewards />
-          </Grid>
-
-          </Grid>         
-          
+            <SSRewards />          
         </div>
          :
         <Paper className={classes.notConnectedContent}>

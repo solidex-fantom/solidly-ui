@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled, makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { Paper, Button, Table, TableBody, TableCell, InputAdornment, TableContainer, TableHead, TableRow, TableSortLabel, TablePagination, Typography, Tooltip, Toolbar, Grid } from '@material-ui/core';
+import { Paper, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, TablePagination, Typography, Toolbar, Grid } from '@material-ui/core';
 import { useRouter } from "next/router";
-import BigNumber from 'bignumber.js';
-import EnhancedEncryptionOutlinedIcon from '@material-ui/icons/EnhancedEncryptionOutlined';
-import moment from 'moment';
-
 import { formatCurrency } from '../../utils';
+import moment from 'moment';
 
 function descendingComparator(a, b, orderBy) {
   if (!a || !b) {
@@ -232,14 +229,11 @@ const useStyles = makeStyles((theme) => ({
     width: '70px',
     height: '35px'
   },
-  buttonOverride: {
-    color: 'rgb(6, 211, 215)',
-    background: 'rgb(23, 52, 72)',
-    border: '1px solid',
-    borderRadius: '12px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+  buttonOverride: {            
+    color: '#0D142E',
     fontWeight: '700',
-    width: '100%',
+    position: 'relative',
+    bottom: '60px',
     '&:hover': {
       background: 'rgb(19, 44, 60)'
     },
@@ -260,8 +254,53 @@ const useStyles = makeStyles((theme) => ({
   actionButtonText: {
     fontSize: '15px',
     fontWeight: '700',
+    position: 'absolute',
+    top: '40%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+  },
+  gridBanner: {          
+    height: '200px',
+    margin: '10px',
+    padding: '8px',    
+    marginTop: '80px',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',  
+  },
+  infoBanner: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flex: 1,
+    padding: '24px',
+    width: '100%',
+    flexWrap: 'wrap',        
+  },
+  sphere: {        
+    width: '100%',
+    height: '320px',
+    background: 'url(\'/images/Rainbow_clock_4.png\') no-repeat right',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',    
+    position: 'relative',
+    bottom: '140px',        
+  },
+  toolbarInfo: {
+    margin: '15px',
+    position: 'relative',
+    bottom: '80px',
   }
 }));
+
+
+const Img = styled('img')({
+  margin: 'auto',
+  display: 'block',
+  maxWidth: '100%',
+  maxHeight: '100%',
+});
+
 
 const EnhancedTableToolbar = (props) => {
   const classes = useStyles()
@@ -280,24 +319,35 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar className={ classes.toolbar }>
 
-      <Grid container spacing={1}>
-        <Grid lg='auto' md={12} sm={12} xs={12} item>
-          <Button
-            variant="contained"
-            color="secondary"
-            startIcon={<EnhancedEncryptionOutlinedIcon />}
-            size='large'
-            className={ classes.buttonOverride }
-            color='primary'
-            onClick={ onCreate }
-          >
-            <Typography className={ classes.actionButtonText }>Create Lock</Typography>
-          </Button>
-        </Grid>
-        <Grid item lg={true} md={true} sm={false} xs={false}></Grid>
-      </Grid>
+      <Grid container spacing={2}>
 
+        <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} spacing={2} justifyContent="center" alignItems="center">
 
+            <Grid direction="column" spacing={2}  lg={8} md={8} sm={8} xs={8}>       
+
+              <Grid className={classes.toolbarInfo}><Typography variant="h1">Vest</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
+
+              <Grid>
+
+                <Button className={ classes.buttonOverride } onClick={ onCreate }>
+                  <Img alt="complex" src="/images/Small_Button.png" width={'100%'}/>
+                  <Typography className={ classes.actionButtonText }>Create Lock</Typography>
+                </Button>   
+
+              </Grid> 
+
+            </Grid>   
+
+            
+            <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
+              <div className={classes.sphere}></div>  
+            </Grid>
+                                
+          </Grid>  
+
+      </Grid>   
+      
     </Toolbar>
   );
 };

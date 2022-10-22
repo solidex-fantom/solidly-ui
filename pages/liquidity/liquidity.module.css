@@ -36,14 +36,6 @@
   z-index: 9;
 }
 
-.sphere {      
-  width: 420px;
-  height: 320px;
-  background-image: url('/images/Toboganes_7.png');
-  background-size: contain;  
-  background-repeat: no-repeat;    
-}
-
 .overviewIcon {
   font-size: 100px !important;
   margin-bottom: 30px;
@@ -66,8 +58,6 @@
   font-weight: 300 !important;
   width: calc(100% - 180px) !important;
 }
-
-
 
 .mainHeadingNC {
   text-align: center !important;
@@ -114,20 +104,6 @@
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
-.gridBanner {    
-  
-  border: 1px solid;
-  border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
-  margin: 50px auto 0px auto !important;
-  max-width: 1400px;
-  height: 120px;
-  
-  width: calc(100% - 180px);
-}
-
-
 
 
 @media screen and (max-width: 1600px) {

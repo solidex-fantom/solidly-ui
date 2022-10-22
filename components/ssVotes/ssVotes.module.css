@@ -104,7 +104,7 @@
 }
 
 .searchVote {
-  border: 1px solid;
+  border: 1px solid !important;
   border-radius: 12px;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
@@ -172,6 +172,58 @@
 
 .smallerText {
   font-size: 12px !important;
+}
+
+.gridBanner {      
+  height: 200px;
+  margin: 10px;
+  padding: 8px;    
+  margin-top: 80px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+}
+
+.infoBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding: 24px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sphere {    
+  width: 100%;
+  height: 320px;
+  background: url('/images/Hands_and_shadow.png') no-repeat right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  bottom: 180px;
+}
+
+.toolbarInfo {
+  margin: 15px;
+  position: relative;
+  bottom: 80px;
+  right: 60px  
+}
+
+.toolbarText {
+      
+}
+
+
+.filterButton {
+  background: #111729;
+  border: 1px solid;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  color: #06D3D7;
+  width: 100%;
+  height: 94.5%;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 1200px) {

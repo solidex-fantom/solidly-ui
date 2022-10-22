@@ -181,32 +181,52 @@ export default function ssRewards() {
   return (
     <div className={ classes.container}>
       <div className={ classes.toolbarContainer }>
-        <Grid container spacing={1}>
-          <Grid item lg='auto' md='auto' sm={12} xs={12}>
+        <Grid container spacing={2}>
+
+
+        <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+
+            <Grid direction="column" lg={6} md={6} sm={6} xs={6}>            
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h1">Rewards</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">Claim rewards for locking tokens, including new token emissions, bribes</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">and a slice of the transaction fees from your pools</Typography></Grid>                    
+            </Grid>   
+
+            <Grid item lg={4} md={4} sm={4} xs={4} justifyContent="center" alignItems="center">            
+              <div className={classes.sphere}></div>  
+            </Grid>
+                                
+          </Grid>   
+
+
+          <Grid item lg={8} md={8} sm={8} xs={8}>
             <div className={ classes.tokenIDContainer }>
               { renderMediumInput(token, vestNFTs) }
             </div>
           </Grid>
-          <Grid item lg={true} md={true} sm={false} xs={false}>
-            <div className={ classes.disclaimerContainer }>
-              <Typography className={ classes.disclaimer }>Rewards are an estimation that aren't exact till the supply -> rewardPerToken calculations have run</Typography>
-            </div>
-          </Grid>
-          <Grid item lg='auto' md='auto' sm='12' xs='12'>
+          
+          <Grid item lg={2} md={2} sm={2} xs={2} justifyContent="flex-end" alignItems="center">
             <Button
               variant="contained"
               color="secondary"
               startIcon={<AddCircleOutlineIcon />}
               size='large'
-              className={ classes.buttonOverride }
-              color='primary'
+              className={ classes.buttonOverride }              
               onClick={ onClaimAll }
               disabled={ loading }
             >
               <Typography className={ classes.actionButtonText }>Claim All</Typography>
             </Button>
           </Grid>
+
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <div className={ classes.disclaimerContainer }>
+              <Typography className={ classes.disclaimer }>Rewards are an estimation that aren't exact till the supply -> rewardPerToken calculations have run</Typography>
+            </div>
+          </Grid>
+
         </Grid>
+
       </div>
       <RewardsTable rewards={rewards} vestNFTs={ vestNFTs } tokenID={ token?.id } />
     </div>

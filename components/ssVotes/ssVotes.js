@@ -1,17 +1,29 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Paper, Typography, Button, CircularProgress, InputAdornment, TextField, MenuItem, Select, Grid } from '@material-ui/core';
+import { 
+  Paper, 
+  Typography, 
+  Button, 
+  CircularProgress, 
+  InputAdornment, 
+  TextField, 
+  MenuItem, 
+  Select, 
+  Grid, 
+  Tooltip, 
+  IconButton, 
+  Popper, 
+  Fade,
+  Switch 
+} from '@material-ui/core';
 import BigNumber from 'bignumber.js';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import SearchIcon from '@material-ui/icons/Search';
 import { useRouter } from "next/router";
-
 import classes from './ssVotes.module.css';
 import { formatCurrency } from '../../utils';
-
 import GaugesTable from './ssVotesTable.js'
-
 import stores from '../../stores'
 import { ACTIONS } from '../../stores/constants';
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 export default function ssVotes() {
   const router = useRouter()
@@ -118,6 +130,13 @@ export default function ssVotes() {
     router.push('/bribe/create')
   }
 
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  
   const renderMediumInput = (value, options) => {
     return (
       <div className={ classes.textField}>
@@ -163,24 +182,24 @@ export default function ssVotes() {
     <div className={ classes.container }>
       <div className={ classes.topBarContainer }>
 
-        <Grid container spacing={1}>
-          <Grid item lg='auto' lg='auto' sm={12} xs={12}>
-            {/*
-              <Button
-                variant="contained"
-                color="secondary"
-                className={classes.button}
-                startIcon={<AddCircleOutlineIcon />}
-                size='large'
-                className={ classes.buttonOverride }
-                color='primary'
-                onClick={ onBribe }
-              >
-                <Typography className={ classes.actionButtonText }>{ `Create Bribe` }</Typography>
-              </Button>
-            */}
-          </Grid>
-          <Grid item lg={true} md={true} sm={12} xs={12}>
+        <Grid container spacing={2}>
+
+          <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+
+            <Grid direction="column" lg={6} md={6} sm={6} xs={6}>            
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h1">Vote</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">Earn a share of your pools transactions fees, bribes and emission</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">rewards for helping govern Équilibre</Typography></Grid>                    
+            </Grid>   
+
+            <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
+              <div className={classes.sphere}></div>  
+            </Grid>
+                                
+          </Grid>   
+              
+          <Grid item lg={6} md={6} sm={6} xs={6}>
+
             <TextField
               className={classes.searchVote}
               variant="outlined"
@@ -196,13 +215,16 @@ export default function ssVotes() {
                 ),
               }}
             />
-          </Grid>
-          <Grid item lg='auto' lg='auto' sm={12} xs={12}>
+          </Grid>  
+                  
+          <Grid item lg={6} md={6} sm={6} xs={6}>
             <div className={ classes.tokenIDContainer }>
               { renderMediumInput(token, vestNFTs) }
             </div>
           </Grid>
+         
         </Grid>
+
       </div>
       <Paper elevation={0} className={ classes.tableContainer }>
         <GaugesTable gauges={ gauges.filter((pair) => {

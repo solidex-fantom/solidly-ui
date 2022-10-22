@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled, makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
 import {
   Paper,
@@ -28,10 +28,8 @@ import { useRouter } from "next/router";
 import BigNumber from 'bignumber.js';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import SearchIcon from '@material-ui/icons/Search';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-
 import { formatCurrency } from '../../utils';
+
 
 function descendingComparator(a, b, orderBy) {
   if (!a || !b) {
@@ -371,13 +369,11 @@ const useStyles = makeStyles((theme) => ({
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
   },
   buttonOverride: {
-    width: '100%',
-    color: 'rgb(6, 211, 215)',
-    border: '1px solid',
-    borderRadius: '12px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
-    background: 'rgb(23, 52, 72)',
+    width: '100%',        
+    color: '#0D142E',
     fontWeight: '700',
+    position: 'relative',
+    bottom: '60px',
     '&:hover': {
       background: 'rgb(19, 44, 60)'
     },
@@ -407,6 +403,10 @@ const useStyles = makeStyles((theme) => ({
   actionButtonText: {
     fontSize: '15px',
     fontWeight: '700',
+    position: 'absolute',
+    top: '40%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
   },
   filterContainer: {
     background: '#212b48',
@@ -457,7 +457,51 @@ const useStyles = makeStyles((theme) => ({
         display: 'block',
       },
   },
+  gridBanner: {    
+    height: '200px',
+    margin: '10px',
+    padding: '8px',    
+    marginTop: '80px',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
+  },
+  infoBanner: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flex: 1,
+    padding: '24px',
+    width: '100%',
+    flexWrap: 'wrap',            
+  },
+  sphere: {    
+    width: '100%',
+    height: '320px',
+    background: 'url(\'/images/Toboganes_7.png\') no-repeat right',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',    
+    position: 'relative',
+    bottom: '140px',
+  },
+  toolbarInfo: {
+    margin: '15px',
+    position: 'relative',
+    bottom: '80px',
+    right: '60px'
+  },
+  toolbarText: {
+        
+  },
+
 }));
+
+const Img = styled('img')({
+  margin: 'auto',
+  display: 'block',
+  maxWidth: '100%',
+  maxHeight: '100%',
+});
 
 const getLocalToggles = () => {
   let localToggles = {
@@ -495,6 +539,8 @@ const EnhancedTableToolbar = (props) => {
     setSearch(event.target.value);
     props.setSearch(event.target.value)
   };
+
+  
 
   const onToggle = (event) => {
 
@@ -550,20 +596,29 @@ const EnhancedTableToolbar = (props) => {
     <Toolbar className={ classes.toolbar }>
 
     <Grid container spacing={2}>
-      <Grid item lg={2} md={2} sm={12} xs={12}>
-        <Button
-          variant="contained"
-          color="secondary"
-          startIcon={<AddCircleOutlineIcon />}
-          size='large'
-          className={ classes.buttonOverride }
-          color='primary'
-          onClick={ onCreate }
-        >
-          <Typography className={ classes.actionButtonText }>Add Liquidity</Typography>
-        </Button>
-      </Grid>
-      <Grid item lg={9} md={9} sm={10} xs={10}>
+
+      <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+
+          <Grid direction="column">            
+            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h1">Pools</Typography></Grid>    
+            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
+          </Grid>   
+
+          <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
+            <Button className={ classes.buttonOverride } onClick={ onCreate }>
+              <Img alt="complex" src="/images/Small_Button.png" width={'50%'}/>
+              <Typography className={ classes.actionButtonText }>Add Liquidity</Typography>
+            </Button>            
+          </Grid> 
+
+          <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
+            <div className={classes.sphere}></div>  
+          </Grid>
+                              
+      </Grid>    
+
+      
+      <Grid item lg={10} md={10} sm={10} xs={10}>
         <TextField
           className={classes.searchContainer}
           variant="outlined"
@@ -580,7 +635,8 @@ const EnhancedTableToolbar = (props) => {
           }}
         />
       </Grid>
-      <Grid item lg={1} md={true} sm={2} xs={2}>
+
+      <Grid item lg={2} md={2} sm={2} xs={2}>
         <Tooltip placement="top" title="Filter list">
           <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">
             <FilterListIcon />

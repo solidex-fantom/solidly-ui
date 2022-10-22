@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import Unlock from '../../components/unlock';
 
 import classes from './liquidity.module.css';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+
 
 function Liquidity({ changeTheme }) {
 
@@ -47,21 +49,8 @@ function Liquidity({ changeTheme }) {
     <div className={classes.ffContainer}>
       {account && account.address ?
 
-        <div className={classes.connected}>
-          
-          <Grid container alignItems="center" justifyContent="center">
-
-              <Grid item lg={12} md={12} sm={12} xs={12}>
-                <div  className={classes.gridBanner}></div>
-              </Grid>    
-                        
-              <Grid item lg={12} md={12} sm={12} xs={12}>
-                <LiquidityPairs />
-              </Grid>
-
-          </Grid>              
-
-              
+        <div className={classes.connected}>          
+          <LiquidityPairs />              
         </div>
          :
         <Paper className={classes.notConnectedContent}>
