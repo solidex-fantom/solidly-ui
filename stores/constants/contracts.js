@@ -45,11 +45,14 @@ export const VOTER_ABI = abis.voterABI;
 export const LIBRARY_ADDRESS = "0x0754f8a15bD635dB8C47107Ae16c3aaa373593E1";
 export const LIBRARY_ABI = abis.solidlyLibraryABI;
 
+export const WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS = "0x6b261830725123a390909DBdca767C8252d3411D";
+
 export const ERC20_ABI = abis.erc20ABI;
 export const PAIR_ABI = abis.pairABI;
 export const GAUGE_ABI = abis.gaugeABI;
 export const BRIBE_ABI = abis.bribeABI;
 export const TOKEN_ABI = abis.tokenABI;
+export const WRAPPED_EXTERNAL_BRIBE_FACTORY_ABI = abis.wrappedBribeFactoryABI;
 
 //!This is not used anywhere, meanwhile we are researching we leave it
 export const MULTICALL_ADDRESS = "0x7ED7bBd8C454a1B0D9EdD939c45a81A03c20131C";

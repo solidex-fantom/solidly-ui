@@ -1,7 +1,7 @@
 //* DONE WITH THE RAW CONTRACT
 import { erc20ABI } from './erc20ABI'
 // * REVIEW DONE
-import { veTokenABI } from './veTokenABI'
+import { veTokenABI } from './veTokenEQABI'
 //* REVIEW DONE
 import { factoryABI } from './factoryEQABI'
 //* REVIEW DONE
@@ -19,7 +19,7 @@ import { tokenABI } from './tokenABI'
 //* REVIEW DONE
 import { veDistABI } from './veDistEQABI'
 //* REVIEW DONE
-import { minterABI } from './minterABI'
+import { minterABI } from './minterEQABI'
 //* REVIEW DONE
 import { wkavaABI as wftmABI } from './wkavaABI' 
 //* REVIEW DONE

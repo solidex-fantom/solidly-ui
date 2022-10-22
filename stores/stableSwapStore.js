@@ -13,6 +13,7 @@ import stores from "./"
 
 import BigNumber from "bignumber.js"
 import {LIQUIDITY_PAIRS} from "./constants/mocks";
+import {WRAPPED_EXTERNAL_BRIBE_FACTORY_ABI, WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS} from "./constants/contracts";
 const fetch = require("node-fetch")
 
 class Store {
@@ -151,6 +152,7 @@ class Store {
           case ACTIONS.WHITELIST_TOKEN:
             this.whitelistToken(payload)
             break;
+
           default: {
           }
         }
@@ -3648,13 +3650,22 @@ class Store {
         return null
       }
 
-      const { asset, amount, gauge } = payload.content
+      const { asset, amount, gauge } = payload.content;
+      const bribeAddress = gauge.gauge.bribeAddress;
+
+      const bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, bribeAddress)
 
       // ADD TRNASCTIONS TO TRANSACTION QUEUE DISPLAY
-      let allowanceTXID = this.getTXUUID()
-      let bribeTXID = this.getTXUUID()
+      let allowanceTXID = this.getTXUUID();
+      let bribeTXID = this.getTXUUID();
+      let wxBribeTXID = this.getTXUUID();
 
       this.emitter.emit(ACTIONS.TX_ADDED, { title: `Create bribe on ${gauge.token0.symbol}/${gauge.token1.symbol}`, verb: 'Bribe Created', transactions: [
+        {
+          uuid: wxBribeTXID,
+          description: `Create Wrapped Bribe`,
+          status: 'WAITING',
+        },
         {
           uuid: allowanceTXID,
           description: `Checking your ${asset.symbol} allowance`,
@@ -3667,6 +3678,8 @@ class Store {
         }
       ]})
 
+      // CREATE WRAPPED EXTERNAL BRIBE
+      await this._createWrappedBribe(wxBribeTXID, web3, bribeAddress);
 
       // CHECK ALLOWANCES AND SET TX DISPLAY
       const allowance = await this._getBribeAllowance(web3, asset, gauge, account)
@@ -3693,7 +3706,7 @@ class Store {
         const tokenContract = new web3.eth.Contract(CONTRACTS.ERC20_ABI, asset.address)
 
         const tokenPromise = new Promise((resolve, reject) => {
-          this._callContractWait(web3, tokenContract, 'approve', [gauge.gauge.bribeAddress, MAX_UINT256], account, gasPrice, null, null, allowanceTXID, (err) => {
+          this._callContractWait(web3, tokenContract, 'approve', [bribeAddress, MAX_UINT256], account, gasPrice, null, null, allowanceTXID, (err) => {
             if (err) {
               reject(err)
               return
@@ -3709,7 +3722,6 @@ class Store {
       const done = await Promise.all(allowanceCallsPromises)
 
       // SUBMIT BRIBE TRANSACTION
-      const bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, gauge.gauge.bribeAddress)
 
       const sendAmount = BigNumber(amount).times(10**asset.decimals).toFixed(0)
 
@@ -3725,6 +3737,43 @@ class Store {
     } catch(ex) {
       console.error(ex)
       this.emitter.emit(ACTIONS.ERROR, ex)
+    }
+  }
+
+  _createWrappedBribe = async (txid, web3, bribeAddress) => {
+    try {
+      const wxBribeFactoryContract = new web3.eth.Contract(
+          CONTRACTS.WRAPPED_EXTERNAL_BRIBE_FACTORY_ABI,
+          CONTRACTS.WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS,
+      );
+
+      await wxBribeFactoryContract.methods.createBribe(bribeAddress).call()
+      this.emitter.emit(
+          ACTIONS.TX_STATUS, {
+            uuid: txid,
+            description: "Wrapped External Bribe created",
+            status: 'DONE',
+          }
+      )
+
+    } catch (e) {
+      let status = {
+        uuid: txid,
+      }
+      // TODO: define wtf
+      if (true) {
+        status["description"] = "Wrapped External Bribe already created";
+        status["status"] = "DONE";
+      } else {
+        status["description"] = "Could not create the Wrapped External Bribe"
+        status["status"] = "REJECTED"
+      }
+
+      this.emitter.emit(
+          ACTIONS.TX_STATUS,
+          status
+      )
+      console.log(e)
     }
   }
 
