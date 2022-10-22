@@ -8,7 +8,9 @@ import BribeCard from '../ssBribeCard'
 import stores from '../../stores'
 import { ACTIONS } from '../../stores/constants';
 
-export default function ssBribes() {
+export default function ssBribes({
+  redirectToCreate
+}) {
 
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
@@ -32,6 +34,12 @@ export default function ssBribes() {
       stores.emitter.removeListener(ACTIONS.UPDATED, stableSwapUpdated);
     };
   }, []);
+
+  useEffect(() => {
+    if (!pairs.length > 0) {
+      redirectToCreate();
+    }
+  }, [pairs])
 
   return (
     <div className={ classes.container}>
