@@ -11,8 +11,7 @@ const coreTheme = {
   },
   
   typography: {
-    fontFamily: [
-  
+    fontFamily: [  
       "Righteous",
       "Inter",
       "Arial",

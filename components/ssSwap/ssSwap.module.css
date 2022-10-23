@@ -200,8 +200,7 @@
 
 .inputBalanceText {
   font-weight: 100 !important;
-  font-size: 12px !important;
-  color: #7e99b0;
+  font-size: 12px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
 }
@@ -554,8 +553,7 @@
 }
 
 .priceInfo > .text {
-  font-size: 13px !important;
-  color: #7e99b0;
+  font-size: 13px !important;  
 }
 
 .buttonOverride {

@@ -175,10 +175,18 @@
 }
 
 .gridBanner {      
-  height: 150px;
+  height: 170px;
   margin: 10px;
   padding: 8px;    
   margin-top: 80px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+}
+.gridInfoVote {      
+  height: 100px;
+  margin: 10px;
+  padding: 8px;     
   border: 1px solid;
   border-radius: 12px;
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
@@ -201,19 +209,20 @@
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
-  bottom: 190px;
+  bottom: 170px;
 }
 
 .toolbarInfo {
   margin: 15px;
   position: relative;
-  bottom: 100px;
+  bottom: 80px;
   right: 60px  
 }
 
 .toolbarText {
-      
+        color: #CD74CC;
 }
+
 
 
 .filterButton {

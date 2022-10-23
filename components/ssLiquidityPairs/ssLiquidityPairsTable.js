@@ -164,18 +164,18 @@ const headCells = [
     disablePadding: false,
     label: 'Total Pool Staked',
   },
-  // {
-  //   id: 'apy',
-  //   numeric: true,
-  //   disablePadding: false,
-  //   label: 'APY',
-  // },
   {
+     id: 'apy',
+     numeric: true,
+     disablePadding: false,
+     label: 'APY',
+  },
+  /*{
     id: '',
     numeric: true,
     disablePadding: false,
     label: 'Actions',
-  },
+  },*/
 ];
 
 function EnhancedTableHead(props) {
@@ -392,13 +392,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-end'
   },
   filterButton: {
-    background: '#111729',
-    border: '1px solid',
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
-    color: '#06D3D7',
     width: '100%',
-    height: '94.5%',
-    borderRadius: '10px',
+    height: '94.5%',    
+  },
+  imgIconList : {
+    position: 'relative',
+    bottom: '10px'    
   },
   actionButtonText: {
     fontSize: '15px',
@@ -458,7 +457,7 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   gridBanner: {    
-    height: '150px',
+    height: '170px',
     margin: '10px',
     padding: '8px',    
     marginTop: '80px',
@@ -483,6 +482,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',    
     position: 'relative',
     bottom: '140px',
+    opacity: '0.9'
   },
   toolbarInfo: {
     margin: '15px',
@@ -606,7 +606,7 @@ const EnhancedTableToolbar = (props) => {
 
           <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
             <Button className={ classes.buttonOverride } onClick={ onCreate }>
-              <Img alt="complex" src="/images/Small_Button.png" width={'50%'}/>
+              <Img alt="complex" src="/images/Small_Button.png" width={'50%'} />
               <Typography className={ classes.actionButtonText }>Add Liquidity</Typography>
             </Button>            
           </Grid> 
@@ -636,12 +636,15 @@ const EnhancedTableToolbar = (props) => {
         />
       </Grid>
 
-      <Grid item lg={2} md={2} sm={2} xs={2}>
-        <Tooltip placement="top" title="Filter list">
-          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">
-            <FilterListIcon />
-          </IconButton>
+      <Grid item lg={2} md={2} sm={2} xs={2}>      
+        
+        <Tooltip placement="top" title="Filter list">        
+          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+              <Img alt="complex" className={ classes.imgIconList } src="/images/Small_button_2.png" width={'70%'}/>
+          </IconButton>          
+
         </Tooltip>
+
       </Grid>
     </Grid>
 

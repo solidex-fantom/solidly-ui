@@ -187,9 +187,9 @@ export default function ssVotes() {
           <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
 
             <Grid direction="column" lg={6} md={6} sm={6} xs={6}>            
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h1">Vote</Typography></Grid>    
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">Earn a share of your pools transactions fees, bribes and emission</Typography></Grid>                    
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">rewards for helping govern Équilibre</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography variant="h1">Vote</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography variant="h2">Earn a share of your pools transactions fees, bribes and emission</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography variant="h2">rewards for helping govern Équilibre</Typography></Grid>                    
             </Grid>   
 
             <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
@@ -222,8 +222,22 @@ export default function ssVotes() {
               { renderMediumInput(token, vestNFTs) }
             </div>
           </Grid>
+
+          <Grid container className={classes.gridInfoVote} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+
+          <Grid direction="column">  
+
+            <Grid><Typography className={classes.toolbarText}>Votes are due by Wendnesday at 23:59 UTC , when the next epoch begins. Each veNFT can only cast votes once per epoch.</Typography></Grid>    
+            <Grid><Typography className={classes.toolbarText}>Your vote will allocate 100% of that  veNFT's vote power. Each veNFT's votes will carry over into the next epoch.</Typography></Grid>     
+            <Grid><Typography className={classes.toolbarText}>Voters will earn bribes no matter when in the epoch the bribes are added. For details refer to our docs</Typography></Grid>     
+          </Grid>   
+          
+          </Grid>   
          
         </Grid>
+
+
+
 
       </div>
       <Paper elevation={0} className={ classes.tableContainer }>
