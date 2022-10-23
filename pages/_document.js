@@ -10,6 +10,8 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="stylesheet" href="/fonts/Inter/Inter.css" />
           <link rel="stylesheet" href="/fonts/MonumentExt/Monument.css" />
+          <link rel="stylesheet" href="/fonts/Arista/Arista.css" />
+          <link rel="stylesheet" href="/fonts/Righteous/Righteous.css" />
           <link rel="stylesheet" href="/fonts/Druk/Druk.css" />
         </Head>
         <body>

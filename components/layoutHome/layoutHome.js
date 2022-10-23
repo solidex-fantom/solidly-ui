@@ -37,6 +37,18 @@ export default function Layout({
           as="font"
           crossOrigin=""
         />
+        <link
+          rel="preload"
+          href="/fonts/Arista/Arista-Pro-Alternate-Light-trial.tff"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/Righteous/Righteous-Regular.otf"
+          as="font"
+          crossOrigin=""
+        />
         <meta name="description" content="Solidly allows low cost, near 0 slippage trades on uncorrelated or tightly correlated assets built on Fantom." />
         <meta name="og:title" content="Solidly" />
         <meta name="twitter:card" content="summary_large_image" />

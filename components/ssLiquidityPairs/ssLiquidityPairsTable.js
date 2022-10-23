@@ -373,7 +373,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#0D142E',
     fontWeight: '700',
     position: 'relative',
-    bottom: '60px',
+    bottom: '100px',
     '&:hover': {
       background: 'rgb(19, 44, 60)'
     },
@@ -458,7 +458,7 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   gridBanner: {    
-    height: '200px',
+    height: '150px',
     margin: '10px',
     padding: '8px',    
     marginTop: '80px',
@@ -487,8 +487,8 @@ const useStyles = makeStyles((theme) => ({
   toolbarInfo: {
     margin: '15px',
     position: 'relative',
-    bottom: '80px',
-    right: '60px'
+    bottom: '100px',
+    right: '1px'
   },
   toolbarText: {
         
@@ -599,7 +599,7 @@ const EnhancedTableToolbar = (props) => {
 
       <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
 
-          <Grid direction="column">            
+          <Grid direction="column" >            
             <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h1">Pools</Typography></Grid>    
             <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
           </Grid>   

@@ -233,7 +233,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#0D142E',
     fontWeight: '700',
     position: 'relative',
-    bottom: '60px',
+    bottom: '80px',
     '&:hover': {
       background: 'rgb(19, 44, 60)'
     },
@@ -326,7 +326,7 @@ const EnhancedTableToolbar = (props) => {
             <Grid direction="column" spacing={2}  lg={8} md={8} sm={8} xs={8}>       
 
               <Grid className={classes.toolbarInfo}><Typography variant="h1">Vest</Typography></Grid>    
-              <Grid className={classes.toolbarInfo}><Typography variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography variant="h2">More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
 
               <Grid>
 

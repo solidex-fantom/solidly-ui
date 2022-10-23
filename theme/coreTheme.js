@@ -9,8 +9,11 @@ const coreTheme = {
   shape: {
     borderRadius: "12px"
   },
+  
   typography: {
     fontFamily: [
+  
+      "Righteous",
       "Inter",
       "Arial",
       "-apple-system",

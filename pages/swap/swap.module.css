@@ -53,7 +53,7 @@
 }
 
 .descTp {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .sphere {      
@@ -62,6 +62,8 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+  margin-top: -80px;
 }
 
 
@@ -90,11 +92,10 @@
 }
 
 .mainHeadingSwap {
-  margin-top: 20px;
-  
+  margin-top: 20px;  
   text-align: center !important;
   font-size: 46px !important;
-  font-family: 'Monument' !important;
+  font-family: 'Righteous' !important;
   font-weight: 100 !important;
   color: #FFFFFF;
 }

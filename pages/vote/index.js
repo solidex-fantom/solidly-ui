@@ -51,7 +51,7 @@ function Vote({ changeTheme }) {
           <div className={classes.contentFloat}>
           <Typography className={classes.mainHeadingNC} variant='h1'>Vote</Typography>
           <Typography className={classes.mainDescNC} variant='body2'>
-            Use your veSolid to vote for your selected liquidity pair’s rewards distribution or create a bribe to encourage others to do the same.
+            Earn a share of your pool's transaction fees, bribes and emissions rewards for helping govern Équilibre
           </Typography>
           <Button
             disableElevation
