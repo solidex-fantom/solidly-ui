@@ -43,13 +43,17 @@
   margin-right: 30px !important;
 }
 
-.buttonOverride {
-  background: rgb(23, 52, 72) !important;
-  color: rgb(6, 211, 215) !important;
+.buttonOverride {  
   font-weight: 700 !important;
   width: 100%;
-  min-width: 200px !important;  
+  min-width: 200px !important;    
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
 }
+
 
 .buttonOverride:hover {
   background: rgb(19, 44, 60);
@@ -63,12 +67,15 @@
   padding: 20px;
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
   border: 1px solid rgba(126,153,176,0.2);
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
 
 .filterListTitle {
   margin-bottom: 10px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(126,153,176,0.2);
+  border-bottom: 1px solid;
+  border-bottom-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  
 }
 
 .filterButton {
@@ -80,6 +87,7 @@
   display: flex;
   flex-wrap: wrap;
   border-radius: 10px;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   width: 100%;
   align-items: center;
   background: rgb(33, 43, 72);
@@ -92,6 +100,7 @@
   width: 74px;
   min-height: 50px;
   height: 100%;
+  
 }
 
 .mediumInputAmount {
@@ -131,9 +140,9 @@
 
 .disclaimer {
   font-size: 13px !important;
-  font-weight: 200 !important;
-  border: 1px solid rgb(6, 211, 215) !important;
+  border: 1px solid;
   border-radius: 10px;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   background: rgb(23, 52, 72) !important;
   padding: 21.5px !important;
 }
@@ -178,6 +187,16 @@
 
 .toolbarText {
       
+}
+
+.actionButtonText {
+  color: #0D142E;  
+  font-size: 15px;
+  font-weight: 700;
+  position: absolute;
+  top: 40%;  
+  left: 50%;
+  transform: translate(-50%, -50%)
 }
 
 

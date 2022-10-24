@@ -1432,7 +1432,7 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
               autoFocus
               variant="outlined"
               fullWidth
-              placeholder="KAVA, MIM, 0x..."
+              placeholder="KAVA, USDC, VARA..."
               value={ search }
               onChange={ onSearchChanged }
               InputProps={{
@@ -1472,7 +1472,7 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
               autoFocus
               variant="outlined"
               fullWidth
-              placeholder="KAVA, MIM, 0x..."
+              placeholder="KAVA, USDC, VARA..."
               value={ search }
               onChange={ onSearchChanged }
               InputProps={{

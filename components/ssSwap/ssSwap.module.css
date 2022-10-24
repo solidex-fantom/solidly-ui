@@ -6,6 +6,8 @@
   height: 100%;
   min-height: calc(100vh - 423px);
   align-items: center;
+
+  
 }
 
 
@@ -31,18 +33,45 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  
+  
 }
+
 
 .smallInputContainer {
   display: flex;
   flex-wrap: wrap;
-  border-radius: 10px;
+  
   width: 100%;
   align-items: center;
   background: rgb(33, 43, 72);
   max-width: 80px;
   min-height: 50px;
   padding: 20px 12px 4px 12px ;
+
+  
+  
+    
+
+}
+
+
+.smallInput {
+
+  font-family: 'Monument' !important;
+  font-size: 60px !important;
+  margin-bottom: 30px !important;
+  animation: mainTitleAnim 1s ease 1;
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
+  position: relative;
+  bottom: 0;
+  opacity: 0;
+  text-align: center !important;
+
+  
+
 }
 
 .massiveInputContainer {
@@ -52,6 +81,9 @@
   width: 100%;
   align-items: center;
   background: transparent;
+
+  
+  
 }
 
 .error {
@@ -66,40 +98,54 @@
   width: 124px;
   min-height: 124px;
   height: 100%;
+
+  
 }
 
 .massiveInputAmount {
   flex: 1;
   height: 100%;
+
+  
 }
 
 .massiveInputAddress {
   min-width: 100%;
   border-top: 1px solid rgba(128, 128, 128, 0.5);
+
+  
 }
 
 .displaySelectContainer {
   padding: 12px;
   min-height: 100px;
   cursor: pointer;
+
+  
   
 }
 
 .displayDualIconContainer {
   width: 100px;
   position: relative;
+
+  
 }
 
 .displayDualIconContainerConfirm {
   width: 100px;
   position: relative;
   margin: 0 auto;
+
+  
 }
 
 .displayDualIconContainerSmall {
   width: 60px;
   position: relative;
   margin-right: 12px;
+
+  
 }
 
 .displaySelect {
@@ -140,7 +186,8 @@
 }
 
 .displayAssetIconSmall {
-  border: 1px solid rgba(126, 153, 176, 0.2);
+  border: 1px solid;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   border-radius: 30px;
   background: rgb(33, 43, 72);
   padding: 6px;
@@ -170,6 +217,9 @@
   align-items: center;
   position: absolute;
   top: 0px;
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
 
 .inputBalanceSlippage {
@@ -198,17 +248,27 @@
   cursor: pointer;
 }
 
+.inputBalance {
+  font-weight: 50 !important;
+  font-size: 14px !important;  
+  margin-right: 6px !important;
+  margin-top: 6px !important;
+  font-family: 'Monument' !important;
+}
+
 .inputBalanceText {
   font-weight: 100 !important;
   font-size: 12px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
+  
 }
 
 .textField {
   margin-top: 2px;
   margin-bottom: 2px;
   position: relative;
+  
 }
 
 .largeInput {
@@ -255,14 +315,16 @@
 }
 
 .swapConfirmSide {
-  border: 1px solid rgba(128, 128, 128,  0.5);
+  border: 1px solid;
   border-radius: 10px;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
   padding: 24px 6px;
 }
 
 .addressField {
+  border: 1px solid;
   border-radius: 10px;
-  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   padding: 6px 12px;
   width: 100%;
   margin: 12px 0px !important;
@@ -363,11 +425,8 @@
 .swapIcon {
   cursor: pointer;
   padding: 6px;
-  font-size: 30px !important;
-  background: rgb(33, 43, 72);
-  margin: 4px;
-  
-
+  font-size: 38px !important;  
+  margin: 4px;  
   border: 1px solid;
   border-radius: 12px;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
@@ -383,6 +442,7 @@
   border-radius: 10px;
   padding: 12px;
   width: 100%;
+  
 }
 
 .swapInfoRow {
@@ -446,6 +506,7 @@
   padding: 24px 24px 12px 24px;
   width: 500px;
   border-radius: 10px;
+  
 }
 
 .info {

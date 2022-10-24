@@ -22,6 +22,7 @@ import classes from './ssVotes.module.css';
 import { formatCurrency } from '../../utils';
 import GaugesTable from './ssVotesTable.js'
 import stores from '../../stores'
+import { styled, makeStyles } from '@material-ui/core/styles';
 import { ACTIONS } from '../../stores/constants';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
@@ -38,6 +39,8 @@ export default function ssVotes() {
   const [ token, setToken ] = useState(null)
   const [ vestNFTs, setVestNFTs ] = useState([])
   const [search, setSearch] = useState('');
+
+  
 
 
   const ssUpdated = () => {
@@ -134,6 +137,18 @@ export default function ssVotes() {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
+  const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  });
+
+
+  const useStyles = makeStyles((theme) => ({
+
+  }));
+  
   const [anchorEl, setAnchorEl] = useState(null);
 
   
@@ -198,13 +213,13 @@ export default function ssVotes() {
                                 
           </Grid>   
               
-          <Grid item lg={6} md={6} sm={6} xs={6}>
+          <Grid item lg={4} md={4} sm={4} xs={4}>
 
             <TextField
               className={classes.searchVote}
               variant="outlined"
               fullWidth
-              placeholder="KAVA, MIM, 0x..."
+              placeholder="KAVA, USDC, VARA..."
               value={search}
               onChange={onSearchChanged}
               InputProps={{
@@ -222,6 +237,17 @@ export default function ssVotes() {
               { renderMediumInput(token, vestNFTs) }
             </div>
           </Grid>
+
+          <Grid item lg={2} md={2} sm={2} xs={2}>      
+        
+        <Tooltip placement="top" title="Filter list">        
+          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+              <Img alt="complex" className={ classes.imgIconList } src="/images/Small_button_2.png" width={'70%'}/>
+          </IconButton>          
+
+        </Tooltip>
+
+      </Grid>
 
           <Grid container className={classes.gridInfoVote} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
 

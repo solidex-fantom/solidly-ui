@@ -387,12 +387,15 @@ function Setup() {
               if(type === 'From') {
                 setBalance100()
               }
-            }}>
-              Balance:
-              { (assetValue && assetValue.balance) ?
-                ' ' +   formatCurrency(assetValue.balance) :
-                ''
-              }
+            }}>              
+            </Typography>
+            <Typography className={ classes.inputBalance }>
+                Balance:
+                
+                  { (assetValue && assetValue.balance) ?
+                    ' ' +   formatCurrency(assetValue.balance) :
+                    ' 0.00'
+                  }
             </Typography>
           </div>
         </div>
@@ -402,6 +405,7 @@ function Setup() {
           </div>
           <div className={ classes.massiveInputAmount }>
             <TextField
+              type={'number'}
               placeholder='0.00'
               fullWidth
               error={ amountError }
@@ -580,7 +584,7 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
               autoFocus
               variant="outlined"
               fullWidth
-              placeholder="KAVA, MIM, 0x..."
+              placeholder="KAVA, USDC, VARA..."
               value={ search }
               onChange={ onSearchChanged }
               InputProps={{
@@ -620,7 +624,7 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
               autoFocus
               variant="outlined"
               fullWidth
-              placeholder="KAVA, MIM, 0x..."
+              placeholder="KAVA, USDC, VARA..."
               value={ search }
               onChange={ onSearchChanged }
               InputProps={{

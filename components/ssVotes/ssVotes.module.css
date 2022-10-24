@@ -220,10 +220,13 @@
 }
 
 .toolbarText {
-        color: #CD74CC;
+  color: #CD74CC;
 }
 
-
+.imgIconList {
+  position: relative;
+  bottom: 10px
+}
 
 .filterButton {
   background: #111729;

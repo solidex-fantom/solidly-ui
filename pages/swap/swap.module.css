@@ -95,17 +95,17 @@
   margin-top: 20px;  
   text-align: center !important;
   font-size: 46px !important;
-  font-family: 'Righteous' !important;
-  font-weight: 100 !important;
+  font-family: 'Monument' !important;  
   color: #FFFFFF;
+  letter-spacing: 13px;
 }
 
 .mainHeadingNC {
   text-align: center !important;
   font-size: 30px !important;
-  font-family: 'Monument' !important;
-  font-weight: 100 !important;
+  font-family: 'Arista' !important;  
   color: #FFFFFF;
+  letter-spacing: 6px;
 }
 
 .mainDescNC {

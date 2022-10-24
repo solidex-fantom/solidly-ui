@@ -218,9 +218,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   assetTableRow: {
-    '&:hover': {
+    /*'&:hover': {
       background: 'rgba(104,108,122,0.05)',
-    },
+    },*/
   },
   paper: {
     width: '100%',
@@ -373,10 +373,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#0D142E',
     fontWeight: '700',
     position: 'relative',
-    bottom: '100px',
+    bottom: '80px'/*,
     '&:hover': {
       background: 'rgb(19, 44, 60)'
-    },
+    },*/
   },
   toolbar: {
     margin: '24px 0px',
@@ -623,7 +623,7 @@ const EnhancedTableToolbar = (props) => {
           className={classes.searchContainer}
           variant="outlined"
           fullWidth
-          placeholder="KAVA, MIM, 0x..."
+          placeholder="KAVA, USDC, VARA..."
           value={search}
           onChange={onSearchChanged}
           InputProps={{

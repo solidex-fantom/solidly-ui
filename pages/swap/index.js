@@ -49,7 +49,7 @@ function Swap({ changeTheme }) {
 
                 <Grid className={classes.descTp} >              
                     <Typography className={classes.mainHeadingSwap} variant='h1'>Swap</Typography>
-                    <Typography className={classes.mainDescNC} variant='body2'>Enjoy minimal slippage, low swapping fees and deep liquidity</Typography>
+                    <Typography className={classes.mainDescNC}>Enjoy minimal slippage, low swapping fees and deep liquidity</Typography>
                 </Grid>     
 
                 <Grid>              

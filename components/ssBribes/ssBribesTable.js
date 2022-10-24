@@ -296,7 +296,7 @@ const EnhancedTableToolbar = (props) => {
         className={classes.searchContainer}
         variant="outlined"
         fullWidth
-        placeholder="KAVA, MIM, 0x..."
+        placeholder="KAVA, USDC, VARA..."
         value={search}
         onChange={onSearchChanged}
         InputProps={{

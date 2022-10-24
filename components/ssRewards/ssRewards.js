@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { styled, makeStyles } from '@material-ui/core/styles';
 import {
   Button,
   Typography,
@@ -138,6 +139,19 @@ export default function ssRewards() {
   const open = Boolean(anchorEl);
   const id = open ? 'transitions-popper' : undefined;
 
+  const useStyles = makeStyles((theme) => ({
+  }))
+
+  const Img = styled('img')({
+    position: 'relative',
+    marginLeft: '10px',    
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    
+  });
+  
+
   const renderMediumInput = (value, options) => {
     return (
       <div className={ classes.textField}>
@@ -205,23 +219,19 @@ export default function ssRewards() {
             </div>
           </Grid>
           
-          <Grid item lg={2} md={2} sm={2} xs={2} justifyContent="flex-end" alignItems="center">
-            <Button
-              variant="contained"
-              color="secondary"
-              startIcon={<AddCircleOutlineIcon />}
-              size='large'
-              className={ classes.buttonOverride }              
-              onClick={ onClaimAll }
-              disabled={ loading }
-            >
+          <Grid item lg={4} md={4} sm={4} xs={4}>
+        
+            <Button className={ classes.buttonOverride } onClick={ onClaimAll }>
+              <Img alt="complex" src="/images/Small_Button.png" width={'50%'}  />
               <Typography className={ classes.actionButtonText }>Claim All</Typography>
-            </Button>
-          </Grid>
+            </Button>   
+
+        </Grid> 
 
           <Grid item lg={12} md={12} sm={12} xs={12}>
             <div className={ classes.disclaimerContainer }>
-              <Typography className={ classes.disclaimer }>Rewards are an estimation that aren't exact till the supply -> rewardPerToken calculations have run</Typography>
+              <Typography className={ classes.disclaimer }>Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim. For details refer to our docs</Typography>
+              
             </div>
           </Grid>
 
