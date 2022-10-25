@@ -1,7 +1,8 @@
 .vestContainer {
-  width: calc(100% - 180px);
-  max-width: 485px;
+
+  width: calc(100% - 180px);  
   margin: 0 auto;
+  margin-top: 80px;
   position: relative;
 }
 
@@ -507,6 +508,85 @@
   font-style: italic;
   padding: 3px 0px !important
 }
+
+
+
+.sphere {      
+  height: 420px;  
+  background-image: url('/images/Rainbow_clock_4.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  
+}
+
+.descTp {
+  margin-top: 50px;
+}
+
+
+.descTp {
+  margin-top: 50px;
+}
+
+.gridBanner {    
+  height: 170px;
+  margin: 10px;
+  padding: 8px;      
+}
+
+.overviewIcon {
+  font-size: 110px !important;
+  margin-bottom: 30px;
+  margin-top: -80px;
+  margin-left: -40px;
+}
+
+.mainHeading {
+  margin: 50px auto 0px auto !important;
+  text-align: left !important;
+  font-size: 20px !important;
+  width: calc(100% - 180px) !important;
+}
+
+.mainDesc {
+  margin: 20px auto 0px auto !important;
+  text-align: left !important;
+  color: rgb(104,108,122);
+  font-size: 18px !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  width: calc(100% - 180px) !important;
+}
+
+.mainHeadingSwap {
+  margin-top: 20px;  
+  text-align: center !important;
+  font-size: 46px !important;
+  font-family: 'Monument' !important;  
+  color: #FFFFFF;
+  letter-spacing: 13px;
+}
+
+.mainHeadingNC {
+  text-align: center !important;
+  font-size: 30px !important;
+  font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 6px;
+}
+
+
+.mainDescNC {
+  margin: 30px auto !important;
+  text-align: center !important;
+  color: #7E99B0;
+  font-size: 18px !important;
+  max-width: 800px;
+  line-height: 1.8rem !important;
+}
+
 
 
 @media screen and (max-width: 1200px) {

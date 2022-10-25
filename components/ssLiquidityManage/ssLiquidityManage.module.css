@@ -6,6 +6,10 @@
   margin-top: 90px;
   max-width: 485px;
   width: calc(100% - 180px);
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  box-shadow: 1px 1px #0D142E;
 }
 
 .retain {

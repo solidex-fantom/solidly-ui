@@ -10,6 +10,7 @@ import ExistingLock from "./existingLock";
 import Unlock from "./unlock";
 import Loading from "./loading";
 import Lock from './lock';
+import { Grid, Typography } from '@material-ui/core';
 
 export default function ssVest() {
 
@@ -46,28 +47,51 @@ export default function ssVest() {
 
   return (
     <div className={ classes.vestContainer }>
-      { router.query.id === 'create' && (
-        <Lock
-          nft={nft}
-          govToken={govToken}
-          veToken={veToken}
-        />
-      )}
-      { router.query.id !== 'create' && nft && BigNumber(nft.lockEnds).gte(moment().unix()) && BigNumber(nft.lockEnds).gt(0) && (
-        <ExistingLock
-          nft={nft}
-          govToken={govToken}
-          veToken={veToken}
-        />
-      )}
-      { router.query.id !== 'create' && nft && BigNumber(nft.lockEnds).lt(moment().unix()) && BigNumber(nft.lockEnds).gt(0) && (
-          <Unlock
-            nft={nft}
-            govToken={govToken}
-            veToken={veToken}
-          />
-        )
-      }
+      
+
+      <Grid container lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center" spacing={6}>
+
+              <Grid item >       
+
+                <Grid className={classes.descTp} direction="column" >              
+                    <Typography className={classes.mainHeadingSwap} variant='h1'>Create Lock</Typography>
+                    <Typography className={classes.mainDescNC}>More tokens locked for longer = greater voting power = higher rewards</Typography>
+                </Grid>     
+
+                <Grid>              
+                    <div className={classes.sphere}></div>                         
+                  </Grid>    
+
+              </Grid>
+
+              <Grid item >       
+              { router.query.id === 'create' && (
+                  <Lock
+                    nft={nft}
+                    govToken={govToken}
+                    veToken={veToken}
+                  />
+                )}
+                { router.query.id !== 'create' && nft && BigNumber(nft.lockEnds).gte(moment().unix()) && BigNumber(nft.lockEnds).gt(0) && (
+                  <ExistingLock
+                    nft={nft}
+                    govToken={govToken}
+                    veToken={veToken}
+                  />
+                )}
+                { router.query.id !== 'create' && nft && BigNumber(nft.lockEnds).lt(moment().unix()) && BigNumber(nft.lockEnds).gt(0) && (
+                    <Unlock
+                      nft={nft}
+                      govToken={govToken}
+                      veToken={veToken}
+                    />
+                  )
+                }
+              </Grid>    
+
+          </Grid>
+
+      
     </div>
   );
 }

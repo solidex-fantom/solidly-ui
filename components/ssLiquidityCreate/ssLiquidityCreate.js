@@ -702,6 +702,7 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
     )
   }
 
+  
   return (
     <React.Fragment>
       <div className={ classes.displaySelectContainer } onClick={ () => { openSearch() } }>
