@@ -51,7 +51,7 @@ export default function ssVest() {
 
       <Grid container lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center" spacing={6}>
 
-              <Grid item >       
+              <Grid item lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">       
 
                 <Grid className={classes.descTp} direction="column" >              
                     <Typography className={classes.mainHeadingSwap} variant='h1'>Create Lock</Typography>
@@ -64,7 +64,7 @@ export default function ssVest() {
 
               </Grid>
 
-              <Grid item >       
+              <Grid item lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">       
               { router.query.id === 'create' && (
                   <Lock
                     nft={nft}
