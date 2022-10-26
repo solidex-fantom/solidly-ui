@@ -13,6 +13,7 @@ import stores from "./"
 
 import BigNumber from "bignumber.js"
 import {LIQUIDITY_PAIRS} from "./constants/mocks";
+import {WRAPPED_EXTERNAL_BRIBE_FACTORY_ABI, WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS} from "./constants/contracts";
 const fetch = require("node-fetch")
 
 class Store {
@@ -151,6 +152,7 @@ class Store {
           case ACTIONS.WHITELIST_TOKEN:
             this.whitelistToken(payload)
             break;
+
           default: {
           }
         }
@@ -3662,13 +3664,24 @@ class Store {
         return null
       }
 
-      const { asset, amount, gauge } = payload.content
+      const { asset, amount, gauge } = payload.content;
+      const bribeAddress = gauge.gauge.bribeAddress;
+
+      const bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, bribeAddress)
 
       // ADD TRNASCTIONS TO TRANSACTION QUEUE DISPLAY
-      let allowanceTXID = this.getTXUUID()
-      let bribeTXID = this.getTXUUID()
+      let allowanceTXID = this.getTXUUID();
+      let bribeTXID = this.getTXUUID();
+      let wxBribeTXID = this.getTXUUID();
+
+      const gasPrice = await stores.accountStore.getGasPrice()
 
       this.emitter.emit(ACTIONS.TX_ADDED, { title: `Create bribe on ${gauge.token0.symbol}/${gauge.token1.symbol}`, verb: 'Bribe Created', transactions: [
+        {
+          uuid: wxBribeTXID,
+          description: `Create Wrapped Bribe`,
+          status: 'WAITING',
+        },
         {
           uuid: allowanceTXID,
           description: `Checking your ${asset.symbol} allowance`,
@@ -3681,6 +3694,19 @@ class Store {
         }
       ]})
 
+      // CREATE WRAPPED EXTERNAL BRIBE
+      try {
+        await this._createWrappedBribe(
+            wxBribeTXID,
+            web3,
+            bribeAddress,
+            account,
+            gasPrice,
+        );
+      } catch (e) {
+        this.emitter.emit(ACTIONS.ERROR, e.message);
+        return;
+      }
 
       // CHECK ALLOWANCES AND SET TX DISPLAY
       const allowance = await this._getBribeAllowance(web3, asset, gauge, account)
@@ -3698,8 +3724,6 @@ class Store {
         })
       }
 
-      const gasPrice = await stores.accountStore.getGasPrice()
-
       const allowanceCallsPromises = []
 
       // SUBMIT REQUIRED ALLOWANCE TRANSACTIONS
@@ -3707,7 +3731,7 @@ class Store {
         const tokenContract = new web3.eth.Contract(CONTRACTS.ERC20_ABI, asset.address)
 
         const tokenPromise = new Promise((resolve, reject) => {
-          this._callContractWait(web3, tokenContract, 'approve', [gauge.gauge.bribeAddress, MAX_UINT256], account, gasPrice, null, null, allowanceTXID, (err) => {
+          this._callContractWait(web3, tokenContract, 'approve', [bribeAddress, MAX_UINT256], account, gasPrice, null, null, allowanceTXID, (err) => {
             if (err) {
               reject(err)
               return
@@ -3723,7 +3747,6 @@ class Store {
       const done = await Promise.all(allowanceCallsPromises)
 
       // SUBMIT BRIBE TRANSACTION
-      const bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, gauge.gauge.bribeAddress)
 
       const sendAmount = BigNumber(amount).times(10**asset.decimals).toFixed(0)
 
@@ -3740,6 +3763,40 @@ class Store {
       console.error(ex)
       this.emitter.emit(ACTIONS.ERROR, ex)
     }
+  }
+
+  _createWrappedBribe = async (txid, web3, bribeAddress, account, gasPrice) => {
+    const wxBribeFactoryContract = new web3.eth.Contract(
+        CONTRACTS.WRAPPED_EXTERNAL_BRIBE_FACTORY_ABI,
+        CONTRACTS.WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS,
+    );
+
+    await new Promise((resolve, reject) => {
+      this._callContractWait(
+        web3,
+        wxBribeFactoryContract,
+        'createBribe',
+        [bribeAddress],
+        account,
+        gasPrice,
+        null,
+        null,
+        txid,
+        null,
+        async (err) => {
+          if (!err?.message?.toLowerCase().includes("already created")) {
+            // TODO: this should stop all transactions
+            reject(err);
+            throw err;
+          }
+          this.emitter.emit(
+              ACTIONS.TX_CONFIRMED,
+              { uuid: txid }
+          )
+          resolve()
+        }
+      )
+    })
   }
 
   _getBribeAllowance = async (web3, token, pair, account) => {
@@ -4432,13 +4489,19 @@ class Store {
     }
   }
 
-  _callContractWait = (web3, contract, method, params, account, gasPrice, dispatchEvent, dispatchContent, uuid, callback, paddGasCost, sendValue = null) => {
-    // console.log(method)
-    // console.log(params)
-    // if(sendValue) {
-    //   console.log(sendValue)
-    // }
-    // console.log(uuid)
+  _callContractWait = (web3, contract, method, params, account, gasPrice, dispatchEvent, dispatchContent, uuid, callback, errorHandler, paddGasCost, sendValue = null) => {
+    if (!errorHandler) {
+      // Error handler deals with errors in the first call to the contract
+      // by default, it's a noop
+      errorHandler = (error) => {throw error}
+    }
+
+    if (!callback) {
+      // Callback deals with errors after computing gas and trying to write
+      // and unhandled errors in the first call to the contract
+      callback = console.error
+    }
+
     //estimate gas
     this.emitter.emit(ACTIONS.TX_PENDING, { uuid })
 
@@ -4449,13 +4512,7 @@ class Store {
 
         let sendGasAmount = BigNumber(gasAmount).times(1.5).toFixed(0)
         let sendGasPrice = BigNumber(gasPrice).times(1.5).toFixed(0)
-        // if (paddGasCost) {
-        //   sendGasAmount = BigNumber(sendGasAmount).times(1.15).toFixed(0)
-        // }
-        //
-        // const sendGasAmount = '3000000'
-        // const context = this
-        //
+
         contract.methods[method](...params)
           .send({
             from: account.address,
@@ -4475,7 +4532,7 @@ class Store {
               context.dispatcher.dispatch({ type: dispatchEvent, content: dispatchContent })
             }
           })
-          .on("error", function (error) {
+          .on("error", (error) => {
             if (!error.toString().includes("-32601")) {
               if (error.message) {
                 context.emitter.emit(ACTIONS.TX_REJECTED, { uuid, error: error.message })
@@ -4496,8 +4553,8 @@ class Store {
             }
           })
       })
+      .catch(errorHandler)
       .catch((ex) => {
-        console.log(ex)
         if (ex.message) {
           this.emitter.emit(ACTIONS.TX_REJECTED, { uuid, error: ex.message })
           return callback(ex.message)
