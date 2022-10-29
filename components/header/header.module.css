@@ -216,6 +216,10 @@
   margin-left: 25px;
 }
 
+.filterButton{
+  height: 40px;
+  
+}
 
 .headBtnTxt {
   font-size: 13px !important;
