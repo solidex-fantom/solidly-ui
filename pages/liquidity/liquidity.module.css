@@ -61,8 +61,8 @@
 
 .mainHeadingNC {
   text-align: center !important;
-  font-size: 30px !important;
-  font-family: 'Monument' !important;
+  font-size: 18px !important;
+  font-family: 'Arista' !important;  
   font-weight: 100 !important;
   color: #FFF;
 }
@@ -74,6 +74,8 @@
   font-size: 18px !important;
   max-width: 800px;
   line-height: 1.8rem !important;
+  letter-spacing: 2px;
+  font-family: 'Arista' !important;  
 }
 
 .buttonConnect {

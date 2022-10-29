@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
 
-import { Typography, Switch, Button, SvgIcon, Badge, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Typography, Switch, Button, SvgIcon, Badge, IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Grid } from '@material-ui/core';
 import { withStyles, withTheme } from '@material-ui/core/styles';
 import HelpIcon from '@material-ui/icons/Help';
 import ListIcon from '@material-ui/icons/List';
@@ -14,7 +14,7 @@ import Unlock from '../unlock';
 import TransactionQueue from '../transactionQueue';
 
 import { ACTIONS } from '../../stores/constants';
-
+import { styled, makeStyles } from '@material-ui/core/styles';
 import stores from '../../stores';
 import { formatAddress } from '../../utils';
 
@@ -72,6 +72,13 @@ const StyledMenuItem = withStyles((theme) => ({
     },
   },
 }))(MenuItem);
+
+const Img = styled('img')({
+  margin: 'auto',
+  display: 'block',
+  maxWidth: '100%',
+  height: '40px'
+});
 
 
 const StyledSwitch = withStyles((theme) => ({
@@ -244,6 +251,7 @@ function Header(props) {
     setAnchorEl(null);
   };
 
+
   return (
     <div>
       <div className={classes.headerContainer}>
@@ -254,7 +262,7 @@ function Header(props) {
 
         <Navigation changeTheme={props.changeTheme} />
 
-        <div style={{ width: '260px', display: 'flex', justifyContent: 'flex-end' }}>
+        <div style={{ width: '380px', display: 'flex', justifyContent: 'flex-end' }}>
 
           { process.env.NEXT_PUBLIC_CHAINID == '4002' &&
             <div className={ classes.testnetDisclaimer}>
@@ -279,17 +287,38 @@ function Header(props) {
 
           {account && account.address ?
           <div>
-          <Button
-            disableElevation
-            className={classes.accountButton}
-            variant="contained"
-            color={props.theme.palette.type === 'dark' ? 'primary' : 'secondary'}
-             aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-            {account && account.address && <div className={`${classes.accountIcon} ${classes.metamask}`}></div>}
-            <Typography className={classes.headBtnTxt}>{account && account.address ? formatAddress(account.address) : 'Connect Wallet'}</Typography>
-            <ArrowDropDownIcon className={classes.ddIcon} />
-          </Button>
 
+          
+          <Grid container>            
+                      
+              <Grid container className={classes.containerMenu} alignItems="flex-end" justifyContent="center">
+
+                  <Grid className={classes.headAccountBalance}>
+                    <Typography className={classes.headBtnTxt}>{'0 KAVA'}</Typography>
+                  </Grid>
+
+                  <Grid>
+
+                    <Button
+                        disableElevation
+                        className={classes.accountButton}
+                        variant="contained"
+                        color={props.theme.palette.type === 'dark' ? 'primary' : 'secondary'}
+                        aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                        {account && account.address && <div className={`${classes.accountIcon}`}></div>}
+                        <Typography className={classes.headBtnTxt}>{account && account.address ? formatAddress(account.address) : 'Connect Wallet'}</Typography>
+                        <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+                          <Img alt="complex" className={ classes.imgIconList } src="/images/Wallet_Icon.svg" />
+                      </IconButton>          
+                      
+                      </Button>
+
+                  </Grid>
+
+              </Grid>
+                                                    
+          </Grid>          
+         
           <StyledMenu
             id="customized-menu"
             anchorEl={anchorEl}
@@ -325,6 +354,13 @@ function Header(props) {
           }
 
         </div>
+
+        <Grid alignItems="center" justifyContent="center" >
+                  <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+                      <Img alt="complex" className={ classes.imgIconList } src="/images/Linktree_icon.svg" width={'100%'}/>
+                  </IconButton>          
+               </Grid>
+               
         {unlockOpen && <Unlock modalOpen={unlockOpen} closeModal={closeUnlock} />}
         <TransactionQueue setQueueLength={ setQueueLength } />
     </div>

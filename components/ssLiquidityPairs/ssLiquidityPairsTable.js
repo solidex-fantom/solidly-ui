@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled, makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
+
 import {
   Paper,
   Button,
@@ -397,7 +398,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imgIconList : {
     position: 'relative',
-    bottom: '10px'    
+    bottom: '10px',    
   },
   actionButtonText: {
     fontSize: '15px',
@@ -405,7 +406,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '40%',
     left: '50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',    
+    lineHeight: '1.5',
+    fontWeight: '100',
+    letterSpacing: '1px'
   },
   filterContainer: {
     background: '#212b48',
@@ -414,7 +418,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     padding: '20px',
     boxShadow: '0 10px 20px 0 rgba(0,0,0,0.2)',
-    border: '1px solid rgba(126,153,176,0.2)',
+    border: '1px solid',
+    borderRadius: '12px',    
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
   },
   alignContentRight: {
     textAlign: 'right',
@@ -429,7 +435,7 @@ const useStyles = makeStyles((theme) => ({
   filterListTitle: {
     marginBottom: '10px',
     paddingBottom: '20px',
-    borderBottom: '1px solid rgba(126,153,176,0.2)',
+    borderBottom: '1px solid rgb(205, 116, 204)',
   },
   infoIcon: {
     color: '#06D3D7',
@@ -482,7 +488,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',    
     position: 'relative',
     bottom: '140px',
-    opacity: '0.9'
+    opacity: '1'
+
   },
   toolbarInfo: {
     margin: '15px',
@@ -490,8 +497,16 @@ const useStyles = makeStyles((theme) => ({
     bottom: '100px',
     right: '1px'
   },
-  toolbarText: {
-        
+  toolbarTitle: {
+    color: 'white',
+    fontSize: '32px',
+    letterSpacing: '4px'
+  },
+  toolbarSubtitle: {
+    fontSize: '16px',
+    letterSpacing: '1px',
+    lineHeight: '1.5',
+    fontWeight: '100',
   },
 
 }));
@@ -600,13 +615,13 @@ const EnhancedTableToolbar = (props) => {
       <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
 
           <Grid direction="column" >            
-            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h1">Pools</Typography></Grid>    
-            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
+            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle} variant="h1">Pools</Typography></Grid>    
+            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarSubtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
           </Grid>   
 
           <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
             <Button className={ classes.buttonOverride } onClick={ onCreate }>
-              <Img alt="complex" src="/images/Small_Button.png" width={'50%'} />
+              <Img alt="complex" src="/images/Small_Button.png" width={'70%'} />
               <Typography className={ classes.actionButtonText }>Add Liquidity</Typography>
             </Button>            
           </Grid> 

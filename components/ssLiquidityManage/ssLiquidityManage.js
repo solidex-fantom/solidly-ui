@@ -808,7 +808,7 @@ export default function ssLiquidityManage() {
                 Balance:
                 { (assetValue && assetValue.balance) ?
                   ' ' + formatCurrency(assetValue.balance) :
-                  ''
+                  ' 0.00'
                 }
               </Typography>
             }
@@ -822,7 +822,7 @@ export default function ssLiquidityManage() {
                     (
                       (assetValue && assetValue.balance) ?
                       (' ' + formatCurrency(assetValue.balance)) :
-                      '0.00'
+                      ' 0.00'
                     )
                 }
               </Typography>
@@ -855,20 +855,44 @@ export default function ssLiquidityManage() {
     )
   }
 
+  const renderReserveInformation = () => {
+   
+    return (
+      <div className={ classes.depositInfoContainer }>
+        <Typography className={ classes.depositInfoHeading } >Reserve info</Typography>
+        <div className={ classes.createPriceInfos}>
+          <div className={ classes.priceInfo }>
+            <Typography className={ classes.title } >{ BigNumber(amount1).gt(0) ? formatCurrency(BigNumber(amount0).div(amount1)) : '0.00' }</Typography>
+            <Typography className={ classes.text } >{ `${asset1?.symbol}` }</Typography>
+          </div>
+          <div className={ classes.priceInfo }>
+            <Typography className={ classes.title } >{ BigNumber(amount0).gt(0) ? formatCurrency(BigNumber(amount1).div(amount0)) : '0.00' }</Typography>
+            <Typography className={ classes.text } >{ `${asset0?.symbol}` }</Typography>
+          </div>
+          <div className={ classes.priceInfo }>
+            <Typography className={ classes.title } >{ BigNumber(amount0).gt(0) ? formatCurrency(BigNumber(amount1).div(amount0)) : '2%' }</Typography>
+            <Typography className={ classes.text } >Slipagge</Typography>
+          </div>
+          
+        </div>
+      </div>
+    )
+  } 
+
   const renderDepositInformation = () => {
     if(!pair) {
       return (
         <div className={ classes.depositInfoContainer }>
-          <Typography className={ classes.depositInfoHeading } >Starting Liquidity Info</Typography>
-          <div className={ classes.createPriceInfos}>
+          <Typography className={ classes.depositInfoHeading } >Your balance</Typography>
+          <div className={ classes.balanceInfo}>
             <div className={ classes.priceInfo }>
               <Typography className={ classes.title } >{ BigNumber(amount1).gt(0) ? formatCurrency(BigNumber(amount0).div(amount1)) : '0.00' }</Typography>
-              <Typography className={ classes.text } >{ `${asset0?.symbol} per ${asset1?.symbol}` }</Typography>
+              <Typography className={ classes.text } >{ `${asset1?.symbol}` }</Typography>
             </div>
             <div className={ classes.priceInfo }>
               <Typography className={ classes.title } >{ BigNumber(amount0).gt(0) ? formatCurrency(BigNumber(amount1).div(amount0)) : '0.00' }</Typography>
-              <Typography className={ classes.text } >{ `${asset1?.symbol} per ${asset0?.symbol}` }</Typography>
-            </div>
+              <Typography className={ classes.text } >{ `${asset0?.symbol}` }</Typography>
+            </div>                       
           </div>
         </div>
       )
@@ -1065,9 +1089,8 @@ export default function ssLiquidityManage() {
                     <AddIcon className={ classes.swapIcon } />
                   </div>
                 </div>
-                { renderMassiveInput('amount1', amount1, amount1Error, amount1Changed, asset1, null, assetOptions, onAssetSelect, amount1Focused, amount1Ref) }
-                { renderMediumInputToggle('stable', stable) }
-                { renderTokenSelect() }
+                { renderMassiveInput('amount1', amount1, amount1Error, amount1Changed, asset1, null, assetOptions, onAssetSelect, amount1Focused, amount1Ref) }                
+                { renderReserveInformation() }
                 { renderDepositInformation() }
               </>
             }
@@ -1087,22 +1110,7 @@ export default function ssLiquidityManage() {
                 { renderWithdrawInformation() }
               </>
             }
-          </div>
-          <div className={ classes.advancedToggleContainer }>
-            <FormControlLabel
-              control={
-                <Switch
-                  size="small"
-                  checked={ advanced }
-                  onChange={ toggleAdvanced }
-                  color={ 'primary' }
-                />
-              }
-              className={ classes.some }
-              label="Advanced"
-              labelPlacement="start"
-            />
-          </div>
+          </div>          
           {
             activeTab === 'deposit' &&
             <div className={ classes.actionsContainer }>
@@ -1146,11 +1154,46 @@ export default function ssLiquidityManage() {
                     disabled={ createLoading || depositLoading }
                     onClick={ onCreateAndDeposit }
                     >
-                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Create Pair & Deposit` }</Typography>
+                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Deposit & Stake` }</Typography>
                     { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
                   </Button>
                 </>
               }
+
+
+              { pair == null && !(asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true) &&
+                <>
+                  <Button
+                    variant='contained'
+                    size='large'
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                    color='primary'
+                    disabled={ createLoading || depositLoading }
+                    onClick={ onCreateAndDeposit }
+                    >
+                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Just Deposit` }</Typography>
+                    { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+                  </Button>
+                </>
+              }
+
+              { pair == null && !(asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true) &&
+                <>
+                  <Button
+                    variant='contained'
+                    size='large'
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                    color='primary'
+                    disabled={ createLoading || depositLoading }
+                    onClick={ onCreateAndDeposit }
+                    >
+                    { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Nothing Unstaked` }</Typography>
+                  </Button>
+                </>
+              }
+
+
               { // There is no Gauge on the pair yet. Can only deposit
                 pair && !(pair && pair.gauge && pair.gauge.address) &&
                   <>

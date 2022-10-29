@@ -4,7 +4,6 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 20px 30px;
-  min-height: 60px;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +11,19 @@
   width: calc(100%);
   border: 0;
   border-radius: 0 !important;
+}
+
+.containerMenu{  
+  max-height: 40px;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 32px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
+  
+}
+
+.bigcontainerMenu {
+  min-width: 350px;
 }
 
 .hidden { display: none !important; }
@@ -118,15 +130,14 @@
   display: flex;
   align-items: center;
   margin-left: 14px !important;
-  min-height: 50px;
-  background-color: rgb(33, 43, 72) !important;
+  height: 38px;
+  background-color: #0D142E !important;
   border: 0 !important;
   border-radius: 40px !important;
   color: rgba(255, 255, 255, 0.87) !important;
   padding-left: 26px !important;
   padding-right: 26px !important;
-  position: fixed;
-  z-index: 10030 !important;
+  
 }
 
 .iconColor {
@@ -193,16 +204,22 @@
   background-image: linear-gradient(270deg ,#1c46f5 0,#0005d3) !important;
 }
 
-.accountIcon {
-  width: 20px;
+.accountIcon {  
   height: 20px;
   background-size: 100%;
   margin-right: 12px;
 }
 
+.headAccountBalance {
+  position: relative;
+  margin-bottom: 13px;
+  margin-left: 25px;
+}
+
+
 .headBtnTxt {
   font-size: 13px !important;
-  font-weight: 700 !important;
+  font-weight: 700 !important;    
 }
 
 .metamask {

@@ -115,6 +115,8 @@
   font-size: 18px !important;
   max-width: 800px;
   line-height: 1.8rem !important;
+  letter-spacing: 2px;
+  font-family: 'Arista' !important;  
 }
 
 .buttonConnect {

@@ -295,7 +295,9 @@
 }
 
 .swapIconSubContainer {
-  background: #161B2C;
+  border: 1px solid;
+  border-radius: 12px;    
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   border-radius: 9px;
   height: 38px;
   z-index: 1;
@@ -305,7 +307,6 @@
   cursor: pointer;
   padding: 6px;
   font-size: 30px !important;
-  background: rgb(33, 43, 72);
   margin: 4px;
   border-radius: 6px;
 }
@@ -320,7 +321,7 @@
   border-radius: 10px;
   width: 100%;
   align-items: center;
-  background: rgb(33, 43, 72);
+  
 }
 
 .massiveInputAssetSelect {
@@ -445,11 +446,18 @@
 .priceInfos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 12px;
+  grid-gap: 4px;
   width: 100%;
 }
 
 .createPriceInfos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+  width: 100%;
+}
+
+.balanceInfo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 12px;
