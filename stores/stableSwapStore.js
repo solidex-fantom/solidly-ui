@@ -4370,9 +4370,14 @@ class Store {
       const gasPrice = await stores.accountStore.getGasPrice()
 
       // SUBMIT CLAIM TRANSACTION
-      const pairContract = new web3.eth.Contract(CONTRACTS.PAIR_ABI, pair.address)
+      const gaugesContract = new web3.eth.Contract(CONTRACTS.VOTER_ABI, CONTRACTS.VOTER_ADDRESS)
 
-      this._callContractWait(web3, pairContract, 'claimFees', [], account, gasPrice, null, null, claimTXID, async (err) => {
+      const sendGauges = [ pair.gauge.bribeAddress ]
+      const sendTokens = [ pair.gauge.bribesEarned.map((bribe) => {
+        return bribe.token.address
+      }) ]
+
+      this._callContractWait(web3, gaugesContract, 'claimFees', [sendGauges, sendTokens, tokenID], account, gasPrice, null, null, claimTXID, async (err) => {
         if (err) {
           return this.emitter.emit(ACTIONS.ERROR, err)
         }
@@ -4380,6 +4385,18 @@ class Store {
         this.getRewardBalances({ content: { tokenID } })
         this.emitter.emit(ACTIONS.CLAIM_REWARD_RETURNED)
       })
+
+      // SUBMIT CLAIM TRANSACTION (OLD)
+      // const pairContract = new web3.eth.Contract(CONTRACTS.PAIR_ABI, pair.address)
+
+      // this._callContractWait(web3, pairContract, 'claimFees', [], account, gasPrice, null, null, claimTXID, async (err) => {
+      //   if (err) {
+      //     return this.emitter.emit(ACTIONS.ERROR, err)
+      //   }
+
+      //   this.getRewardBalances({ content: { tokenID } })
+      //   this.emitter.emit(ACTIONS.CLAIM_REWARD_RETURNED)
+      // })
     } catch(ex) {
       console.error(ex)
       this.emitter.emit(ACTIONS.ERROR, ex)
