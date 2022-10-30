@@ -572,16 +572,18 @@ class Store {
         if(gaugeAddress !== ZERO_ADDRESS) {
           const gaugeContract = new web3.eth.Contract(CONTRACTS.GAUGE_ABI, gaugeAddress)
 
-          const [ totalSupply, gaugeBalance, bribeAddress ] = await Promise.all([
+          const [ totalSupply, gaugeBalance, bribeAddress, feeAddress ] = await Promise.all([
             gaugeContract.methods.totalSupply().call(),
             gaugeContract.methods.balanceOf(account.address).call(),
-            gaugesContract.methods.bribes(gaugeAddress).call()
+            gaugesContract.methods.external_bribes(gaugeAddress).call(),
+            gaugesContract.methods.internal_bribes(gaugeAddress).call()
           ])
-
+          
+          //External Bribes
           const bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, bribeAddress)
-
-          const tokensLength = await bribeContract.methods.rewardsListLength().call()
-          const arry = Array.from({length: parseInt(tokensLength)}, (v, i) => i)
+          
+          let tokensLength = await bribeContract.methods.rewardsListLength().call()
+          let arry = Array.from({length: parseInt(tokensLength)}, (v, i) => i)
 
           const bribes = await Promise.all(
             arry.map(async (idx) => {
@@ -601,15 +603,40 @@ class Store {
             })
           )
 
+          //Internal Bribes (FEES)
+          const feeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, feeAddress)
+          tokensLength = await feeContract.methods.rewardsListLength().call()
+          arry = Array.from({length: parseInt(tokensLength)}, (v, i) => i)
+
+          const fees = await Promise.all(
+            arry.map(async (idx) => {
+
+              const tokenAddress = await feeContract.methods.rewards(idx).call()
+              const token = await this.getBaseAsset(tokenAddress)
+
+              const [ rewardRate ] = await Promise.all([
+                feeContract.methods.rewardRate(tokenAddress).call(),
+              ])
+
+              return {
+                token: token,
+                rewardRate: BigNumber(rewardRate).div(10**token.decimals).toFixed(token.decimals),
+                rewardAmount: BigNumber(rewardRate).times(604800).div(10**token.decimals).toFixed(token.decimals)
+              }
+            })
+          )
+
           thePair.gauge = {
             address: gaugeAddress,
             bribeAddress: bribeAddress,
+            feeAddress: feeAddress,
             decimals: 18,
             balance: BigNumber(gaugeBalance).div(10**18).toFixed(18),
             totalSupply: BigNumber(totalSupply).div(10**18).toFixed(18),
             weight: BigNumber(gaugeWeight).div(10**18).toFixed(18),
             weightPercent: BigNumber(gaugeWeight).times(100).div(totalWeight).toFixed(2),
             bribes: bribes,
+            fees: fees
           }
         }
 
@@ -1013,13 +1040,28 @@ class Store {
                 })
               )
 
+              const feeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, pair.gauge.feeAddress)
+
+              const fees = await Promise.all(
+                pair.gauge.fees.map(async (fee, idx) => {
+
+                  const rewardRate = await feeContract.methods.rewardRate(fee.token.address).call()
+
+                  fee.rewardRate = BigNumber(rewardRate).div(10**fee.token.decimals).toFixed(fee.token.decimals)
+                  fee.rewardAmount = BigNumber(rewardRate).times(604800).div(10**fee.token.decimals).toFixed(fee.token.decimals)
+
+                  return fee
+                })
+              )
+
               pair.gauge.balance = BigNumber(gaugeBalance).div(10**18).toFixed(18)
               pair.gauge.totalSupply = BigNumber(totalSupply).div(10**18).toFixed(18)
               pair.gauge.reserve0 = pair.totalSupply > 0 ? BigNumber(pair.reserve0).times(pair.gauge.totalSupply).div(pair.totalSupply).toFixed(pair.token0.decimals) : '0'
               pair.gauge.reserve1 = pair.totalSupply > 0 ? BigNumber(pair.reserve1).times(pair.gauge.totalSupply).div(pair.totalSupply).toFixed(pair.token1.decimals) : '0'
               pair.gauge.weight = BigNumber(gaugeWeight).div(10**18).toFixed(18)
               pair.gauge.weightPercent = BigNumber(gaugeWeight).times(100).div(totalWeight).toFixed(2)
-              pair.gaugebribes = bribes
+              pair.gauge.bribes = bribes
+              pair.gauge.fees = fees
             }
 
             return pair
@@ -3842,7 +3884,22 @@ class Store {
             })
           )
 
+          const feesEarned = await Promise.all(
+            pair.gauge.fees.map(async (fee) => {
+              const feeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, pair.gauge.feeAddress)
+
+              const [ earned ] = await Promise.all([
+                feeContract.methods.earned(fee.token.address, tokenID).call(),
+              ])
+
+              return {
+                earned: BigNumber(earned).div(10**fee.token.decimals).toFixed(fee.token.decimals),
+              }
+            })
+          )
+
           pair.gauge.bribesEarned = bribesEarned
+          pair.gauge.feesEarned = feesEarned
 
           return pair
         })
@@ -3928,6 +3985,46 @@ class Store {
           return pair
         })
 
+        const feesEarned = await Promise.all(
+          filteredPairs.map(async (pair) => {
+
+            const feesEarned = await Promise.all(
+              pair.gauge.fees.map(async (fee) => {
+                const feeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, pair.gauge.feeAddress)
+
+                const [ earned ] = await Promise.all([
+                  feeContract.methods.earned(fee.token.address, tokenID).call(),
+                ])
+
+                fee.earned = BigNumber(earned).div(10**fee.token.decimals).toFixed(fee.token.decimals)
+                return fee
+              })
+            )
+            pair.gauge.feesEarned = feesEarned
+
+            return pair
+          })
+        )
+
+        filteredFees = feesEarned.filter((pair) => {
+          if(pair.gauge && pair.gauge.feesEarned && pair.gauge.feesEarned.length > 0) {
+            let shouldReturn = false
+
+            for(let i = 0; i < pair.gauge.feesEarned.length; i++) {
+              if(BigNumber(pair.gauge.feesEarned[i].earned).gt(0)) {
+                shouldReturn = true
+              }
+            }
+
+            return shouldReturn
+          }
+
+          return false
+        }).map((pair) => {
+          pair.rewardType = 'Fees'
+          return pair
+        })
+
         const veDistContract = new web3.eth.Contract(CONTRACTS.VE_DIST_ABI, CONTRACTS.VE_DIST_ADDRESS)
         const veDistEarned = await veDistContract.methods.claimable(tokenID).call()
         const vestNFTs = this.getStore('vestNFTs')
@@ -3947,14 +4044,14 @@ class Store {
 
       }
 
-      const filteredFees = []
-      for(let i = 0; i < pairs.length; i++) {
-        let pair = Object.assign({}, pairs[i])
-        if(BigNumber(pair.claimable0).gt(0) || BigNumber(pair.claimable1).gt(0)) {
-          pair.rewardType = 'Fees'
-          filteredFees.push(pair)
-        }
-      }
+      // const filteredFees = []
+      // for(let i = 0; i < pairs.length; i++) {
+      //   let pair = Object.assign({}, pairs[i])
+      //   if(BigNumber(pair.claimable0).gt(0) || BigNumber(pair.claimable1).gt(0)) {
+      //     pair.rewardType = 'Fees'
+      //     filteredFees.push(pair)
+      //   }
+      // }
 
       const rewardsEarned = await Promise.all(
         filteredPairs2.map(async (pair) => {
@@ -4181,18 +4278,33 @@ class Store {
 
       if(feePairs.length > 0) {
         for(let i = 0; i < feePairs.length; i++) {
-          const pairContract = new web3.eth.Contract(CONTRACTS.PAIR_ABI, feePairs[i].address)
+          const gaugesContract = new web3.eth.Contract(CONTRACTS.VOTER_ABI, CONTRACTS.VOTER_ADDRESS)
 
-          const claimPromise = new Promise((resolve, reject) => {
-            context._callContractWait(web3, pairContract, 'claimFees', [], account, gasPrice, null, null, feeClaimTXIDs[i], (err) => {
-              if (err) {
-                reject(err)
-                return
-              }
+          const sendGauges = [ pair.gauge.feeAddress ]
+          const sendTokens = [ pair.gauge.feesEarned.map((fee) => {
+            return fee.token.address
+          }) ]
 
-              resolve()
-            })
+          this._callContractWait(web3, gaugesContract, 'claimFees', [sendGauges, sendTokens, tokenID], account, gasPrice, null, null, feeClaimTXIDs[i], (err) => {
+            if (err) {
+              return this.emitter.emit(ACTIONS.ERROR, err)
+            }
+
+            this.getRewardBalances({ content: { tokenID } })
+            this.emitter.emit(ACTIONS.CLAIM_REWARD_RETURNED)
           })
+          // const pairContract = new web3.eth.Contract(CONTRACTS.PAIR_ABI, feePairs[i].address)
+
+          // const claimPromise = new Promise((resolve, reject) => {
+          //   context._callContractWait(web3, pairContract, 'claimFees', [], account, gasPrice, null, null, feeClaimTXIDs[i], (err) => {
+          //     if (err) {
+          //       reject(err)
+          //       return
+          //     }
+
+          //     resolve()
+          //   })
+          // })
 
           await Promise.all([claimPromise])
         }
@@ -4372,9 +4484,9 @@ class Store {
       // SUBMIT CLAIM TRANSACTION
       const gaugesContract = new web3.eth.Contract(CONTRACTS.VOTER_ABI, CONTRACTS.VOTER_ADDRESS)
 
-      const sendGauges = [ pair.gauge.bribeAddress ]
-      const sendTokens = [ pair.gauge.bribesEarned.map((bribe) => {
-        return bribe.token.address
+      const sendGauges = [ pair.gauge.feeAddress ]
+      const sendTokens = [ pair.gauge.feesEarned.map((fee) => {
+        return fee.token.address
       }) ]
 
       this._callContractWait(web3, gaugesContract, 'claimFees', [sendGauges, sendTokens, tokenID], account, gasPrice, null, null, claimTXID, async (err) => {
