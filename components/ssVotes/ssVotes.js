@@ -201,10 +201,10 @@ export default function ssVotes() {
 
           <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
 
-            <Grid direction="column" lg={6} md={6} sm={6} xs={6}>            
-              <Grid className={classes.toolbarInfo}><Typography variant="h1">Vote</Typography></Grid>    
-              <Grid className={classes.toolbarInfo}><Typography variant="h2">Earn a share of your pools transactions fees, bribes and emission</Typography></Grid>                    
-              <Grid className={classes.toolbarInfo}><Typography variant="h2">rewards for helping govern Équilibre</Typography></Grid>                    
+            <Grid direction="column" lg={6} md={6} sm={6} xs={6}>    
+
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle}  variant="h1">Vote</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarSubtitle}  variant="h2">Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
             </Grid>   
 
             <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            

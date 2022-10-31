@@ -9,23 +9,6 @@
   justify-content: center;
 }
 
-.gridSwapCenter {
-  width: calc(100%) !important;
-  background: rgba(17,23,41,0.2) !important;
-  text-align: center;
-  padding: 50px;
-  height: calc(100vh);
-  box-shadow: none !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  border-radius: 0 !important;
-  position: fixed;
-  top: 50px;
-}
-
 .notConnectedContent {
   width: calc(100%) !important;
   background: rgba(17,23,41,0.2) !important;
@@ -42,6 +25,7 @@
   position: fixed;
   top: 0;
 }
+
 
 .contentFloat {
   position: relative;
@@ -65,7 +49,6 @@
   position: relative;
   margin-top: -80px;
 }
-
 
 .overviewIcon {
   font-size: 110px !important;
@@ -147,7 +130,6 @@
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
 
 @media screen and (max-width: 1600px) {
 

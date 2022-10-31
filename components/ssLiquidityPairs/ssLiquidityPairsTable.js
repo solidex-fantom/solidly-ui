@@ -365,9 +365,13 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     display: 'flex',
     width: '100%',
-    border: '1px solid',
-    borderRadius: '12px',    
+    minHeight: '60px',    
+    border: '2px solid',
+    borderRadius: '18px',    
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+    '& .MuiInputBase-input': {      
+      border: '0 px',    
+    }
   },
   buttonOverride: {
     width: '100%',        
@@ -467,8 +471,8 @@ const useStyles = makeStyles((theme) => ({
     margin: '10px',
     padding: '8px',    
     marginTop: '80px',
-    border: '1px solid',
-    borderRadius: '12px',    
+    border: '2px solid',
+    borderRadius: '24px',    
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
   },
   infoBanner: {
@@ -495,18 +499,20 @@ const useStyles = makeStyles((theme) => ({
     margin: '15px',
     position: 'relative',
     bottom: '100px',
-    right: '1px'
+    right: '1px',
+    fontFamily: 'Arista' 
   },
   toolbarTitle: {
-    color: 'white',
-    fontSize: '32px',
-    letterSpacing: '4px'
+    fontFamily: 'Arista',
+    color: '#FFFFFF',    
+    fontSize: '42px',
+    letterSpacing: '6px'    
   },
   toolbarSubtitle: {
-    fontSize: '16px',
-    letterSpacing: '1px',
+    fontSize: '16px',    
     lineHeight: '1.5',
     fontWeight: '100',
+    letterSpacing: '1px'    
   },
 
 }));
@@ -622,7 +628,7 @@ const EnhancedTableToolbar = (props) => {
           <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
             <Button className={ classes.buttonOverride } onClick={ onCreate }>
               <Img alt="complex" src="/images/Small_Button.png" width={'70%'} />
-              <Typography className={ classes.actionButtonText }>Add Liquidity</Typography>
+              <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
             </Button>            
           </Grid> 
 

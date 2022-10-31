@@ -219,6 +219,20 @@
   right: 60px  
 }
 
+.toolbarTitle {
+  font-family: 'Arista';
+  color: #FFFFFF;   
+  font-size: 42px;
+  letter-spacing: 6px    
+}
+
+.toolbarSubtitle {
+  font-size: 12px;   
+  line-height: 1.5;
+  font-weight: 1;
+  letter-spacing: 1px
+}
+
 .toolbarText {
   color: #CD74CC;
 }

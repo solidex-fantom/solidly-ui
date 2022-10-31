@@ -5,11 +5,8 @@
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 423px);
-  align-items: center;
-
-  
+  align-items: center;  
 }
-
 
 .swapContainer {
   max-width: 485px;
@@ -32,33 +29,22 @@
 .swapInputs {
   display: flex;
   flex-direction: column;
-  width: 100%;
-
-  
-  
+  width: 100%;    
 }
 
 
 .smallInputContainer {
   display: flex;
-  flex-wrap: wrap;
-  
+  flex-wrap: wrap;  
   width: 100%;
   align-items: center;
   background: rgb(33, 43, 72);
   max-width: 80px;
   min-height: 50px;
-  padding: 20px 12px 4px 12px ;
-
-  
-  
-    
-
+  padding: 20px 12px 4px 12px ;        
 }
 
-
 .smallInput {
-
   font-family: 'Monument' !important;
   font-size: 60px !important;
   margin-bottom: 30px !important;
@@ -68,10 +54,7 @@
   position: relative;
   bottom: 0;
   opacity: 0;
-  text-align: center !important;
-
-  
-
+  text-align: center !important;  
 }
 
 .massiveInputContainer {
@@ -80,10 +63,7 @@
   border: none;
   width: 100%;
   align-items: center;
-  background: transparent;
-
-  
-  
+  background: transparent;    
 }
 
 .error {
@@ -441,8 +421,7 @@
   flex-direction: column;
   border-radius: 10px;
   padding: 12px;
-  width: 100%;
-  
+  width: 100%;  
 }
 
 .swapInfoRow {
@@ -557,6 +536,7 @@
 
 .actionsContainer {
   display: grid;
+  display: none;
   grid-gap: 12px;
   grid-template-columns: 1fr;
   width: 100%;

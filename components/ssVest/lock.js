@@ -12,6 +12,7 @@ import {
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import VestingInfo from "./vestingInfo"
+import { styled, makeStyles } from '@material-ui/core/styles';
 
 export default function ssLock({ govToken, veToken }) {
 
@@ -116,6 +117,14 @@ export default function ssLock({ govToken, veToken }) {
     setAmountError(false)
     setAmount(event.target.value)
   }
+
+  const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  });
+  
 
   const renderMassiveDateInput = (type, amountValue, amountError, amountChanged, balance, logo) => {
     return (
@@ -241,14 +250,7 @@ export default function ssLock({ govToken, veToken }) {
   return (
     <>
       <Paper elevation={0} className={ classes.container3 }>
-        <div className={ classes.titleSection }>
-        <Tooltip title="Back to Vest" placement="top">
-          <IconButton className={ classes.backButton } onClick={ onBack }>
-            <ArrowBackIcon className={ classes.backIcon } />
-          </IconButton>
-          </Tooltip>
-          <Typography className={ classes.titleText }>Create New Lock</Typography>
-        </div>
+        
         { renderMassiveInput('amount', amount, amountError, onAmountChanged, govToken) }
         <div>
           { renderMassiveDateInput('date', selectedDate, selectedDateError, handleDateChange, govToken?.balance, govToken?.logoURI) }
@@ -266,13 +268,12 @@ export default function ssLock({ govToken, veToken }) {
         <div className={ classes.actionsContainer }>
           <Button
             className={classes.buttonOverride}
-            fullWidth
-            variant='contained'
+            fullWidth            
             size='large'
-            color='primary'
             disabled={ lockLoading }
             onClick={ onLock }
             >
+              <Img alt="complex" src="/images/Barra_boton.png"/>
             <Typography className={ classes.actionButtonText }>{ lockLoading ? `Locking` : `Lock` }</Typography>
             { lockLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
           </Button>

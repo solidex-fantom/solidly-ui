@@ -47,13 +47,10 @@
   font-weight: 700 !important;
   width: 100%;
   min-width: 200px !important;    
-
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  
+  justify-content: space-between;  
 }
-
 
 .buttonOverride:hover {
   background: rgb(19, 44, 60);
@@ -185,8 +182,19 @@
   right: 60px  
 }
 
-.toolbarText {
-      
+
+.toolbarTitle {
+  font-family: 'Arista';
+  color: #FFFFFF;   
+  font-size: 42px;
+  letter-spacing: 6px    
+}
+
+.toolbarSubtitle {
+  font-size: 12px;   
+  line-height: 1.5;
+  font-weight: 1;
+  letter-spacing: 1px
 }
 
 .actionButtonText {

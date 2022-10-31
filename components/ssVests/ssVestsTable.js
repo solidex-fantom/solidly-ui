@@ -233,7 +233,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#0D142E',
     fontWeight: '700',
     position: 'relative',
-    bottom: '80px',
+    bottom: '60px',
     '&:hover': {
       background: 'rgb(19, 44, 60)'
     },
@@ -260,7 +260,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translate(-50%, -50%)'
   },
   gridBanner: {          
-    height: '200px',
+    height: '220px',
     margin: '10px',
     padding: '8px',    
     marginTop: '80px',
@@ -268,15 +268,18 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '12px',    
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',  
   },
-  infoBanner: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flex: 1,
-    padding: '24px',
-    width: '100%',
-    flexWrap: 'wrap',        
+  toolbarTitle: {
+    fontFamily: 'Arista',
+    color: '#FFFFFF',    
+    fontSize: '42px',
+    letterSpacing: '6px'    
   },
+  toolbarSubtitle: {
+    fontSize: '16px',    
+    lineHeight: '1.5',
+    fontWeight: '100',
+    letterSpacing: '1px'    
+  },  
   sphere: {        
     width: '100%',
     height: '320px',
@@ -289,8 +292,21 @@ const useStyles = makeStyles((theme) => ({
   toolbarInfo: {
     margin: '15px',
     position: 'relative',
-    bottom: '80px',
-  }
+    bottom: '60px',
+    letterSpacing: '6px'    
+  },
+  toolbarTitle: {
+    fontFamily: 'Arista',
+    color: '#FFFFFF',    
+    fontSize: '42px',
+    letterSpacing: '6px'    
+  },
+  toolbarSubtitle: {
+    fontSize: '16px',    
+    lineHeight: '1.5',
+    fontWeight: '100',
+    letterSpacing: '1px'    
+  },
 }));
 
 
@@ -325,16 +341,14 @@ const EnhancedTableToolbar = (props) => {
 
             <Grid direction="column" spacing={2}  lg={8} md={8} sm={8} xs={8}>       
 
-              <Grid className={classes.toolbarInfo}><Typography variant="h1">Vest</Typography></Grid>    
-              <Grid className={classes.toolbarInfo}><Typography variant="h2">More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle} variant="h1">Vest</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarSubtitle} variant="h2">More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
 
               <Grid>
-
                 <Button className={ classes.buttonOverride } onClick={ onCreate }>
                   <Img alt="complex" src="/images/Small_Button.png" width={'100%'}/>
                   <Typography className={ classes.actionButtonText }>Create Lock</Typography>
                 </Button>   
-
               </Grid> 
 
             </Grid>   

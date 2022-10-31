@@ -4,6 +4,7 @@
   margin: 0 auto;
   margin-top: 80px;
   position: relative;
+  
 }
 
 .backButton {
@@ -16,6 +17,7 @@
   font-size: 12px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
+  color: white;
 }
 
 .container {
@@ -115,7 +117,7 @@
 
 .infoIcon {
   border: 1px solid rgba(104, 108, 122, 0.25);
-  color: rgba(104, 108, 122, 0.25);
+  
   border-radius: 30px;
   font-size: 40px !important;
   padding: 6px;
@@ -130,26 +132,36 @@
 }
 
 .infoText {
-  color: rgba(104, 108, 122, 0.25);
+  
   font-size: 14px !important;
 }
 
 .helpText {
-  color: rgba(104, 108, 122, 1);
+  
   font-size: 16px !important;
   margin-top: 20px !important;
 }
 
 .actionsContainer {
   width: 100%;
-  margin-top: 20px;
-
+  margin-top: 20px;  
 }
 
 .actionButtonText {
-  font-size: 15px !important;
+  
+  font-size: 18px !important;
   text-transform: capitalize !important;
   font-weight: 700 !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.5;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: #0D142E;
+  font-family: 'Righteous' !important;    
+
 }
 
 .buttonStretch {
@@ -191,13 +203,13 @@
 }
 
 .buttonOverride {
-  background: rgb(23, 52, 72) !important;
-  color: rgb(6, 211, 215) !important;
+  color: #0D142E !important;  
+  background-color: transparent !important;
   font-weight: 700 !important;
 }
 
 .buttonOverride:hover {
-  background: rgb(19, 44, 60) !important;
+  
 }
 
 .toggleButtons {
@@ -281,8 +293,7 @@
 
 .vestPeriodToggle {
   background: none;  
-  flex: 1;
-  color: #CD74CC;
+  flex: 1;  
 }
 
 .vestPeriodLabel > span {
@@ -358,6 +369,7 @@
   flex: 1;
   height: 100%;
   max-width: calc(100% - 124px);
+  
 }
 
 .massiveInputAddress {
@@ -377,8 +389,7 @@
 
 .displayAssetIcon {
   border: 1px solid rgba(126, 153, 176, 0.2);
-  border-radius: 50px;
-  background: rgb(33, 43, 72);
+  border-radius: 50px;  
   width: 100px;
   height: 100px;
   padding: 10px;
@@ -417,8 +428,7 @@
 
 .inputBalanceText {
   font-weight: 100 !important;
-  font-size: 12px !important;
-  color: #7e99b0;
+  font-size: 12px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
 }
@@ -494,6 +504,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 .vestInfoContainer > .mainSection > .values > .val {
@@ -502,12 +513,16 @@
 }
 
 .vestInfoContainer > .seccondSection {
+  margin-top: 20px;
+  letter-spacing: 2px;
 }
 
 .vestInfoContainer > .seccondSection > .info {
+  text-align: left  !important;
   font-size: 12px !important;
-  font-style: italic;
-  padding: 3px 0px !important
+  font-family: 'Righteous' !important;    
+  padding: 3px 0px !important;
+  color: white;
 }
 
 
@@ -554,7 +569,7 @@
 .mainDesc {
   margin: 20px auto 0px auto !important;
   text-align: left !important;
-  color: rgb(104,108,122);
+  
   font-size: 18px !important;
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
@@ -565,24 +580,21 @@
   margin-top: 20px;  
   text-align: center !important;
   font-size: 46px !important;
-  font-family: 'Monument' !important;  
-  color: #FFFFFF;
-  letter-spacing: 13px;
+  font-family: 'Monument' !important;    
+  letter-spacing: 6px;
 }
 
 .mainHeadingNC {
   text-align: center !important;
   font-size: 30px !important;
-  font-family: 'Arista' !important;  
-  color: #FFFFFF;
-  letter-spacing: 6px;
+  font-family: 'Arista' !important;    
+  letter-spacing: 13px;
 }
 
 
 .mainDescNC {
   margin: 30px auto !important;
-  text-align: center !important;
-  color: #7E99B0;
+  text-align: center !important;  
   font-size: 18px !important;
   max-width: 800px;
   line-height: 1.8rem !important;

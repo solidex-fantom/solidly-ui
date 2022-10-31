@@ -201,9 +201,8 @@ export default function ssRewards() {
         <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
 
             <Grid direction="column" lg={6} md={6} sm={6} xs={6}>            
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h1">Rewards</Typography></Grid>    
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">Claim rewards for locking tokens, including new token emissions, bribes</Typography></Grid>                    
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarText} variant="h2">and a slice of the transaction fees from your pools</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle} variant="h1">Rewards</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarSubtitle} variant="h2">Claim rewards for locking tokens, including new token emissions, bribes and a slice of the transaction fees from your pools</Typography></Grid>                                  
             </Grid>   
 
             <Grid item lg={4} md={4} sm={4} xs={4} justifyContent="center" alignItems="center">            

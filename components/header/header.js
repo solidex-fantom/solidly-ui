@@ -262,7 +262,7 @@ function Header(props) {
 
         <Navigation changeTheme={props.changeTheme} />
 
-        <div style={{ width: '380px', display: 'flex', justifyContent: 'flex-end' }}>
+        <div style={{ width: '300px', display: 'flex', justifyContent: 'flex-end' }}>
 
           { process.env.NEXT_PUBLIC_CHAINID == '4002' &&
             <div className={ classes.testnetDisclaimer}>
@@ -350,16 +350,20 @@ function Header(props) {
             onClick={onAddressClicked}>
             {account && account.address && <div className={`${classes.accountIcon} ${classes.metamask}`}></div>}
             <Typography className={classes.headBtnTxt}>{account && account.address ? formatAddress(account.address) : 'Connect Wallet'}</Typography>
+
+            <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+                <Img alt="complex" className={ classes.imgIconList } src="/images/Wallet_Icon.svg" />
+             </IconButton>    
           </Button>
           }
 
         </div>
 
-        <Grid alignItems="center" justifyContent="center" >
-                  <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
-                      <Img alt="complex" className={ classes.imgIconList } src="/images/Linktree_icon.svg" width={'100%'}/>
-                  </IconButton>          
-               </Grid>
+        {account && account.address &&
+          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+              <Img alt="complex" className={ classes.imgIconList } src="/images/Linktree_icon.svg" width={'100%'}/>
+          </IconButton>          
+        }
                
         {unlockOpen && <Unlock modalOpen={unlockOpen} closeModal={closeUnlock} />}
         <TransactionQueue setQueueLength={ setQueueLength } />
