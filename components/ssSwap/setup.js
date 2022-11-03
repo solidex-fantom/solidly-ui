@@ -19,6 +19,7 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import { withTheme } from '@material-ui/core/styles';
 
 import { formatCurrency, formatAddress, formatCurrencyWithSymbol, formatCurrencySmall } from '../../utils'
+import { styled, makeStyles } from '@material-ui/core/styles';
 
 import classes from './ssSwap.module.css'
 
@@ -52,9 +53,17 @@ function Setup() {
 
   const [ slippage, setSlippage ] = useState('2')
   const [ slippageError, setSlippageError ] = useState(false)
+  
 
   const [ quoteError, setQuoteError ] = useState(null)
   const [ quote, setQuote ] = useState(null)
+
+  const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  });
 
   useEffect(function() {
     const errorReturned = () => {
@@ -271,7 +280,9 @@ function Setup() {
           <CircularProgress size={20} className={ classes.loadingCircle } />
         </div>
       )
-    }
+    }    
+
+    //const quote = {inputs: {fromAmount: '0.1'}, output: {finalValue: '0.2', routes: [{stable: 1}, {stable: 1}], routeAsset: {}}}
 
     if(!quote) {
       return
@@ -280,76 +291,93 @@ function Setup() {
 
     return (
       <div className={ classes.depositInfoContainer }>
-        <Typography className={ classes.depositInfoHeading } >Price Info</Typography>
-        <div className={ classes.priceInfos}>
-          <div className={ classes.priceInfo }>
-            <Typography className={ classes.title } >{ formatCurrency(BigNumber(quote.inputs.fromAmount).div(quote.output.finalValue).toFixed(18)) }</Typography>
-            <Typography className={ classes.text } >{ `${fromAssetValue?.symbol} per ${toAssetValue?.symbol}` }</Typography>
-          </div>
-          <div className={ classes.priceInfo }>
-            <Typography className={ classes.title } > { formatCurrency(BigNumber(quote.output.finalValue).div(quote.inputs.fromAmount).toFixed(18)) } </Typography>
-            <Typography className={ classes.text } >{ `${toAssetValue?.symbol} per ${fromAssetValue?.symbol}` }</Typography>
-          </div>
-          <div className={ classes.priceInfo }>
-            { renderSmallInput('slippage', slippage, slippageError, onSlippageChanged) }
-          </div>
-        </div>
-        <Typography className={ classes.depositInfoHeading } >Route</Typography>
-        <div className={ classes.route }>
-          <img
-            className={ classes.displayAssetIconSmall }
-            alt=""
-            src={ fromAssetValue ? `${fromAssetValue.logoURI}` : '' }
-            height='40px'
-            onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-          />
-          <div className={ classes.line }>
-            <div className={classes.routeArrow}>
-              <ArrowForwardIosIcon className={classes.routeArrowIcon} />
-            </div>
-            <div className={ classes.stabIndicatorContainer }>
-              <Typography className={ classes.stabIndicator }>{ quote.output.routes[0].stable ? 'Stable' : 'Volatile' }</Typography>
-            </div>
-          </div>
-          { quote && quote.output && quote.output.routeAsset &&
-            <>
-              <img
-                className={ classes.displayAssetIconSmall }
-                alt=""
-                src={ quote.output.routeAsset ? `${quote.output.routeAsset.logoURI}` : '' }
-                height='40px'
-                onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-              />
-              <div className={ classes.line }>
-                <div className={classes.routeArrow}>
-                  <ArrowForwardIosIcon className={classes.routeArrowIcon} />
-                </div>
-                <div className={ classes.stabIndicatorContainer }>
-                  <Typography className={ classes.stabIndicator }>{ quote.output.routes[1].stable ? 'Stable' : 'Volatile' }</Typography>
-                </div>
+
+        { quote.output && quote.output.routeAsset &&
+          <>
+
+          <Typography className={ classes.depositInfoHeading } >Price Info</Typography>
+          <div className={ classes.priceInfos}>          
+              <div className={ classes.priceInfo }>
+                <Typography className={ classes.title } >{ formatCurrency(BigNumber(quote.inputs.fromAmount).div(quote.output.finalValue).toFixed(18)) }</Typography>
+                <Typography className={ classes.text } >{ `${fromAssetValue?.symbol} per ${toAssetValue?.symbol}` }</Typography>
               </div>
-            </>
-          }
-          <img
-            className={ classes.displayAssetIconSmall }
-            alt=""
-            src={ toAssetValue ? `${toAssetValue.logoURI}` : '' }
-            height='40px'
-            onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-          />
-        </div>
+              <div className={ classes.priceInfo }>
+                <Typography className={ classes.title } > { formatCurrency(BigNumber(quote.output.finalValue).div(quote.inputs.fromAmount).toFixed(18)) } </Typography>
+                <Typography className={ classes.text } >{ `${toAssetValue?.symbol} per ${fromAssetValue?.symbol}` }</Typography>
+              </div>
+              
+            </div>
+        
+            <Typography className={ classes.depositInfoHeading } >Route</Typography>
+            
+            <div className={ classes.route }>                                       
+                          
+                  <img
+                    className={ classes.displayAssetIconSmall }
+                    alt=""
+                    src={ quote.output.routeAsset ? `${quote.output.routeAsset.logoURI}` : '' }
+                    height='40px'
+                    onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+                  />            
+                  
+                  <div className={ classes.line }>
+
+                    <div className={classes.routeArrow}>
+                      <ArrowForwardIosIcon className={classes.routeArrowIcon} />
+                    </div>
+
+                    <div className={ classes.stabIndicatorContainer }>
+                      <Typography className={ classes.stabIndicator }>{ quote.output.routes[1].stable ? 'Stable' : 'Volatile' }</Typography>
+                    </div>
+                    
+                  </div>                    
+              
+                  <img
+                    className={ classes.displayAssetIconSmall }
+                    alt=""
+                    src={ toAssetValue ? `${toAssetValue.logoURI}` : '' }
+                    height='40px'
+                    onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+                  />
+
+                  <div className={ classes.line }>
+
+                    <div className={classes.routeArrow}>
+                      <ArrowForwardIosIcon className={classes.routeArrowIcon} />
+                    </div>
+
+                    <div className={ classes.stabIndicatorContainer }>
+                      <Typography className={ classes.stabIndicator }>{ quote.output.routes[1].stable ? 'Stable' : 'Volatile' }</Typography>
+                    </div>
+
+                  </div>   
+
+                  <img
+                    className={ classes.displayAssetIconSmall }
+                    alt=""
+                    src={ quote.output.routeAsset ? `${quote.output.routeAsset.logoURI}` : '' }
+                    height='40px'
+                    onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+                  />                    
+            </div>
+
+            </>         
+        }
+     
         {
           BigNumber(quote.priceImpact).gt(0.5) &&
             <div className={ classes.warningContainer }>
               <Typography className={ BigNumber(quote.priceImpact).gt(5) ? classes.warningError : classes.warningWarning } align='center'>Price impact { formatCurrency(quote.priceImpact) }%</Typography>
             </div>
         }
+        
       </div>
     )
   }
 
   const renderSmallInput = (type, amountValue, amountError, amountChanged) => {
     return (
+      
       <div className={ classes.textField}>
         <div className={ classes.inputTitleContainerSlippage }>
           <div className={ classes.inputBalanceSlippage }>
@@ -418,7 +446,7 @@ function Setup() {
               }}
             />
 
-            <Typography color='textSecondary' className={ classes.smallerText }>{ assetValue?.symbol }</Typography>
+            <Typography className={ classes.smallerText }>{ assetValue?.symbol }</Typography>
 
           </div>
         </div>
@@ -427,6 +455,8 @@ function Setup() {
   }
 
   return (
+    
+    
     <div className={ classes.swapInputs }>
       { renderMassiveInput('From', fromAmountValue, fromAmountError, fromAmountChanged, fromAssetValue, fromAssetError, fromAssetOptions, onAssetSelect) }
       <div className={ classes.swapIconContainer }>
@@ -434,21 +464,31 @@ function Setup() {
           <ArrowDownwardIcon className={ classes.swapIcon } onClick={ swapAssets }/>
         </div>
       </div>
+      
       { renderMassiveInput('To', toAmountValue, toAmountError, toAmountChanged, toAssetValue, toAssetError, toAssetOptions, onAssetSelect) }
       { renderSwapInformation() }
-      <div className={ classes.actionsContainer }>
-        <Button
-          variant='contained'
-          size='large'
-          color='primary'
-          className={classes.buttonOverride}
-          disabled={ loading || quoteLoading }
-          onClick={ onSwap }
-          >
-          <Typography className={ classes.actionButtonText }>{ loading ? `Swapping` : `Swap` }</Typography>
-          { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
-        </Button>
-      </div>
+
+      
+      
+      { fromAmountValue && toAmountValue  &&
+          <>
+          <div className={ classes.actionsContainer }>
+            <Button
+              variant='contained'
+              size='large'          
+              className={classes.buttonOverride}
+              disabled={ loading || quoteLoading }
+              onClick={ onSwap }
+              >
+              <Img alt="complex" src="/images/Barra_boton.png" width={'100%'} />
+              <Typography className={ classes.actionButtonText }>{ loading ? `Swapping` : `Swap` }</Typography>
+              { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+            </Button>
+            </div>
+          </>
+      }
+
+      
     </div>
   )
 }

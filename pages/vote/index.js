@@ -49,8 +49,8 @@ function Vote({ changeTheme }) {
         <Paper className={classes.notConnectedContent}>
           
           <div className={classes.contentFloat}>
-          <Typography className={classes.mainHeadingNC} variant='h1'>Vote</Typography>
-          <Typography className={classes.mainDescNC} variant='body2'>
+          <Typography className={classes.title} variant='h1'>Vote</Typography>
+          <Typography className={classes.subtitle} variant='body2'>
             Earn a share of your pool's transaction fees, bribes and emissions rewards for helping govern Équilibre
           </Typography>
           <Button

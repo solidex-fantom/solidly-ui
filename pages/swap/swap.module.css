@@ -57,59 +57,34 @@
   margin-left: -40px;
 }
 
-.mainHeading {
-  margin: 50px auto 0px auto !important;
-  text-align: left !important;
-  font-size: 20px !important;
-  width: calc(100% - 180px) !important;
-}
-
-.mainDesc {
-  margin: 20px auto 0px auto !important;
-  text-align: left !important;
-  color: rgb(104,108,122);
-  font-size: 18px !important;
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  width: calc(100% - 180px) !important;
-}
-
-.mainHeadingSwap {
-  margin-top: 20px;  
+.title {  
   text-align: center !important;
-  font-size: 46px !important;
-  font-family: 'Monument' !important;  
-  color: #FFFFFF;
-  letter-spacing: 13px;
-}
-
-.mainHeadingNC {
-  text-align: center !important;
-  font-size: 30px !important;
-  font-family: 'Arista' !important;  
-  color: #FFFFFF;
+  font-size: 32px !important;
+  font-family: 'Righteous' !important;  
+  color: #FFFFFF;  
   letter-spacing: 6px;
 }
 
-.mainDescNC {
-  margin: 30px auto !important;
+.subtitle {
   text-align: center !important;
-  color: #FFFFFF;
   font-size: 18px !important;
-  max-width: 800px;
-  line-height: 1.8rem !important;
-  letter-spacing: 2px;
   font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 6px;
+  margin: 50px auto 50px auto !important;
 }
 
 .buttonConnect {
   background: rgba(6,211,215,0.3) !important;
   color: rgba(6,211,215,1) !important;
-  border-radius: 60px !important;
+  border-radius: 60px !important;  
+
+  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
   padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid !important;
   transform: scale(0.85);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
@@ -122,7 +97,7 @@
   background: rgba(6,211,215,1) !important;
   color: #111729 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid !important;
   transform: scale(0.9);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;

@@ -50,11 +50,21 @@
   margin-top: -80px;
 }
 
-.mainHeading {
-  margin: 50px auto 0px auto !important;
-  text-align: left !important;
-  font-size: 20px !important;
-  width: calc(100% - 180px) !important;
+.title {  
+  text-align: center !important;
+  font-size: 32px !important;
+  font-family: 'Righteous' !important;  
+  color: #FFFFFF;  
+  letter-spacing: 6px;
+}
+
+.subtitle {
+  text-align: center !important;
+  font-size: 18px !important;
+  font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 6px;
+  margin: 50px auto 50px auto !important;
 }
 
 .gridBanner {    
@@ -70,33 +80,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-.mainDesc {
-  margin: 20px auto 0px auto !important;
-  text-align: left !important;
-  color: rgb(104,108,122);
-  font-size: 18px !important;
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  width: calc(100% - 180px) !important;
-}
-
-.mainHeadingNC {
-  text-align: center !important;
-  font-size: 30px !important;
-  font-family: 'Monument' !important;
-  font-weight: 100 !important;
-  color: #FFF;
-}
-
-.mainDescNC {
-  margin: 30px auto !important;
-  text-align: center !important;
-  color: #7E99B0;
-  font-size: 18px !important;
-  max-width: 800px;
-  line-height: 1.8rem !important;
-}
-
 .buttonConnect {
   background: rgba(6,211,215,0.3) !important;
   color: rgba(6,211,215,1) !important;
@@ -104,20 +87,21 @@
   padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid !important;
   transform: scale(0.85);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   -ms-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
 }
 
 .buttonConnect:hover {
-  background: rgba(6,211,215,1) !important;
+  background: rgba(6,211,215,1) !important;  
   color: #111729 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid !important;
   transform: scale(0.9);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
@@ -135,31 +119,31 @@
     padding-top: 80px;
   }
 
-  .mainHeading {
+  .title {
     margin-top: 280px !important;
     width: calc(100% - 80px) !important;
   }
 
-  .mainDesc {
+  .subtitle {
     margin: 20px auto 40px auto !important;
     width: calc(100% - 80px) !important;
   }
 }
 
 @media screen and (max-width: 960px) {
-  .mainHeading {
+  .title {
     margin-top: 480px !important;
     width: calc(100% - 80px) !important;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .mainHeadingNC {
+  .title {
     text-align: center !important;
     font-size: 24px !important;
   }
 
-  .mainDescNC {
+  .subtitle {
     font-size: 15px !important;
     line-height: 1.4rem !important;
   }

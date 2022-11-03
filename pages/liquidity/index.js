@@ -1,15 +1,11 @@
 import { Typography, Button, Paper, Grid } from "@material-ui/core"
 import LiquidityPairs from '../../components/ssLiquidityPairs'
-
 import React, { useState, useEffect } from 'react';
 import { ACTIONS } from '../../stores/constants';
-
 import stores from '../../stores';
 import { useRouter } from "next/router";
 import Unlock from '../../components/unlock';
-
 import classes from './liquidity.module.css';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 
 function Liquidity({ changeTheme }) {
@@ -57,8 +53,8 @@ function Liquidity({ changeTheme }) {
           
           <div className={classes.contentFloat}>
             
-            <Typography className={classes.mainHeadingNC} variant='h1'>Pools</Typography>
-            <Typography className={classes.mainDescNC} variant='body2'>Add liquidity and earn weekly rewards</Typography>
+            <Typography className={classes.title} variant='h1'>Pools</Typography>
+            <Typography className={classes.subtitle} variant='body2'>Add liquidity and earn weekly rewards</Typography>
 
             <Button disableElevation className={classes.buttonConnect} variant="contained" onClick={onAddressClicked}>
                   {account && account.address && <div className={`${classes.accountIcon} ${classes.metamask}`}></div>}

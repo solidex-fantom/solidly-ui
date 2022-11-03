@@ -534,11 +534,9 @@
 
 .mediumInputContainer {
   display: flex;
-  flex-wrap: wrap;
-  border-radius: 10px;
+  flex-wrap: wrap;  
   width: 100%;
-  align-items: center;
-  background: rgb(33, 43, 72);
+  align-items: center;  
 }
 
 .mediumInputAssetSelect {

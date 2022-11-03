@@ -184,7 +184,7 @@
 
 
 .toolbarTitle {
-  font-family: 'Arista';
+  font-family: 'Righteous';
   color: #FFFFFF;   
   font-size: 42px;
   letter-spacing: 6px    
@@ -194,7 +194,8 @@
   font-size: 12px;   
   line-height: 1.5;
   font-weight: 1;
-  letter-spacing: 1px
+  letter-spacing: 1px;
+  font-family: 'Arista';
 }
 
 .actionButtonText {

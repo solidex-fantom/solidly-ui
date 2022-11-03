@@ -21,7 +21,7 @@
 }
 
 .smallerText {
-  font-size: 12px !important;
+  font-size: 14px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
@@ -31,7 +31,6 @@
   flex-direction: column;
   width: 100%;    
 }
-
 
 .smallInputContainer {
   display: flex;
@@ -165,12 +164,37 @@
   margin-left: 12px !important;
 }
 
-.displayAssetIconSmall {
+.displayAssetIcon {
+  
   border: 1px solid;  
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  border-radius: 30px;
-  background: rgb(33, 43, 72);
+  border-radius: 64px;    
+}
+
+.displayAssetIconSmall {
+  
+  border: 1px solid;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border-radius: 30px;  
   padding: 6px;
+
+}
+
+.displayAssetIconEq {
+  
+  border: 1px solid;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border-radius: 30px;  
+  padding: 6px;    
+}
+
+
+.displayAssetIconEnd {
+  
+  border: 1px solid;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border-radius: 30px;  
+  padding: 6px;    
 }
 
 .displayChainIcon {
@@ -535,8 +559,7 @@
 }
 
 .actionsContainer {
-  display: grid;
-  display: none;
+  display: grid;  
   grid-gap: 12px;
   grid-template-columns: 1fr;
   width: 100%;
@@ -553,6 +576,16 @@
   margin-top: 10px;
 }
 
+.actionButtonText {
+  color: #0D142E;  
+  font-size: 15px;
+  font-weight: 700;
+  position: absolute;
+  top: 40%;  
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
 .depositInfoContainer {
   margin-top: 12px;
   padding: 12px;
@@ -563,18 +596,18 @@
   align-items: center;
 }
 
-.depositInfoHeading {
+.depositInfoHeading {  
   width: 100%;
   font-weight: 700 !important;
-  color: #06D3D7 !important;
+  color: #CD74CC !important;
   padding-bottom: 15px !important;
-  border-bottom: 1px solid rgba(126, 153, 176, 0.2);
+  border-bottom: 1px solid white;
   font-size: 14px !important;
 }
 
 .priceInfos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 12px;
   width: 100%;
 }
@@ -598,8 +631,7 @@
 }
 
 .buttonOverride {
-  background: rgb(23, 52, 72) !important;
-  color: rgb(6, 211, 215) !important;
+  background: transparent !important;  
   font-weight: 700 !important;
   max-height: 50px !important;
 }
@@ -618,7 +650,14 @@
 
 .line {
   flex: 1;
-  border-bottom: 1px dashed rgba(126,153,176,0.6);
+  border-bottom: 1px dashed white;
+  text-align: center;
+  margin-top: -4px;
+  position: relative;
+}
+
+.lineIcon {
+  flex: 1; 
   text-align: center;
   margin-top: -4px;
   position: relative;
@@ -641,8 +680,11 @@
   height: 10px;
   background: rgb(25, 33, 56);
   font-size: 10px !important;
+  
+  position: relative;
   margin: auto;
-  margin-bottom: -4px;
+  margin-bottom: 10px;
+  
 }
 
 .routeArrowIcon {
@@ -658,9 +700,12 @@
 }
 
 .quoteError {
-  font-size: 13px !important;
+  font-family: 'Arista';  
+  letter-spacing: 1px; 
+  font-size: 14px !important;
   font-weight: 200 !important;
-  border: 1px solid rgb(6, 211, 215) !important;
+  border: 1px solid;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
   border-radius: 10px;
   background: rgb(23, 52, 72) !important;
   padding: 24px !important;

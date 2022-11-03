@@ -151,7 +151,7 @@
   padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid !important;
   margin-top: 30px !important;
   transform: scale(0.9);
   -webkit-transition: all 300ms ease-out;
@@ -165,7 +165,7 @@
   background: rgba(6,211,215,1) !important;
   color: #111729 !important;
   text-transform: none !important;
-  border: 1px solid rgba(6,211,215,1) !important;
+  border: 1px solid !important;
   transform: scale(0.9);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;

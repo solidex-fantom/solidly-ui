@@ -57,8 +57,8 @@ function Vesting({ changeTheme }) {
         <Paper className={classes.notConnectedContent}>
           
           <div className={classes.contentFloat}>
-            <Typography className={classes.mainHeadingNC} variant='h1'>Whitelist Tokens</Typography>
-            <Typography className={classes.mainDescNC} variant='body2'>Whitelist tokens to be used in Solidly Gauges.</Typography>
+            <Typography className={classes.title} variant='h1'>Whitelist Tokens</Typography>
+            <Typography className={classes.subtitle} variant='body2'>Whitelist tokens to be used in Solidly Gauges.</Typography>
             <Button
               disableElevation
               className={classes.buttonConnect}

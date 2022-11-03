@@ -13,8 +13,8 @@ function Pair({ changeTheme }) {
           <Grid item>       
 
             <Grid className={classes.descTp} >              
-                <Typography className={classes.mainHeadingSwap} variant='h1'>Add Liquidity</Typography>
-                <Typography className={classes.mainDescNC}>Add liquidity and earn weekly rewards</Typography>
+                <Typography className={classes.title} variant='h1'>Add Liquidity</Typography>
+                <Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography>
             </Grid>     
 
             <Grid>              

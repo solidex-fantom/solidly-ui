@@ -53,8 +53,8 @@ function Rewards({ changeTheme }) {
         <Paper className={classes.notConnectedContent}>
           
           <div className={classes.contentFloat}>
-            <Typography className={classes.mainHeadingNC} variant='h1'>Rewards</Typography>
-            <Typography className={classes.mainDescNC} variant='body2'>
+            <Typography className={classes.title} variant='h1'>Rewards</Typography>
+            <Typography className={classes.subtitle} variant='body2'>
               Claim rewards for locking tokens, including new token emissions, bribes and a slice for the transaction fees from your pools
             </Typography>
             <Button

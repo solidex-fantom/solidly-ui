@@ -203,7 +203,7 @@ export default function ssVotes() {
 
             <Grid direction="column" lg={6} md={6} sm={6} xs={6}>    
 
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle}  variant="h1">Vote</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle} variant="h1">Vote</Typography></Grid>                  
               <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarSubtitle}  variant="h2">Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
             </Grid>   
 

@@ -145,8 +145,7 @@
 
 .inputBalanceText {
   font-weight: 100 !important;
-  font-size: 12px !important;
-  color: #7e99b0;
+  font-size: 12px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
 }
@@ -241,17 +240,18 @@
 .button {
   border-radius: 0px !important;
   flex: 1;
-  /* border-bottom: 1px solid rgba(104, 108, 122, 0.25) !important; */
   transition: none !important;
   opacity: 1;
   background: none !important;
   color: rgb(6, 211, 215) !important;
 }
 
-/* .buttonActive {
-  border-radius: 0px !important;
+.buttonActive {
+  
   flex: 1;
-} */
+  border-bottom: 1px solid #CD74CC !important; 
+
+} 
 
 .amountAndPercent {
   display: grid;
@@ -282,16 +282,13 @@
   background: rgb(19, 44, 60) !important;
 }
 
-
-
-
 .swapIconContainer {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 9;
+  justify-content: center;  
   height: 0px;
+  margin-bottom: 20px;
 }
 
 .swapIconSubContainer {
@@ -301,6 +298,7 @@
   border-radius: 9px;
   height: 38px;
   z-index: 1;
+  margin: 10px;
 }
 
 .swapIcon {
@@ -351,8 +349,9 @@
 }
 
 .displayAssetIcon {
-  border: 1px solid rgba(128, 128, 128, 0.5);
-  border-radius: 50px;
+  border: 1px solid;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border-radius: 64px;      
   background: rgb(33, 43, 72);
   width: 100px;
   height: 100px;
@@ -365,7 +364,7 @@
   border-radius: 10px;
   width: 100%;
   align-items: center;
-  background: rgb(33, 43, 72);
+  
   min-height: 50px;
 }
 
@@ -435,11 +434,11 @@
 }
 
 .depositInfoHeading {
-  width: 100%;
-  font-weight: 700 !important;
-  color: #06D3D7 !important;
+  width: 100%;  
+  color: #CD74CC !important;  
+  padding-top: 6px !important;
   padding-bottom: 6px !important;
-  border-bottom: 1px solid rgba(126, 153, 176, 0.2);
+  border-bottom: 1px solid white;
   font-size: 14px !important;
 }
 
@@ -552,9 +551,10 @@
 }
 
 .toggleOption.active {
-  border: 1px solid #06D3D7;
+  border: 1px solid;
   background: rgb(23, 52, 72) !important;
-  color: rgb(6, 211, 215) !important;
+  color: white;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
 }
 
 .toggleOptionText {
@@ -623,8 +623,7 @@
   flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
-  align-items: center;
-  background: rgb(33, 43, 72);
+  align-items: center;  
   max-width: 80px;
   min-height: 50px;
   padding: 20px 12px 4px 12px ;

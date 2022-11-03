@@ -47,8 +47,8 @@ function Swap({ changeTheme }) {
 
               <Grid item lg={6} md={6} sm={6} xs={6} className={classes.endAsset}>       
                 <Grid className={classes.descTp} >              
-                    <Typography className={classes.mainHeadingSwap} variant='h1'>Swap</Typography>
-                    <Typography className={classes.mainDescNC}>Enjoy minimal slippage, low swapping fees and deep liquidity</Typography>
+                    <Typography className={classes.title} variant='h1'>Swap</Typography>
+                    <Typography className={classes.subtitle}>Enjoy minimal slippage, low swapping fees and deep liquidity</Typography>
                 </Grid>     
                 <Grid>              
                   <div className={classes.sphere}></div>                         
@@ -66,8 +66,8 @@ function Swap({ changeTheme }) {
          <Paper className={classes.notConnectedContent}>
 
             <div className={classes.contentFloat}>
-                <Typography className={classes.mainHeadingNC} variant='h1'>Swap</Typography>
-                <Typography className={classes.mainDescNC} variant='body2'>
+                <Typography className={classes.title} variant='h1'>Swap</Typography>
+                <Typography className={classes.subtitle} variant='body2'>
                   Enjoy minimal slippage, low swapping fees and deep liquidity.
                 </Typography>
                 <Button

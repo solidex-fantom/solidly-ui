@@ -27,7 +27,6 @@ import {
 } from '@material-ui/core';
 import { useRouter } from "next/router";
 import BigNumber from 'bignumber.js';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import SearchIcon from '@material-ui/icons/Search';
 import { formatCurrency } from '../../utils';
 
@@ -493,7 +492,6 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     bottom: '140px',
     opacity: '1'
-
   },
   toolbarInfo: {
     margin: '15px',
@@ -503,16 +501,17 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Arista' 
   },
   toolbarTitle: {
-    fontFamily: 'Arista',
-    color: '#FFFFFF',    
+    fontFamily: 'Righteous',
     fontSize: '42px',
+    color: '#FFFFFF',    
     letterSpacing: '6px'    
   },
   toolbarSubtitle: {
     fontSize: '16px',    
     lineHeight: '1.5',
     fontWeight: '100',
-    letterSpacing: '1px'    
+    letterSpacing: '1px'  ,  
+    fontFamily: 'Arista',
   },
 
 }));

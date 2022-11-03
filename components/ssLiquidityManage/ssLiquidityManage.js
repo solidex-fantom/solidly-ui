@@ -723,9 +723,18 @@ export default function ssLiquidityManage() {
 
   const setStab = async (val) => {
     setStable(val)
-    const p = await stores.stableSwapStore.getPair(asset0.address, asset1.address, val)
-    setPair(p)
-    callQuoteAddLiquidity(amount0, amount1, priorityAsset, val, p, asset0, asset1)
+
+    if(asset0){
+
+      const p = await stores.stableSwapStore.getPair(asset0.address, asset1.address, val)
+      setPair(p)
+      callQuoteAddLiquidity(amount0, amount1, priorityAsset, val, p, asset0, asset1)
+
+    }
+    else {
+      console.log('show some error here....')
+    }
+    
   }
 
   const withdrawAmountChanged = (event) => {
@@ -848,7 +857,7 @@ export default function ssLiquidityManage() {
                 className: classes.largeInput
               }}
             />
-            <Typography color='textSecondary' className={ classes.smallerText }>{ assetValue?.symbol }</Typography>
+            <Typography  className={ classes.smallerText }>{ assetValue?.symbol ? assetValue?.symbol : 'KAVA'}</Typography>
           </div>
         </div>
       </div>
@@ -899,7 +908,9 @@ export default function ssLiquidityManage() {
     } else {
       return (
         <div className={ classes.depositInfoContainer }>
+
           <Typography className={ classes.depositInfoHeading } >Reserve Info</Typography>
+          
           <div className={ classes.priceInfos}>
             <div className={ classes.priceInfo }>
               <Typography className={ classes.title } >{ formatCurrency(pair?.reserve0) }</Typography>
@@ -957,9 +968,7 @@ export default function ssLiquidityManage() {
             <Typography className={ classes.text } >{ `Staked ${pair?.symbol} ` }</Typography>
           </div>
         </div>
-        <div className={ classes.disclaimerContainer }>
-          <Typography className={ classes.disclaimer }>{ 'Please make sure to claim any rewards before withdrawing' }</Typography>
-        </div>
+        
       </div>
     )
   }
@@ -1034,7 +1043,7 @@ export default function ssLiquidityManage() {
                       <Typography>Token #{option.id}</Typography>
                       <div>
                         <Typography align='right' className={ classes.smallerText }>{ formatCurrency(option.lockValue) }</Typography>
-                        <Typography color='textSecondary' className={ classes.smallerText }>{veToken?.symbol}</Typography>
+                        <Typography  className={ classes.smallerText }>{veToken?.symbol}</Typography>
                       </div>
                     </div>
                   </MenuItem>
@@ -1070,14 +1079,9 @@ export default function ssLiquidityManage() {
             </Grid>
           </Grid>
         </div>
-        <div className={ classes.titleSection }>
-          <Tooltip title="Back to Liquidity" placement="top">
-          <IconButton className={ classes.backButton } onClick={ onBack }>
-            <ArrowBackIcon className={ classes.backIcon } />
-          </IconButton>
-          </Tooltip>
-          <Typography className={ classes.titleText }>Manage Liquidity Pair</Typography>
-        </div>
+       
+
+
         <div className={ classes.reAddPadding }>
           <div className={ classes.inputsContainer }>
             {
@@ -1089,9 +1093,9 @@ export default function ssLiquidityManage() {
                     <AddIcon className={ classes.swapIcon } />
                   </div>
                 </div>
-                { renderMassiveInput('amount1', amount1, amount1Error, amount1Changed, asset1, null, assetOptions, onAssetSelect, amount1Focused, amount1Ref) }                
-                { renderReserveInformation() }
-                { renderDepositInformation() }
+                { renderMassiveInput('amount1', amount1, amount1Error, amount1Changed, asset1, null, assetOptions, onAssetSelect, amount1Focused, amount1Ref) }                                
+
+                { renderMediumInputToggle('stable', stable) }
               </>
             }
             {
@@ -1103,6 +1107,7 @@ export default function ssLiquidityManage() {
                     <ArrowDownwardIcon className={ classes.swapIcon } />
                   </div>
                 </div>
+                
                 <div className={ classes.receiveAssets }>
                   { renderMediumInput('withdrawAmount0', withdrawAmount0, pair?.token0?.logoURI, pair?.token0?.symbol) }
                   { renderMediumInput('withdrawAmount1', withdrawAmount1, pair?.token1?.logoURI, pair?.token1?.symbol) }
@@ -1144,56 +1149,7 @@ export default function ssLiquidityManage() {
                   }
                 </>
               }
-              { pair == null && !(asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true) &&
-                <>
-                  <Button
-                    variant='contained'
-                    size='large'
-                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
-                    color='primary'
-                    disabled={ createLoading || depositLoading }
-                    onClick={ onCreateAndDeposit }
-                    >
-                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Deposit & Stake` }</Typography>
-                    { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
-                  </Button>
-                </>
-              }
-
-
-              { pair == null && !(asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true) &&
-                <>
-                  <Button
-                    variant='contained'
-                    size='large'
-                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
-                    color='primary'
-                    disabled={ createLoading || depositLoading }
-                    onClick={ onCreateAndDeposit }
-                    >
-                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Just Deposit` }</Typography>
-                    { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
-                  </Button>
-                </>
-              }
-
-              { pair == null && !(asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true) &&
-                <>
-                  <Button
-                    variant='contained'
-                    size='large'
-                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
-                    color='primary'
-                    disabled={ createLoading || depositLoading }
-                    onClick={ onCreateAndDeposit }
-                    >
-                    { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
-                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Nothing Unstaked` }</Typography>
-                  </Button>
-                </>
-              }
-
-
+          
               { // There is no Gauge on the pair yet. Can only deposit
                 pair && !(pair && pair.gauge && pair.gauge.address) &&
                   <>
@@ -1426,7 +1382,7 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
+          <Typography variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectActions}>
           <IconButton onClick={ () => { deleteOption(asset) } }>
@@ -1456,11 +1412,11 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
+          <Typography variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectBalance}>
           <Typography variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ 'Balance' }</Typography>
+          <Typography variant='subtitle1'>{ 'Balance' }</Typography>
         </div>
       </MenuItem>
     )

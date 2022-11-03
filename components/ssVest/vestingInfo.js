@@ -27,7 +27,7 @@ export default function VestingInfo({ currentNFT, futureNFT, veToken, govToken, 
 
                   <Grid container>
                     <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">
-                      <Typography className={ classes.title }>Your voting power will be:</Typography>          
+                      <Typography>Your voting power will be:</Typography>          
                   </Grid>
 
                   <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">
@@ -38,7 +38,7 @@ export default function VestingInfo({ currentNFT, futureNFT, veToken, govToken, 
                   </Grid>
 
                   <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">
-                    <Typography className={ classes.title }>Locked until:</Typography>          
+                    <Typography>Locked until:</Typography>          
                   </Grid>
 
                   <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">
