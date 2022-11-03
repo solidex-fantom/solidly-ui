@@ -290,10 +290,7 @@ function Setup() {
     }
 
     return (
-      <div className={ classes.depositInfoContainer }>
-
-        { quote.output && quote.output.routeAsset &&
-          <>
+      <div className={ classes.depositInfoContainer }>       
 
           <Typography className={ classes.depositInfoHeading } >Price Info</Typography>
           <div className={ classes.priceInfos}>          
@@ -360,9 +357,8 @@ function Setup() {
                     onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
                   />                    
             </div>
-
-            </>         
-        }
+              
+        
      
         {
           BigNumber(quote.priceImpact).gt(0.5) &&
@@ -470,8 +466,6 @@ function Setup() {
 
       
       
-      { fromAmountValue && toAmountValue  &&
-          <>
           <div className={ classes.actionsContainer }>
             <Button
               variant='contained'
@@ -485,9 +479,7 @@ function Setup() {
               { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
             </Button>
             </div>
-          </>
-      }
-
+         
       
     </div>
   )
