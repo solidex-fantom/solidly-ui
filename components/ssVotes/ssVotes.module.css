@@ -10,7 +10,7 @@
 }
 
 .smallText {
-  color: rgba(126,153,176,0.9);
+  color: white;
   margin: 0 15px 0 0 !important;
   padding: 18px 0;
 }
@@ -104,17 +104,22 @@
 }
 
 .searchVote {
-  border: 1px solid !important;
-  border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  flex: 1;
+  display: flex;
+  width: 100%;
+  min-height: 60px;
+  border: 2px solid;
+  border-radius: 18px;   
+  
+  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59  
 }
 
 .searchContainer {
   flex: 1;
   display: flex;
   width: 100%;
-  padding: 0px 24px !important;
-  
+  padding: 0px 24px !important;  
 }
 
 .topBarContainer {
@@ -219,26 +224,50 @@
   right: 60px  
 }
 
-
-
-
-.toolbarTitle {
+.title {
   font-family: 'Righteous';
   color: #FFFFFF;   
   font-size: 42px;
   letter-spacing: 6px    
 }
 
-.toolbarSubtitle {
-  font-size: 12px;   
-  line-height: 1.5;
-  font-weight: 1;
-  letter-spacing: 1px;
-  font-family: 'Arista';
+.subtitle {  
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 1px;  
+}
+
+.disclaimerDocs1 {
+  font-size: 13px !important;
+  color: white;
+  padding-left: 5px !important;
+  padding-bottom: 21.5px !important;
+}
+
+.disclaimerDocs {
+  font-size: 13px !important;
+  color: yellow;
+  padding-left: 5px !important;
+  padding-bottom: 21.5px !important;
 }
 
 .toolbarText {
   color: #CD74CC;
+  font-size: 14px !important;    
+  font-family: 'Arista' !important;    
+  letter-spacing: 5px;  
+  font-weight:  700 !important;
+}
+
+
+.toolbarSubText{
+  color: #CD74CC;
+  font-size: 14px !important;    
+  font-family: 'Righteous' !important;    
+  letter-spacing: 5px;  
+  font-weight:  700 !important;
 }
 
 .imgIconList {

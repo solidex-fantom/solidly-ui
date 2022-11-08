@@ -10,25 +10,24 @@ function Pair({ changeTheme }) {
 
           <Grid container alignItems="center" justifyContent="center">
 
-          <Grid item>       
+            <Grid item>       
 
-            <Grid className={classes.descTp} >              
-                <Typography className={classes.title} variant='h1'>Add Liquidity</Typography>
-                <Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography>
-            </Grid>     
+              <Grid className={classes.descTp} >              
+                  <Typography className={classes.title} variant='h1'>Add Liquidity</Typography>
+                  <Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography>
+              </Grid>     
 
-            <Grid>              
-              <div className={classes.sphere}></div>                         
+              <Grid>              
+                <div className={classes.sphere}></div>                         
+              </Grid>    
+
+            </Grid>
+
+            <Grid item lg={6} md={6} sm={6} xs={6}>       
+               <LiquidityCreate />
             </Grid>    
 
           </Grid>
-
-              <Grid item lg={6} md={6} sm={6} xs={6}>       
-                    <LiquidityCreate />
-              </Grid>    
-
-          </Grid>
-
       
     </div>
   );

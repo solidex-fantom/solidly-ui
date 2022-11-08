@@ -21,6 +21,7 @@
 }
 
 .smallerText {
+  letter-spacing: 2px;
   font-size: 14px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
@@ -76,55 +77,40 @@
 .massiveInputAssetSelect {
   width: 124px;
   min-height: 124px;
-  height: 100%;
-
-  
+  height: 100%;  
 }
 
 .massiveInputAmount {
   flex: 1;
-  height: 100%;
-
-  
+  height: 100%;  
 }
 
 .massiveInputAddress {
   min-width: 100%;
-  border-top: 1px solid rgba(128, 128, 128, 0.5);
-
-  
+  border-top: 1px solid rgba(128, 128, 128, 0.5);  
 }
 
 .displaySelectContainer {
   padding: 12px;
   min-height: 100px;
-  cursor: pointer;
-
-  
-  
+  cursor: pointer;    
 }
 
 .displayDualIconContainer {
   width: 100px;
-  position: relative;
-
-  
+  position: relative;  
 }
 
 .displayDualIconContainerConfirm {
   width: 100px;
   position: relative;
-  margin: 0 auto;
-
-  
+  margin: 0 auto;  
 }
 
 .displayDualIconContainerSmall {
   width: 60px;
   position: relative;
-  margin-right: 12px;
-
-  
+  margin-right: 12px;  
 }
 
 .displaySelect {
@@ -164,55 +150,17 @@
   margin-left: 12px !important;
 }
 
-.displayAssetIcon {
-  
+.displayAssetIcon {  
   border: 1px solid;  
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   border-radius: 64px;    
 }
 
-.displayAssetIconSmall {
-  
+.displayAssetIconSmall {  
   border: 1px solid;  
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   border-radius: 30px;  
   padding: 6px;
-
-}
-
-.displayAssetIconEq {
-  
-  border: 1px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  border-radius: 30px;  
-  padding: 6px;    
-}
-
-
-.displayAssetIconEnd {
-  
-  border: 1px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  border-radius: 30px;  
-  padding: 6px;    
-}
-
-.displayChainIcon {
-  border: 1px solid rgba(126, 153, 176, 0.2);
-  border-radius: 20px;
-  position: absolute;
-  top: 60px;
-  right: 0px;
-  background: rgb(33, 43, 72);
-}
-
-.displayChainIconSmall {
-  border: 1px solid rgba(126, 153, 176, 0.2);
-  border-radius: 20px;
-  position: absolute;
-  top: 30px;
-  right: -5px;
-  background: rgb(33, 43, 72);
 }
 
 .inputTitleContainerSlippage {
@@ -252,27 +200,28 @@
   cursor: pointer;
 }
 
-.inputBalance {
+.inputBalance {  
   font-weight: 50 !important;
-  font-size: 14px !important;  
+  font-size: 12px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
-  font-family: 'Monument' !important;
+  font-family: 'Righteous' !important;
+  letter-spacing: 2px;
+  color: #FFFFFF;
 }
 
 .inputBalanceText {
   font-weight: 100 !important;
   font-size: 12px !important;  
   margin-right: 6px !important;
-  margin-top: 6px !important;
-  
+  margin-top: 6px !important;  
 }
 
 .textField {
   margin-top: 2px;
   margin-bottom: 2px;
   position: relative;
-  
+  letter-spacing: 2px;
 }
 
 .largeInput {
@@ -356,10 +305,6 @@
   justify-content: center;
 }
 
-.textFlex {
-
-}
-
 .flexy2 {
   display: flex;
   justify-content: flex-end;
@@ -420,7 +365,6 @@
 }
 
 .swapIconSubContainer {
-  
   border-radius: 9px;
   height: 38px;
   z-index: 1;
@@ -509,7 +453,6 @@
   padding: 24px 24px 12px 24px;
   width: 500px;
   border-radius: 10px;
-  
 }
 
 .info {
@@ -631,14 +574,14 @@
 }
 
 .buttonOverride {
-  background: transparent !important;  
+  background-color: transparent !important;  
   font-weight: 700 !important;
   max-height: 50px !important;
 }
 
-.buttonOverride:hover {
+/*.buttonOverride:hover {
   background: rgb(19, 44, 60) !important;
-}
+}*/
 
 .route {
   display: flex;
@@ -680,11 +623,9 @@
   height: 10px;
   background: rgb(25, 33, 56);
   font-size: 10px !important;
-  
   position: relative;
   margin: auto;
   margin-bottom: 10px;
-  
 }
 
 .routeArrowIcon {

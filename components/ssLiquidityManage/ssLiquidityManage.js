@@ -857,7 +857,7 @@ export default function ssLiquidityManage() {
                 className: classes.largeInput
               }}
             />
-            <Typography  className={ classes.smallerText }>{ assetValue?.symbol ? assetValue?.symbol : 'KAVA'}</Typography>
+            <Typography className={ classes.smallerText }>{ assetValue?.symbol ? assetValue?.symbol : 'KAVA'}</Typography>
           </div>
         </div>
       </div>
@@ -1060,6 +1060,19 @@ export default function ssLiquidityManage() {
     setAdvanced(!advanced)
   }
 
+  const renderIconArrowDown = () => {
+
+    return (
+      <div className={ classes.swapIconContainer }>
+        <div className={ classes.swapIconSubContainer }>
+          <ArrowDownwardIcon className={ classes.swapIcon } />
+        </div>      
+      </div>
+      )
+
+    
+  }
+
   return (
     <div className={classes.retain}>
       <Paper elevation={0} className={ classes.container }>
@@ -1080,8 +1093,6 @@ export default function ssLiquidityManage() {
           </Grid>
         </div>
        
-
-
         <div className={ classes.reAddPadding }>
           <div className={ classes.inputsContainer }>
             {
@@ -1094,7 +1105,6 @@ export default function ssLiquidityManage() {
                   </div>
                 </div>
                 { renderMassiveInput('amount1', amount1, amount1Error, amount1Changed, asset1, null, assetOptions, onAssetSelect, amount1Focused, amount1Ref) }                                
-
                 { renderMediumInputToggle('stable', stable) }
               </>
             }
@@ -1102,11 +1112,9 @@ export default function ssLiquidityManage() {
               activeTab === 'withdraw' &&
               <>
                 { renderMassiveInput('withdraw', withdrawAmount, withdrawAmountError, withdrawAmountChanged, withdrawAsset, null, withdrawAassetOptions, onAssetSelect, null, null) }
-                <div className={ classes.swapIconContainer }>
-                  <div className={ classes.swapIconSubContainer }>
-                    <ArrowDownwardIcon className={ classes.swapIcon } />
-                  </div>
-                </div>
+               
+                
+                
                 
                 <div className={ classes.receiveAssets }>
                   { renderMediumInput('withdrawAmount0', withdrawAmount0, pair?.token0?.logoURI, pair?.token0?.symbol) }
@@ -1118,8 +1126,9 @@ export default function ssLiquidityManage() {
           </div>          
           {
             activeTab === 'deposit' &&
+            
             <div className={ classes.actionsContainer }>
-              { pair == null && asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true &&
+              { pair == null && amount0 && amount1 && asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true &&
                 <>
                   <Button
                     variant='contained'

@@ -264,6 +264,25 @@ function Setup() {
     calculateReceiveAmount(fromAmountValue, ta, fa)
   }
 
+
+  const renderButtonSwap = () => {
+    return (
+      <div className={ classes.actionsContainer }>
+        <Button
+          variant='contained'
+          size='large'
+          color='primary'
+          className={classes.buttonOverride}
+          disabled={ loading || quoteLoading }
+          onClick={ onSwap }
+          >
+          <Typography className={ classes.actionButtonText }>{ loading ? `Swapping` : `Swap` }</Typography>
+          { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+        </Button>
+      </div>
+    )
+  }
+  
   const renderSwapInformation = () => {
 
     if(quoteError) {
@@ -450,6 +469,26 @@ function Setup() {
     )
   }
 
+
+  const renderSwapButton = () => {
+    
+    return (      
+        <div className={ classes.actionsContainer }>
+          <Button
+            variant='contained'
+            size='large'
+            color='primary'
+            className={classes.buttonOverride}
+            disabled={ loading || quoteLoading }
+            onClick={ onSwap }
+            >
+            <Typography className={ classes.actionButtonText }>{ loading ? `Swapping` : `Swap` }</Typography>
+            { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+          </Button>
+      </div>
+    )
+  }
+
   return (
     
     
@@ -463,23 +502,6 @@ function Setup() {
       
       { renderMassiveInput('To', toAmountValue, toAmountError, toAmountChanged, toAssetValue, toAssetError, toAssetOptions, onAssetSelect) }
       { renderSwapInformation() }
-
-      
-      
-          <div className={ classes.actionsContainer }>
-            <Button
-              variant='contained'
-              size='large'          
-              className={classes.buttonOverride}
-              disabled={ loading || quoteLoading }
-              onClick={ onSwap }
-              >
-              <Img alt="complex" src="/images/Barra_boton.png" width={'100%'} />
-              <Typography className={ classes.actionButtonText }>{ loading ? `Swapping` : `Swap` }</Typography>
-              { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
-            </Button>
-            </div>
-         
       
     </div>
   )

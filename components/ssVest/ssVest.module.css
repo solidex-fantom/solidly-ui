@@ -208,10 +208,6 @@
   font-weight: 700 !important;
 }
 
-.buttonOverride:hover {
-  
-}
-
 .toggleButtons {
   display: flex;
   flex-direction: column;
@@ -559,8 +555,6 @@
   margin-left: -40px;
 }
 
-
-
 .title {  
   text-align: center !important;
   font-size: 32px !important;
@@ -572,10 +566,12 @@
 .subtitle {
   text-align: center !important;
   font-size: 18px !important;
+  font-weight: 700 !important;
   font-family: 'Arista' !important;  
   color: #FFFFFF;
   letter-spacing: 6px;
   margin: 50px auto 50px auto !important;
+  line-height: 1.5
 }
 
 

@@ -9,15 +9,13 @@
   padding: 20px 0 10px 0px;
 }
 
-.title {
-  font-size: 20px !important;
-  margin-bottom: 24px !important;
-}
-
 .helpText {
-  color: rgba(126,153,176,0.9);
+  color: white;
   margin: 0 15px 0 0 !important;
   padding: 15px 0;
+  letter-spacing: 2px;
+  
+  font-family: 'Righteous';
 }
 
 .tableContainer {
@@ -132,16 +130,34 @@
 }
 
 .disclaimerContainer {
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   
 }
 
 .disclaimer {
   font-size: 13px !important;
-  border: 1px solid;
-  border-radius: 10px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  background: rgb(23, 52, 72) !important;
+  color: white;
+  padding-left: 21.5px !important;
+  padding-bottom: 21.5px !important;
+  letter-spacing: 2px;
+}
+
+
+.disclaimerDocs {
+  font-size: 13px !important;
+  color: yellow;
+  padding-left: 5px !important;
+  padding-bottom: 21.5px !important;
+}
+
+
+.disclaimerMain {
+  font-size: 13px !important;
+  color: #CD74CC;
   padding: 21.5px !important;
+  letter-spacing: 4px;
 }
 
 
@@ -179,23 +195,22 @@
   margin: 15px;
   position: relative;
   bottom: 80px;
-  right: 60px  
+  
 }
 
-
-.toolbarTitle {
+.title {
   font-family: 'Righteous';
   color: #FFFFFF;   
   font-size: 42px;
   letter-spacing: 6px    
 }
 
-.toolbarSubtitle {
-  font-size: 12px;   
-  line-height: 1.5;
-  font-weight: 1;
-  letter-spacing: 1px;
-  font-family: 'Arista';
+.subtitle {  
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 1px;  
 }
 
 .actionButtonText {

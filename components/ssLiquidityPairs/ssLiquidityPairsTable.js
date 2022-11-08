@@ -500,16 +500,16 @@ const useStyles = makeStyles((theme) => ({
     right: '1px',
     fontFamily: 'Arista' 
   },
-  toolbarTitle: {
+  title: {
     fontFamily: 'Righteous',
-    fontSize: '42px',
+    fontSize: '32px',
     color: '#FFFFFF',    
     letterSpacing: '6px'    
   },
-  toolbarSubtitle: {
-    fontSize: '16px',    
+  subtitle: {
+    fontSize: '18px',    
     lineHeight: '1.5',
-    fontWeight: '100',
+    fontWeight: '700',
     letterSpacing: '1px'  ,  
     fontFamily: 'Arista',
   },
@@ -620,13 +620,13 @@ const EnhancedTableToolbar = (props) => {
       <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
 
           <Grid direction="column" >            
-            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle} variant="h1">Pools</Typography></Grid>    
-            <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarSubtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
+            <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>    
+            <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
           </Grid>   
 
           <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
             <Button className={ classes.buttonOverride } onClick={ onCreate }>
-              <Img alt="complex" src="/images/Small_Button.png" width={'70%'} />
+              <Img alt="complex" src="/images/Small_Button.png" width={'50%'} />
               <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
             </Button>            
           </Grid> 

@@ -61,6 +61,7 @@
 .subtitle {
   text-align: center !important;
   font-size: 18px !important;
+  font-weight: 600 !important;
   font-family: 'Arista' !important;  
   color: #FFFFFF;
   letter-spacing: 6px;

@@ -268,16 +268,16 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '12px',    
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',  
   },
-  toolbarTitle: {
+  title: {
     fontFamily: 'Righteous',
-    fontSize: '42px',
+    fontSize: '32px',
     color: '#FFFFFF',    
     letterSpacing: '6px' 
   },
-  toolbarSubtitle: {
-    fontSize: '16px',    
+  subtitle: {
+    fontSize: '18px',    
     lineHeight: '1.5',
-    fontWeight: '100',
+    fontWeight: '700',
     letterSpacing: '1px',   
     fontFamily: 'Arista',
   },  
@@ -330,9 +330,8 @@ const EnhancedTableToolbar = (props) => {
 
             <Grid direction="column" spacing={2}  lg={8} md={8} sm={8} xs={8}>       
 
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarTitle} variant="h1">Vest</Typography></Grid>    
-              
-              <Grid className={classes.toolbarInfo}><Typography className={classes.toolbarSubtitle} variant="h2">More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Vest</Typography></Grid>                  
+              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
 
               <Grid>
                 <Button className={ classes.buttonOverride } onClick={ onCreate }>

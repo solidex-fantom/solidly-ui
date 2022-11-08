@@ -5,10 +5,8 @@ import classes from "./ssVest.module.css";
 import stores from "../../stores";
 import { ACTIONS } from "../../stores/constants";
 import moment from "moment";
-
 import ExistingLock from "./existingLock";
 import Unlock from "./unlock";
-import Loading from "./loading";
 import Lock from './lock';
 import { Grid, Typography } from '@material-ui/core';
 
@@ -89,9 +87,7 @@ export default function ssVest() {
                 }
               </Grid>    
 
-          </Grid>
-
-      
+          </Grid>      
     </div>
   );
 }
