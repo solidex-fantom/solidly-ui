@@ -18,6 +18,8 @@ import { styled, makeStyles } from '@material-ui/core/styles';
 import stores from '../../stores';
 import { formatAddress } from '../../utils';
 
+import { walletlink } from '../../stores/connectors/connectors'
+
 import classes from './header.module.css';
 
 function SiteLogo(props) {
@@ -228,7 +230,7 @@ function Header(props) {
               chainName: 'Kava EVM Co-Chain',
               chainId: process.env.NEXT_PUBLIC_CHAINID,
               nativeCurrency: { name: 'KAVA', decimals: 18, symbol: 'KAVA' },
-              rpcUrls: ['https://evm.kava.io']
+              rpcUrls: [walletlink.url]
             }
           ]
         });
