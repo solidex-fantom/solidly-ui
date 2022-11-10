@@ -134,9 +134,7 @@ export default function ssLock({ govToken, veToken }) {
             <div className={ classes.displaySelectContainer }>
               <div className={ classes.assetSelectMenuItem }>
                 <div className={ classes.displayDualIconContainer }>
-                  <div className={ classes.displayAssetIcon } onClick={ focus }>
 
-                  </div>
                 </div>
               </div>
             </div>
@@ -222,7 +220,7 @@ export default function ssLock({ govToken, veToken }) {
                 className: classes.largeInput
               }}
             />
-            <Typography color='textSecondary' className={ classes.smallerText }>{ token?.symbol }</Typography>
+            <Typography className={ classes.smallerText }>{ token?.symbol }</Typography>
           </div>
         </div>
       </div>

@@ -240,8 +240,8 @@ export default function ssVotes() {
           <Grid item lg={2} md={2} sm={2} xs={2}>      
         
         <Tooltip placement="top" title="Filter list">        
-          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
-              <Img alt="complex" className={ classes.imgIconList } src="/images/Small_button_2.png" width={'70%'}/>
+          <IconButton onClick={handleClick} className={ classes.filterButton1 } aria-label="filter list">                                    
+              <FilterListIcon />              
           </IconButton>          
 
         </Tooltip>

@@ -14,7 +14,7 @@
   padding: 24px;
   display: flex;
   flex-direction: column;  
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 12px;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   box-shadow: 1px 1px #0D142E;
@@ -151,13 +151,13 @@
 }
 
 .displayAssetIcon {  
-  border: 1px solid;  
+  border: 2px solid;  
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   border-radius: 64px;    
 }
 
 .displayAssetIconSmall {  
-  border: 1px solid;  
+  border: 2px solid;  
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   border-radius: 30px;  
   padding: 6px;
@@ -169,7 +169,7 @@
   align-items: center;
   position: absolute;
   top: 0px;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 12px;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
@@ -275,7 +275,7 @@
 }
 
 .addressField {
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 10px;
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   padding: 6px 12px;

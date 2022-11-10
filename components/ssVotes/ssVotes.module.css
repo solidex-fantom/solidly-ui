@@ -255,9 +255,9 @@
 
 .toolbarText {
   color: #CD74CC;
-  font-size: 14px !important;    
+  font-size: 15px !important;    
   font-family: 'Arista' !important;    
-  letter-spacing: 5px;  
+  letter-spacing: 2px;  
   font-weight:  700 !important;
 }
 
@@ -275,14 +275,13 @@
   bottom: 10px
 }
 
-.filterButton {
-  background: #111729;
-  border: 1px solid;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  color: #06D3D7;
-  width: 100%;
-  height: 94.5%;
-  border-radius: 10px;
+.filterButton1 {  
+  background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);  
+  color: #0D142E !important;    
+  border: 1px solid rgba(126,153,176,0.3 ) !important;
+  width: 100% !important;
+  height: 94.5% !important;
+  border-radius: 10px !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -296,6 +295,15 @@
     margin-top: 80px;
     padding: 0 0 10px 0px;
   }
+
+  .toolbarText {
+    color: #CD74CC;
+    font-size: 14px !important;    
+    font-family: 'Arista' !important;    
+    letter-spacing: 1px;  
+    font-weight:  700 !important;
+  }
+
 }
 
 @media screen and (max-width: 960px) {
@@ -318,6 +326,14 @@
   .searchContainer {
     padding: 0px !important;
     
+  }
+
+  .toolbarText {
+    color: #CD74CC;
+    font-size: 15px !important;    
+    font-family: 'Arista' !important;    
+    letter-spacing: 4px;  
+    font-weight:  700 !important;
   }
 }
 

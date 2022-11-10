@@ -15,11 +15,13 @@
 
 .containerMenu{  
   max-height: 40px;
+  width: 100%;
   background-color: transparent;
   border: 1px solid;
   border-radius: 32px;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
-  
+  position: relative;
+  left: 150px;
 }
 
 .bigcontainerMenu {
@@ -50,15 +52,15 @@
 }
 
 .appLogo {
-  transform: scale(6);
+  transform: scale(12);
   position: fixed;
-  left: 100px;
-  top: 30px;
+  left: 170px;
+  top: 80px;
   cursor: pointer;
 }
 
 .logoContainer {
-  width: 260px;
+  width: 500px;
   position: relative;
 }
 
@@ -136,12 +138,18 @@
   border-radius: 40px !important;
   color: rgba(255, 255, 255, 0.87) !important;
   padding-left: 26px !important;
-  padding-right: 26px !important;
-  
+  padding-right: 26px !important;  
 }
 
 .iconColor {
   color: #fff;
+}
+
+.containerMenuWallet {
+  
+  display: flex;
+  justify-content: flex-end
+  
 }
 
 .switchNetworkBtn {

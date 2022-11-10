@@ -62,7 +62,9 @@ export default function ssVest() {
 
               </Grid>
 
-              <Grid item lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">       
+              <Grid item lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">     
+                
+
               { router.query.id === 'create' && (
                   <Lock
                     nft={nft}
