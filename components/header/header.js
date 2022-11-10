@@ -264,7 +264,7 @@ function Header(props) {
 
         <Navigation changeTheme={props.changeTheme} />
 
-        <div style={{ width: '300px', display: 'flex', justifyContent: 'flex-end' }}>
+        <div className={classes.containerMenuWallet}>
 
           { process.env.NEXT_PUBLIC_CHAINID == '4002' &&
             <div className={ classes.testnetDisclaimer}>

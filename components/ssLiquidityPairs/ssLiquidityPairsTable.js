@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled, makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
-
+import FilterListIcon from '@material-ui/icons/FilterList';
 import {
   Paper,
   Button,
@@ -373,14 +373,13 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   buttonOverride: {
-    width: '100%',        
+    width: '70%',        
     color: '#0D142E',
     fontWeight: '700',
     position: 'relative',
-    bottom: '80px'/*,
-    '&:hover': {
-      background: 'rgb(19, 44, 60)'
-    },*/
+    bottom: '80px',
+    left: '80px',
+    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
   },
   toolbar: {
     margin: '24px 0px',
@@ -396,8 +395,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-end'
   },
   filterButton: {
+    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
+    border: '1px solid rgba(126,153,176,0.3)',
+    color: '#0D142E',
     width: '100%',
-    height: '94.5%',    
+    height: '94.5%',
+    borderRadius: '10px',  
   },
   imgIconList : {
     position: 'relative',
@@ -625,10 +628,15 @@ const EnhancedTableToolbar = (props) => {
           </Grid>   
 
           <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
-            <Button className={ classes.buttonOverride } onClick={ onCreate }>
-              <Img alt="complex" src="/images/Small_Button.png" width={'50%'} />
+              <Button
+                variant="contained"
+                color="secondary"
+                size='large'
+                className={ classes.buttonOverride }
+                onClick={ onCreate }
+            >
               <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
-            </Button>            
+            </Button>         
           </Grid> 
 
           <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
@@ -660,9 +668,8 @@ const EnhancedTableToolbar = (props) => {
         
         <Tooltip placement="top" title="Filter list">        
           <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
-              <Img alt="complex" className={ classes.imgIconList } src="/images/Small_button_2.png" width={'70%'}/>
+            <FilterListIcon />
           </IconButton>          
-
         </Tooltip>
 
       </Grid>

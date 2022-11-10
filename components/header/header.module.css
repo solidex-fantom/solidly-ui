@@ -53,7 +53,7 @@
   transform: scale(6);
   position: fixed;
   left: 100px;
-  top: 30px;
+  top: 50px;
   cursor: pointer;
 }
 
@@ -136,12 +136,18 @@
   border-radius: 40px !important;
   color: rgba(255, 255, 255, 0.87) !important;
   padding-left: 26px !important;
-  padding-right: 26px !important;
-  
+  padding-right: 26px !important;  
 }
 
 .iconColor {
   color: #fff;
+}
+
+.containerMenuWallet {
+  
+  display: flex;
+  justify-content: flex-end
+  
 }
 
 .switchNetworkBtn {

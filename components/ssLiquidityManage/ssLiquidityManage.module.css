@@ -596,7 +596,8 @@
 
 .toggleOption.active {
   border: 1px solid;
-  background: rgb(23, 52, 72) !important;
+  
+  background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
   color: white;
   border-radius: 12px;    
 }

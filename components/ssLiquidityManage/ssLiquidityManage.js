@@ -4,7 +4,7 @@ import { Paper, Grid, Typography, Button, TextField, InputAdornment, CircularPro
 import BigNumber from 'bignumber.js'
 import { formatCurrency } from '../../utils'
 import classes from './ssLiquidityManage.module.css'
-
+import { styled, makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
@@ -67,6 +67,13 @@ export default function ssLiquidityManage() {
 
   const [ slippage, setSlippage ] = useState('2')
   const [ slippageError, setSlippageError ] = useState(false)
+
+  const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  });
 
   const ssUpdated = async () => {
     console.log(router.query.address)
@@ -1002,6 +1009,8 @@ export default function ssLiquidityManage() {
     )
   }
 
+  
+
   const renderMediumInputToggle = (type, value) => {
     return (
 
@@ -1113,10 +1122,7 @@ export default function ssLiquidityManage() {
             {
               activeTab === 'withdraw' &&
               <>
-                { renderMassiveInput('withdraw', withdrawAmount, withdrawAmountError, withdrawAmountChanged, withdrawAsset, null, withdrawAassetOptions, onAssetSelect, null, null) }
-               
-                
-                
+                { renderMassiveInput('withdraw', withdrawAmount, withdrawAmountError, withdrawAmountChanged, withdrawAsset, null, withdrawAassetOptions, onAssetSelect, null, null) }                                               
                 
                 <div className={ classes.receiveAssets }>
                   { renderMediumInput('withdrawAmount0', withdrawAmount0, pair?.token0?.logoURI, pair?.token0?.symbol) }
