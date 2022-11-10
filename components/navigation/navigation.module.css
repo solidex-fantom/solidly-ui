@@ -122,8 +122,8 @@ a.linkz { cursor: pointer !important; }
 
 .accountButton {
   display: flex;
-  align-items: center;
-  margin-left: 24px !important;
+  align-items: right;
+  
 }
 
 .accountIcon {

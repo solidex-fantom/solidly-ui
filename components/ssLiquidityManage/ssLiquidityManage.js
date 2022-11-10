@@ -1004,7 +1004,9 @@ export default function ssLiquidityManage() {
 
   const renderMediumInputToggle = (type, value) => {
     return (
-      <div className={ classes.textField}>
+
+
+      <div className={ classes.mediumInputContainer1}>
         <div className={ classes.mediumInputContainer}>
           <div className={ classes.toggles }>
             <div className={ `${classes.toggleOption} ${stable && classes.active}` } onClick={ () => { setStab(true) } }>

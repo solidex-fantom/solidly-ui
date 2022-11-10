@@ -1,9 +1,8 @@
 .vestContainer {
-
   width: calc(100% - 180px);  
   margin: 0 auto;
   margin-top: 80px;
-  position: relative;
+  position: relative;  
   
 }
 
@@ -27,12 +26,14 @@
   margin: auto;
   margin-bottom: 60px;
   padding: 20px 0px;
+  
 }
 
 
 .container2 {
   width: calc(100%);
-  border: 1px solid rgba(104, 108, 122, 0.25);
+  border: 1px solid;
+  
   left: 0;
   right: 0;
   margin: auto;
@@ -40,6 +41,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 36px;
+  
 }
 
 .container3 {
@@ -58,6 +60,23 @@
 
 .contentBox {
 }
+
+.mrgTp20 {
+  margin-top: 20px;
+}
+
+.lockedInfo {
+  color: #CD74CC;
+  font-family: 'Arista' !important;      
+  
+}
+
+.lineLockedInfo {
+  margin-top: 20px;
+  border-bottom: 1px solid white !important;
+  font-family: 'Arista' !important;      
+}
+
 
 .para {
   font-size: 14px !important;
@@ -283,7 +302,9 @@
 .expiresIn {
   background: none;  
   width: 80px;
-  font-size: 12px !important;
+  font-family: 'Arista' !important;      
+  font-size: 16px !important;
+  font-weight: bold;  
   color: #CD74CC;
 }
 
@@ -293,11 +314,8 @@
 }
 
 .vestPeriodLabel > span {
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
-
-
-
 
 .vestingInfoContainer {
   padding: 12px;
@@ -351,8 +369,7 @@
   flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
-  align-items: center;
-  
+  align-items: center;  
 }
 
 .massiveInputAssetSelect {
@@ -384,20 +401,20 @@
 }
 
 .displayAssetIcon {
-  border: 1px solid rgba(126, 153, 176, 0.2);
+  border: 1px solid;
   border-radius: 50px;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   width: 100px;
   height: 100px;
-  padding: 10px;
+  
 }
 
-.displayAssetIconWhite {
-  border: 1px solid rgba(128, 128, 128, 0.5);
-  border-radius: 50px;
-  background: rgb(33, 43, 72);
+.displayAssetIconWhite {  
+  border: 1px solid;
+  border-radius: 50px;  
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   width: 100px;
   height: 100px;
-  padding: 10px;
 }
 
 .inputTitleContainer {
@@ -427,6 +444,8 @@
   font-size: 12px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
+  letter-spacing: 2px;
+  color: white
 }
 
 .balances {
@@ -477,6 +496,8 @@
 }
 
 .vestInfoContainer {
+  margin-right: 10px;
+  margin-right: 10px;
 }
 
 .vestInfoContainer > .title {
@@ -519,6 +540,7 @@
   font-family: 'Righteous' !important;    
   padding: 3px 0px !important;
   color: white;
+  margin: 5px;
 }
 
 
