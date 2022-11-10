@@ -373,12 +373,12 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   buttonOverride: {
-    width: '70%',        
+    width: '80%',        
     color: '#0D142E',
     fontWeight: '700',
     position: 'relative',
     bottom: '80px',
-    left: '80px',
+    left: '50px',
     backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
   },
   toolbar: {
