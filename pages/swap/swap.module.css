@@ -120,6 +120,12 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
-
+@media screen and (max-width: 844px) {
+  .ffContainer {
+    padding-top: 110px;
+    justify-content: flex-start;
+  }
+  .sphere {      
+    height: 280px;  
+  }
 }

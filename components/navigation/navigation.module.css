@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #0D142E;  
+  background: #0D142E;
   padding: 10px;
   border: 1px solid;
-  border-radius: 50px;    
+  border-radius: 50px;
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   box-shadow: 1px 1px #0D142E;
 }
@@ -123,7 +123,7 @@ a.linkz { cursor: pointer !important; }
 .accountButton {
   display: flex;
   align-items: right;
-  
+
 }
 
 .accountIcon {
@@ -296,14 +296,14 @@ a.linkz { cursor: pointer !important; }
   cursor: pointer;
 }
 
-.navToggles {  
-  min-height: 50px;    
+.navToggles {
+  min-height: 50px;
 }
 
 .navButton {
   border: none;
   padding: 8px 24px 10px 24px !important;
-  text-transform: capitalize !important;  
+  text-transform: capitalize !important;
   color: #7E99B0 !important;
 } /* Transparent border to eliminate position jittering from Active state */
 
@@ -365,6 +365,7 @@ a.linkz { cursor: pointer !important; }
   .navigationHeading {
     width: 100%;
     display: block;
+    padding: 10px;
   }
   .headerThings {
     width: 100%;
@@ -457,14 +458,15 @@ a.linkz { cursor: pointer !important; }
   }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 844px) {
   .navToggles {
 
     min-height: 30px;
-    border-width: 1px;
-    border-radius: 25px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #1F2E64, #924C91, #70DD88, #1F2E64) 1;
+    text-align: justify;
+    size: 1rem;
+    /* border-radius: 100px; */
+    /* border-style: solid; */
+    /* border-image: linear-gradient(to right, #1F2E64, #924C91, #70DD88, #1F2E64) 1; */
 
   }
 
@@ -475,10 +477,13 @@ a.linkz { cursor: pointer !important; }
     border: 1px solid rgba(0,0,0,0) !important;
     color: #7E99B0 !important;
   }
+  .navButton:active{
+    border-radius: 100px;
+  }
 
   .subtitleText {
     padding-left: 0px;
-    font-size: 12px !important;
+    font-size: 14px !important;
     margin: 0 !important;
     text-align: center !important;
   }
@@ -486,25 +491,26 @@ a.linkz { cursor: pointer !important; }
   .appLogo {
     transform: scale(5);
     position: fixed;
-    left: 70px;
-    top: 18px;
+    left: 80px;
     cursor: pointer;
   }
 
   .testChange {
-    border: 1px solid #06d3d7 !important;
     background-color: rgba(0,0,0,0) !important;
     color: #FFF !important;
+  }
+  .navigationContainer{
+    border: 0px;
+
   }
 
   .navigationContent {
     background: #111729;
+    top: 42px;
     position: fixed;
-    left: 0;
-    top: 45px;
-    width: 100%;
     text-align: center;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(126,153,176,0.2);
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #1F2E64, #924C91, #70DD88, #1F2E64) 1;
   }
 }

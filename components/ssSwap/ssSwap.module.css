@@ -687,11 +687,25 @@
   .newSwapContainer {
     flex-direction: column;
   }
+  .inputBalance {
+    padding-right: 0px;
+    margin-top: 0px !important;
+  }
+  .massiveInputContainer{
+    margin-top: 20px;
+  }
+  .massiveInputAmount{
+    margin-top: -26px
+  }
+  .searchContainer{
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: 576px) {
   .newSwapContainer {
     margin-top: -100px;
+    padding: 20px;
   }
   .swapContainer {
     padding: 12px;
@@ -708,4 +722,8 @@
   .swapInfoContainer {
     width: 100%;
   }
+  .displayAssetIcon {  
+    height: 80px;   
+  }
+
 }
