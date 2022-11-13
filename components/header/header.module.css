@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 20px 30px;
+  padding: 20px 10px;
   position: fixed;
   top: 0;
   left: 0;
@@ -13,19 +13,15 @@
   border-radius: 0 !important;
 }
 
-.containerMenu{  
-  max-height: 40px;
-  width: 100%;
+.containerMenu {    
   background-color: transparent;
   border: 1px solid;
   border-radius: 32px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
-  position: relative;
-  left: 150px;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;      
 }
 
-.bigcontainerMenu {
-  min-width: 350px;
+.containerNav {  
+  margin: auto;
 }
 
 .hidden { display: none !important; }
@@ -52,16 +48,8 @@
 }
 
 .appLogo {
-  transform: scale(12);
-  position: fixed;
-  left: 170px;
-  top: 80px;
+  transform: scale(12);  
   cursor: pointer;
-}
-
-.logoContainer {
-  width: 500px;
-  position: relative;
 }
 
 .version {
@@ -146,10 +134,9 @@
 }
 
 .containerMenuWallet {
-  
   display: flex;
-  justify-content: flex-end
-  
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .switchNetworkBtn {
@@ -248,11 +235,6 @@
 }
 .trust {
   background-image: url('/connectors/trustWallet.png');
-}
-
-.themeSelectContainer {
-  /* position: absolute;
-  left: 150px; */
 }
 
 .switchIcon {
