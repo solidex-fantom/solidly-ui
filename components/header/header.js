@@ -285,7 +285,7 @@ function Header(props) {
           
           <Grid>            
                       
-            <Grid container className={classes.containerMenu} alignItems="flex-end" justifyContent="center" >
+            <Grid container className={classes.containerMenu} alignItems="flex-end" justifyContent="center">
 
                 <Grid className={classes.headAccountBalance}>
                   <Typography className={classes.headBtnTxt}>{'0 KAVA'}</Typography>
@@ -423,7 +423,7 @@ function Header(props) {
               <Navigation changeTheme={props.changeTheme} />
           </Grid>
 
-          <Grid  alignItems="center" justifyContent="center" className={classes.containerMenuWallet}>                          
+          <Grid  alignItems="fle" justifyContent="center" className={classes.containerMenuWallet}>                          
                 {renderRightMenuWallet()}                
           </Grid>
 

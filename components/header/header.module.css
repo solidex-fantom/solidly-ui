@@ -13,7 +13,7 @@
   border-radius: 0 !important;
 }
 
-.containerMenu {    
+.containerMenu {      
   background-color: transparent;
   border: 1px solid;
   border-radius: 32px;    
@@ -21,7 +21,8 @@
 }
 
 .containerNav {  
-  margin: auto;
+  margin-left: auto;
+  
 }
 
 .hidden { display: none !important; }
