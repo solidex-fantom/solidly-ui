@@ -423,7 +423,7 @@ function Header(props) {
               <Navigation changeTheme={props.changeTheme} />
           </Grid>
 
-          <Grid  alignItems="fle" justifyContent="center" className={classes.containerMenuWallet}>                          
+          <Grid  alignItems="center" justifyContent="center" className={classes.containerMenuWallet}>                          
                 {renderRightMenuWallet()}                
           </Grid>
 
