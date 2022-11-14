@@ -20,6 +20,12 @@
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;      
 }
 
+.subcontainerMenu {  
+  background: rgba(13, 20, 46, 0.6);
+  border-radius: 53px;
+  margin: 5px;  
+}
+
 .containerNav {  
   margin-left: auto;
   
@@ -138,6 +144,9 @@
   display: flex;
   justify-content: flex-end;
   margin-left: auto;
+  box-sizing: border-box;  
+  filter: drop-shadow(-8px 8px 4px rgba(12, 25, 69, 0.7));
+  border-radius: 53px;
 }
 
 .switchNetworkBtn {
@@ -218,8 +227,19 @@
 }
 
 .headBtnTxt {
-  font-size: 13px !important;
-  font-weight: 700 !important;    
+  font-size: 15px !important;
+  font-weight: 400 !important;      
+  font-family: 'Righteous';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.13em;
+  color: #FFFFFF;
+}
+
+.containerLogo {  
+  width: 269px;
+  height: 45px;  
 }
 
 .metamask {

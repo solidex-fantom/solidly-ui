@@ -373,7 +373,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   buttonOverride: {
-    width: '80%',        
+    width: '70%',        
     color: '#0D142E',
     fontWeight: '700',
     position: 'relative',
@@ -406,16 +406,19 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     bottom: '10px',    
   },
+
   actionButtonText: {
-    fontSize: '15px',
-    fontWeight: '700',
+    fontFamily: 'Righteous',
+    fontSize: '15px',    
     position: 'absolute',
-    top: '40%',
+    top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',    
-    lineHeight: '1.5',
-    fontWeight: '100',
-    letterSpacing: '1px'
+    transform: 'translate(-50%, -50%)',        
+    fontWeight: '100',    
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '22px',
+    letterSpacing: '0.13em'
   },
   filterContainer: {
     background: '#212b48',
@@ -504,17 +507,22 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Arista' 
   },
   title: {
+    marginBottom: '24px !important',
     fontFamily: 'Righteous',
-    fontSize: '32px',
-    color: '#FFFFFF',    
-    letterSpacing: '6px'    
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '50px',
+    lineHeight: '62px',
+    letterSpacing: '0.13em',
+    color: '#FFFFFF'
   },
   subtitle: {
-    fontSize: '18px',    
-    lineHeight: '1.5',
-    fontWeight: '700',
-    letterSpacing: '1px'  ,  
-    fontFamily: 'Arista',
+    fontFamily: 'Arista !important',
+    fontStyle: 'normal',
+    fontWeight: '300',
+    fontSize:' 25px',
+    lineHeight: '27px',    
+    color: '#FFFFFF',
   },
 
 }));

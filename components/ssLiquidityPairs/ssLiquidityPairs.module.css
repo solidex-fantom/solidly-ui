@@ -9,11 +9,6 @@
   padding: 0 0 10px 0px;
 }
 
-.title {
-  font-size: 20px !important;
-  margin-bottom: 24px !important;
-}
-
 .tableContainer {
   border: 1px solid rgba(104, 108, 122, 0.25);
   margin: 0 auto;

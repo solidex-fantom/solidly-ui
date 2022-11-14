@@ -291,7 +291,7 @@ function Header(props) {
                   <Typography className={classes.headBtnTxt}>{'0 KAVA'}</Typography>
                 </Grid>
 
-                <Grid>
+                <Grid className={classes.subcontainerMenu}>
 
                   <Button
                       disableElevation
@@ -415,8 +415,8 @@ function Header(props) {
 
         <Grid container className={classes.headerContainer}>
 
-          <Grid lg={2} md={2} sm={2} xs={2} justifyContent="center">
-            <a onClick={() => router.push('/home')}> <Img alt="complex" className={ classes.imgIconList } src="/images/Logo.png" /></a>          
+          <Grid lg={2} md={2} sm={2} xs={2} justifyContent="center" >
+            <a onClick={() => router.push('/home')}> <Img alt="complex" className={ classes.containerLogo } src="/images/Logo.png" /></a>          
           </Grid>
 
           <Grid className={classes.containerNav}>

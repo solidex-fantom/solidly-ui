@@ -152,15 +152,12 @@
   padding-bottom: 21.5px !important;
 }
 
-
 .disclaimerMain {
   font-size: 13px !important;
-  color: #CD74CC;
+  color: #5c3c5c;
   padding: 21.5px !important;
   letter-spacing: 4px;
 }
-
-
 .gridBanner {      
   height: 200px;
   margin: 10px;
@@ -199,19 +196,25 @@
 }
 
 .title {
-  font-family: 'Righteous';
-  color: #FFFFFF;   
-  font-size: 42px;
-  letter-spacing: 6px    
+  font-family: 'Righteous' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 50px !important;
+  line-height: 62px !important ;
+  letter-spacing: 0.13em !important;
+  color: #FFFFFF;  
 }
 
 .subtitle {  
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  font-family: 'Arista' !important;  
+  font-family: 'Arista' !important;
+  font-style: normal !important;
+  font-weight: 300 !important;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 0.13em;
   color: #FFFFFF;
-  letter-spacing: 1px;  
 }
+
 
 .actionButtonText {
   color: #0D142E;  
