@@ -1,3 +1,4 @@
+
 .newSwapContainer {
   display: flex;
   justify-content: space-evenly;
@@ -9,15 +10,19 @@
 }
 
 .swapContainer {
-  max-width: 485px;
-  width: 100%;
+
   padding: 24px;
   display: flex;
   flex-direction: column;  
   border: 2px solid;
   border-radius: 12px;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  box-sizing: border-box;
   box-shadow: 1px 1px #0D142E;
+  width: 604px;
+  height: 390px;
+  left: calc(50% - 604px/2 + 507px);
+  top: calc(50% - 390px/2 + 2px);
 }
 
 .smallerText {
@@ -28,6 +33,7 @@
 }
 
 .swapInputs {
+  margin: auto;
   display: flex;
   flex-direction: column;
   width: 100%;    
@@ -82,7 +88,7 @@
 
 .massiveInputAmount {
   flex: 1;
-  height: 100%;  
+  height: 100%;    
 }
 
 .massiveInputAddress {
@@ -201,13 +207,17 @@
 }
 
 .inputBalance {  
-  font-weight: 50 !important;
-  font-size: 12px !important;  
+  font-weight: 400 !important;
+  font-size: 15px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
   font-family: 'Righteous' !important;
   letter-spacing: 2px;
   color: #FFFFFF;
+  font-style: normal;
+  font-weight: 400;    
+  letter-spacing: 0.13em;
+
 }
 
 .inputBalanceText {

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
 import { Typography, Paper, Switch, Button, Tooltip, Grid, SvgIcon } from '@material-ui/core';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { withTheme, withStyles } from '@material-ui/core/styles';
-
 import SSWarning  from '../ssWarning';
-
 import stores from '../../stores';
 import { formatAddress } from '../../utils';
 import classes from './navigation.module.css';
@@ -190,6 +187,7 @@ function Navigation(props) {
 
   return (
     <div className={classes.navigationContainer}>
+      
       <div className={classes.navigationHeading}>
         <a onClick={() => router.push('/home')} className={classes.linkz}>
           <SiteLogo className={classes.appLogo} />

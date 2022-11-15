@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #0D142E;
-  padding: 10px;
+  background: #0D142E;    
   border: 1px solid;
   border-radius: 50px;
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  box-shadow: 1px 1px #0D142E;
+  background: rgba(13, 20, 46, 0.5);
+  box-shadow: -8px 8px 4px #0D142E, inset -8px 8px 4px rgba(12, 25, 69, 0.7) !important;
+  border-radius: 53px;
+  box-shadow: 1px 1px #0D142E;  
 }
 
 a.linkz { cursor: pointer !important; }
@@ -175,9 +177,6 @@ a.linkz { cursor: pointer !important; }
   cursor: pointer;
 }
 
-.subAssets {
-
-}
 
 .navigationSubOptionContainer {
   display: flex;
@@ -190,8 +189,11 @@ a.linkz { cursor: pointer !important; }
 }
 
 .subtitleText {
-  font-size: 14px !important;
+  font-family: 'Arista';
+  font-size: 25px !important;
+  font-weight: 300 !important;
   margin: 0 !important;
+  
 }
 
 .sectionDivider {

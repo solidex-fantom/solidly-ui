@@ -270,17 +270,22 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: 'Righteous',
-    fontSize: '32px',
-    color: '#FFFFFF',    
-    letterSpacing: '6px' 
+    fontSize: '50px',
+    color: '#FFFFFF',        
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '62px',
+    letterSpacing: '0.13em'    
   },
-  subtitle: {
-    fontSize: '18px',    
-    lineHeight: '1.5',
-    fontWeight: '700',
-    letterSpacing: '1px',   
-    fontFamily: 'Arista',
-  },  
+  subtitle: {            
+    fontFamily: 'Arista',    
+    fontStyle: 'normal',
+    fontWeight: '300',
+    fontSize: '20px',
+    lineHeight: '27px',
+    letterSpacing: '0.13em',
+    color: '#FFFFFF'
+  },
   sphere: {        
     width: '100%',
     height: '320px',
