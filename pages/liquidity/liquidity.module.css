@@ -61,8 +61,8 @@
 }
 
 .buttonConnect {
-  background: rgba(6,211,215,0.3) !important;
-  color: rgba(6,211,215,1) !important;
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  color: rgb(20 30 63) !important;
   border-radius: 60px !important;
   padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
@@ -77,7 +77,7 @@
 }
 
 .buttonConnect:hover {
-  background: rgba(6,211,215,1) !important;
+  background: #FFBD59 !important;
   color: #111729 !important;
   text-transform: none !important;
   border: 1px solid !important;

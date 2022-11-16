@@ -82,8 +82,8 @@
 }
 
 .buttonConnect {
-  background: rgba(6,211,215,0.3) !important;
-  color: rgba(6,211,215,1) !important;
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  color: rgb(20 30 63) !important;
   border-radius: 60px !important;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
   padding: 12px 24px 14px 24px !important;
@@ -97,7 +97,18 @@
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
+.buttonConnect:hover {
+  background: #FFBD59 !important;
+  color: #111729 !important;
+  text-transform: none !important;
+  border: 1px solid !important;
+  transform: scale(0.9);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
 
 @media screen and (max-width: 1600px) {
 

@@ -415,7 +415,7 @@ function Header(props) {
             <a onClick={() => router.push('/home')}> <Img alt="complex" className={ classes.containerLogo } src="/images/Logo.png" /></a>          
           </Grid>
 
-          <Grid item>
+          <Grid item sx={{ paddingLeft: "5%"}}>
               <Navigation changeTheme={props.changeTheme} />
           </Grid>
 
