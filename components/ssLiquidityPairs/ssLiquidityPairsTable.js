@@ -348,8 +348,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '30px',
     background: 'rgb(25, 33, 56)',
   },
-  overrideTableHead: {        
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
+  overrideTableHead: {
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
     '@media (max-width: 1000px)': {
         display: 'none',
       },
@@ -361,33 +361,31 @@ const useStyles = makeStyles((theme) => ({
     height: '35px'
   },
   searchContainer: {
-    flex: 1,
-    display: 'flex',
-    width: '100%',
-    minHeight: '60px',    
-    border: '2px solid',
-    borderRadius: '18px',    
+    minHeight: '60px',
+    border: '1px solid',
+    borderRadius: '18px',
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
-    '& .MuiInputBase-input': {      
-      border: '0 px',    
+    '& .MuiInputBase-input': {
+      border: '0 px',
     }
   },
   buttonOverride: {
-    width: '70%',        
     color: '#0D142E',
-    fontWeight: '700',
     position: 'relative',
-    bottom: '80px',
-    left: '50px',
+    borderRadius: '30px',
+    padding: '10px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
     backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
+
   },
   toolbar: {
-    margin: '24px 0px',
+    margin: '48px 10px',
     padding: '0px',
   },
   tableContainer: {
     border: '1px solid',
-    borderRadius: '12px',    
+    borderRadius: '12px',
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
     width: '100%',
     display: 'flex',
@@ -399,26 +397,21 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid rgba(126,153,176,0.3)',
     color: '#0D142E',
     width: '100%',
-    height: '94.5%',
-    borderRadius: '10px',  
+    height: '100%',
+    borderRadius: '20px',
+    boxShadow: '-3px 3px #1F2E64',
   },
   imgIconList : {
     position: 'relative',
-    bottom: '10px',    
+    bottom: '10px',
   },
 
   actionButtonText: {
-    fontFamily: 'Righteous',
-    fontSize: '15px',    
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',        
-    fontWeight: '100',    
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '22px',
-    letterSpacing: '0.13em'
+    fontSize: '15px',
+    fontWeight: '300',
+    lineHeight: '1.5',
+    fontWeight: '100',
+    letterSpacing: '1px'
   },
   filterContainer: {
     background: '#212b48',
@@ -428,8 +421,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
     boxShadow: '0 10px 20px 0 rgba(0,0,0,0.2)',
     border: '1px solid',
-    borderRadius: '12px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
+    borderRadius: '12px',
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
   },
   alignContentRight: {
     textAlign: 'right',
@@ -471,14 +464,11 @@ const useStyles = makeStyles((theme) => ({
         display: 'block',
       },
   },
-  gridBanner: {    
-    height: '170px',
-    margin: '10px',
-    padding: '8px',    
-    marginTop: '80px',
-    border: '2px solid',
-    borderRadius: '24px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
+  gridBanner: {
+    border: '1px solid',
+    borderRadius: '24px',
+    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+    padding: '7px'
   },
   infoBanner: {
     display: 'flex',
@@ -487,42 +477,39 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     padding: '24px',
     width: '100%',
-    flexWrap: 'wrap',            
+    flexWrap: 'wrap',
   },
-  sphere: {    
-    width: '100%',
-    height: '320px',
+  gridSphere: {
+    position: 'relative',
+    zIndex: '1'
+  },
+  sphere: {
+    height: '100%',
     background: 'url(\'/images/Toboganes_7.png\') no-repeat right',
     backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',    
+    backgroundRepeat: 'no-repeat',
     position: 'relative',
-    bottom: '140px',
-    opacity: '1'
+    opacity: '1',
+    zIndex: '1 !important'
   },
   toolbarInfo: {
     margin: '15px',
     position: 'relative',
-    bottom: '100px',
-    right: '1px',
-    fontFamily: 'Arista' 
+    fontFamily: 'Arista',
   },
   title: {
     marginBottom: '24px !important',
     fontFamily: 'Righteous',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    fontSize: '50px',
-    lineHeight: '62px',
-    letterSpacing: '0.13em',
-    color: '#FFFFFF'
+    fontSize: '32px',
+    color: '#FFFFFF',
+    letterSpacing: '6px'
   },
   subtitle: {
-    fontFamily: 'Arista !important',
-    fontStyle: 'normal',
-    fontWeight: '300',
-    fontSize:' 25px',
-    lineHeight: '27px',    
-    color: '#FFFFFF',
+    fontSize: '18px',
+    lineHeight: '1.5',
+    fontWeight: '700',
+    letterSpacing: '1px'  ,
+    fontFamily: 'Arista',
   },
 
 }));
@@ -571,7 +558,7 @@ const EnhancedTableToolbar = (props) => {
     props.setSearch(event.target.value)
   };
 
-  
+
 
   const onToggle = (event) => {
 
@@ -626,35 +613,35 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar className={ classes.toolbar }>
 
-    <Grid container spacing={2}>
+    <Grid container spacing={6}>
+      {/* Header */}
+      <Grid item className={classes.gridBanner} container justifyContent='space-between'>
+          <Grid item xs={8} container alignItems='center' justifyContent='space-around'>
+            <Grid item xs={6} container>
+              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>
+              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>
+            </Grid>
 
-      <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
-
-          <Grid direction="column" >            
-            <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>    
-            <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
-          </Grid>   
-
-          <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
-              <Button
-                variant="contained"
-                color="secondary"
-                size='large'
-                className={ classes.buttonOverride }
-                onClick={ onCreate }
-            >
-              <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
-            </Button>         
-          </Grid> 
-
-          <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
-            <div className={classes.sphere}></div>  
+            <Grid item xs={6}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size='large'
+                  className={ classes.buttonOverride }
+                  onClick={ onCreate }
+              >
+                <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
+              </Button>
+            </Grid>
           </Grid>
-                              
-      </Grid>    
+          <Grid item xs={4} className={classes.gridSphere}>
+            <div className={classes.sphere}></div>
+          </Grid>
 
-      
-      <Grid item lg={10} md={10} sm={10} xs={10}>
+      </Grid>
+
+      {/* Search */}
+      <Grid item xs={11}>
         <TextField
           className={classes.searchContainer}
           variant="outlined"
@@ -671,19 +658,20 @@ const EnhancedTableToolbar = (props) => {
           }}
         />
       </Grid>
+      {/* Filter */}
+      <Grid item xs={1}>
 
-      <Grid item lg={2} md={2} sm={2} xs={2}>      
-        
-        <Tooltip placement="top" title="Filter list">        
-          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+        <Tooltip placement="top" title="Filter list">
+          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">
             <FilterListIcon />
-          </IconButton>          
+          </IconButton>
         </Tooltip>
 
       </Grid>
     </Grid>
-
-      <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
+    {/* <Grid container>
+      <Grid item> */}
+        <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
             <div className={classes.filterContainer}>
@@ -750,7 +738,9 @@ const EnhancedTableToolbar = (props) => {
             </div>
           </Fade>
         )}
-      </Popper>
+        </Popper>
+      {/* </Grid>
+    </Grid> */}
     </Toolbar>
   );
 };

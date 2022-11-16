@@ -8,7 +8,8 @@ import {
   IconButton,
   Dialog,
   CircularProgress,
-  Tooltip
+  Tooltip,
+  Grid
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
@@ -492,18 +493,22 @@ function Setup() {
   return (
     
     
-    <div className={ classes.swapInputs }>
-      { renderMassiveInput('From', fromAmountValue, fromAmountError, fromAmountChanged, fromAssetValue, fromAssetError, fromAssetOptions, onAssetSelect) }
-      <div className={ classes.swapIconContainer }>
-        <div className={ classes.swapIconSubContainer }>
+    <Grid container className={ classes.swapInputs }>
+      <Grid item xs={12}>
+        { renderMassiveInput('From', fromAmountValue, fromAmountError, fromAmountChanged, fromAssetValue, fromAssetError, fromAssetOptions, onAssetSelect) }
+      </Grid>
+      <Grid item xs={12} className={ classes.swapIconContainer } container>
+        <Grid item className={ classes.swapIconSubContainer }>
           <ArrowDownwardIcon className={ classes.swapIcon } onClick={ swapAssets }/>
-        </div>
-      </div>
-      
-      { renderMassiveInput('To', toAmountValue, toAmountError, toAmountChanged, toAssetValue, toAssetError, toAssetOptions, onAssetSelect) }
-      { renderSwapInformation() }
-      
-    </div>
+        </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        { renderMassiveInput('To', toAmountValue, toAmountError, toAmountChanged, toAssetValue, toAssetError, toAssetOptions, onAssetSelect) }
+      </Grid>
+      <Grid item xs={12}>
+        { renderSwapInformation() }
+      </Grid>
+    </Grid>
   )
 }
 
@@ -722,7 +727,7 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
               className={ classes.displayAssetIcon }
               alt=""
               src={ value ? `${value.logoURI}` : '' }
-              height='100px'
+              height='80px'
               onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
             />
           </div>

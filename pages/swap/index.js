@@ -43,19 +43,19 @@ function Swap({ changeTheme }) {
       {account && account.address ?
 
 
-          <Grid container alignItems="center" justifyContent="center">
+          <Grid container alignItems="center" justifyContent="center" spacing={6}>
 
-              <Grid item lg={6} md={6} sm={6} xs={6} className={classes.endAsset}>       
-                <Grid className={classes.descTp} >              
+              <Grid container item className={classes.endAsset} alignItems="center" justifyContent="center" sm={6} xs={12}>       
+                <Grid item className={classes.descTp} >              
                     <Typography className={classes.title} variant='h1'>Swap</Typography>
                     <Typography className={classes.subtitle}>Enjoy minimal slippage, low swapping fees and deep liquidity</Typography>
                 </Grid>     
-                <Grid>              
+                <Grid item sm={6} xs={12}  >              
                   <div className={classes.sphere}></div>                         
                 </Grid>    
               </Grid>
-              
-              <Grid item>
+          
+              <Grid item sm={6} xs={12}>
                 <SwapComponent />
               </Grid>    
 

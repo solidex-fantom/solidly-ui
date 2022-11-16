@@ -65,7 +65,6 @@ const Img = styled('img')({
   margin: 'auto',
   display: 'block',
   maxWidth: '100%',
-  height: '40px'
 });
 
 
@@ -282,16 +281,14 @@ function Header(props) {
       {account && account.address ?
 
         <div>
-          
-          <Grid>            
-                      
-            <Grid container className={classes.containerMenu} alignItems="flex-end" justifyContent="center">
+           
+            <Grid container className={classes.containerMenu} alignItems="center" spacing={1}>
 
-                <Grid className={classes.headAccountBalance}>
+                <Grid item xs={4} className={classes.headAccountBalance}>
                   <Typography className={classes.headBtnTxt}>{'0 KAVA'}</Typography>
                 </Grid>
 
-                <Grid className={classes.subcontainerMenu}>
+                <Grid item xs={8}className={classes.subcontainerMenu}>
 
                   <Button
                       disableElevation
@@ -311,8 +308,7 @@ function Header(props) {
                 </Grid>                       
 
             </Grid>                     
-                                                    
-          </Grid>              
+                                                                
 
             <StyledMenu
               id="customized-menu"
@@ -413,22 +409,23 @@ function Header(props) {
 
     <div>
 
-        <Grid container className={classes.headerContainer}>
+        <Grid container className={classes.headerContainer} alignItems='center' justifyContent='space-between'>
 
-          <Grid lg={2} md={2} sm={2} xs={2} justifyContent="center" >
+          <Grid item>
             <a onClick={() => router.push('/home')}> <Img alt="complex" className={ classes.containerLogo } src="/images/Logo.png" /></a>          
           </Grid>
 
-          <Grid className={classes.containerNav}>
+          <Grid item>
               <Navigation changeTheme={props.changeTheme} />
           </Grid>
 
-          <Grid  alignItems="center" justifyContent="center" className={classes.containerMenuWallet}>                          
-                {renderRightMenuWallet()}                
-          </Grid>
-
-          <Grid>
-              {renderSocialMenu()}
+          <Grid item xs={2} className={classes.containerMenuWallet} container>                          
+              <Grid item>
+                {renderRightMenuWallet()}    
+              </Grid>
+              {/* <Grid item>
+                {renderSocialMenu()}
+              </Grid>             */}
           </Grid>
                     
         </Grid>

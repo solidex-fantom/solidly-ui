@@ -186,21 +186,21 @@ function Navigation(props) {
   };
 
   return (
-    <div className={classes.navigationContainer}>
+    <Grid container className={classes.navigationContainer}>
       
-      <div className={classes.navigationHeading}>
+      <Grid item className={classes.navigationHeading}>
         <a onClick={() => router.push('/home')} className={classes.linkz}>
           <SiteLogo className={classes.appLogo} />
         </a>
-      </div>
+      </Grid>
 
-      <div className={classes.navigationContent}>{renderNavs()}</div>
+      <Grid item className={classes.navigationContent}>{renderNavs()}</Grid>
 
       { warningOpen &&
         <SSWarning close={ closeWarning } />
       }
 
-    </div>
+    </Grid>
   );
 }
 
