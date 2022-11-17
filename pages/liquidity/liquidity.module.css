@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .ffContainer {
-  min-height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 0px;
   padding-top: 100px;
   position: relative;
 }

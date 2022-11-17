@@ -1,8 +1,6 @@
 .ffContainer {
-  min-height: 100vh;
+  padding-top: 100px;
   padding-inline: 50px;
-  padding-top: 10%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;

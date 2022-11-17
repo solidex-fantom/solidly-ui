@@ -1,6 +1,6 @@
 .headerContainer {
   padding: 20px 50px;
-  position: fixed;
+  position: static;
   top: 0;
   left: 0;
   z-index: 9 !important;
@@ -227,7 +227,7 @@
 }
 
 .containerLogo {  
-  height: 30px;  
+  height: 30px;
 }
 
 .metamask {

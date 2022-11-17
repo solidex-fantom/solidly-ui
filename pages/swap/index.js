@@ -55,7 +55,7 @@ function Swap({ changeTheme }) {
             sm={6}
             xs={12}
           >
-            <Grid item className={classes.descTp}>
+            <Grid item className={classes.descTp} xl={12}>
               <Typography className={classes.title} variant="h1">
                 Swap
               </Typography>
@@ -63,7 +63,7 @@ function Swap({ changeTheme }) {
                 Enjoy minimal slippage, low swapping fees and deep liquidity
               </Typography>
             </Grid>
-            <Grid item sm={6} xs={12}>
+            <Grid item xs={12} sm={6} xl={12}>
               <div className={classes.sphere}></div>
             </Grid>
           </Grid>

@@ -615,7 +615,7 @@ const EnhancedTableToolbar = (props) => {
 
     <Grid container spacing={6}>
       {/* Header */}
-      <Grid item className={classes.gridBanner} container justifyContent='space-between'>
+      <Grid item xs={12} className={classes.gridBanner} container justifyContent='space-between'>
           <Grid item xs={8} container alignItems='center' justifyContent='space-around'>
             <Grid item xs={6} container>
               <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>
@@ -641,6 +641,7 @@ const EnhancedTableToolbar = (props) => {
       </Grid>
 
       {/* Search */}
+      <Grid item xs ={12} container justifyContent='space-between'>
       <Grid item xs={11}>
         <TextField
           className={classes.searchContainer}
@@ -667,6 +668,7 @@ const EnhancedTableToolbar = (props) => {
           </IconButton>
         </Tooltip>
 
+      </Grid>
       </Grid>
     </Grid>
     {/* <Grid container>

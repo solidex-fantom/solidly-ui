@@ -411,7 +411,7 @@ function Header(props) {
 
         <Grid container className={classes.headerContainer} alignItems='center' justifyContent='space-between'>
 
-          <Grid item>
+          <Grid item xl={2} justifyContent='flex-start'>
             <a onClick={() => router.push('/home')}> <Img alt="complex" className={ classes.containerLogo } src="/images/Logo.png" /></a>          
           </Grid>
 
