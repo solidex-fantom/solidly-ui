@@ -2,26 +2,27 @@ import abis from "../abis";
 
 export const GOV_TOKEN_ADDRESS = "0xBfB032e2a9564e50E970c6aEf4C1E664d1F98D36";
 export const GOV_TOKEN_NAME = "Équilibre";
-export const GOV_TOKEN_SYMBOL = "EQ";
+export const GOV_TOKEN_SYMBOL = "VARA";
 export const GOV_TOKEN_DECIMALS = 18;
-export const GOV_TOKEN_LOGO = "https://prod.solidly.exchange/Solidly-O.svg";
+export const GOV_TOKEN_LOGO = "https://github.com/equilibre-finance.png";
 export const GOV_TOKEN_ABI = abis.tokenABI;
 
 //VotingEscrow
 export const VE_TOKEN_ADDRESS = "0xb25b44233bA8F5f9A59f67855BaD4821564bAE82";
-export const VE_TOKEN_NAME = "veNFT";
-export const VE_TOKEN_SYMBOL = "veNFT";
+export const VE_TOKEN_NAME = "veVARA";
+export const VE_TOKEN_SYMBOL = "veVARA";
 export const VE_TOKEN_DECIMALS = 18;
-export const VE_TOKEN_LOGO = "https://prod.solidly.exchange/Solidly-O.svg";
+export const VE_TOKEN_LOGO = "https://github.com/equilibre-finance.png";
 export const VE_TOKEN_ABI = abis.veTokenABI;
 
 export const WKAVA_ADDRESS = "0xFa95D53e0B6e82b2137Faa70FD7E4a4DC70Da449";
 export const WKAVA_NAME = "Wrapped Kava";
-export const WKAVA_SYMBOL = "WKAVA";
+export const WKAVA_SYMBOL = "wKAVA";
 export const WKAVA_DECIMALS = 18;
 export const WKAVA_ABI = abis.wftmABI;
+export const WKAVA_LOGO =
+    "https://assets.coingecko.com/coins/images/9761/large/kava.png";
 
-export const KAVA_ADDRESS = "KAVA";
 export const KAVA_NAME = "Kava";
 export const KAVA_SYMBOL = "KAVA";
 export const KAVA_DECIMALS = 18;

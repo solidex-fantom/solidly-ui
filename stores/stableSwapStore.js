@@ -818,16 +818,16 @@ class Store {
       console.log('baseAssets', baseAssets)
 
       //const baseAssets = tokenlist;
-
-      const nativeKAVA = {
-        address: CONTRACTS.KAVA_ADDRESS,
-        decimals: CONTRACTS.KAVA_DECIMALS,
-        logoURI: CONTRACTS.KAVA_LOGO,
-        name: CONTRACTS.KAVA_NAME,
-        symbol: CONTRACTS.KAVA_SYMBOL
-      }
-
-      baseAssets.unshift(nativeKAVA)
+      // TODO: What do we do with this? does it make sense?
+      // const nativeKAVA = {
+      //   address: CONTRACTS.KAVA_ADDRESS,
+      //   decimals: CONTRACTS.KAVA_DECIMALS,
+      //   logoURI: CONTRACTS.KAVA_LOGO,
+      //   name: CONTRACTS.KAVA_NAME,
+      //   symbol: CONTRACTS.KAVA_SYMBOL
+      // }
+      //
+      // baseAssets.unshift(nativeKAVA)
 
       let localBaseAssets = this.getLocalAssets()
 
@@ -1161,7 +1161,7 @@ class Store {
         return null
       }
 
-
+      console.log("Getting balances of assets:,", baseAssets);
       const balanceOfs = await this._tryGetBalanceOfs(web3, baseAssets, account)
       const whitelists = await this._tryGetWhitelists(web3, baseAssets)
 
