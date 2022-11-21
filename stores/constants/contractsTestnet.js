@@ -23,6 +23,7 @@ export const WKAVA_ABI = abis.wftmABI;
 export const WKAVA_LOGO =
     "https://assets.coingecko.com/coins/images/9761/large/kava.png";
 
+export const KAVA_ADDRESS = "KAVA";
 export const KAVA_NAME = "Kava";
 export const KAVA_SYMBOL = "KAVA";
 export const KAVA_DECIMALS = 18;

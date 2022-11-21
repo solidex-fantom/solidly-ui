@@ -818,16 +818,15 @@ class Store {
       console.log('baseAssets', baseAssets)
 
       //const baseAssets = tokenlist;
-      // TODO: What do we do with this? does it make sense?
-      // const nativeKAVA = {
-      //   address: CONTRACTS.KAVA_ADDRESS,
-      //   decimals: CONTRACTS.KAVA_DECIMALS,
-      //   logoURI: CONTRACTS.KAVA_LOGO,
-      //   name: CONTRACTS.KAVA_NAME,
-      //   symbol: CONTRACTS.KAVA_SYMBOL
-      // }
-      //
-      // baseAssets.unshift(nativeKAVA)
+      const nativeKAVA = {
+        address: CONTRACTS.KAVA_ADDRESS,
+        decimals: CONTRACTS.KAVA_DECIMALS,
+        logoURI: CONTRACTS.KAVA_LOGO,
+        name: CONTRACTS.KAVA_NAME,
+        symbol: CONTRACTS.KAVA_SYMBOL
+      }
+
+      baseAssets.unshift(nativeKAVA)
 
       let localBaseAssets = this.getLocalAssets()
 
