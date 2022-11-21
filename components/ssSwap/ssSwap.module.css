@@ -158,8 +158,7 @@
 }
 
 .displayAssetIcon {  
-  border: 1px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border: 1px solid;    
   border-radius: 64px;    
 }
 

@@ -2,15 +2,21 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #0D142E;    
-  border: 1px solid;
-  border-radius: 50px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  background: rgba(13, 20, 46, 0.5);
+  
   box-shadow: -8px 8px 4px #0D142E, inset -8px 8px 4px rgba(12, 25, 69, 0.7) !important;
-  border-radius: 53px;
+  
   box-shadow: 1px 1px #0D142E;  
   margin-left: 5%;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  
+  border: 1px solid transparent;
+  border-radius: 53px;
+  display: inline-block;
+  
 }
 
 a.linkz { cursor: pointer !important; }
