@@ -160,7 +160,7 @@ function Navigation(props) {
         )}
         {renderSubNav(
           'Bribe',
-          'whitelist',
+          'bribe',
         )}
       </ToggleButtonGroup>
     );
