@@ -1,14 +1,37 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import BribeCreate from '../../../components/ssBribeCreate'
+import { Grid, Typography } from "@material-ui/core";
+import React, { useState, useEffect, useCallback } from "react";
+import BribeCreate from "../../../components/ssBribeCreate";
 
-import classes from './create.module.css';
+import classes from "./create.module.css";
 
 function Bribe({ changeTheme }) {
-
   return (
-    <div className={classes.container}>
-      <BribeCreate />
-    </div>
+    <Grid container className={classes.container} justifyContent="center" alignItems="center">
+      <Grid
+        container
+        item
+        alignItems="center"
+        justifyContent="center"
+        xs={12}
+        sm={6}
+      >
+        <Grid item>
+          <Typography className={classes.title} variant="h1">
+            Bribes
+          </Typography>
+          <Typography className={classes.subtitle}>
+            Offer incentives to attract votes and maximize emissions awarded to your pools
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <div className={classes.sphere}></div>
+        </Grid>
+      </Grid>
+
+      <Grid item xs={12} sm={6}>
+        <BribeCreate />
+      </Grid>
+    </Grid>
   );
 }
 

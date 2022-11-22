@@ -1,4 +1,4 @@
-import { Typography, Button, Paper, SvgIcon } from "@material-ui/core"
+import { Typography, Button, Paper, SvgIcon, Grid } from "@material-ui/core"
 import SSBribes from '../../components/ssBribes'
 
 import React, { useState, useEffect } from 'react';
@@ -59,9 +59,9 @@ function Bribes({ changeTheme }) {
   return (
     <div className={classes.ffContainer}>
       {account && account.address ?
-        <div className={classes.connected}>
+        <Grid container>
           <SSBribes redirectToCreate={redirectToCreate}/>
-        </div>
+        </Grid>
          :
          <Paper className={classes.notConnectedContent}>
            <Typography className={classes.title} variant='h1'>Bribes</Typography>

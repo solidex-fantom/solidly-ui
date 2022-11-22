@@ -241,11 +241,10 @@ export default function ssBribeCreate() {
 
   return (
     <div className={classes.retain}>
-      <Paper elevation={0} className={ classes.container }>
+      <Paper elevation={20} className={ classes.container }>
         <div className={ classes.titleSection }>
           <Typography className={ classes.titleText }>Create Bribe</Typography>
         </div>
-        <div className={ classes.reAddPadding }>
           <div className={ classes.inputsContainer }>
             { renderMassiveGaugeInput('gauge', gauge, null, gaugeOptions, onGagugeSelect) }
             { renderMassiveInput('amount', amount, amountError, amountChanged, asset, null, assetOptions, onAssetSelect) }
@@ -264,7 +263,6 @@ export default function ssBribeCreate() {
               { createLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
             </Button>
           </div>
-        </div>
       </Paper>
     </div>
   );
