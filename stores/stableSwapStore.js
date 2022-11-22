@@ -1023,14 +1023,14 @@ class Store {
         ps.map(async (pair) => {
           try {
             if(pair.gauge && pair.gauge.address !== ZERO_ADDRESS) {
+
               const [ totalSupply, gaugeBalance, gaugeWeight ] = await this._tryGetGaugeBalances(web3, pair, account, gaugesContract)
 
-              const bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, pair.gauge.bribeAddress)
+              const gaugeContract = new web3.eth.Contract(CONTRACTS.GAUGE_ABI, pair.gauge.address)
 
               const bribes = await Promise.all(
                 pair.gauge.bribes.map(async (bribe, idx) => {
-
-                  const rewardRate = await bribeContract.methods.rewardRate(bribe.token.address).call()
+                  const rewardRate = await gaugeContract.methods.rewardRate(bribe.token.address).call()
 
                   bribe.rewardRate = BigNumber(rewardRate).div(10**bribe.token.decimals).toFixed(bribe.token.decimals)
                   bribe.rewardAmount = BigNumber(rewardRate).times(604800).div(10**bribe.token.decimals).toFixed(bribe.token.decimals)
@@ -1066,9 +1066,8 @@ class Store {
             return pair
 
           } catch (ex) {
-            console.log('EXCEPTION 2')
             console.log(pair)
-            console.log(ex)
+            console.error(ex)
             return pair
           }
         })
@@ -1082,7 +1081,7 @@ class Store {
       this.emitter.emit(ACTIONS.UPDATED)
 
     } catch (ex) {
-      console.log(ex)
+      console.error(ex)
     }
   }
 
@@ -2972,7 +2971,7 @@ class Store {
       const receiveAmounts = await multicall.aggregate(amountOuts.map((route) => {
         return routerContract.methods.getAmountsOut(sendFromAmount, route.routes)
       }))
-      console.log("lol")
+
       for(let i = 0; i < receiveAmounts.length; i++) {
         amountOuts[i].receiveAmounts = receiveAmounts[i]
         amountOuts[i].finalValue = BigNumber(receiveAmounts[i][receiveAmounts[i].length-1]).div(10**toAsset.decimals).toFixed(toAsset.decimals)
@@ -2994,13 +2993,13 @@ class Store {
 
       const libraryContract = new web3.eth.Contract(CONTRACTS.LIBRARY_ABI, CONTRACTS.LIBRARY_ADDRESS)
       let totalRatio = 1
-      console.log('iterating shit')
+
       for(let i = 0; i < bestAmountOut.routes.length; i++) {
         let amountIn = bestAmountOut.receiveAmounts[i]
         let amountOut = bestAmountOut.receiveAmounts[i+1]
-        console.log('iter', amountIn, bestAmountOut.routes[i].from, bestAmountOut.routes[i].to, bestAmountOut.routes[i].stable)
+
         const res = await libraryContract.methods.getTradeDiff(amountIn, bestAmountOut.routes[i].from, bestAmountOut.routes[i].to, bestAmountOut.routes[i].stable).call()
-        console.log('shit')
+
         const ratio = BigNumber(res.b).div(res.a)
         totalRatio = BigNumber(totalRatio).times(ratio).toFixed(18)
       }
