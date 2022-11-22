@@ -54,5 +54,4 @@ export const BRIBE_ABI = abis.bribeABI;
 export const TOKEN_ABI = abis.tokenABI;
 export const WRAPPED_EXTERNAL_BRIBE_FACTORY_ABI = abis.wrappedBribeFactoryABI;
 
-//!This is not used anywhere, meanwhile we are researching we leave it
 export const MULTICALL_ADDRESS = "0x7ED7bBd8C454a1B0D9EdD939c45a81A03c20131C";

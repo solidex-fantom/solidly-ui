@@ -1089,13 +1089,13 @@ export default function ssLiquidityManage() {
       <Paper elevation={0} className={ classes.container }>
         <div className={classes.toggleButtons}>
           <Grid container spacing={0}>
-            <Grid item lg={6} md={6} sm={6} xs={6}>
+            <Grid item xs={6}>
               <Paper className={ `${activeTab === 'deposit' ? classes.buttonActive : classes.button} ${ classes.topLeftButton }` } onClick={ toggleDeposit } disabled={ depositLoading }>
                 <Typography variant='h5'>Deposit</Typography>
                 <div className={ `${activeTab === 'deposit' ? classes.activeIcon : ''}` }></div>
               </Paper>
             </Grid>
-            <Grid item lg={6} md={6} sm={6} xs={6}>
+            <Grid item xs={6}>
               <Paper className={ `${activeTab === 'withdraw' ? classes.buttonActive : classes.button}  ${ classes.bottomLeftButton }` } onClick={ toggleWithdraw } disabled={ depositLoading }>
                 <Typography variant='h5'>Withdraw</Typography>
                 <div className={ `${activeTab === 'withdraw' ? classes.activeIcon : ''}` }></div>
@@ -1117,6 +1117,8 @@ export default function ssLiquidityManage() {
                 </div>
                 { renderMassiveInput('amount1', amount1, amount1Error, amount1Changed, asset1, null, assetOptions, onAssetSelect, amount1Focused, amount1Ref) }                                
                 { renderMediumInputToggle('stable', stable) }
+                { renderTokenSelect() }
+                { renderDepositInformation() }
               </>
             }
             {
@@ -1131,11 +1133,27 @@ export default function ssLiquidityManage() {
                 { renderWithdrawInformation() }
               </>
             }
-          </div>          
+          </div>    
+          <div className={ classes.advancedToggleContainer }>
+            <FormControlLabel
+              control={
+                <Switch
+                  size="small"
+                  checked={ advanced }
+                  onChange={ toggleAdvanced }
+                  color={ 'primary' }
+                />
+              }
+              className={ classes.some }
+              label="Advanced"
+              labelPlacement="start"
+            />
+          </div>      
           {
             activeTab === 'deposit' &&
             
             <div className={ classes.actionsContainer }>
+              {console.log(pair, amount0, amount1, asset0, asset1)}
               { pair == null && amount0 && amount1 && asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true &&
                 <>
                   <Button
@@ -1164,6 +1182,38 @@ export default function ssLiquidityManage() {
                         </Button>
                       </>
                   }
+                </>
+              }
+
+              {pair == null && !(asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true) &&
+                <>
+                  <Button
+                    variant='contained'
+                    size='large'
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                    color='primary'
+                    disabled={ createLoading || depositLoading }
+                    onClick={ onCreateAndDeposit }
+                    >
+                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Just Deposit` }</Typography>
+                    { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+                  </Button>
+                </>
+              }
+
+              { pair == null && !(asset0 && asset0.isWhitelisted == true && asset1 && asset1.isWhitelisted == true) &&
+                <>
+                  <Button
+                    variant='contained'
+                    size='large'
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                    color='primary'
+                    disabled={ createLoading || depositLoading }
+                    onClick={ onCreateAndDeposit }
+                    >
+                    { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+                    <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Nothing Unstaked` }</Typography>
+                  </Button>
                 </>
               }
           

@@ -259,6 +259,7 @@
   flex: 1;
   border-bottom: 1px solid #CD74CC !important; 
   color: #CD74CC !important;
+  margin-top: 1px;
 } 
 
 .amountAndPercent {
@@ -281,13 +282,13 @@
 }
 
 .buttonOverride {
-  background: rgb(23, 52, 72) !important;
-  color: rgb(6, 211, 215) !important;
-  font-weight: 700 !important;
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  color: rgb(20 30 63) !important;
+  font-weight: 200 !important;
 }
 
 .buttonOverride:hover {
-  background: rgb(19, 44, 60) !important;
+  background: #FFBD59 !important;
 }
 
 .swapIconContainer {
@@ -398,7 +399,7 @@
   flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
-  align-items: center;  
+  /* align-items: center;   */
   min-height: 50px;
   margin-top: 25px;
 }
@@ -486,7 +487,7 @@
 
 .createPriceInfos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 12px;
   width: 100%;
 }
@@ -574,7 +575,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;  
   border: 1px solid;
-  border-radius: 24px;    
+  border-radius: 15px;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   box-shadow: 1px 1px #0D142E;
   height: 50px;
@@ -585,6 +586,10 @@
   border: none;
   color: #7E99B0;  
   height: 100%;
+  /* padding-top: 5%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
 }
 
@@ -596,15 +601,14 @@
 
 .toggleOption.active {
   border: 1px solid;
-  
   background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
-  color: white;
-  border-radius: 12px;    
+  color: #111729 !important;
+  border-radius: 15px;    
 }
 
 .toggleOptionText {
   text-align: center;   
-  padding-top: 10px;
+  
 }
 
 .assetSelectBalance {

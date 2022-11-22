@@ -492,6 +492,11 @@ const useStyles = makeStyles((theme) => ({
     opacity: '1',
     zIndex: '1 !important'
   },
+  gridSearchBar: {
+    paddingLeft: '0px !important',
+    paddingRight: '0px !important',
+    margin: '0px !important'
+  },
   toolbarInfo: {
     margin: '15px',
     position: 'relative',
@@ -641,24 +646,24 @@ const EnhancedTableToolbar = (props) => {
       </Grid>
 
       {/* Search */}
-      <Grid item xs ={12} container justifyContent='space-between'>
-      <Grid item xs={11}>
-        <TextField
-          className={classes.searchContainer}
-          variant="outlined"
-          fullWidth
-          placeholder="KAVA, USDC, VARA..."
-          value={search}
-          onChange={onSearchChanged}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Grid>
+      <Grid item xs={12} className={classes.gridSearchBar} container justifyContent='space-between' spacing={2}>
+        <Grid item xs={11}>
+          <TextField
+            className={classes.searchContainer}
+            variant="outlined"
+            fullWidth
+            placeholder="KAVA, USDC, VARA..."
+            value={search}
+            onChange={onSearchChanged}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
       {/* Filter */}
       <Grid item xs={1}>
 

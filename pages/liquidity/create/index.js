@@ -10,20 +10,20 @@ function Pair({ changeTheme }) {
 
           <Grid container alignItems="center" justifyContent="center">
 
-            <Grid item>       
+            <Grid item xs={12} sm={6} container>       
 
-              <Grid className={classes.descTp} >              
+              <Grid item xs={12} className={classes.descTp} >              
                   <Typography className={classes.title} variant='h1'>Add Liquidity</Typography>
                   <Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography>
               </Grid>     
 
-              <Grid>              
+              <Grid item xs={12}>              
                 <div className={classes.sphere}></div>                         
               </Grid>    
 
             </Grid>
 
-            <Grid item lg={6} md={6} sm={6} xs={6}>       
+            <Grid item xs={12} sm={6}>       
                <LiquidityCreate />
             </Grid>    
 

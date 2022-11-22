@@ -16,8 +16,8 @@ export const VE_TOKEN_LOGO = "https://prod.solidly.exchange/Solidly-O.svg";
 export const VE_TOKEN_ABI = abis.veTokenABI;
 
 export const WKAVA_ADDRESS = "0xFa95D53e0B6e82b2137Faa70FD7E4a4DC70Da449";
-export const WKAVA_NAME = "Wrapped Kava";
-export const WKAVA_SYMBOL = "WKAVA";
+export const WKAVA_NAME = "Kava";
+export const WKAVA_SYMBOL = "KAVA";
 export const WKAVA_DECIMALS = 18;
 export const WKAVA_ABI = abis.wftmABI;
 
@@ -54,5 +54,4 @@ export const BRIBE_ABI = abis.bribeABI;
 export const TOKEN_ABI = abis.tokenABI;
 export const WRAPPED_EXTERNAL_BRIBE_FACTORY_ABI = abis.wrappedBribeFactoryABI;
 
-//!This is not used anywhere, meanwhile we are researching we leave it
 export const MULTICALL_ADDRESS = "0x1Af096bFA8e495c2F5Eeb56141E7E2420066Cf78";
