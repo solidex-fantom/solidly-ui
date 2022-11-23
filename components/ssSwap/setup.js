@@ -146,35 +146,19 @@ function Setup() {
 
   const onAssetSelect = (type, value) => {
     if(type === 'From') {
-
-      if(value.address === toAssetValue.address) {
-        setToAssetValue(fromAssetValue)
-        setFromAssetValue(toAssetValue)
-        calculateReceiveAmount(fromAmountValue, toAssetValue, fromAssetValue)
-      } else {
-        setFromAssetValue(value)
-        calculateReceiveAmount(fromAmountValue, value, toAssetValue)
-      }
-
-
+      setFromAssetValue(value)
     } else {
-      if(value.address === fromAssetValue.address) {
-        setFromAssetError(toAssetValue)
-        setToAssetValue(fromAssetValue)
-        calculateReceiveAmount(fromAmountValue, toAssetValue, fromAssetValue)
-      } else {
-        setToAssetValue(value)
-        calculateReceiveAmount(fromAmountValue, fromAssetValue, value)
-      }
+      setToAssetValue(value)
     }
 
+    calculateReceiveAmount(fromAmountValue, toAssetValue, fromAssetValue)
     forceUpdate()
   }
 
   const fromAmountChanged = (event) => {
     setFromAmountError(false)
     setFromAmountValue(event.target.value)
-    if(event.target.value == '') {
+    if(event.target.value === '') {
       setToAmountValue('')
       setQuote(null)
     } else {
@@ -283,6 +267,31 @@ function Setup() {
       </div>
     )
   }
+
+  const ArrowComponent = (isStable) => {
+    return (
+      <div className={ classes.line }>
+        <div className={classes.routeArrow}>
+          <ArrowForwardIosIcon className={classes.routeArrowIcon} />
+        </div>
+        <div className={ classes.stabIndicatorContainer }>
+          <Typography className={ classes.stabIndicator }>{ isStable ? 'Stable' : 'Volatile' }</Typography>
+        </div>
+      </div>
+    )
+  }
+
+  const TokenComponent = ({routeAsset}) => {
+    return (
+      <img
+          className={ classes.displayAssetIconSmall }
+          alt=""
+          src={ routeAsset ? `${routeAsset.logoURI}` : '' }
+          height='40px'
+          onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+      />
+    )
+  }
   
   const renderSwapInformation = () => {
 
@@ -314,72 +323,32 @@ function Setup() {
 
           <Typography className={ classes.depositInfoHeading } >Price Info</Typography>
           <div className={ classes.priceInfos}>          
-              <div className={ classes.priceInfo }>
-                <Typography className={ classes.title } >{ formatCurrency(BigNumber(quote.inputs.fromAmount).div(quote.output.finalValue).toFixed(18)) }</Typography>
-                <Typography className={ classes.text } >{ `${fromAssetValue?.symbol} per ${toAssetValue?.symbol}` }</Typography>
-              </div>
-              <div className={ classes.priceInfo }>
-                <Typography className={ classes.title } > { formatCurrency(BigNumber(quote.output.finalValue).div(quote.inputs.fromAmount).toFixed(18)) } </Typography>
-                <Typography className={ classes.text } >{ `${toAssetValue?.symbol} per ${fromAssetValue?.symbol}` }</Typography>
-              </div>
-              
+            <div className={ classes.priceInfo }>
+              <Typography className={ classes.title } >{ formatCurrency(BigNumber(quote.inputs.fromAmount).div(quote.output.finalValue).toFixed(18)) }</Typography>
+              <Typography className={ classes.text } >{ `${fromAssetValue?.symbol} per ${toAssetValue?.symbol}` }</Typography>
             </div>
-        
-            <Typography className={ classes.depositInfoHeading } >Route</Typography>
-            
-            <div className={ classes.route }>                                       
-                          
-                  <img
-                    className={ classes.displayAssetIconSmall }
-                    alt=""
-                    src={ quote.output.routeAsset ? `${quote.output.routeAsset.logoURI}` : '' }
-                    height='40px'
-                    onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-                  />            
-                  
-                  <div className={ classes.line }>
-
-                    <div className={classes.routeArrow}>
-                      <ArrowForwardIosIcon className={classes.routeArrowIcon} />
-                    </div>
-
-                    <div className={ classes.stabIndicatorContainer }>
-                      <Typography className={ classes.stabIndicator }>{ quote.output.routes[1].stable ? 'Stable' : 'Volatile' }</Typography>
-                    </div>
-                    
-                  </div>                    
-              
-                  <img
-                    className={ classes.displayAssetIconSmall }
-                    alt=""
-                    src={ toAssetValue ? `${toAssetValue.logoURI}` : '' }
-                    height='40px'
-                    onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-                  />
-
-                  <div className={ classes.line }>
-
-                    <div className={classes.routeArrow}>
-                      <ArrowForwardIosIcon className={classes.routeArrowIcon} />
-                    </div>
-
-                    <div className={ classes.stabIndicatorContainer }>
-                      <Typography className={ classes.stabIndicator }>{ quote.output.routes[1].stable ? 'Stable' : 'Volatile' }</Typography>
-                    </div>
-
-                  </div>   
-
-                  <img
-                    className={ classes.displayAssetIconSmall }
-                    alt=""
-                    src={ quote.output.routeAsset ? `${quote.output.routeAsset.logoURI}` : '' }
-                    height='40px'
-                    onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-                  />                    
+            <div className={ classes.priceInfo }>
+              <Typography className={ classes.title } > { formatCurrency(BigNumber(quote.output.finalValue).div(quote.inputs.fromAmount).toFixed(18)) } </Typography>
+              <Typography className={ classes.text } >{ `${toAssetValue?.symbol} per ${fromAssetValue?.symbol}` }</Typography>
             </div>
-              
+
+          </div>
         
-     
+          <Typography className={ classes.depositInfoHeading } >Route</Typography>
+
+          <div className={ classes.route }>
+            <TokenComponent routeAsset={fromAssetValue} />
+            <ArrowComponent isStable={quote.output.routes[0].stable}/>
+            { quote && quote.output && quote.output.routeAsset &&
+              <>
+                <TokenComponent routeAsset={quote.output.routeAsset} />
+
+                <ArrowComponent isStable={quote.output.routes[1].stable}/>
+              </>
+            }
+            <TokenComponent routeAsset={toAssetValue} />
+          </div>
+
         {
           BigNumber(quote.priceImpact).gt(0.5) &&
             <div className={ classes.warningContainer }>
@@ -471,7 +440,7 @@ function Setup() {
   }
 
 
-  const renderSwapButton = () => {
+  const RenderSwapButton = () => {
     
     return (      
         <div className={ classes.actionsContainer }>
@@ -507,6 +476,13 @@ function Setup() {
       </Grid>
       <Grid item xs={12}>
         { renderSwapInformation() }
+      </Grid>
+      <Grid item xs={12}>
+        { fromAmountValue && toAmountValue &&
+          <>
+            <RenderSwapButton/>
+          </>
+        }
       </Grid>
     </Grid>
   )

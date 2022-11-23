@@ -112,13 +112,10 @@ export async function quoteSwap(payload) {
       routeAsset: null
     })
 
-    console.log("amountsOut:", amountOuts)
     const multicall = await stores.accountStore.getMulticall()
     const receiveAmounts = await multicall.aggregate(amountOuts.map((route) => {
       return routerContract.methods.getAmountsOut(sendFromAmount, route.routes)
     }))
-
-    console.log("receiveAmounts",receiveAmounts)
 
     for(let i = 0; i < receiveAmounts.length; i++) {
       amountOuts[i].receiveAmounts = receiveAmounts[i]
