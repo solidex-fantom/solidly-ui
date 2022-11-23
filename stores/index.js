@@ -1,5 +1,5 @@
 import AccountStore from './accountStore';
-import StableSwapStore from './stableSwapStore';
+import StableSwapStore from './stableSwapStore/index';
 
 const Dispatcher = require('flux').Dispatcher;
 const Emitter = require('events').EventEmitter;
