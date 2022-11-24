@@ -1,8 +1,100 @@
 import stores from "../../index";
-import {ACTIONS, CONTRACTS, MAX_UINT256} from "../../constants";
+import {ACTIONS, CONTRACTS, MAX_UINT256, ROUTE_MAX_LENGTH} from "../../constants";
 import BigNumber from "bignumber.js";
 import {formatCurrency} from "../../../utils";
 import * as moment from "moment/moment";
+
+function quoteForWETH(context, from, to, amount) {
+  context.emitter.emit(ACTIONS.QUOTE_SWAP_RETURNED, {
+    inputs: {
+      fromAmount: amount,
+      fromAsset: from,
+      toAsset: to
+    },
+    output: {
+      routes: [{
+        from: from,
+        to: to,
+        stable: true
+      }],
+      routeAsset: null,
+      finalValue: amount,
+    },
+    priceImpact: 0
+  })
+}
+
+function isWETHSwap(from, to) {
+  const addresses = [CONTRACTS.WKAVA_ADDRESS, CONTRACTS.KAVA_ADDRESS].map(addr => addr.toLowerCase());
+
+  return (
+      addresses.includes(to.address.toLowerCase()) &&
+      addresses.includes(from.address.toLowerCase())
+  )
+}
+
+function _computeRoutesForToken(fromAddress, toAddress, pairs, maxLength, currentPath, allPaths) {
+  for (let pair of pairs) {
+    if (
+        currentPath.indexOf(pair.address) !== -1 ||
+        !(pair.token0?.address === fromAddress || pair.token1?.address === fromAddress)
+    ) continue;
+
+    const newFromAddress = pair.token0.address === fromAddress ? pair.token1.address : pair.token0.address;
+
+    if (newFromAddress === toAddress) {
+      allPaths.push([...currentPath, pair])
+    } else if (maxLength > 1) {
+      _computeRoutesForToken(
+          newFromAddress,
+          toAddress,
+          pairs,
+          maxLength - 1,
+          [...currentPath, pair],
+          allPaths
+      )
+    }
+  }
+}
+
+function discoverRoutesForTokens(pairs, from, to) {
+  const paths = []
+
+  _computeRoutesForToken(
+      from.address,
+      to.address,
+      pairs,
+      ROUTE_MAX_LENGTH,
+      [],
+      paths
+  )
+
+  const routes = []
+  let fromAsset, toAsset, route, routeRich;
+
+  for (let path of paths) {
+    fromAsset = from;
+    route = []
+    routeRich = []
+    for (let step of path) {
+      toAsset = step.token0.address === fromAsset.address ? step.token1 : step.token0
+      route.push({
+        from: fromAsset.address,
+        to: toAsset.address,
+        stable: step.stable
+      })
+      routeRich.push({
+        from: fromAsset,
+        to: toAsset,
+        stable: step.stable
+      })
+      fromAsset = toAsset
+    }
+    routes.push({raw: route, rich: routeRich})
+  }
+
+  return routes;
+}
 
 export async function quoteSwap(payload) {
   try {
@@ -13,7 +105,7 @@ export async function quoteSwap(payload) {
     }
 
     // some path logic. Have a base asset (KAVA) swap from start asset to KAVA, swap from KAVA back to out asset. Don't know.
-    const routeAssets = this.getStore('routeAssets')
+    const pairs = this.getStore('pairs')
     const { fromAsset, toAsset, fromAmount } = payload.content
 
     const routerContract = new web3.eth.Contract(CONTRACTS.ROUTER_ABI, CONTRACTS.ROUTER_ADDRESS)
@@ -23,106 +115,37 @@ export async function quoteSwap(payload) {
       return null
     }
 
+    if (isWETHSwap(fromAsset, toAsset)) {
+      return quoteForWETH(this, fromAsset, toAsset, fromAmount);
+    }
+
     let addy0 = fromAsset.address
     let addy1 = toAsset.address
 
-    if(fromAsset.address === 'KAVA') {
-      addy0 = CONTRACTS.WKAVA_ADDRESS
-    }
-    if(toAsset.address === 'KAVA') {
-      addy1 = CONTRACTS.WKAVA_ADDRESS
+    if(fromAsset.address === CONTRACTS.KAVA_ADDRESS || toAsset.address === CONTRACTS.KAVA_ADDRESS) {
+      return this.emitter.emit(ACTIONS.ERROR, 'No valid route found to complete swap')
     }
 
-    const includesRouteAddress = routeAssets.filter((asset) => {
-      return (asset.address.toLowerCase() == addy0.toLowerCase() || asset.address.toLowerCase() == addy1.toLowerCase())
-    })
-
-    let amountOuts = []
-
-    if(includesRouteAddress.length === 0) {
-      amountOuts = routeAssets.map((routeAsset) => {
-        return [
-          {
-            routes: [{
-              from: addy0,
-              to: routeAsset.address,
-              stable: true
-            },{
-              from: routeAsset.address,
-              to: addy1,
-              stable: true
-            }],
-            routeAsset: routeAsset
-          },
-          {
-            routes: [{
-              from: addy0,
-              to: routeAsset.address,
-              stable: false
-            },{
-              from: routeAsset.address,
-              to: addy1,
-              stable: false
-            }],
-            routeAsset: routeAsset
-          },
-          {
-            routes: [{
-              from: addy0,
-              to: routeAsset.address,
-              stable: true
-            },{
-              from: routeAsset.address,
-              to: addy1,
-              stable: false
-            }],
-            routeAsset: routeAsset
-          },
-          {
-            routes: [{
-              from: addy0,
-              to: routeAsset.address,
-              stable: false
-            },{
-              from: routeAsset.address,
-              to: addy1,
-              stable: true
-            }],
-            routeAsset: routeAsset
-          }
-        ]
-      }).flat()
-    }
-
-    amountOuts.push({
-      routes: [{
-        from: addy0,
-        to: addy1,
-        stable: true
-      }],
-      routeAsset: null
-    })
-
-    amountOuts.push({
-      routes: [{
-        from: addy0,
-        to: addy1,
-        stable: false
-      }],
-      routeAsset: null
-    })
+    const routes = discoverRoutesForTokens(pairs, fromAsset, toAsset)
+    const amountsOut = []
 
     const multicall = await stores.accountStore.getMulticall()
-    const receiveAmounts = await multicall.aggregate(amountOuts.map((route) => {
-      return routerContract.methods.getAmountsOut(sendFromAmount, route.routes)
+    const receiveAmounts = await multicall.aggregate(routes.map((route) => {
+      return routerContract.methods.getAmountsOut(sendFromAmount, route.raw)
     }))
 
     for(let i = 0; i < receiveAmounts.length; i++) {
-      amountOuts[i].receiveAmounts = receiveAmounts[i]
-      amountOuts[i].finalValue = BigNumber(receiveAmounts[i][receiveAmounts[i].length-1]).div(10**toAsset.decimals).toFixed(toAsset.decimals)
+      amountsOut.push({
+        receiveAmounts: receiveAmounts[i],
+        finalValue: BigNumber(receiveAmounts[i][receiveAmounts[i].length - 1])
+            .div(10 ** toAsset.decimals)
+            .toFixed(toAsset.decimals),
+        routes: routes[i].rich,
+        raw: routes[i].raw,
+      })
     }
 
-    const bestAmountOut = amountOuts.filter((ret) => {
+    const bestAmountOut = amountsOut.filter((ret) => {
       return ret != null
     }).reduce((best, current) => {
       if(!best) {
@@ -139,11 +162,10 @@ export async function quoteSwap(payload) {
     const libraryContract = new web3.eth.Contract(CONTRACTS.LIBRARY_ABI, CONTRACTS.LIBRARY_ADDRESS)
     let totalRatio = 1
 
-    for(let i = 0; i < bestAmountOut.routes.length; i++) {
+    for(let i = 0; i < bestAmountOut.raw.length; i++) {
       let amountIn = bestAmountOut.receiveAmounts[i]
-      let amountOut = bestAmountOut.receiveAmounts[i+1]
 
-      const res = await libraryContract.methods.getTradeDiff(amountIn, bestAmountOut.routes[i].from, bestAmountOut.routes[i].to, bestAmountOut.routes[i].stable).call()
+      const res = await libraryContract.methods.getTradeDiff(amountIn, bestAmountOut.raw[i].from, bestAmountOut.raw[i].to, bestAmountOut.raw[i].stable).call()
 
       const ratio = BigNumber(res.b).div(res.a)
       totalRatio = BigNumber(totalRatio).times(ratio).toFixed(18)
