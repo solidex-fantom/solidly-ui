@@ -285,18 +285,18 @@ function Setup() {
       return <></>
     }
     return (
-        <div className={ classes.route }>
-          <TokenComponent routeAsset={route[0].from}/>
-          {route.map(pair => {
-            return (
-                <>
-                  <ArrowComponent isStable={pair.stable}/>
-                  <TokenComponent routeAsset={pair.to} />
-                </>
-            )
-          })
-          }
-        </div>
+      <div className={ classes.route }>
+        <TokenComponent routeAsset={route[0].from}/>
+        {route.map(pair => {
+          return (
+            <>
+              <ArrowComponent isStable={pair.stable}/>
+              <TokenComponent routeAsset={pair.to} />
+            </>
+          )
+        })
+        }
+      </div>
     )
   }
 
