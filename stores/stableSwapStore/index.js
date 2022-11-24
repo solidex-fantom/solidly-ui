@@ -12,7 +12,7 @@ import stores from "../index"
 
 import BigNumber from "bignumber.js"
 import {LIQUIDITY_PAIRS} from "../constants/mocks";
-import {quoteSwap, swap} from "./swap";
+import {quoteSwap, swap} from "./modules/swap";
 const fetch = require("node-fetch")
 
 class Store {
