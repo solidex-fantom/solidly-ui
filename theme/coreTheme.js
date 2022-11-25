@@ -118,7 +118,7 @@ const coreTheme = {
   },
   palette: {
     primary: {
-      main: "rgba(0, 0, 0, 0.87)"
+      main: "#FFBD59"
     },
     secondary: {
       main: "#FFFFFF"

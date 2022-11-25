@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { styled, makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import { InfoOutlined } from '@material-ui/icons';
 import {
   Paper,
   Button,
@@ -158,24 +159,24 @@ const headCells = [
     disablePadding: false,
     label: 'Total Pool Amount',
   },
-  {
-    id: 'stakedAmount',
-    numeric: true,
-    disablePadding: false,
-    label: 'Total Pool Staked',
-  },
+  // {
+  //   id: 'stakedAmount',
+  //   numeric: true,
+  //   disablePadding: false,
+  //   label: 'Total Pool Staked',
+  // },
   {
      id: 'apy',
      numeric: true,
      disablePadding: false,
      label: 'APY',
   },
-  /*{
+  {
     id: '',
     numeric: true,
     disablePadding: false,
-    label: 'Actions',
-  },*/
+    label: '',
+  }
 ];
 
 function EnhancedTableHead(props) {
@@ -390,7 +391,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    background: 'transparent !important'
   },
   filterButton: {
     backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
@@ -1034,11 +1036,14 @@ export default function EnhancedTable({ pairs }) {
                         </div>
                       }
                     </TableCell>
-                    {
+                    {/* {
                       (row && row.gauge && row.gauge.address) &&
-                        <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <TableCell className={classes.cell, classes.hiddenSmallMobile} align='right'>
                           { (row && row.gauge && row.gauge.reserve0 && row.token0) &&
                             <div className={ classes.inlineEnd }>
+                              <Typography variant='h2' className={classes.labelAdd}>
+                                Total Staked Amount:
+                              </Typography>
                               <Typography variant='h2' className={classes.textSpaced}>
                                 {formatCurrency(row.gauge.reserve0)}
                               </Typography>
@@ -1071,26 +1076,28 @@ export default function EnhancedTable({ pairs }) {
                     }
                     {
                       !(row && row.gauge && row.gauge.address) &&
-                        <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <TableCell className={classes.cell, classes.hiddenSmallMobile} align='right'>
                           <Typography variant='h2' className={classes.textSpaced}>
                             Gauge not available
                           </Typography>
                         </TableCell>
+                    } */}
+                    {
+                      <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <Grid container spacing={0}>
+                          <Grid item lg={12}>
+                            <Typography variant='h2' className={classes.textSpaced}>
+                              0.00%
+                            </Typography>
+                          </Grid>
+                          {/* <Grid item lg={2}>
+                          <Tooltip title={ renderTooltip(row)}>
+                            <InfoOutlined className={classes.infoIcon} />
+                          </Tooltip>
+                          </Grid> */}
+                        </Grid>
+                      </TableCell>
                     }
-                    {/*<TableCell className={classes.cell} align='right'>
-                      <Grid container spacing={0}>
-                        <Grid item lg={10}>
-                          <Typography variant='h2' className={classes.textSpaced}>
-                            0.00%
-                          </Typography>
-                        </Grid>
-                        <Grid item lg={2}>
-                        <Tooltip title={ renderTooltip(row)}>
-                          <InfoOutlinedIcon className={classes.infoIcon} />
-                        </Tooltip>
-                        </Grid>
-                      </Grid>
-                    </TableCell>*/}
                     <TableCell className={classes.cell} align='right'>
                       <Button
                         variant='outlined'
