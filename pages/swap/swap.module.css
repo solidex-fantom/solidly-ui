@@ -80,7 +80,7 @@
 }
 
 .buttonConnect {
-  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
   color: rgb(20 30 63) !important;
   border-radius: 60px !important;    
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  

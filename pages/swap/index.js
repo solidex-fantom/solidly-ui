@@ -52,7 +52,7 @@ function Swap({ changeTheme }) {
             className={classes.endAsset}
             alignItems="center"
             justifyContent="center"
-            sm={6}
+            lg={6}
             xs={12}
           >
             <Grid item className={classes.descTp} xl={12}>
@@ -68,7 +68,7 @@ function Swap({ changeTheme }) {
             </Grid>
           </Grid>
 
-          <Grid item sm={6} xs={12}>
+          <Grid item lg={6} xs={12}>
             <SwapComponent />
           </Grid>
         </Grid>

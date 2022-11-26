@@ -9,7 +9,7 @@
 }
 
 .swapContainer {
-  padding: 24px;
+  padding: 35px;
   display: flex;
   flex-direction: column;  
   border: 1px solid;
@@ -160,9 +160,6 @@
 }
 
 .displayAssetIconSmall {  
-  border: 2px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  border-radius: 30px;  
   padding: 6px;
 }
 
@@ -384,7 +381,7 @@
   margin: 4px;  
   border: 1px solid;
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border-color: #CD74CC #FFBD59 #70DD88;
 }
 
 .swapInfoContainer {
@@ -528,10 +525,10 @@
 
 .actionButtonText {
   color: #0D142E;  
-  font-size: 15px;
+  font-size: 20px !important;
   font-weight: 700;
   position: absolute;
-  top: 40%;  
+  top: 45%;  
   left: 50%;
   transform: translate(-50%, -50%)
 }
@@ -581,9 +578,10 @@
 }
 
 .buttonOverride {
-  background-color: transparent !important;  
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88) !important;  
   font-weight: 700 !important;
   max-height: 50px !important;
+  border-radius: 30px !important;
 }
 
 /*.buttonOverride:hover {
@@ -595,14 +593,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 24px;
+  padding: 40px;
 }
 
 .line {
   flex: 1;
   border-bottom: 1px dashed white;
   text-align: center;
-  margin-top: -4px;
+  margin-top: -20px;
   position: relative;
 }
 
@@ -622,7 +620,7 @@
 
 .stabIndicator {
   font-size: 13px !important;
-  color: #06D3D7;
+  color: #ffffff;
 }
 
 .routeArrow {
@@ -637,7 +635,7 @@
 
 .routeArrowIcon {
   font-size: 13px !important;
-  color: #06D3D7;
+  color: #fff;
 }
 
 .quoteLoader {
@@ -689,7 +687,7 @@
 
 @media screen and (max-width: 1200px) {
   .swapContainer {
-    padding: 12px;
+    padding: 24px;
   }
   .newSwapContainer {
     flex-direction: column;
