@@ -128,6 +128,11 @@ const coreTheme = {
     }
   },
   overrides: {
+    MuiPaper: {
+      root: {
+        backgroundColor: "#131b4c"
+      }
+    },
     MuiButton: {
       root: {
         minWidth: "50px"

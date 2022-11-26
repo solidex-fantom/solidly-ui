@@ -43,3 +43,8 @@
     padding-top: 180px;
   }
 }
+@media screen and (max-width: 576px) {
+  .sphere{
+    margin-left: 15%;
+  }
+}

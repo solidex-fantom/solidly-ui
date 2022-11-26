@@ -13,7 +13,7 @@ function Bribe({ changeTheme }) {
         alignItems="center"
         justifyContent="center"
         xs={12}
-        sm={6}
+        lg={6}
       >
         <Grid item>
           <Typography className={classes.title} variant="h1">
@@ -28,7 +28,7 @@ function Bribe({ changeTheme }) {
         </Grid>
       </Grid>
 
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} lg={6}>
         <BribeCreate />
       </Grid>
     </Grid>
