@@ -203,8 +203,8 @@
 
 .headAccountBalance {
   position: relative;
-  padding-left: 5% !important;  
-  padding-top: 5% !important;  
+  margin: auto;  
+  padding-left: 10px !important;
 }
 
 
@@ -350,14 +350,18 @@
 
   .containerMenuWallet {      
     position: relative;
-    padding-left: 10%;
-    padding-top: 1%;
+    padding-left: 10%;    
   }
 
   .containerNav {  
     position: relative;
     padding-left: 6%;
   }
+
+  .socialButton {
+    width: 80%;
+  }
+  
 
 }
 
@@ -388,13 +392,15 @@
 
   .containerMenuWallet {              
     position: absolute;
-    top: 25%;
+    top: 45%;
     left: 65%;
   }
 
   .appLogo {
     transform: scale(0.55);
   }
+
+  
 
 }
 
@@ -409,7 +415,7 @@
 
   .containerMenuWallet {              
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 65%;
   }
 
