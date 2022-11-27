@@ -1,5 +1,4 @@
-.container {
-  max-width: 1400px;
+.container {  
   width: calc(100% - 180px);
   display: flex;
   flex-direction: column;
@@ -16,9 +15,15 @@
 }
 
 .tableContainer {
-  border: 1px solid;
+      
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  
+  border: 1px solid transparent;  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -107,12 +112,7 @@
   flex: 1;
   display: flex;
   width: 100%;
-  min-height: 60px;
-  border: 2px solid;
-  border-radius: 18px;   
-  
-  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59  
+  min-height: 60px;    
 }
 
 .searchContainer {
@@ -123,6 +123,7 @@
 }
 
 .topBarContainer {
+  
   padding: 24px 0px;
   display: flex;
   justify-content: space-between;
@@ -136,12 +137,16 @@
   flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
-  align-items: center;
-  background: rgb(33, 43, 72);
+  align-items: center;  
   padding: 0 20px;
-  border: 1px solid;
+      
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+
 }
 
 .mediumInputAssetSelect {
@@ -180,21 +185,27 @@
 }
 
 .gridBanner {      
-  height: 170px;
-  margin: 10px;
-  padding: 8px;    
-  margin-top: 80px;
-  border: 1px solid;
-  border-radius: 12px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+    
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 12px;    
+
 }
+
 .gridInfoVote {      
   height: 100px;
   margin: 10px;
-  padding: 8px;     
-  border: 1px solid;
-  border-radius: 12px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  padding: 8px;       
+  
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 12px;    
 }
 
 .infoBanner {
@@ -259,13 +270,12 @@
 }
 
 .toolbarText {  
-  font-family: 'Arista';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 22px;
-  letter-spacing: 0.13em;
-  color: #CD74CC;
+  font-family: 'Arista' !important;
+  font-style: normal !important;  
+  font-size: 16px  !important;
+  
+  letter-spacing: 0.13em  !important;
+  color: #CD74CC  !important;
 }
 
 .toolbarSubText{
@@ -341,6 +351,37 @@
     letter-spacing: 4px;  
     font-weight:  700 !important;
   }
+}
+
+
+
+@media screen and (max-width: 1600px) {
+
+  .gridBanner {      
+  
+    height: 170px;
+    margin: 10px;
+    padding: 8px;    
+    margin-top: 80px;
+   
+  }
+
+  .topBarContainer {
+    margin-top: 10%;    
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+  .gridBanner {        
+    margin: 1%;               
+  }
+
+  .topBarContainer {
+    margin-top: 1%;    
+  }
+
 }
 
 @media screen and (max-width: 560px) {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { styled, makeStyles } from '@material-ui/core/styles';
 import Skeleton from '@material-ui/lab/Skeleton';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import { InfoOutlined } from '@material-ui/icons';
 import {
   Paper,
   Button,
@@ -158,24 +159,24 @@ const headCells = [
     disablePadding: false,
     label: 'Total Pool Amount',
   },
-  {
-    id: 'stakedAmount',
-    numeric: true,
-    disablePadding: false,
-    label: 'Total Pool Staked',
-  },
+  // {
+  //   id: 'stakedAmount',
+  //   numeric: true,
+  //   disablePadding: false,
+  //   label: 'Total Pool Staked',
+  // },
   {
      id: 'apy',
      numeric: true,
      disablePadding: false,
      label: 'APY',
   },
-  /*{
+  {
     id: '',
     numeric: true,
     disablePadding: false,
-    label: 'Actions',
-  },*/
+    label: '',
+  }
 ];
 
 function EnhancedTableHead(props) {
@@ -348,8 +349,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '30px',
     background: 'rgb(25, 33, 56)',
   },
-  overrideTableHead: {        
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
+  overrideTableHead: {    
     '@media (max-width: 1000px)': {
         display: 'none',
       },
@@ -361,75 +361,68 @@ const useStyles = makeStyles((theme) => ({
     height: '35px'
   },
   searchContainer: {
-    flex: 1,
-    display: 'flex',
-    width: '100%',
     minHeight: '60px',    
-    border: '2px solid',
-    borderRadius: '18px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
-    '& .MuiInputBase-input': {      
-      border: '0 px',    
+    borderRadius: '18px',
+    background:  'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',  
+    border: '1px solid transparent',
+    '& .MuiInputBase-input': {
+      border: '0 px',
     }
   },
   buttonOverride: {
-    width: '70%',        
     color: '#0D142E',
-    fontWeight: '700',
     position: 'relative',
-    bottom: '80px',
-    left: '50px',
+    borderRadius: '30px',
+    padding: '10px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
     backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
+
   },
   toolbar: {
-    margin: '24px 0px',
+    margin: '48px 10px',
     padding: '0px',
   },
-  tableContainer: {
-    border: '1px solid',
-    borderRadius: '12px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+  tableContainer: {    
+    borderRadius: '12px',
+    background:  'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',  
+    border: '1px solid transparent',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    background: 'transparent !important'
   },
   filterButton: {
     backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
     border: '1px solid rgba(126,153,176,0.3)',
     color: '#0D142E',
     width: '100%',
-    height: '94.5%',
-    borderRadius: '10px',  
+    height: '100%',
+    borderRadius: '20px',
+    boxShadow: '-3px 3px #1F2E64',
   },
   imgIconList : {
     position: 'relative',
-    bottom: '10px',    
+    bottom: '10px',
   },
 
   actionButtonText: {
-    fontFamily: 'Righteous',
-    fontSize: '15px',    
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',        
-    fontWeight: '100',    
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '22px',
-    letterSpacing: '0.13em'
+    fontSize: '15px',
+    fontWeight: '300',
+    lineHeight: '1.5',
+    fontWeight: '100',
+    letterSpacing: '1px'
   },
-  filterContainer: {
-    background: '#212b48',
+  filterContainer: {    
     minWidth: '300px',
-    marginTop: '15px',
-    borderRadius: '10px',
+    marginTop: '15px',    
     padding: '20px',
-    boxShadow: '0 10px 20px 0 rgba(0,0,0,0.2)',
-    border: '1px solid',
-    borderRadius: '12px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
+    boxShadow: '0 10px 20px 0 rgba(0,0,0,0.2)',  
+    borderRadius: '12px',
+    background:  'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',  
+    border: '1px solid transparent',
+    borderRadius: '10px',
   },
   alignContentRight: {
     textAlign: 'right',
@@ -472,13 +465,16 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   gridBanner: {    
-    height: '170px',
-    margin: '10px',
-    padding: '8px',    
-    marginTop: '80px',
-    border: '2px solid',
-    borderRadius: '24px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',    
+    borderRadius: '24px',
+    background:  'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',  
+    border: '1px solid transparent',
+    padding: '7px',    
+    '@media (max-width: 1600px)': {
+      marginTop: '2%',
+    },
+    '@media (max-width: 1200px)': {
+      marginTop: '10%',
+    },
   },
   infoBanner: {
     display: 'flex',
@@ -487,52 +483,231 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     padding: '24px',
     width: '100%',
-    flexWrap: 'wrap',            
+    flexWrap: 'wrap',
   },
-  sphere: {    
-    width: '100%',
-    height: '320px',
+  gridSphere: {
+    position: 'relative',
+    zIndex: '1'
+  },
+  sphere: {
+    height: 'calc(100% - 10px)',
     background: 'url(\'/images/Toboganes_7.png\') no-repeat right',
     backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',    
+    backgroundRepeat: 'no-repeat',
     position: 'relative',
-    bottom: '140px',
-    opacity: '1'
+    opacity: '1',
+    zIndex: '1 !important'
+  },
+  gridSearchBar: {
+    paddingLeft: '0px !important',
+    paddingRight: '0px !important',
+    margin: '0px !important'
   },
   toolbarInfo: {
     margin: '15px',
     position: 'relative',
-    bottom: '100px',
-    right: '1px',
-    fontFamily: 'Arista' 
+    fontFamily: 'Arista',
   },
   title: {
     marginBottom: '24px !important',
-    fontFamily: 'Righteous',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    fontSize: '50px',
-    lineHeight: '62px',
-    letterSpacing: '0.13em',
-    color: '#FFFFFF'
+    fontFamily: 'Righteous !important',
+    fontSize: '32px !important',
+    color: '#FFFFFF',
+    letterSpacing: '6px  !important'
   },
   subtitle: {
-    fontFamily: 'Arista !important',
-    fontStyle: 'normal',
-    fontWeight: '300',
-    fontSize:' 25px',
-    lineHeight: '27px',    
-    color: '#FFFFFF',
+    fontSize: '18px  !important',
+    lineHeight: '1.5',
+    fontWeight: '700',
+    letterSpacing: '1px'  ,
+    fontFamily: 'Arista',
   },
 
 }));
 
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  maxWidth: '100%',
-  maxHeight: '100%',
-});
+
+function descendingComparator(a, b, orderBy) {
+  if (!a || !b) {
+    return 0;
+  }
+
+  switch (orderBy) {
+    case 'balance':
+
+      let balanceA = BigNumber(a?.token0?.balance).plus(a?.token1?.balance).toNumber()
+      let balanceB = BigNumber(b?.token0?.balance).plus(b?.token1?.balance).toNumber()
+
+      if (BigNumber(balanceB).lt(balanceA)) {
+        return -1;
+      }
+      if (BigNumber(balanceB).gt(balanceA)) {
+        return 1;
+      }
+      return 0;
+
+    case 'poolBalance':
+
+      if (BigNumber(b?.balance).lt(a?.balance)) {
+        return -1;
+      }
+      if (BigNumber(b?.balance).gt(a?.balance)) {
+        return 1;
+      }
+      return 0;
+
+    case 'stakedBalance':
+
+      if(!(a && a.gauge)) {
+        return 1
+      }
+
+      if(!(b && b.gauge)) {
+        return -1
+      }
+
+      if (BigNumber(b?.gauge?.balance).lt(a?.gauge?.balance)) {
+        return -1;
+      }
+      if (BigNumber(b?.gauge?.balance ).gt(a?.gauge?.balance)) {
+        return 1;
+      }
+      return 0;
+
+    case 'poolAmount':
+
+      let reserveA = BigNumber(a?.reserve0).plus(a?.reserve1).toNumber()
+      let reserveB = BigNumber(b?.reserve0).plus(b?.reserve1).toNumber()
+
+      if (BigNumber(reserveB).lt(reserveA)) {
+        return -1;
+      }
+      if (BigNumber(reserveB).gt(reserveA)) {
+        return 1;
+      }
+      return 0;
+
+    case 'stakedAmount':
+
+      if(!(a && a.gauge)) {
+        return 1
+      }
+
+      if(!(b && b.gauge)) {
+        return -1
+      }
+
+      let reserveAA = BigNumber(a?.gauge?.reserve0).plus(a?.gauge?.reserve1).toNumber()
+      let reserveBB = BigNumber(b?.gauge?.reserve0).plus(b?.gauge?.reserve1).toNumber()
+
+      if (BigNumber(reserveBB).lt(reserveAA)) {
+        return -1;
+      }
+      if (BigNumber(reserveBB).gt(reserveAA)) {
+        return 1;
+      }
+      return 0;
+
+    default:
+      return 0
+
+  }
+}
+
+function getComparator(order, orderBy) {
+  return order === 'desc' ? (a, b) => descendingComparator(a, b, orderBy) : (a, b) => -descendingComparator(a, b, orderBy);
+}
+
+function stableSort(array, comparator) {
+  const stabilizedThis = array.map((el, index) => [el, index]);
+  stabilizedThis.sort((a, b) => {
+    const order = comparator(a[0], b[0]);
+    if (order !== 0) return order;
+    return a[1] - b[1];
+  });
+  return stabilizedThis.map((el) => el[0]);
+}
+
+const headCells = [
+  { id: 'pair', numeric: false, disablePadding: false, label: 'Pair' },
+  {
+    id: 'balance',
+    numeric: true,
+    disablePadding: false,
+    label: 'Wallet',
+  },
+  {
+    id: 'poolBalance',
+    numeric: true,
+    disablePadding: false,
+    label: 'My Pool Amount',
+  },
+  {
+    id: 'stakedBalance',
+    numeric: true,
+    disablePadding: false,
+    label: 'My Staked Amount',
+  },
+  {
+    id: 'poolAmount',
+    numeric: true,
+    disablePadding: false,
+    label: 'Total Pool Amount',
+  },
+  {
+    id: 'stakedAmount',
+    numeric: true,
+    disablePadding: false,
+    label: 'Total Pool Staked',
+  },
+  {
+     id: 'apy',
+     numeric: true,
+     disablePadding: false,
+     label: 'APY',
+  },
+  /*{
+    id: '',
+    numeric: true,
+    disablePadding: false,
+    label: 'Actions',
+  },*/
+];
+
+function EnhancedTableHead(props) {
+  
+  const { classes, order, orderBy, onRequestSort } = props;
+  const createSortHandler = (property) => (event) => {
+    onRequestSort(event, property);
+  };
+
+  return (
+    <TableHead>
+      <TableRow>
+        {headCells.map((headCell) => (
+          <TableCell
+            className={classes.overrideTableHead}
+            key={headCell.id}
+            align={headCell.numeric ? 'right' : 'left'}
+            padding={'normal'}
+            sortDirection={orderBy === headCell.id ? order : false}
+          >
+            <TableSortLabel active={orderBy === headCell.id} direction={orderBy === headCell.id ? order : 'asc'} onClick={createSortHandler(headCell.id)}>
+              <Typography variant='h5' className={ classes.headerText }>{headCell.label}</Typography>
+              {orderBy === headCell.id ? <span className={classes.visuallyHidden}>{order === 'desc' ? 'sorted descending' : 'sorted ascending'}</span> : null}
+            </TableSortLabel>
+          </TableCell>
+        ))}
+      </TableRow>
+    </TableHead>
+  );
+}
+
+EnhancedTableHead.propTypes = {
+  classes: PropTypes.object.isRequired,
+  onRequestSort: PropTypes.func.isRequired,
+  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
+  orderBy: PropTypes.string.isRequired,
+};
 
 const getLocalToggles = () => {
   let localToggles = {
@@ -555,6 +730,7 @@ const getLocalToggles = () => {
 }
 
 const EnhancedTableToolbar = (props) => {
+  
   const classes = useStyles()
   const router = useRouter()
 
@@ -571,7 +747,7 @@ const EnhancedTableToolbar = (props) => {
     props.setSearch(event.target.value)
   };
 
-  
+
 
   const onToggle = (event) => {
 
@@ -624,66 +800,64 @@ const EnhancedTableToolbar = (props) => {
   const id = open ? 'transitions-popper' : undefined;
 
   return (
+
     <Toolbar className={ classes.toolbar }>
 
-    <Grid container spacing={2}>
+      <Grid container spacing={6}>
+          <Grid container className={classes.gridBanner} xs={12} justifyContent="space-between" alignItems="center">
 
-      <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+            <Grid item direction="column" xs={4} >            
+              <Grid className={classes.toolbarInfo}><Typography className={classes.title}>Pools</Typography></Grid>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography></Grid>                    
+            </Grid>   
 
-          <Grid direction="column" >            
-            <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>    
-            <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>                    
-          </Grid>   
+            <Grid item justifyContent="center" alignItems="center">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size='large'
+                  className={ classes.buttonOverride }
+                  onClick={ onCreate }>
+                <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
+              </Button>         
+            </Grid> 
 
-          <Grid item justifyContent="center" alignItems="center" lg={4} md={4} sm={4} xs={4}>
-              <Button
-                variant="contained"
-                color="secondary"
-                size='large'
-                className={ classes.buttonOverride }
-                onClick={ onCreate }
-            >
-              <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
-            </Button>         
-          </Grid> 
-
-          <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
-            <div className={classes.sphere}></div>  
-          </Grid>
-                              
-      </Grid>    
-
-      
-      <Grid item lg={10} md={10} sm={10} xs={10}>
-        <TextField
-          className={classes.searchContainer}
-          variant="outlined"
-          fullWidth
-          placeholder="KAVA, USDC, VARA..."
-          value={search}
-          onChange={onSearchChanged}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
       </Grid>
 
-      <Grid item lg={2} md={2} sm={2} xs={2}>      
-        
-        <Tooltip placement="top" title="Filter list">        
-          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+      {/* Search */}
+      <Grid item xs={12} className={classes.gridSearchBar} container justifyContent='space-between' spacing={2}>
+        <Grid item xs={11}>
+          <TextField
+            className={classes.searchContainer}
+            variant="outlined"
+            fullWidth
+            placeholder="KAVA, USDC, VARA..."
+            value={search}
+            onChange={onSearchChanged}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
+      {/* Filter */}
+      <Grid item xs={1}>
+
+        <Tooltip placement="top" title="Filter list">
+          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">
             <FilterListIcon />
-          </IconButton>          
+          </IconButton>
         </Tooltip>
 
       </Grid>
+      </Grid>
     </Grid>
-
-      <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
+    {/* <Grid container>
+      <Grid item> */}
+        <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
             <div className={classes.filterContainer}>
@@ -704,58 +878,119 @@ const EnhancedTableToolbar = (props) => {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={0}>
-                <Grid item lg={9} className={classes.labelColumn}>
-                  <Typography className={classes.filterLabel} variant="body1">Show Active Gauges</Typography>
-                </Grid>
-                <Grid item lg={3} className={classes.alignContentRight}>
-                  <Switch
-                    color="primary"
-                    checked={ toggleActiveGauge }
-                    name={ 'toggleActiveGauge' }
-                    onChange={ onToggle }
-                  />
-                </Grid>
-              </Grid>
+            </Grid>
 
-              <Grid container spacing={0}>
-                <Grid item lg={9} className={classes.labelColumn}>
-                  <Typography className={classes.filterLabel} variant="body1">Show Stable Pools</Typography>
-                </Grid>
-                <Grid item lg={3} className={classes.alignContentRight}>
-                  <Switch
-                    color="primary"
-                    checked={ toggleStable }
-                    name={ 'toggleStable' }
-                    onChange={ onToggle }
-                  />
-                </Grid>
-              </Grid>
+          {/* Search */}
+          <Grid item xs={12} className={classes.gridSearchBar} container justifyContent='space-between' spacing={2}>
+            <Grid item xs={11}>
+              <TextField
+                className={classes.searchContainer}
+                variant="outlined"
+                fullWidth
+                placeholder="KAVA, USDC, VARA..."
+                value={search}
+                onChange={onSearchChanged}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
 
-              <Grid container spacing={0}>
-                <Grid item lg={9} className={classes.labelColumn}>
-                  <Typography className={classes.filterLabel} variant="body1">Show Volatile Pools</Typography>
-                </Grid>
-                <Grid item lg={3} className={classes.alignContentRight}>
-                  <Switch
-                    color="primary"
-                    checked={ toggleVariable }
-                    name={ 'toggleVariable' }
-                    onChange={ onToggle }
-                  />
-                </Grid>
-              </Grid>
+          {/* Filter */}
+          <Grid item xs={1}>
+
+            <Tooltip placement="top" title="Filter list">
+              <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">
+                <FilterListIcon />
+              </IconButton>
+            </Tooltip>
+
+          </Grid>
+          </Grid>
+        </Grid>
+
+        {/* <Grid container>
+          <Grid item> */}
+            <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps} timeout={350}>
+                <div className={classes.filterContainer}>
+                  <Typography className={classes.filterListTitle} variant="h5">List Filters</Typography>
 
 
-            </div>
-          </Fade>
-        )}
-      </Popper>
+                  <Grid container spacing={0}>
+                    <Grid item lg={9} className={classes.labelColumn}>
+                      <Typography className={classes.filterLabel} variant="body1">My Deposits</Typography>
+                    </Grid>
+                    <Grid item lg={3} className={classes.alignContentRight}>
+                      <Switch
+                        color="primary"
+                        checked={ toggleActive }
+                        name={ 'toggleActive' }
+                        onChange={ onToggle }
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container spacing={0}>
+                    <Grid item lg={9} className={classes.labelColumn}>
+                      <Typography className={classes.filterLabel} variant="body1">Show Active Gauges</Typography>
+                    </Grid>
+                    <Grid item lg={3} className={classes.alignContentRight}>
+                      <Switch
+                        color="primary"
+                        checked={ toggleActiveGauge }
+                        name={ 'toggleActiveGauge' }
+                        onChange={ onToggle }
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container spacing={0}>
+                    <Grid item lg={9} className={classes.labelColumn}>
+                      <Typography className={classes.filterLabel} variant="body1">Show Stable Pools</Typography>
+                    </Grid>
+                    <Grid item lg={3} className={classes.alignContentRight}>
+                      <Switch
+                        color="primary"
+                        checked={ toggleStable }
+                        name={ 'toggleStable' }
+                        onChange={ onToggle }
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container spacing={0}>
+                    <Grid item lg={9} className={classes.labelColumn}>
+                      <Typography className={classes.filterLabel} variant="body1">Show Volatile Pools</Typography>
+                    </Grid>
+                    <Grid item lg={3} className={classes.alignContentRight}>
+                      <Switch
+                        color="primary"
+                        checked={ toggleVariable }
+                        name={ 'toggleVariable' }
+                        onChange={ onToggle }
+                      />
+                    </Grid>
+                  </Grid>
+
+
+                </div>
+              </Fade>
+            )}
+            </Popper>
+          
     </Toolbar>
+
   );
 };
 
 export default function EnhancedTable({ pairs }) {
+  
   const classes = useStyles();
   const router = useRouter();
 
@@ -905,7 +1140,7 @@ export default function EnhancedTable({ pairs }) {
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                    <TableCell className={classes.cell} align='right'>
                       { (row && row.token0 && row.token0.balance) &&
                         <div className={ classes.inlineEnd }>
                           <Typography variant='h2' className={classes.textSpaced}>
@@ -937,7 +1172,7 @@ export default function EnhancedTable({ pairs }) {
                         </div>
                       }
                     </TableCell>
-                    <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                    <TableCell className={classes.cell} align='right'>
                       { (row && row.balance && row.totalSupply) &&
                         <>
                           <div className={ classes.inlineEnd }>
@@ -966,7 +1201,7 @@ export default function EnhancedTable({ pairs }) {
                     </TableCell>
                     {
                       (row && row.gauge && row.gauge.address) &&
-                        <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <TableCell className={classes.cell} align='right'>
                           { (row && row.gauge && row.gauge.balance && row.gauge.totalSupply) &&
                             <>
                               <div className={ classes.inlineEnd }>
@@ -996,13 +1231,13 @@ export default function EnhancedTable({ pairs }) {
                     }
                     {
                       !(row && row.gauge && row.gauge.address) &&
-                        <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <TableCell className={classes.cell} align='right'>
                           <Typography variant='h2' className={classes.textSpaced}>
                             Gauge not available
                           </Typography>
                         </TableCell>
                     }
-                    <TableCell className={classes.cell, classes.hiddenSmallMobile} align='right'>
+                    <TableCell className={classes.cell} align='right'>
                       { (row && row.reserve0 && row.token0) &&
                         <div className={ classes.inlineEnd }>
                         <Typography variant='h2' className={classes.labelAdd}>
@@ -1037,11 +1272,14 @@ export default function EnhancedTable({ pairs }) {
                         </div>
                       }
                     </TableCell>
-                    {
+                    {/* {
                       (row && row.gauge && row.gauge.address) &&
-                        <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <TableCell className={classes.cell, classes.hiddenSmallMobile} align='right'>
                           { (row && row.gauge && row.gauge.reserve0 && row.token0) &&
                             <div className={ classes.inlineEnd }>
+                              <Typography variant='h2' className={classes.labelAdd}>
+                                Total Staked Amount:
+                              </Typography>
                               <Typography variant='h2' className={classes.textSpaced}>
                                 {formatCurrency(row.gauge.reserve0)}
                               </Typography>
@@ -1074,26 +1312,28 @@ export default function EnhancedTable({ pairs }) {
                     }
                     {
                       !(row && row.gauge && row.gauge.address) &&
-                        <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <TableCell className={classes.cell, classes.hiddenSmallMobile} align='right'>
                           <Typography variant='h2' className={classes.textSpaced}>
                             Gauge not available
                           </Typography>
                         </TableCell>
+                    } */}
+                    {
+                      <TableCell className={classes.cell, classes.hiddenMobile} align='right'>
+                        <Grid container spacing={0}>
+                          <Grid item lg={12}>
+                            <Typography variant='h2' className={classes.textSpaced}>
+                              0.00%
+                            </Typography>
+                          </Grid>
+                          {/* <Grid item lg={2}>
+                          <Tooltip title={ renderTooltip(row)}>
+                            <InfoOutlined className={classes.infoIcon} />
+                          </Tooltip>
+                          </Grid> */}
+                        </Grid>
+                      </TableCell>
                     }
-                    {/*<TableCell className={classes.cell} align='right'>
-                      <Grid container spacing={0}>
-                        <Grid item lg={10}>
-                          <Typography variant='h2' className={classes.textSpaced}>
-                            0.00%
-                          </Typography>
-                        </Grid>
-                        <Grid item lg={2}>
-                        <Tooltip title={ renderTooltip(row)}>
-                          <InfoOutlinedIcon className={classes.infoIcon} />
-                        </Tooltip>
-                        </Grid>
-                      </Grid>
-                    </TableCell>*/}
                     <TableCell className={classes.cell} align='right'>
                       <Button
                         variant='outlined'

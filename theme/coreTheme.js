@@ -13,6 +13,7 @@ const coreTheme = {
   typography: {
     fontFamily: [  
       "Righteous",
+      "Arista",
       "Inter",
       "Arial",
       "-apple-system",
@@ -27,6 +28,7 @@ const coreTheme = {
     ].join(","),
     h1: {
       // Portfolio balance numbers
+      fontFamily: 'Arista',
       fontSize: "32px",
       fontWeight: 800,
       lineHeight: 1.167,
@@ -48,15 +50,7 @@ const coreTheme = {
     h3: {
       // yearn title text YEARN
       fontFamily: [
-        "Druk Wide Bold",
-        "Inter",
-        "Arial",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "sans-serif"
+        "Arista"
       ],
       fontSize: "1.5rem",
       fontWeight: 700,
@@ -118,7 +112,7 @@ const coreTheme = {
   },
   palette: {
     primary: {
-      main: "rgba(0, 0, 0, 0.87)"
+      main: "#FFBD59"
     },
     secondary: {
       main: "#FFFFFF"
@@ -128,6 +122,11 @@ const coreTheme = {
     }
   },
   overrides: {
+    MuiPaper: {
+      root: {
+        backgroundColor: "#131b4c"
+      }
+    },
     MuiButton: {
       root: {
         minWidth: "50px"

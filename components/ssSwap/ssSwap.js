@@ -5,7 +5,7 @@ import classes from './ssSwap.module.css'
 function Swap() {
   return (
     <div className={ classes.newSwapContainer }>
-      <Paper elevation={ 0 } className={ classes.swapContainer }>
+      <Paper elevation={ 20 } className={ classes.swapContainer }>
         <Setup />
       </Paper>
     </div>

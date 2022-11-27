@@ -17,58 +17,6 @@ function SiteLogo(props) {
   );
 }
 
-const StyledSwitch = withStyles((theme) => ({
-  root: {
-    width: 58,
-    height: 32,
-    padding: 0,
-    margin: theme.spacing(1),
-  },
-  switchBase: {
-    padding: 1,
-    '&$checked': {
-      transform: 'translateX(28px)',
-      color: '#212529',
-      '& + $track': {
-        backgroundColor: '#ffffff',
-        opacity: 1,
-      },
-    },
-    '&$focusVisible $thumb': {
-      color: '#ffffff',
-      border: '6px solid #fff',
-    },
-  },
-  thumb: {
-    width: 24,
-    height: 24,
-  },
-  track: {
-    borderRadius: 32 / 2,
-    border: `1px solid #212529`,
-    backgroundColor: '#212529',
-    opacity: 1,
-    transition: theme.transitions.create(['background-color', 'border']),
-  },
-  checked: {},
-  focusVisible: {},
-}))(({ classes, ...props }) => {
-  return (
-    <Switch
-      focusVisibleClassName={classes.focusVisible}
-      disableRipple
-      classes={{
-        root: classes.root,
-        switchBase: classes.switchBase,
-        thumb: classes.thumb,
-        track: classes.track,
-        checked: classes.checked,
-      }}
-      {...props}
-    />
-  );
-});
-
 function Navigation(props) {
   const router = useRouter()
 
@@ -160,7 +108,7 @@ function Navigation(props) {
         )}
         {renderSubNav(
           'Bribe',
-          'whitelist',
+          'bribe',
         )}
       </ToggleButtonGroup>
     );
@@ -186,21 +134,21 @@ function Navigation(props) {
   };
 
   return (
-    <div className={classes.navigationContainer}>
+    <Grid container className={classes.navigationContainer} >
       
-      <div className={classes.navigationHeading}>
+      <Grid item className={classes.navigationHeading}>
         <a onClick={() => router.push('/home')} className={classes.linkz}>
           <SiteLogo className={classes.appLogo} />
         </a>
-      </div>
+      </Grid>
 
-      <div className={classes.navigationContent}>{renderNavs()}</div>
+      <Grid item className={classes.navigationContent}>{renderNavs()}</Grid>
 
       { warningOpen &&
         <SSWarning close={ closeWarning } />
       }
 
-    </div>
+    </Grid>
   );
 }
 

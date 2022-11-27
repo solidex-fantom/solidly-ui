@@ -1,33 +1,51 @@
 .ffContainer {
-  min-height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 0px;
-  padding-top: 120px;
-  position: relative;
   position: relative;
 }
 
 .notConnectedContent {
-  width: calc(100% - 180px) !important;
-  margin: 80px auto 0 auto;
+  width: calc(100%) !important;
+  background: rgba(17,23,41,0.2) !important;
   text-align: center;
   padding: 50px;
-  height: calc(100vh - 230px);
+  height: calc(100vh);
   box-shadow: none !important;
-  border: 1px solid rgba(104,108,122, 0.2) !important;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
+  background-color: transparent !important;
+}
+
+.contentFloat {
+  position: relative;
+  z-index: 9;
 }
 
 .overviewIcon {
   font-size: 100px !important;
   margin-bottom: 30px;
   margin-top: -80px;
+}
+
+.title {
+  text-align: center !important;
+  font-size: 32px !important;
+  font-family: 'Righteous' !important;  
+  color: #FFFFFF;  
+  letter-spacing: 6px;
+}
+
+.subtitle {
+  text-align: center !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 6px;
+  margin: 50px auto 50px auto !important;
 }
 
 .mainHeading {
@@ -39,42 +57,67 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-.mainDesc {
-  margin: 20px auto 0px auto !important;
-  text-align: left !important;
-  color: rgb(104,108,122);
-  font-size: 18px !important;
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  width: calc(100% - 180px) !important;
+
+.title {  
+
+  text-align: center  !important;
+  font-size: 50px !important;
+  font-family: 'Righteous'  !important;      
+  font-style: normal  !important;
+  font-weight: 400  !important;  
+  line-height: 62px  !important;
+  letter-spacing: 0.13em  !important;
+  color: #FFFFFF;
+  
 }
 
-.mainHeadingNC {
-  text-align: center !important;
-  font-size: 30px !important;
+.subtitle {
+
+  text-align: center  !important;
+  font-size: 21px  !important;
+  font-weight: 300  !important;
+  font-family: 'Arista'  !important;  
+  color: #FFFFFF  !important;
+  letter-spacing: 6px  !important;
+  margin: 50px auto 50px auto  !important;
+  font-style: normal  !important;    
+  line-height: 27px  !important;
+  letter-spacing: 0.13em  !important;  
 }
 
-.mainDescNC {
-  margin: 30px auto !important;
-  text-align: center !important;
-  color: rgb(104,108,122);
-  font-size: 18px !important;
-  max-width: 800px;
-  line-height: 1.8rem !important;
-}
 
 .buttonConnect {
-  background: linear-gradient(-45deg, #23a6d5, #234ce7);
-	background-size: 200% 200%;
-	animation: gradient 35s ease infinite;
-  color: #FFF !important;
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  color: rgb(20 30 63) !important;
+  background-size: 200% 200%;
+	/* animation: gradient 35s ease infinite; */
   border-radius: 40px !important;
   padding: 12px 24px !important;
   font-weight: 700 !important;
   text-transform: none !important;
+  transform: scale(0.85);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
 }
 
-@keyframes gradient {
+.buttonConnect:hover {
+  background: #FFBD59 !important;
+  color: #111729 !important;
+  text-transform: none !important;
+  border: 1px solid !important;
+  transform: scale(0.9);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+
+/* @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -84,9 +127,17 @@
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
+
 
 @media screen and (max-width: 1600px) {
+
+  .container {
+    width: 85% !important;
+    height: 80% !important;
+    margin-top: 50% !important;    
+  }
+
 
 }
 
@@ -95,10 +146,6 @@
     width: calc(100% - 80px) !important;
     margin: 100px auto 0 auto;
     height: calc(100vh - 150px);
-  }
-
-  .ffContainer {
-    padding-top: 160px;
   }
 
   .mainHeading {

@@ -87,14 +87,18 @@
 .mediumInputContainer {
   display: flex;
   flex-wrap: wrap;
-  border-radius: 10px;
+  
   width: 100%;
   align-items: center;
   background: rgb(33, 43, 72);
   padding: 0 20px;
-  border: 1px solid;
+    
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 
 }
 

@@ -52,7 +52,7 @@ export default function ssVest() {
               <Grid item lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">       
 
                 <Grid className={classes.descTp} direction="column" >              
-                    <Typography className={classes.title} variant='h1'>Create Lock</Typography>
+                    <Typography className={classes.title}>Create Lock</Typography>
                     <Typography className={classes.subtitle}>More tokens locked for longer = greater voting power = higher rewards</Typography>
                 </Grid>     
 

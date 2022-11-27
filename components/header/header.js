@@ -9,7 +9,7 @@ import Navigation from '../navigation'
 import Unlock from '../unlock';
 import TransactionQueue from '../transactionQueue';
 import { ACTIONS } from '../../stores/constants';
-import { styled, makeStyles } from '@material-ui/core/styles';
+import { styled } from '@material-ui/core/styles';
 import stores from '../../stores';
 import { formatAddress } from '../../utils';
 import { walletlink } from '../../stores/connectors/connectors'
@@ -65,7 +65,6 @@ const Img = styled('img')({
   margin: 'auto',
   display: 'block',
   maxWidth: '100%',
-  height: '40px'
 });
 
 
@@ -214,7 +213,7 @@ function Header(props) {
           params: [
             {
               chainName: 'Kava EVM Co-Chain',
-              chainId: process.env.NEXT_PUBLIC_CHAINID,
+              chainId: hexChain,
               nativeCurrency: { name: 'KAVA', decimals: 18, symbol: 'KAVA' },
               rpcUrls: [walletlink.url]
             }
@@ -282,18 +281,16 @@ function Header(props) {
       {account && account.address ?
 
         <div>
-          
-          <Grid>            
-                      
-            <Grid container className={classes.containerMenu} alignItems="flex-end" justifyContent="center">
+           
+            <Grid container className={classes.containerMenu} alignItems="center" spacing={1}>
 
-                <Grid className={classes.headAccountBalance}>
+                <Grid item className={classes.headAccountBalance}>
                   <Typography className={classes.headBtnTxt}>{'0 KAVA'}</Typography>
                 </Grid>
 
-                <Grid className={classes.subcontainerMenu}>
+                <Grid xs={8} >
 
-                  <Button
+                  <Button 
                       disableElevation
                       className={classes.accountButton}
                       variant="contained"
@@ -303,7 +300,7 @@ function Header(props) {
                       <Typography className={classes.headBtnTxt}>{account && account.address ? formatAddress(account.address) : 'Connect Wallet'}</Typography>
 
                       <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
-                        <Img alt="complex" className={ classes.imgIconList } src="/images/Wallet_Icon.svg" />
+                        <Img alt="complex" src="/images/Wallet_Icon.svg" />
                       </IconButton>          
                     
                     </Button>
@@ -311,8 +308,7 @@ function Header(props) {
                 </Grid>                       
 
             </Grid>                     
-                                                    
-          </Grid>              
+                                                                
 
             <StyledMenu
               id="customized-menu"
@@ -369,26 +365,27 @@ function Header(props) {
 
   const renderRightMenuWallet = () => {
     return (
-      <>
+      <>   
         {renderTestNet()}
         {renderTransactionsQueue()}
         {renderWalletInfo()}
         {renderModal()}                                
       </>
     )
-  }
+  } 
 
   const renderSocialMenu = () => {
     return (
       <>
-        <Grid >            
-          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
+        <Grid  className={ classes.socialButton } >            
+          <IconButton onClick={handleClick} aria-label="social list">                      
               <Img alt="complex" className={ classes.imgIconList } src="/images/Linktree_icon.svg"/>
           </IconButton>                                                     
         </Grid>    
       </>
     )
   }
+
 
   const renderNotConnected = () => {
     return (
@@ -413,21 +410,21 @@ function Header(props) {
 
     <div>
 
-        <Grid container className={classes.headerContainer}>
+        <Grid container className={classes.headerContainer} alignItems='center' justifyContent='space-between'>
 
-          <Grid lg={2} md={2} sm={2} xs={2} justifyContent="center" >
-            <a onClick={() => router.push('/home')}> <Img alt="complex" className={ classes.containerLogo } src="/images/Logo.png" /></a>          
+          <Grid item xs={2} justifyContent='flex-start' className={classes.appLogo}>
+            <a onClick={() => router.push('/home')}> <Img alt="complex" src="/images/Logo.png" /></a>          
           </Grid>
 
-          <Grid className={classes.containerNav}>
+          <Grid xs={12} lg={6} className={classes.containerNav} >
               <Navigation changeTheme={props.changeTheme} />
           </Grid>
 
-          <Grid  alignItems="center" justifyContent="center" className={classes.containerMenuWallet}>                          
-                {renderRightMenuWallet()}                
+          <Grid xs={4} lg={3} className={classes.containerMenuWallet}>                          
+              {renderRightMenuWallet()}    
           </Grid>
 
-          <Grid>
+          <Grid justifyContent='flex-end'>
               {renderSocialMenu()}
           </Grid>
                     

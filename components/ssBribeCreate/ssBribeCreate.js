@@ -5,9 +5,7 @@ import BigNumber from 'bignumber.js';
 import { formatCurrency } from '../../utils';
 import classes from './ssBribeCreate.module.css';
 
-import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 import stores from '../../stores'
@@ -158,14 +156,14 @@ export default function ssBribeCreate() {
                     <div className={ classes.menuOption }>
                       <div className={ classes.doubleImages }>
                         <img
-                          className={ `${classes.someIcon} ${classes.img1Logo}` }
+                          className={ `${classes.img1Logo}` }
                           alt=""
                           src={ (option && option.token0) ? `${option.token0.logoURI}` : '' }
                           height='70px'
                           onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
                         />
                         <img
-                          className={ `${classes.someIcon} ${classes.img2Logo}` }
+                          className={ `${classes.img2Logo}` }
                           alt=""
                           src={ (option && option.token1) ? `${option.token1.logoURI}` : '' }
                           height='70px'
@@ -240,18 +238,24 @@ export default function ssBribeCreate() {
   }
 
   return (
-    <div className={classes.retain}>
-      <Paper elevation={0} className={ classes.container }>
-        <div className={ classes.titleSection }>
+    <Grid container spacing={16}>
+      <Grid item xs={12} justifyContent="center" container>
+      <Paper elevation={20} className={ classes.container }>
+        <Grid item xs={12} className={ classes.titleSection }>
           <Typography className={ classes.titleText }>Create Bribe</Typography>
-        </div>
-        <div className={ classes.reAddPadding }>
-          <div className={ classes.inputsContainer }>
+        </Grid>
+          <Grid item container className={ classes.inputsContainer }>
+            <Grid item xs={12}>
             { renderMassiveGaugeInput('gauge', gauge, null, gaugeOptions, onGagugeSelect) }
+            </Grid>
+            <Grid item xs={12}>
             { renderMassiveInput('amount', amount, amountError, amountChanged, asset, null, assetOptions, onAssetSelect) }
+            </Grid>
+            <Grid item xs={12}>
             { renderCreateInfo() }
-          </div>
-          <div className={ classes.actionsContainer }>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} className={ classes.actionsContainer }>
             <Button
               variant='contained'
               size='large'
@@ -263,10 +267,10 @@ export default function ssBribeCreate() {
               <Typography className={ classes.actionButtonText }>{ createLoading ? `Creating` : `Create Bribe` }</Typography>
               { createLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
             </Button>
-          </div>
-        </div>
+          </Grid>
       </Paper>
-    </div>
+      </Grid>
+    </Grid>
   );
 }
 

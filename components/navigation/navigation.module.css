@@ -2,14 +2,18 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #0D142E;    
-  border: 1px solid;
-  border-radius: 50px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  background: rgba(13, 20, 46, 0.5);
-  box-shadow: -8px 8px 4px #0D142E, inset -8px 8px 4px rgba(12, 25, 69, 0.7) !important;
-  border-radius: 53px;
+  
+  box-shadow: -8px 8px 4px #0D142E, inset -8px 8px 4px rgba(12, 25, 69, 0.7) !important;  
   box-shadow: 1px 1px #0D142E;  
+  
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  
+  border: 1px solid transparent;
+  border-radius: 53px;  
+  
 }
 
 a.linkz { cursor: pointer !important; }
@@ -125,7 +129,7 @@ a.linkz { cursor: pointer !important; }
 .accountButton {
   display: flex;
   align-items: right;
-  
+
 }
 
 .accountIcon {
@@ -177,9 +181,6 @@ a.linkz { cursor: pointer !important; }
   cursor: pointer;
 }
 
-.subAssets {
-
-}
 
 .navigationSubOptionContainer {
   display: flex;
@@ -193,10 +194,9 @@ a.linkz { cursor: pointer !important; }
 
 .subtitleText {
   font-family: 'Arista';
-  font-size: 25px !important;
-  font-weight: 300 !important;
-  margin: 0 !important;
-  
+  font-size: 16px !important;
+  font-weight: 100 !important;
+  margin: 0 !important;  
 }
 
 .sectionDivider {
@@ -301,16 +301,16 @@ a.linkz { cursor: pointer !important; }
   cursor: pointer;
 }
 
-.navToggles {  
-  min-height: 50px;    
+.navToggles {
+  min-height: 50px;
 }
 
 .navButton {
   border: none;
   padding: 8px 24px 10px 24px !important;
-  text-transform: capitalize !important;  
+  text-transform: capitalize !important;
   color: #7E99B0 !important;
-} /* Transparent border to eliminate position jittering from Active state */
+} 
 
 .testChange {
   border: none;
@@ -319,197 +319,23 @@ a.linkz { cursor: pointer !important; }
 }
 
 @media screen and (max-width: 1200px) {
-  .navigationContainer {
-    position: fixed;
-    min-height: 60px;
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 0px !important;
-    border-radius: 0px !important;
-    z-index: 10020;
-    background: #111729;
-  }
-  .socials {
-    display: none;
-  }
-  .navigationContent {
-    /* display: none; */
-    background: #111729;
-    position: fixed;
-    left: 0;
-    top: 60px;
-    width: 100%;
-    text-align: center;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(126,153,176,0.2);
-  }
-  .navigationContentMobile {
-    position: fixed;
-    top: 0px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-    height: 100vh;
-    z-index: 9;
-    align-items: center;
-    border-radius: 0 !important;
-    text-align: center !important;
-  }
-  .menuIcon {
-    position: absolute;
-    top: 7px;
-    right: 10px;
-    display: flex;
-    transform: scale(0.8);
-  }
-  .navigationHeading {
-    width: 100%;
-    display: block;
-  }
-  .headerThings {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .backButtonContainer {
-    position: absolute;
-    top: 24px;
-    left: 12px;
-    display: flex;
-  }
-
-  .subtitleText {
-    padding-left: 0px;
-    font-size: 15px !important;
-    margin: 0 !important;
-    text-align: center !important;
-  }
-
-  .navigationOptionNotSelected {
-    margin-right: 0px;
-  }
-
-  .navigationOptionSelected,
-  .navigationOptionSelectedWhite {
-    display: none !important;
-  }
-
-  .navigationOptionActive {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-    margin: 0px auto !important;
-    width: 100%;
-    border-radius: 10px;
-    text-align: center !important;
-    cursor: pointer;
-    background: radial-gradient(circle, rgba(63,94,251,0.7) 0%, rgba(47,128,237,0.7) 48%) rgba(63,94,251,0.7) 100%;
-  }
-
-  .sectionText {
-    color: rgba(104, 108, 128, 0.8);
-    /* color: #234ce7; */
-    font-size: 13px !important;
-    cursor: default;
-    margin: 10px 0 10px 0px !important;
-    padding: 0 !important;
-    text-align: center !important;
-  }
-
-  .navigationOptionContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0px 0px;
-    width: 100%;
-    cursor: pointer;
-  }
-
-  .navigationSubOptionContainer {
-    text-align: center !important;
-    justify-content: center;
-    padding: 0 !important;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .navigationOptionNotSelected {
-    margin-right: 0px;
-  }
-
-  .smallVersion,
-  .sectionDivider {
-    display: none;
-  }
-
-  .navigationSubOptionContainer {
-    text-align: center !important;
-    justify-content: center;
-    padding: 0 !important;
-  }
-
-  .sectionText {
-    margin: 10px 0 10px 0px !important;
-    padding: 0 !important;
-  }
+       
 }
 
 @media screen and (max-width: 560px) {
-  .navToggles {
 
-    min-height: 30px;
-    border-width: 1px;
-    border-radius: 25px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #1F2E64, #924C91, #70DD88, #1F2E64) 1;
-
-  }
-
-  .navButton {
-    border-radius: 10px !important;
-    padding: 8px 10px 8px 10px !important;
-    text-transform: capitalize !important;
-    border: 1px solid rgba(0,0,0,0) !important;
-    color: #7E99B0 !important;
+  .navigationContainer {
+    box-shadow: none;  
+    box-shadow: none;      
+    background:  none;    
+    position: relative;
+    padding-right: 30px;
   }
 
   .subtitleText {
-    padding-left: 0px;
-    font-size: 12px !important;
-    margin: 0 !important;
-    text-align: center !important;
+    font-family: 'Arista';
+    font-size: 12px !important;    
   }
-
-  .appLogo {
-    transform: scale(5);
-    position: fixed;
-    left: 70px;
-    top: 18px;
-    cursor: pointer;
-  }
-
-  .testChange {
-    border: 1px solid #06d3d7 !important;
-    background-color: rgba(0,0,0,0) !important;
-    color: #FFF !important;
-  }
-
-  .navigationContent {
-    background: #111729;
-    position: fixed;
-    left: 0;
-    top: 45px;
-    width: 100%;
-    text-align: center;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(126,153,176,0.2);
-  }
+   
 }
+

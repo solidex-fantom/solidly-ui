@@ -1,29 +1,41 @@
-
 .newSwapContainer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
-  height: 100%;
   min-height: calc(100vh - 423px);
-  align-items: center;  
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-inline: 12%;
 }
 
 .swapContainer {
-
-  padding: 24px;
+  padding: 35px;
   display: flex;
   flex-direction: column;  
-  border: 2px solid;
-  border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border: 1px solid;
+  border-radius: 30px !important;      
   box-sizing: border-box;
-  box-shadow: 1px 1px #0D142E;
-  width: 604px;
-  height: 390px;
-  left: calc(50% - 604px/2 + 507px);
-  top: calc(50% - 390px/2 + 2px);
+  box-shadow: 10px 10px #0D142E;
+  background-color: #131b4c !important;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  
+  border: 1px solid transparent;  
+  display: inline-block;
 }
+
+
+.newSwapContainer {  
+  justify-content: space-evenly;
+  align-items: center;  
+  align-items: center; 
+  margin-bottom: 10%;
+  margin-inline: 12%;
+}
+
 
 .smallerText {
   letter-spacing: 2px;
@@ -33,7 +45,6 @@
 }
 
 .swapInputs {
-  margin: auto;
   display: flex;
   flex-direction: column;
   width: 100%;    
@@ -99,12 +110,14 @@
 .displaySelectContainer {
   padding: 12px;
   min-height: 100px;
-  cursor: pointer;    
+  cursor: pointer; 
 }
 
 .displayDualIconContainer {
   width: 100px;
   position: relative;  
+  align-items: center;   
+
 }
 
 .displayDualIconContainerConfirm {
@@ -157,16 +170,19 @@
 }
 
 .displayAssetIcon {  
-  border: 2px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border: 1px solid;    
   border-radius: 64px;    
 }
 
 .displayAssetIconSmall {  
-  border: 2px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
-  border-radius: 30px;  
   padding: 6px;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 30px;  
 }
 
 .inputTitleContainerSlippage {
@@ -174,10 +190,14 @@
   display: flex;
   align-items: center;
   position: absolute;
-  top: 0px;
-  border: 2px solid;
+  top: 0px;  
+    
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
 
 .inputBalanceSlippage {
@@ -208,7 +228,7 @@
 
 .inputBalance {  
   font-weight: 400 !important;
-  font-size: 15px !important;  
+  font-size: 13px !important;  
   margin-right: 6px !important;
   margin-top: 6px !important;
   font-family: 'Righteous' !important;
@@ -278,16 +298,19 @@
 }
 
 .swapConfirmSide {
-  border: 1px solid;
-  border-radius: 10px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;    
+  border-radius: 10px;  
   padding: 24px 6px;
+
 }
 
 .addressField {
-  border: 2px solid;
-  border-radius: 10px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+      
   padding: 6px 12px;
   width: 100%;
   margin: 12px 0px !important;
@@ -296,6 +319,13 @@
   justify-content: space-between;
   min-height: 44px;
   cursor: pointer;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 10px;
 }
 
 .swapDepositInfo {
@@ -387,7 +417,7 @@
   margin: 4px;  
   border: 1px solid;
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border-color: #CD74CC #FFBD59 #70DD88;
 }
 
 .swapInfoContainer {
@@ -531,10 +561,10 @@
 
 .actionButtonText {
   color: #0D142E;  
-  font-size: 15px;
+  font-size: 20px !important;
   font-weight: 700;
   position: absolute;
-  top: 40%;  
+  top: 45%;  
   left: 50%;
   transform: translate(-50%, -50%)
 }
@@ -584,9 +614,10 @@
 }
 
 .buttonOverride {
-  background-color: transparent !important;  
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88) !important;  
   font-weight: 700 !important;
   max-height: 50px !important;
+  border-radius: 30px !important;
 }
 
 /*.buttonOverride:hover {
@@ -598,14 +629,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 24px;
+  padding: 40px;
 }
 
 .line {
   flex: 1;
   border-bottom: 1px dashed white;
   text-align: center;
-  margin-top: -4px;
+  margin-top: -20px;
   position: relative;
 }
 
@@ -625,7 +656,7 @@
 
 .stabIndicator {
   font-size: 13px !important;
-  color: #06D3D7;
+  color: #ffffff;
 }
 
 .routeArrow {
@@ -640,7 +671,7 @@
 
 .routeArrowIcon {
   font-size: 13px !important;
-  color: #06D3D7;
+  color: #fff;
 }
 
 .quoteLoader {
@@ -654,13 +685,16 @@
   font-family: 'Arista';  
   letter-spacing: 1px; 
   font-size: 14px !important;
-  font-weight: 200 !important;
-  border: 1px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
-  border-radius: 10px;
-  background: rgb(23, 52, 72) !important;
+  font-weight: 200 !important;  
   padding: 24px !important;
   min-width: 100%;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 10px;
 }
 
 .warningContainer {
@@ -690,18 +724,45 @@
   min-width: 100%;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1600px) {
+  
   .swapContainer {
     padding: 12px;
   }
-  .newSwapContainer {
+  .newSwapContainer {    
     flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+  
+  .swapContainer {
+    padding: 24px;
+  }
+  .newSwapContainer {    
+    flex-direction: column;
+  }
+  .inputBalance {
+    padding-right: 0px;
+    margin-top: 0px !important;
+  }
+  .massiveInputContainer{
+    margin-top: 20px;
+  }
+  .massiveInputAmount{
+    margin-top: -26px
+  }
+  .searchContainer{
+    height: 100%;
   }
 }
 
 @media screen and (max-width: 576px) {
   .newSwapContainer {
     margin-top: -100px;
+    padding: 20px;
+    margin-inline: -8%;
   }
   .swapContainer {
     padding: 12px;
@@ -718,4 +779,8 @@
   .swapInfoContainer {
     width: 100%;
   }
+  .displayAssetIcon {  
+    height: 80px;   
+  }
+
 }

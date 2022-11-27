@@ -63,15 +63,34 @@
   line-height: 1.8rem !important;
 }
 
+
 .buttonConnect {
-  background: linear-gradient(-45deg, #23a6d5, #234ce7);
-	background-size: 200% 200%;
-	animation: gradient 35s ease infinite;
-  color: #FFF !important;
-  border-radius: 40px !important;
-  padding: 12px 24px !important;
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  color: rgb(20 30 63) !important;
+  border-radius: 60px !important;
+  padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
   text-transform: none !important;
+  border: 1px solid !important;
+  transform: scale(0.85);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+.buttonConnect:hover {
+  background: #FFBD59 !important;
+  color: #111729 !important;
+  text-transform: none !important;
+  border: 1px solid !important;
+  transform: scale(0.9);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
 }
 
 @keyframes gradient {

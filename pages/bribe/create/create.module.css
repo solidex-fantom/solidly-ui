@@ -1,18 +1,50 @@
 .container {
-  height: 100%;
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-  padding-top: 60px;
   position: relative;
+  padding-top: 50px;
+  padding-inline: 50px;
+}
+.sphere {      
+  height: 270px;  
+  background-image: url('/images/Dog Treat con fondo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
-  margin-bottom: 60px;
+  scale: 1.5;
+  margin-left: 5%;
+}
+.title {  
+  text-align: center !important;
+  font-size: 50px;
+  font-family: 'Righteous' !important;      
+  font-style: normal;
+  font-weight: 400;  
+  line-height: 62px;
+  letter-spacing: 0.13em;
+  color: #FFFFFF;
+}
+
+.subtitle {
+  text-align: center !important;
+  font-size: 21px !important;
+  font-weight: 300 !important;
+  font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 6px;
+  margin: 50px auto 50px auto !important;
+  font-style: normal;    
+  line-height: 27px;
+  letter-spacing: 0.13em;  
 }
 
 @media screen and (max-width: 1200px) {
   .container {
     padding-top: 180px;
-    margin-bottom: 60px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .sphere{
+    margin-left: 15%;
   }
 }

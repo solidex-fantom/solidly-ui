@@ -1,4 +1,4 @@
-import { Typography, Button, Paper, SvgIcon } from "@material-ui/core"
+import { Typography, Button, Paper, SvgIcon, Grid } from "@material-ui/core"
 import SSBribes from '../../components/ssBribes'
 
 import React, { useState, useEffect } from 'react';
@@ -59,15 +59,14 @@ function Bribes({ changeTheme }) {
   return (
     <div className={classes.ffContainer}>
       {account && account.address ?
-        <div className={classes.connected}>
+        <Grid container>
           <SSBribes redirectToCreate={redirectToCreate}/>
-        </div>
+        </Grid>
          :
          <Paper className={classes.notConnectedContent}>
-          <BalanceIcon className={ classes.overviewIcon } />
-           <Typography className={classes.mainHeadingNC} variant='h1'>Bribes</Typography>
-           <Typography className={classes.mainDescNC} variant='body2'>
-             Use your veSolid to vote for your selected pool’s rewards distribution or create a bribe to encourage others to do the same.
+           <Typography className={classes.title} variant='h1'>Bribes</Typography>
+           <Typography className={classes.subtitle} variant='body2'>
+             Use your veVARA to vote for your selected pool’s rewards distribution or create a bribe to encourage others to do the same.
            </Typography>
            <Button
              disableElevation

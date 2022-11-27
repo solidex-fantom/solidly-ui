@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .ffContainer {
-  min-height: 100vh;
-  width: 100%;
+  
   display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-  padding-top: 100px;
-  position: relative;
+  flex-direction: column;  
+  
 }
 
 .connected {
@@ -43,26 +40,29 @@
 }
 
 .title {
-  text-align: center !important;
-  font-size: 32px !important;
-  font-family: 'Righteous' !important;  
-  color: #FFFFFF;  
-  letter-spacing: 6px;
+  font-family: 'Righteous' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 50px !important;
+  line-height: 62px !important;
+  letter-spacing: 0.13em !important;
+  color: #FFFFFF !important;
 }
 
 .subtitle {
-  text-align: center !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  font-family: 'Arista' !important;  
-  color: #FFFFFF;
-  letter-spacing: 6px;
-  margin: 50px auto 50px auto !important;
+  font-family: 'Arista'  !important;
+  font-style: normal  !important;
+  font-weight: 300  !important;
+  font-size: 25px  !important;
+  line-height: 27px  !important;
+  letter-spacing: 0.13em  !important;
+  color: #FFFFFF  !important;
+  margin: 50px auto 50px auto  !important;
 }
 
 .buttonConnect {
-  background: rgba(6,211,215,0.3) !important;
-  color: rgba(6,211,215,1) !important;
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  color: rgb(20 30 63) !important;
   border-radius: 60px !important;
   padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
@@ -77,7 +77,7 @@
 }
 
 .buttonConnect:hover {
-  background: rgba(6,211,215,1) !important;
+  background: #FFBD59 !important;
   color: #111729 !important;
   text-transform: none !important;
   border: 1px solid !important;
@@ -92,11 +92,16 @@
 
 @media screen and (max-width: 1600px) {
 
+  .ffContainer {    
+    padding-top: 1%;
+  }
+
 }
 
 @media screen and (max-width: 1200px) {
-  .ffContainer {
-    padding-top: 140px;
+
+  .ffContainer {    
+    padding: 5%;
   }
 
   .title {
