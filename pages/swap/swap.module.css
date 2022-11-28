@@ -121,6 +121,11 @@
   .ffContainer {    
     margin-top: 12%;    
   }
+
+
+  .sphere {      
+    display: none;
+  }
 }
 
 @media screen and (max-width: 844px) {
