@@ -279,6 +279,7 @@ export default function ssVotes() {
         }) } setParentSliderValues={setVotes} defaultVotes={votes} veToken={veToken} token={ token } />
 
       </Paper>
+      
       <Paper elevation={10} className={ classes.actionButtons }>
         <Grid container spacing={2}>
           <Grid item lg={6}>

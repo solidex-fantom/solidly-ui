@@ -1,9 +1,7 @@
 .navigationContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  
-  box-shadow: -8px 8px 4px #0D142E, inset -8px 8px 4px rgba(12, 25, 69, 0.7) !important;  
+  align-items: center;    
   box-shadow: 1px 1px #0D142E;  
   
   background: 

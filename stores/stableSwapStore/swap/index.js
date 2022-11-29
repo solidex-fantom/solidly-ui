@@ -96,6 +96,18 @@ function discoverRoutesForTokens(pairs, from, to) {
   return routes;
 }
 
+
+async function _getSwapAllowance(web3, token, account) {
+  try {
+    const tokenContract = new web3.eth.Contract(CONTRACTS.ERC20_ABI, token.address)
+    const allowance = await tokenContract.methods.allowance(account.address, CONTRACTS.ROUTER_ADDRESS).call()
+    return BigNumber(allowance).div(10**token.decimals).toFixed(token.decimals)
+  } catch (ex) {
+    console.error(ex)
+    return null
+  }
+}
+
 export async function quoteSwap(payload) {
   try {
     const web3 = await stores.accountStore.getWeb3Provider()
@@ -104,7 +116,7 @@ export async function quoteSwap(payload) {
       return null
     }
 
-    // some path logic. Have a base asset (KAVA) swap from start asset to KAVA, swap from KAVA back to out asset. Don't know.
+    // some path logic. Have a base asset (KAVA) modules from start asset to KAVA, modules from KAVA back to out asset. Don't know.
     const pairs = this.getStore('pairs')
     const { fromAsset, toAsset, fromAmount } = payload.content
 
@@ -123,7 +135,7 @@ export async function quoteSwap(payload) {
     let addy1 = toAsset.address
 
     if(fromAsset.address === CONTRACTS.KAVA_ADDRESS || toAsset.address === CONTRACTS.KAVA_ADDRESS) {
-      return this.emitter.emit(ACTIONS.ERROR, 'No valid route found to complete swap')
+      return this.emitter.emit(ACTIONS.ERROR, 'No valid route found to complete modules')
     }
 
     const routes = discoverRoutesForTokens(pairs, fromAsset, toAsset)
@@ -155,7 +167,7 @@ export async function quoteSwap(payload) {
     }, 0)
 
     if(!bestAmountOut) {
-      this.emitter.emit(ACTIONS.ERROR, 'No valid route found to complete swap')
+      this.emitter.emit(ACTIONS.ERROR, 'No valid route found to complete modules')
       return null
     }
 
@@ -232,7 +244,7 @@ export async function swap(payload) {
 
     // CHECK ALLOWANCES AND SET TX DISPLAY
     if(fromAsset.address !== 'KAVA') {
-      allowance = await this._getSwapAllowance(web3, fromAsset, account)
+      allowance = await _getSwapAllowance(web3, fromAsset, account)
 
       if(BigNumber(allowance).lt(fromAmount)) {
         this.emitter.emit(ACTIONS.TX_STATUS, {
@@ -290,12 +302,12 @@ export async function swap(payload) {
 
 
     let func = 'swapExactTokensForTokens'
-    let params = [sendFromAmount, sendMinAmountOut, quote.output.routes, account.address, deadline]
+    let params = [sendFromAmount, sendMinAmountOut, quote.output.raw, account.address, deadline]
     let sendValue = null
 
     if(fromAsset.address === 'KAVA') {
       func = 'swapExactETHForTokens'
-      params = [sendMinAmountOut, quote.output.routes, account.address, deadline]
+      params = [sendMinAmountOut, quote.output.raw, account.address, deadline]
       sendValue = sendFromAmount
     }
     if(toAsset.address === 'KAVA') {

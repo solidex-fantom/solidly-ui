@@ -96,6 +96,18 @@ function discoverRoutesForTokens(pairs, from, to) {
   return routes;
 }
 
+
+async function _getSwapAllowance(web3, token, account) {
+  try {
+    const tokenContract = new web3.eth.Contract(CONTRACTS.ERC20_ABI, token.address)
+    const allowance = await tokenContract.methods.allowance(account.address, CONTRACTS.ROUTER_ADDRESS).call()
+    return BigNumber(allowance).div(10**token.decimals).toFixed(token.decimals)
+  } catch (ex) {
+    console.error(ex)
+    return null
+  }
+}
+
 export async function quoteSwap(payload) {
   try {
     const web3 = await stores.accountStore.getWeb3Provider()
@@ -232,7 +244,7 @@ export async function swap(payload) {
 
     // CHECK ALLOWANCES AND SET TX DISPLAY
     if(fromAsset.address !== 'KAVA') {
-      allowance = await this._getSwapAllowance(web3, fromAsset, account)
+      allowance = await _getSwapAllowance(web3, fromAsset, account)
 
       if(BigNumber(allowance).lt(fromAmount)) {
         this.emitter.emit(ACTIONS.TX_STATUS, {
