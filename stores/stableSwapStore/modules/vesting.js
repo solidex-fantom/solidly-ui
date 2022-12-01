@@ -4,6 +4,18 @@ import BigNumber from "bignumber.js";
 import * as moment from "moment/moment";
 
 
+async function _getVestAllowance(web3, token, account) {
+  try {
+    const tokenContract = new web3.eth.Contract(CONTRACTS.ERC20_ABI, token.address)
+    const allowance = await tokenContract.methods.allowance(account.address, CONTRACTS.VE_TOKEN_ADDRESS).call()
+    return BigNumber(allowance).div(10**token.decimals).toFixed(token.decimals)
+  } catch (ex) {
+    console.error(ex)
+    return null
+  }
+}
+
+
 async function _updateVestNFTByID(context, id) {
   try {
     const vestNFTs = context.getStore('vestNFTs')
@@ -51,7 +63,7 @@ async function _updateVestNFTByID(context, id) {
     context.emitter.emit(ACTIONS.UPDATED)
     return null
   } catch(ex) {
-    console.log(ex)
+    console.error(ex)
     return null
   }
 }
@@ -93,10 +105,17 @@ export async function withdrawVest(payload) {
 
     this._callContractWait(web3, veTokenContract, 'withdraw', [tokenID], account, gasPrice, null, null, vestTXID, (err) => {
       if (err) {
+        const errString = err.message || err.toString()
+        if (errString.includes("attached")) {
+          err = (
+              "There are LP positions attached to this veNFT. "+
+              "Please claim any remaining rewards for these LP positions "+
+              "and unstake/withdraw the LP, then proceed"
+          )
+        }
         return this.emitter.emit(ACTIONS.ERROR, err)
       }
 
-      console.log('updatingVestNFTByID')
       _updateVestNFTByID(this, tokenID)
 
       this.emitter.emit(ACTIONS.WITHDRAW_VEST_RETURNED)
@@ -196,7 +215,7 @@ export async function createVest(payload) {
 
 
     // CHECK ALLOWANCES AND SET TX DISPLAY
-    const allowance = await this._getVestAllowance(web3, govToken, account)
+    const allowance = await _getVestAllowance(web3, govToken, account)
 
     if(BigNumber(allowance).lt(amount)) {
       this.emitter.emit(ACTIONS.TX_STATUS, {
@@ -257,17 +276,6 @@ export async function createVest(payload) {
   }
 }
 
-export async function _getVestAllowance(web3, token, account) {
-  try {
-    const tokenContract = new web3.eth.Contract(CONTRACTS.ERC20_ABI, token.address)
-    const allowance = await tokenContract.methods.allowance(account.address, CONTRACTS.VE_TOKEN_ADDRESS).call()
-    return BigNumber(allowance).div(10**token.decimals).toFixed(token.decimals)
-  } catch (ex) {
-    console.error(ex)
-    return null
-  }
-}
-
 export async function increaseVestAmount(payload) {
   try {
     const account = stores.accountStore.getStore("account")
@@ -304,7 +312,7 @@ export async function increaseVestAmount(payload) {
 
 
     // CHECK ALLOWANCES AND SET TX DISPLAY
-    const allowance = await this._getVestAllowance(web3, govToken, account)
+    const allowance = await _getVestAllowance(web3, govToken, account)
 
     if(BigNumber(allowance).lt(amount)) {
       this.emitter.emit(ACTIONS.TX_STATUS, {
