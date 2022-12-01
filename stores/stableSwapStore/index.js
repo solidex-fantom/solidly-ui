@@ -2993,9 +2993,9 @@ class Store {
       }
 
       const { asset, amount, gauge } = payload.content;
-      const bribeAddress = gauge.gauge.bribeAddress;
+      let bribeAddress = gauge.gauge.bribeAddress;
 
-      const bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, bribeAddress)
+      let bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, bribeAddress)
 
       // ADD TRNASCTIONS TO TRANSACTION QUEUE DISPLAY
       let allowanceTXID = this.getTXUUID();
@@ -3023,8 +3023,9 @@ class Store {
       ]})
 
       // CREATE WRAPPED EXTERNAL BRIBE
+      console.log('old bribe', bribeAddress)
       try {
-        await this._createWrappedBribe(
+        bribeAddress = await this._createWrappedBribe(
             wxBribeTXID,
             web3,
             bribeAddress,
@@ -3035,7 +3036,7 @@ class Store {
         this.emitter.emit(ACTIONS.ERROR, e.message);
         return;
       }
-
+      console.log('new bribe', bribeAddress)
       // CHECK ALLOWANCES AND SET TX DISPLAY
       const allowance = await this._getBribeAllowance(web3, asset, gauge, account)
 
@@ -3077,7 +3078,7 @@ class Store {
       // SUBMIT BRIBE TRANSACTION
 
       const sendAmount = BigNumber(amount).times(10**asset.decimals).toFixed(0)
-
+      bribeContract = new web3.eth.Contract(CONTRACTS.BRIBE_ABI, bribeAddress)
       this._callContractWait(web3, bribeContract, 'notifyRewardAmount', [asset.address, sendAmount], account, gasPrice, null, null, bribeTXID, async (err) => {
         if (err) {
           return this.emitter.emit(ACTIONS.ERROR, err)
@@ -3099,7 +3100,7 @@ class Store {
         CONTRACTS.WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS,
     );
 
-    await new Promise((resolve, reject) => {
+    return await new Promise((resolve, reject) => {
       this._callContractWait(
         web3,
         wxBribeFactoryContract,
@@ -3124,7 +3125,7 @@ class Store {
           resolve()
         }
       )
-    })
+    }).then(() => wxBribeFactoryContract.methods.oldBribeToNew(bribeAddress).call())
   }
 
   _getBribeAllowance = async (web3, token, pair, account) => {
