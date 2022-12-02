@@ -53,8 +53,8 @@ function Liquidity({ changeTheme }) {
           
           <div className={classes.contentFloat}>
             
-            <Typography className={classes.title} variant='h1'>Pools</Typography>
-            <Typography className={classes.subtitle} variant='body2'>Add liquidity and earn weekly rewards</Typography>
+            <Typography className={classes.title} variant="h1">Pools</Typography>
+            <Typography className={classes.subtitle} variant="h2">Add liquidity and earn weekly rewards</Typography>
 
             <Button disableElevation className={classes.buttonConnect} variant="contained" onClick={onAddressClicked}>
                   {account && account.address && <div className={`${classes.accountIcon} ${classes.metamask}`}></div>}

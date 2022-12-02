@@ -13,6 +13,7 @@ const coreTheme = {
   typography: {
     fontFamily: [  
       "Righteous",
+      "Arista",
       "Inter",
       "Arial",
       "-apple-system",
@@ -27,6 +28,7 @@ const coreTheme = {
     ].join(","),
     h1: {
       // Portfolio balance numbers
+      fontFamily: 'Arista',
       fontSize: "32px",
       fontWeight: 800,
       lineHeight: 1.167,
@@ -48,15 +50,7 @@ const coreTheme = {
     h3: {
       // yearn title text YEARN
       fontFamily: [
-        "Druk Wide Bold",
-        "Inter",
-        "Arial",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "sans-serif"
+        "Arista"
       ],
       fontSize: "1.5rem",
       fontWeight: 700,

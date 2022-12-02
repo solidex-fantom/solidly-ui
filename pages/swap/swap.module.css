@@ -1,10 +1,7 @@
-.ffContainer {
-  padding-top: 100px;
-  padding-inline: 50px;
+.ffContainer {  
   display: flex;
   flex-direction: column;
-  position: relative;
-  justify-content: center;
+  margin: auto;  
 }
 
 .notConnectedContent {
@@ -34,9 +31,6 @@
   display: inline-block;      
 }
 
-.descTp {
-  margin-top: 50px;
-}
 
 .sphere {      
   height: 420px;  
@@ -64,6 +58,7 @@
   line-height: 62px;
   letter-spacing: 0.13em;
   color: #FFFFFF;
+  
 }
 
 .subtitle {
@@ -79,11 +74,11 @@
   letter-spacing: 0.13em;  
 }
 
+
 .buttonConnect {
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
   color: rgb(20 30 63) !important;
-  border-radius: 60px !important;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
+  border-radius: 60px !important;
   padding: 12px 24px 14px 24px !important;
   font-weight: 700 !important;
   text-transform: none !important;
@@ -110,13 +105,23 @@
 
 @media screen and (max-width: 1600px) {
 
+  .ffContainer {
+    width: 85%;
+    /* height: 80%; */
+  }
+
 }
 
 @media screen and (max-width: 1200px) {
-  .ffContainer {
-    padding-top: 280px;
-    justify-content: flex-start;
+ 
+  .ffContainer {    
+    margin-top: 12%;    
   }
+
+
+  /* .sphere {      
+    display: none;
+  } */
 }
 
 @media screen and (max-width: 844px) {
@@ -129,3 +134,4 @@
     height: 280px;  
   }
 }
+

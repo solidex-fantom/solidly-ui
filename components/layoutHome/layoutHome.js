@@ -45,7 +45,7 @@ export default function Layout({
         />
         <link
           rel="preload"
-          href="/fonts/Righteous/Righteous-Regular.otf"
+          href="/fonts/Righteous/Righteous-Regular.ttf"
           as="font"
           crossOrigin=""
         />

@@ -2,10 +2,7 @@
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-  padding-top: 102px;
-  position: relative;
+  flex-direction: column;      
 }
 
 .notConnectedContent {
@@ -50,21 +47,27 @@
 }
 
 .title {  
-  text-align: center !important;
-  font-size: 32px !important;
-  font-family: 'Righteous' !important;  
-  color: #FFFFFF;  
-  letter-spacing: 6px;
+  text-align: center  !important;
+  font-size: 50px !important;
+  font-family: 'Righteous'  !important;      
+  font-style: normal  !important;
+  font-weight: 400  !important;  
+  line-height: 62px  !important;
+  letter-spacing: 0.13em  !important;
+  color: #FFFFFF;
 }
 
 .subtitle {
-  text-align: center !important;
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  font-family: 'Arista' !important;  
-  color: #FFFFFF;
-  letter-spacing: 6px;
-  margin: 50px auto 50px auto !important;
+  text-align: center  !important;
+  font-size: 21px  !important;
+  font-weight: 300  !important;
+  font-family: 'Arista'  !important;  
+  color: #FFFFFF  !important;
+  letter-spacing: 6px  !important;
+  margin: 50px auto 50px auto  !important;
+  font-style: normal  !important;    
+  line-height: 27px  !important;
+  letter-spacing: 0.13em  !important;  
 }
 
 .sphere {
@@ -81,6 +84,8 @@
   opacity: 0.42;
 }
 
+
+
 .buttonConnect {
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
   color: rgb(20 30 63) !important;
@@ -95,7 +100,6 @@
   -ms-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
 }
 
 .buttonConnect:hover {
@@ -112,13 +116,19 @@
 }
 
 .gridBanner {      
-  border: 1px solid;
-  border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
+  
+    
   margin: 50px auto 0px auto !important;
   max-width: 1400px;
   height: 170px;  
   width: calc(100% - 180px);
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;    
+  border-radius: 12px;    
 }
 
 @media screen and (max-width: 1600px) {

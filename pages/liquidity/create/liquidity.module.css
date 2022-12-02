@@ -1,6 +1,4 @@
 .container {
-  height: 100%;
-  width: 100%;
   display: flex;
   /* flex-direction: column;   */
   margin: auto;
@@ -8,7 +6,7 @@
 }
 
 .sphere {      
-  height: 450px;  
+  height: 350px;  
   background-image: url('/images/Toboganes_7.png');
   background-size: contain;
   background-position: center;
@@ -47,7 +45,23 @@
 }
 
 
+
+@media screen and (max-width: 1600px) {
+  
+  .container {
+    padding-top: 10%;
+    margin-bottom: 60px;
+  }
+
+  .containerCreate {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+
 @media screen and (max-width: 1200px) {
+
   .container {
     padding-top: 180px;
     margin-bottom: 60px;

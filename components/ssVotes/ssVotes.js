@@ -194,16 +194,17 @@ export default function ssVotes() {
   }
 
   return (
+
     <div className={ classes.container }>
       <div className={ classes.topBarContainer }>
 
         <Grid container spacing={2}>
 
-          <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+          <Grid container className={classes.gridBanner} xs={12} justifyContent="center" alignItems="center">
 
-            <Grid direction="column" lg={6} md={6} sm={6} xs={6}>    
-              <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Vote</Typography></Grid>                                
-              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}  variant="h2">Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
+            <Grid direction="column" xs={6}>    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.title}>Vote</Typography></Grid>                                
+              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}>Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
             </Grid>   
 
             <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
@@ -248,7 +249,7 @@ export default function ssVotes() {
 
       </Grid>
 
-          <Grid container className={classes.gridInfoVote} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+          <Grid container className={classes.gridInfoVote} xs={12} justifyContent="center" alignItems="center">
             <Grid direction="column">  
               <Grid><Typography className={classes.toolbarText}>Votes are due by Wendnesday at <a className={classes.toolbarSubText}>23:59 UTC</a>, when the next epoch begins. Each veNFT can only cast votes once per epoch.</Typography></Grid>    
               <Grid><Typography className={classes.toolbarText}>Your vote will allocate <a className={classes.toolbarSubText}>100%</a> of that  veNFT's vote power. Each veNFT's votes will carry over into the next epoch.</Typography></Grid>                 
@@ -276,7 +277,9 @@ export default function ssVotes() {
           return false
 
         }) } setParentSliderValues={setVotes} defaultVotes={votes} veToken={veToken} token={ token } />
+
       </Paper>
+      
       <Paper elevation={10} className={ classes.actionButtons }>
         <Grid container spacing={2}>
           <Grid item lg={6}>

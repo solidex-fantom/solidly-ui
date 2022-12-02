@@ -55,7 +55,7 @@ function Swap({ changeTheme }) {
             lg={6}
             xs={12}
           >
-            <Grid item className={classes.descTp} xl={12}>
+            <Grid item xl={12}>
               <Typography className={classes.title} variant="h1">
                 Swap
               </Typography>
