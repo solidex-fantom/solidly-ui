@@ -19,7 +19,7 @@
   background-color: #131b4c !important;
 
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#131b4c 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   color: #313149;
   
@@ -765,7 +765,7 @@
   .newSwapContainer {
     margin-top: -100px;
     padding: 20px;
-    margin-inline: -8%;
+    margin-inline: -15%;
   }
   .swapContainer {
     padding: 12px;

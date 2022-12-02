@@ -118,20 +118,11 @@
     margin-top: 12%;    
   }
 
-
-  /* .sphere {      
-    display: none;
-  } */
 }
 
 @media screen and (max-width: 844px) {
-  .ffContainer {
-    padding-top: 140px;
-    justify-content: flex-start;
-    padding-inline: 20px;
-  }
   .sphere {      
-    height: 280px;  
+    height: 240px;  
   }
 }
 

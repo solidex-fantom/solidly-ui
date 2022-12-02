@@ -442,7 +442,7 @@ function Header(props) {
             <Divider />
             <MobileNavigation  />
           </SwipeableDrawer>
-          <Grid item xs={4} md={3} xl={2} className={classes.containerMenuWallet}>
+          <Grid item xs={8} sm={4} md={3} xl={2} className={classes.containerMenuWallet}>
                 {renderRightMenuWallet()}                      
           </Grid>
 

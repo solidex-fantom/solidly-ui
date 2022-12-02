@@ -345,12 +345,6 @@
   width: 50%;
 }
 
-.hamburguerMenu{
-  width: 500px;
-}
-.MuiDrawer-paper{
-  width: 25% !important
-}
 
 @media screen and (max-width: 1600px) {
 
@@ -419,7 +413,8 @@
 
 
   .containerMenuWallet {              
-    display: none;   
+    padding-top: 2%;
+    padding-right: 2%;
   }
  
 }
