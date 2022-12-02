@@ -102,7 +102,6 @@
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
 .buttonConnect:hover {
   background: #FFBD59 !important;
   color: #111729 !important;
@@ -128,7 +127,6 @@
 		background-position: 0% 50%;
 	}
 } */
-
 
 @media screen and (max-width: 1600px) {
 

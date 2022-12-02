@@ -727,7 +727,7 @@
 @media screen and (max-width: 1600px) {
   
   .swapContainer {
-    padding: 12px;
+    padding: 24px;
   }
   .newSwapContainer {    
     flex-direction: column;

@@ -45,7 +45,7 @@ function Swap({ changeTheme }) {
   return (
     <div className={classes.ffContainer}>
       {account && account.address ? (
-        <Grid container alignItems="center" justifyContent="center">
+        <Grid container alignItems="center" justifyContent="center" spacing={6}>
           <Grid
             container
             item
@@ -56,7 +56,7 @@ function Swap({ changeTheme }) {
             xs={12}
           >
             <Grid item xl={12}>
-              <Typography className={classes.title}>
+              <Typography className={classes.title} variant="h1">
                 Swap
               </Typography>
               <Typography className={classes.subtitle}>
@@ -71,11 +71,9 @@ function Swap({ changeTheme }) {
           <Grid item lg={6} xs={12}>
             <SwapComponent />
           </Grid>
-        
         </Grid>
       ) : (
         <Grid container alignItems="center" justifyContent="center" spacing={6}>
-
           <Paper className={classes.notConnectedContent}>
             <div className={classes.contentFloat}>
               <Typography className={classes.title} variant="h1">

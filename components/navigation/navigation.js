@@ -136,11 +136,11 @@ function Navigation(props) {
   return (
     <Grid container className={classes.navigationContainer} >
       
-      <Grid item className={classes.navigationHeading}>
+      {/* <Grid item xs={12} justifyContent='center' className={classes.navigationHeading}>
         <a onClick={() => router.push('/home')} className={classes.linkz}>
           <SiteLogo className={classes.appLogo} />
         </a>
-      </Grid>
+      </Grid> */}
 
       <Grid item className={classes.navigationContent}>{renderNavs()}</Grid>
 

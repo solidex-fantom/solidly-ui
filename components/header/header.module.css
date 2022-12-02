@@ -1,29 +1,37 @@
-.headerContainer {  
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 20px 10px;
-  position: fixed;
+.headerContainer {
+  padding: 45px 50px;
+  position: static;
   top: 0;
   left: 0;
   z-index: 9 !important;
   width: calc(100%);
-  border: 0;
-  border-radius: 0 !important;
 }
 
 .containerMenu {      
-  background-color: transparent;  
   border-radius: 32px;    
-  
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#131d42 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   color: #313149;
-  
   border: 1px solid transparent;  
-  display: inline-block;
+  width: fit-content !important;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.subcontainerMenu {  
+ 
+}
+
+.containerNav {    
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.containerMenuWallet {              
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hidden { display: none !important; }
@@ -51,6 +59,7 @@
 
 .appLogo {    
   cursor: pointer;
+  transform: scale(0.50);
 }
 
 .version {
@@ -131,9 +140,6 @@
   color: #fff;
 }
 
-.containerMenuWallet {      
-  border-radius: 53px;  
-}
 
 .switchNetworkBtn {
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
@@ -204,17 +210,23 @@
 .headAccountBalance {
   position: relative;
   margin: auto;  
-  padding-left: 10px !important;
+  padding-left: 5% !important;
+  /* margin-bottom: 13px;
+  margin-left: 25px; */
 }
 
 
 .headBtnTxt {
-  font-size: 10px !important;
+  font-size: 11px !important;
   font-weight: 400 !important;      
   font-style: normal;
   line-height: 19px;
   letter-spacing: 0.13em;
   color: #FFFFFF;
+}
+
+.containerLogo {  
+  height: 30px;
 }
 
 .metamask {
@@ -328,34 +340,23 @@
   padding: 16px !important;
 }
 
-.socialButton {
-  width: 70%;
-}
 
 .filterButton{
   width: 50%;
 }
 
-
+.hamburguerMenu{
+  width: 500px;
+}
+.MuiDrawer-paper{
+  width: 25% !important
+}
 
 @media screen and (max-width: 1600px) {
 
-  .appLogo {    
-    margin-top: 1% !important;
-  }
 
   .headerContainer {
     padding: 2%;  
-  }
-
-  .containerMenuWallet {      
-    position: relative;
-    padding-left: 9%;    
-  }
-
-  .containerNav {  
-    position: relative;
-    padding-left: 6%;
   }
 
   .socialButton {
@@ -383,47 +384,22 @@
     display: none;   
   }
 
-  .containerNav {  
-    transform: scale(0.85);
-    position: absolute;
-    top: 25%;
-    left: 15%;
-  }
-
-  .containerMenuWallet {              
-    position: absolute;
-    top: 45%;
-    left: 65%;
-  }
-
-  .appLogo {
-    transform: scale(0.55);
-  }
-
-  
+  /* .appLogo {
+    display: flex;
+    align-items: center;
+  } */
 
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1024px) {
  
-  .containerNav {  
-    transform: scale(0.70);
-    position: absolute;
-    top: 25%;
-    left: 10%;
-  }
-
-  .containerMenuWallet {              
-    position: absolute;
-    top: 65%;
-    left: 65%;
-  }
 
   .appLogo {
     transform: scale(0.85);
-    position: absolute;
-    top: 50%;
   }
+  /* .containerMenuWallet {              
+    display: none;   
+  } */
 
 }
 
@@ -437,20 +413,10 @@
     padding: 2%;  
   }
 
-  .containerNav {  
-    position: absolute;
-    left: 0;    
-    width: 0;    
-  }
-
   .socialButton {
     display: none;   
   }
 
-  .appLogo {
-   position: relative;
-   margin-bottom: 20px !important;
-  }
 
   .containerMenuWallet {              
     display: none;   

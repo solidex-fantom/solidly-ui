@@ -1,16 +1,17 @@
 .navigationContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;    
-  box-shadow: 1px 1px #0D142E;  
-  
+  align-items: center;
+  width: fit-content !important;
+  box-shadow: -8px 8px 4px #0D142E, inset -8px 8px 4px rgba(12, 25, 69, 0.7) !important;
+
   background: 
     linear-gradient(#0D142E 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   color: #313149;
   
   border: 1px solid transparent;
-  border-radius: 53px;  
+  border-radius: 30px;  
   
 }
 
@@ -317,7 +318,38 @@ a.linkz { cursor: pointer !important; }
 }
 
 @media screen and (max-width: 1200px) {
-       
+  .navigationContainer {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  .socials {
+    display: none;
+  }
+  /* .navigationContent {
+    display: none;
+    background: #111729;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(126,153,176,0.2);
+  } */
+
+  .menuIcon {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    display: flex;
+    transform: scale(0.8);
+  }
+  /* .navigationHeading {
+    width: 100%;
+    display: flex;
+    background: #111729;
+  } */
+
 }
 
 @media screen and (max-width: 560px) {
@@ -328,6 +360,9 @@ a.linkz { cursor: pointer !important; }
     background:  none;    
     position: relative;
     padding-right: 30px;
+  }
+  .navButton:active{
+    border-radius: 100px;
   }
 
   .subtitleText {
