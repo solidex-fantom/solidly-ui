@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .ffContainer {
+  
   display: flex;
-  flex-direction: column;
-  padding-top: 100px;
-  position: relative;
+  flex-direction: column;  
+  
 }
 
 .connected {
@@ -40,21 +40,24 @@
 }
 
 .title {
-  text-align: center !important;
-  font-size: 32px !important;
-  font-family: 'Righteous' !important;  
-  color: #FFFFFF;  
-  letter-spacing: 6px;
+  font-family: 'Righteous' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 50px !important;
+  line-height: 62px !important;
+  letter-spacing: 0.13em !important;
+  color: #FFFFFF !important;
 }
 
 .subtitle {
-  text-align: center !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  font-family: 'Arista' !important;  
-  color: #FFFFFF;
-  letter-spacing: 6px;
-  margin: 50px auto 50px auto !important;
+  font-family: 'Arista'  !important;
+  font-style: normal  !important;
+  font-weight: 300  !important;
+  font-size: 25px  !important;
+  line-height: 27px  !important;
+  letter-spacing: 0.13em  !important;
+  color: #FFFFFF  !important;
+  margin: 50px auto 50px auto  !important;
 }
 
 .buttonConnect {
@@ -89,11 +92,16 @@
 
 @media screen and (max-width: 1600px) {
 
+  .ffContainer {    
+    padding-top: 1%;
+  }
+
 }
 
 @media screen and (max-width: 1200px) {
-  .ffContainer {
-    padding-top: 140px;
+
+  .ffContainer {    
+    padding: 5%;
   }
 
   .title {

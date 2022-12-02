@@ -13,14 +13,29 @@
   display: flex;
   flex-direction: column;  
   border: 1px solid;
-  border-radius: 30px !important;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  border-radius: 30px !important;      
   box-sizing: border-box;
   box-shadow: 10px 10px #0D142E;
-  left: calc(50% - 604px/2 + 507px);
-  top: calc(50% - 390px/2 + 2px);
   background-color: #131b4c !important;
+
+  background: 
+    linear-gradient(#131b4c 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  
+  border: 1px solid transparent;  
+  display: inline-block;
 }
+
+
+.newSwapContainer {  
+  justify-content: space-evenly;
+  align-items: center;  
+  align-items: center; 
+  margin-bottom: 10%;
+  margin-inline: 12%;
+}
+
 
 .smallerText {
   letter-spacing: 2px;
@@ -161,6 +176,13 @@
 
 .displayAssetIconSmall {  
   padding: 6px;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 30px;  
 }
 
 .inputTitleContainerSlippage {
@@ -168,10 +190,14 @@
   display: flex;
   align-items: center;
   position: absolute;
-  top: 0px;
-  border: 2px solid;
+  top: 0px;  
+    
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
 
 .inputBalanceSlippage {
@@ -272,16 +298,19 @@
 }
 
 .swapConfirmSide {
-  border: 1px solid;
-  border-radius: 10px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;    
+  border-radius: 10px;  
   padding: 24px 6px;
+
 }
 
 .addressField {
-  border: 2px solid;
-  border-radius: 10px;
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+      
   padding: 6px 12px;
   width: 100%;
   margin: 12px 0px !important;
@@ -290,6 +319,13 @@
   justify-content: space-between;
   min-height: 44px;
   cursor: pointer;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 10px;
 }
 
 .swapDepositInfo {
@@ -649,13 +685,16 @@
   font-family: 'Arista';  
   letter-spacing: 1px; 
   font-size: 14px !important;
-  font-weight: 200 !important;
-  border: 1px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;  
-  border-radius: 10px;
-  background: rgb(23, 52, 72) !important;
+  font-weight: 200 !important;  
   padding: 24px !important;
   min-width: 100%;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 10px;
 }
 
 .warningContainer {
@@ -685,11 +724,25 @@
   min-width: 100%;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1600px) {
+  
   .swapContainer {
     padding: 24px;
   }
-  .newSwapContainer {
+  .newSwapContainer {    
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+  
+  .swapContainer {
+    padding: 24px;
+    margin-bottom: 30% !important;
+    width: 80%;
+  }
+  .newSwapContainer {    
     flex-direction: column;
   }
   .inputBalance {
@@ -708,10 +761,11 @@
 }
 
 @media screen and (max-width: 576px) {
+
   .newSwapContainer {
     margin-top: -100px;
     padding: 20px;
-    margin-inline: -8%;
+    margin-inline: -15%;
   }
   .swapContainer {
     padding: 12px;
@@ -733,3 +787,4 @@
   }
 
 }
+

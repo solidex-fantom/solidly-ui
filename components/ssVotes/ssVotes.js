@@ -194,6 +194,7 @@ export default function ssVotes() {
   }
 
   return (
+
     <div className={ classes.container }>
       <div className={ classes.topBarContainer }>
 
@@ -275,7 +276,9 @@ export default function ssVotes() {
           return false
 
         }) } setParentSliderValues={setVotes} defaultVotes={votes} veToken={veToken} token={ token } />
+
       </Paper>
+      
       <Paper elevation={10} className={ classes.actionButtons }>
         <Grid container spacing={2}>
           <Grid item lg={6}>

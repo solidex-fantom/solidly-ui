@@ -3,12 +3,14 @@
   flex-direction: column;
   align-items: flex-start;
   margin: auto;
-  margin-top: 90px;
-  max-width: 485px;
-  width: calc(100% - 180px);
-  border: 1px solid;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  
   box-shadow: 1px 1px #0D142E;
 }
 
@@ -302,9 +304,16 @@
 
 
 .swapIconSubContainer {
-  border: 1px solid;
+  
+  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  
+  background: 
+  linear-gradient(#0D142E 0 0) padding-box, 
+  linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+
+  border: 1px solid transparent;  
+
   border-radius: 9px;
   height: 38px;
   z-index: 1;
@@ -375,9 +384,14 @@
   position: relative;
 }
 
-.displayAssetIcon {
-  border: 1px solid;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+.displayAssetIcon {  
+  
+  background: 
+  linear-gradient(#0D142E 0 0) padding-box, 
+  linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+
+  border: 1px solid transparent;  
+
   border-radius: 64px;      
   background: rgb(33, 43, 72);
   width: 100px;
@@ -579,6 +593,13 @@
   border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
   box-shadow: 1px 1px #0D142E;
   height: 50px;
+
+  background: 
+  linear-gradient(#0D142E 0 0) padding-box, 
+  linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+
+  border: 1px solid transparent;  
+  border-radius: 15px;    
   
 }
 
@@ -705,6 +726,16 @@
   border-radius: 10px;
   background: rgb(23, 52, 72) !important;
   padding: 24px !important;
+}
+
+@media screen and (max-width: 1600px) {
+ 
+  .container {  
+
+    width: 80%;
+    height: 80% !important;
+  }
+
 }
 
 @media screen and (max-width: 1280px) {
