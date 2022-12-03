@@ -1,9 +1,9 @@
 .vestContainer {
+  
   width: calc(100% - 180px);  
   margin: 0 auto;
   margin-top: 80px;
-  position: relative;  
-  
+  position: relative;    
 }
 
 .backButton {
@@ -52,10 +52,14 @@
   padding: 24px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 4px;
-  border: 1px solid;
+  grid-gap: 4px;  
+  
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
   border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
 }
 
 .contentBox {
@@ -401,20 +405,30 @@
 }
 
 .displayAssetIcon {
-  border: 1px solid;
-  border-radius: 50px;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+
   width: 100px;
   height: 100px;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 50px;  
   
 }
 
 .displayAssetIconWhite {  
-  border: 1px solid;
-  border-radius: 50px;  
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+      
   width: 100px;
   height: 100px;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 50px;  
 }
 
 .inputTitleContainer {
@@ -596,6 +610,14 @@
   line-height: 1.5
 }
 
+
+
+@media screen and (max-width: 1600px) {  
+
+  .container { 
+    margin-top: 10%;    
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .container {

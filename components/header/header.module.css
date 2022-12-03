@@ -1,28 +1,37 @@
 .headerContainer {
-  padding: 20px 50px;
+  padding: 45px 50px;
   position: static;
   top: 0;
   left: 0;
   z-index: 9 !important;
   width: calc(100%);
-  border: 0;
-  border-radius: 0 !important;
 }
 
 .containerMenu {      
-  background-color: transparent;
-  border: 1px solid;
   border-radius: 32px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;      
+  background: 
+    linear-gradient(#131d42 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  border: 1px solid transparent;  
+  width: fit-content !important;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .subcontainerMenu {  
  
 }
 
-.containerNav {  
-  margin-left: auto;
-  
+.containerNav {    
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.containerMenuWallet {              
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hidden { display: none !important; }
@@ -48,9 +57,9 @@
   color: #06D3D7 !important;
 }
 
-.appLogo {
-  transform: scale(12);  
+.appLogo {    
   cursor: pointer;
+  transform: scale(0.50);
 }
 
 .version {
@@ -131,13 +140,6 @@
   color: #fff;
 }
 
-.containerMenuWallet {
-  justify-content: flex-end;
-  /* margin-left: auto; */
-  box-sizing: border-box;  
-  filter: drop-shadow(-8px 8px 4px rgba(12, 25, 69, 0.7));
-  border-radius: 53px;
-}
 
 .switchNetworkBtn {
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
@@ -207,15 +209,12 @@
 
 .headAccountBalance {
   position: relative;
+  margin: auto;  
   padding-left: 5% !important;
   /* margin-bottom: 13px;
   margin-left: 25px; */
 }
 
-.filterButton{
-  height: 40px;
-  
-}
 
 .headBtnTxt {
   font-size: 11px !important;
@@ -283,9 +282,6 @@
   z-index: 5 !important;
 }
 
-.ErrorContent {
-}
-
 .ErrorTxt {
   color: #FFF;
   max-width: 420px;
@@ -335,9 +331,6 @@
   cursor: pointer;
 }
 
-.testnetDisclaimer {
-}
-
 .testnetDisclaimerText {
   font-size: 13px !important;
   font-weight: 200 !important;
@@ -347,13 +340,30 @@
   padding: 16px !important;
 }
 
+
+.filterButton{
+  width: 50%;
+}
+
+
+@media screen and (max-width: 1600px) {
+
+
+  .headerContainer {
+    padding: 2%;  
+  }
+
+  .socialButton {
+    width: 80%;
+  }
+  
+
+}
+
 @media screen and (max-width: 1200px) {
 
   .accountButton {
-    display: flex;
-    align-items: center;
-    position: fixed !important;
-    z-index: 10030 !important;
+    display: none;
   }
 
   .userMenu {
@@ -363,12 +373,49 @@
   .userMenuText {
     transform: scale(1);
   }
+
+  .socialButton {
+    display: none;   
+  }
+
+  /* .appLogo {
+    display: flex;
+    align-items: center;
+  } */
+
+}
+
+@media screen and (max-width: 1024px) {
+ 
+
+  .appLogo {
+    transform: scale(0.85);
+  }
+  /* .containerMenuWallet {              
+    display: none;   
+  } */
+
 }
 
 @media screen and (max-width: 560px) {
+  
   .accountButton {
-    min-height: 40px;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    display: none;
   }
+
+  .headerContainer {
+    padding: 2%;  
+  }
+
+  .socialButton {
+    display: none;   
+  }
+
+
+  .containerMenuWallet {              
+    padding-top: 2%;
+    padding-right: 2%;
+  }
+ 
 }
+

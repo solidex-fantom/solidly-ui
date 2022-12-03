@@ -242,10 +242,10 @@ const useStyles = makeStyles((theme) => ({
     margin: '24px 0px',
     padding: '0px',
   },
-  tableContainer: {
-    border: '1px solid',
+  tableContainer: {    
     borderRadius: '12px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+    border: '1px solid transparent',
+    background: 'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -263,10 +263,10 @@ const useStyles = makeStyles((theme) => ({
     height: '220px',
     margin: '10px',
     padding: '8px',    
-    marginTop: '80px',
-    border: '1px solid',
-    borderRadius: '12px',    
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',  
+    marginTop: '80px',    
+    borderRadius: '12px',        
+    border: '1px solid transparent',
+    background: 'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
   },
   title: {
     fontFamily: 'Righteous',
@@ -281,7 +281,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Arista',    
     fontStyle: 'normal',
     fontWeight: '300',
-    fontSize: '20px',
+    fontSize: '15px',
     lineHeight: '27px',
     letterSpacing: '0.13em',
     color: '#FFFFFF'
@@ -331,12 +331,12 @@ const EnhancedTableToolbar = (props) => {
 
       <Grid container spacing={2}>
 
-        <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} spacing={2} justifyContent="center" alignItems="center">
+        <Grid container className={classes.gridBanner} xs={12} spacing={2} justifyContent="center" alignItems="center">
 
             <Grid direction="column" spacing={2}  lg={8} md={8} sm={8} xs={8}>       
 
-              <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Vest</Typography></Grid>                  
-              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.title}>Vest</Typography></Grid>                  
+              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}>More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
 
               <Grid>
                 <Button className={ classes.buttonOverride } onClick={ onCreate }>

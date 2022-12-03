@@ -119,23 +119,23 @@ function stableSort(array, comparator) {
 const headCells = [
   { id: 'asset', numeric: false, disablePadding: false, label: 'Asset' },
   {
+    id: 'totalVotes',
+    numeric: true,
+    disablePadding: false,  
+    label: 'Total Votes',
+  },
+  {
     id: 'balance',
     numeric: true,
     disablePadding: false,
-    label: 'My Stake',
+    label: 'Voting APR',
   },
   {
     id: 'liquidity',
     numeric: true,
     disablePadding: false,
-    label: 'Total Liquidity',
-  },
-  {
-    id: 'totalVotes',
-    numeric: true,
-    disablePadding: false,
-    label: 'Total Votes',
-  },
+    label: 'Bribes + Fees',
+  },  
   {
     id: 'apy',
     numeric: true,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
-import { Typography, Switch, Button, SvgIcon, Badge, IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Grid } from '@material-ui/core';
+import { Typography, Switch, Button, SvgIcon, Badge, IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Grid, Hidden, SwipeableDrawer, Divider } from '@material-ui/core';
 import { withStyles, withTheme } from '@material-ui/core/styles';
 import ListIcon from '@material-ui/icons/List';
 import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined';
@@ -9,11 +9,14 @@ import Navigation from '../navigation'
 import Unlock from '../unlock';
 import TransactionQueue from '../transactionQueue';
 import { ACTIONS } from '../../stores/constants';
-import { styled, makeStyles } from '@material-ui/core/styles';
+import { styled } from '@material-ui/core/styles';
 import stores from '../../stores';
 import { formatAddress } from '../../utils';
 import { walletlink } from '../../stores/connectors/connectors'
 import classes from './header.module.css';
+import MenuIcon from '@material-ui/icons/Menu'
+import { ChevronLeft } from '@material-ui/icons';
+import MobileNavigation from '../mobileNavigation/mobileNavigation';
 
 
 const { CONNECT_WALLET,CONNECTION_DISCONNECTED, ACCOUNT_CONFIGURED, ACCOUNT_CHANGED, FIXED_FOREX_BALANCES_RETURNED, FIXED_FOREX_CLAIM_VECLAIM, FIXED_FOREX_VECLAIM_CLAIMED, FIXED_FOREX_UPDATED, ERROR } = ACTIONS
@@ -141,6 +144,7 @@ function Header(props) {
   const [chainInvalid, setChainInvalid] = useState(false)
   const [loading, setLoading] = useState(false)
   const [transactionQueueLength, setTransactionQueueLength] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const accountConfigure = () => {
@@ -213,7 +217,7 @@ function Header(props) {
           params: [
             {
               chainName: 'Kava EVM Co-Chain',
-              chainId: process.env.NEXT_PUBLIC_CHAINID,
+              chainId: hexChain,
               nativeCurrency: { name: 'KAVA', decimals: 18, symbol: 'KAVA' },
               rpcUrls: [walletlink.url]
             }
@@ -288,9 +292,9 @@ function Header(props) {
                   <Typography className={classes.headBtnTxt}>{'0 KAVA'}</Typography>
                 </Grid>
 
-                <Grid item xs={8}className={classes.subcontainerMenu}>
+                <Grid item xs={8} className={classes.subcontainerMenu} >
 
-                  <Button
+                  <Button 
                       disableElevation
                       className={classes.accountButton}
                       variant="contained"
@@ -300,7 +304,7 @@ function Header(props) {
                       <Typography className={classes.headBtnTxt}>{account && account.address ? formatAddress(account.address) : 'Connect Wallet'}</Typography>
 
                       <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
-                        <Img alt="complex" className={ classes.imgIconList } src="/images/Wallet_Icon.svg" />
+                        <Img alt="complex" src="/images/Wallet_Icon.svg" />
                       </IconButton>          
                     
                     </Button>
@@ -365,26 +369,25 @@ function Header(props) {
 
   const renderRightMenuWallet = () => {
     return (
-      <>
+      <>   
         {renderTestNet()}
         {renderTransactionsQueue()}
         {renderWalletInfo()}
         {renderModal()}                                
       </>
     )
-  }
+  } 
 
   const renderSocialMenu = () => {
     return (
-      <>
-        <Grid >            
-          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
-              <Img alt="complex" className={ classes.imgIconList } src="/images/Linktree_icon.svg"/>
+      <>          
+          <IconButton onClick={handleClick} aria-label="social list">                      
+              <Img alt="complex" src="/images/Linktree_icon.svg"/>
           </IconButton>                                                     
-        </Grid>    
       </>
     )
   }
+
 
   const renderNotConnected = () => {
     return (
@@ -410,24 +413,39 @@ function Header(props) {
     <div>
 
         <Grid container className={classes.headerContainer} alignItems='center' justifyContent='space-between'>
-
-          <Grid item xl={2} justifyContent='flex-start'>
-            <a onClick={() => router.push('/home')}> <Img alt="complex" className={ classes.containerLogo } src="/images/Logo.png" /></a>          
+          <Hidden smDown>
+          <Grid item xs={12} sm={4} md={3} justifyContent={{xs:"center",sm:'flex-start'}} className={classes.appLogo}>
+            <a onClick={() => router.push('/home')}> <Img alt="complex" src="/images/Logo.png" /></a>          
           </Grid>
 
-          <Grid item sx={{ paddingLeft: "5%"}}>
+          <Grid item xs={9} lg={6} className={classes.containerNav} >
               <Navigation changeTheme={props.changeTheme} />
           </Grid>
-
-          <Grid item xs={2} className={classes.containerMenuWallet} container>                          
-              <Grid item>
-                {renderRightMenuWallet()}    
-              </Grid>
-              {/* <Grid item>
-                {renderSocialMenu()}
-              </Grid>             */}
+          </Hidden>
+          <Hidden mdUp>
+            <IconButton>
+              <MenuIcon onClick={() => setMobileMenuOpen(true)} />
+            </IconButton>
+          </Hidden>
+          <SwipeableDrawer 
+              anchor='left' 
+              open={mobileMenuOpen} 
+              onOpen={() => setMobileMenuOpen(true)} 
+              onClose={() => setMobileMenuOpen(false)}
+              width="50%"
+            >
+            <Grid>
+              <IconButton>
+                <ChevronLeft onClick={() => setMobileMenuOpen(false)}/>
+              </IconButton>
+            </Grid>
+            <Divider />
+            <MobileNavigation  />
+          </SwipeableDrawer>
+          <Grid item xs={8} sm={4} md={3} xl={2} className={classes.containerMenuWallet}>
+                {renderRightMenuWallet()}                      
           </Grid>
-                    
+
         </Grid>
 
         {renderNotConnected()}
