@@ -10,8 +10,8 @@
 
 .transactionsContainer {
   border-radius: 12px;
-  background: rgb(33, 43, 72);
-  border: 1px solid rgba(108,108,123, 0.2);
+  /* background: #0D142E; */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 24px;
   margin-bottom: 12px;
 }

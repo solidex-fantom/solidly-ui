@@ -369,6 +369,7 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiInputBase-input': {
       border: '0 px',
     }
+    
   },
   buttonOverride: {
     color: '#0D142E',
@@ -392,7 +393,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
-    background: 'transparent !important'
+    background: 'transparent !important',
+    background: '#141d40'
   },
   filterButton: {
     backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
@@ -402,7 +404,11 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     borderRadius: '20px',
     boxShadow: '-3px 3px #1F2E64',
+    '@media (max-width: 600px)': {
+      display: 'none',
+    },
   },
+
   imgIconList : {
     position: 'relative',
     bottom: '10px',
@@ -470,7 +476,9 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid',
     borderRadius: '24px',
     borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
-    padding: '7px'
+    padding: '7px',
+    background: '#141d40'
+
   },
   infoBanner: {
     display: 'flex',
@@ -623,7 +631,7 @@ const EnhancedTableToolbar = (props) => {
     <Grid container spacing={6}>
       {/* Header */}
       <Grid item xs={12} className={classes.gridBanner} container justifyContent='space-between'>
-          <Grid item xs={8} container alignItems='center' justifyContent='space-around'>
+          <Grid item xs={12} sm={8} container alignItems='center' justifyContent='space-around'>
             <Grid item xs={6} container>
               <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>
               <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>
@@ -641,7 +649,7 @@ const EnhancedTableToolbar = (props) => {
               </Button>
             </Grid>
           </Grid>
-          <Grid item xs={4} className={classes.gridSphere}>
+          <Grid item sm={4} className={classes.gridSphere}>
             <div className={classes.sphere}></div>
           </Grid>
 
@@ -649,7 +657,7 @@ const EnhancedTableToolbar = (props) => {
 
       {/* Search */}
       <Grid item xs={12} className={classes.gridSearchBar} container justifyContent='space-between' spacing={2}>
-        <Grid item xs={11}>
+        <Grid item xs={12} sm={11}>
           <TextField
             className={classes.searchContainer}
             variant="outlined"
@@ -667,7 +675,7 @@ const EnhancedTableToolbar = (props) => {
           />
         </Grid>
       {/* Filter */}
-      <Grid item xs={1}>
+      <Grid item xs={0} sm={1}>
 
         <Tooltip placement="top" title="Filter list">
           <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">

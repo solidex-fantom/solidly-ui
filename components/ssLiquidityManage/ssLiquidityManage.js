@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { Paper, Grid, Typography, Button, TextField, InputAdornment, CircularProgress, Tooltip, IconButton, FormControlLabel, Switch, Select, MenuItem, Dialog  } from '@material-ui/core'
+import { Paper, Grid, Typography, Button, TextField, InputAdornment, Link, CircularProgress, Tooltip, IconButton, FormControlLabel, Switch, Select, MenuItem, Dialog  } from '@material-ui/core'
 import BigNumber from 'bignumber.js'
 import { formatCurrency } from '../../utils'
 import classes from './ssLiquidityManage.module.css'
@@ -871,6 +871,7 @@ export default function ssLiquidityManage() {
     )
   }
 
+
   const renderReserveInformation = () => {
    
     return (
@@ -1084,8 +1085,27 @@ export default function ssLiquidityManage() {
     
   }
 
+  const renderIconArrowLeft = () => {
+    return(
+      <div className={ classes.backIconContainer }>
+        <div className={ classes.swapIconSubContainer }>
+          <Link
+            color='textPrimary'
+            variant='button'
+            underline='none'
+            href="/liquidity"
+            >
+            <ArrowBackIcon className={ classes.swapIcon } />
+          </Link>
+          
+        </div>      
+      </div>
+    )
+  }
+
   return (
     <div className={classes.retain}>
+      {renderIconArrowLeft()}
       <Paper elevation={0} className={ classes.container }>
         <div className={classes.toggleButtons}>
           <Grid container spacing={0}>
@@ -1159,7 +1179,7 @@ export default function ssLiquidityManage() {
                   <Button
                     variant='contained'
                     size='large'
-                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonPink }
                     color='primary'
                     disabled={ createLoading || depositLoading }
                     onClick={ onCreateAndStake }
@@ -1172,7 +1192,7 @@ export default function ssLiquidityManage() {
                         <Button
                           variant='contained'
                           size='large'
-                          className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                          className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonYellow }
                           color='primary'
                           disabled={ createLoading || depositLoading }
                           onClick={ onCreateAndDeposit }
@@ -1190,7 +1210,7 @@ export default function ssLiquidityManage() {
                   <Button
                     variant='contained'
                     size='large'
-                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonJustDeposit }
                     color='primary'
                     disabled={ createLoading || depositLoading }
                     onClick={ onCreateAndDeposit }
@@ -1206,7 +1226,7 @@ export default function ssLiquidityManage() {
                   <Button
                     variant='contained'
                     size='large'
-                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonGreen }
                     color='primary'
                     disabled={ createLoading || depositLoading }
                     onClick={ onCreateAndDeposit }
@@ -1252,7 +1272,7 @@ export default function ssLiquidityManage() {
                     <Button
                       variant='contained'
                       size='large'
-                      className={ ((amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                      className={ ((amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonPink }
                       color='primary'
                       disabled={ (amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading }
                       onClick={ onDepositAndStake }
@@ -1265,7 +1285,7 @@ export default function ssLiquidityManage() {
                           <Button
                             variant='contained'
                             size='large'
-                            className={ ((amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                            className={ ((amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonYellow }
                             color='primary'
                             disabled={ (amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading }
                             onClick={ onDeposit }
@@ -1276,7 +1296,7 @@ export default function ssLiquidityManage() {
                           <Button
                             variant='contained'
                             size='large'
-                            className={ (BigNumber(pair.balance).eq(0) || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                            className={ (BigNumber(pair.balance).eq(0) || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonGreen }
                             color='primary'
                             disabled={ BigNumber(pair.balance).eq(0) || depositLoading || stakeLoading || depositStakeLoading }
                             onClick={ onStake }
@@ -1314,7 +1334,7 @@ export default function ssLiquidityManage() {
                       variant='contained'
                       size='large'
                       color='primary'
-                      className={ (depositLoading || stakeLoading || depositStakeLoading || withdrawAmount === '') ? classes.multiApprovalButton : classes.buttonOverride }
+                      className={ (depositLoading || stakeLoading || depositStakeLoading || withdrawAmount === '') ? classes.multiApprovalButton : classes.buttonPink }
                       disabled={ depositLoading || stakeLoading || depositStakeLoading || withdrawAmount === '' }
                       onClick={ onUnstakeAndWithdraw }
                       >
@@ -1326,7 +1346,7 @@ export default function ssLiquidityManage() {
                           <Button
                             variant='contained'
                             size='large'
-                            className={ (withdrawAmount === '' || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                            className={ (withdrawAmount === '' || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonYellow }
                             color='primary'
                             disabled={ withdrawAmount === '' || depositLoading || stakeLoading || depositStakeLoading }
                             onClick={ onUnstake }
@@ -1337,7 +1357,7 @@ export default function ssLiquidityManage() {
                           <Button
                             variant='contained'
                             size='large'
-                            className={ (BigNumber(pair.balance).eq(0) || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonOverride }
+                            className={ (BigNumber(pair.balance).eq(0) || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonGreen }
                             color='primary'
                             disabled={ BigNumber(pair.balance).eq(0) || depositLoading || stakeLoading || depositStakeLoading }
                             onClick={ onWithdraw }
@@ -1437,6 +1457,7 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
     return (
       <MenuItem val={ asset.address } key={ asset.address+'_'+idx } className={ classes.assetSelectMenu } >
         <div className={ classes.assetSelectMenuItem }>
+          
           <div className={ classes.displayDualIconContainerSmall }>
             <img
               className={ classes.displayAssetIconSmall }
@@ -1467,15 +1488,36 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
     return (
       <MenuItem val={ asset.address } key={ asset.address+'_'+idx } className={ classes.assetSelectMenu } onClick={ () => { onLocalSelect(type, asset) } }>
         <div className={ classes.assetSelectMenuItem }>
-          <div className={ classes.displayDualIconContainerSmall }>
-            <img
-              className={ classes.displayAssetIconSmall }
-              alt=""
-              src={ asset ? `${asset.logoURI}` : '' }
-              height='60px'
-              onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-            />
-          </div>
+          { type === 'withdraw' && 
+            <div className={ classes.displayDualIconContainerSmall }>
+                <img
+                className={ classes.displayAssetIconSmall1 }
+                alt=""
+                src={ (asset && asset.token0) ? `${asset.token0.logoURI}` : '' }
+                height='70px'
+                onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+              />
+
+              <img
+                className={ classes.displayAssetIconSmall2 }
+                alt=""
+                src={ (asset && asset.token1) ? `${asset.token1.logoURI}` : '' }
+                height='70px'
+                onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+              />
+            </div>
+          } 
+          { type !== 'withdraw' &&
+            <div className={ classes.displayAssetIconContainerSmall }>
+              <img
+                className={ classes.displayAssetIconSmall }
+                alt=""
+                src={ asset ? `${asset.logoURI}` : '' }
+                height='60px'
+                onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+              />
+            </div>
+          }
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
@@ -1577,15 +1619,39 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
     <React.Fragment>
       <div className={ classes.displaySelectContainer } onClick={ () => { openSearch() } }>
         <div className={ classes.assetSelectMenuItem }>
-          <div className={ classes.displayDualIconContainer }>
-            <img
-              className={ classes.displayAssetIcon }
-              alt=""
-              src={ value ? `${value.logoURI}` : '' }
-              height='100px'
-              onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
-            />
-          </div>
+          
+          { type === 'withdraw' && 
+            <div className={ classes.displayDualIconContainer }>
+              <img
+                className={ classes.img1Logo }
+                alt=""
+                src={ (value && value.token0) ? `${value.token0.logoURI}` : '' }
+                height='70px'
+                onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+              />
+
+              <img
+                className={ classes.img2Logo }
+                alt=""
+                src={ (value && value.token1) ? `${value.token1.logoURI}` : '' }
+                height='70px'
+                onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+              />
+              </div>
+          }
+          { type !== 'withdraw' &&
+            <div className={ classes.displayDualIconContainer }>
+              <img
+                  className={ classes.displayAssetIcon }
+                  alt=""
+                  src={ value ? `${value.logoURI}` : '' }
+                  height='70px'
+                  onError={(e)=>{e.target.onerror = null; e.target.src="/tokens/unknown-logo.png"}}
+                />
+              </div>
+          }
+            
+          
         </div>
       </div>
       <Dialog onClose={ onClose } aria-labelledby="simple-dialog-title" open={ open } >
