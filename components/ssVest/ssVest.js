@@ -8,7 +8,8 @@ import moment from "moment";
 import ExistingLock from "./existingLock";
 import Unlock from "./unlock";
 import Lock from './lock';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, IconButton } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function ssVest() {
 
@@ -30,6 +31,10 @@ export default function ssVest() {
     forceUpdate()
   };
 
+  const onBack = () => {
+    router.push('/vest')
+  }
+
   useEffect(() => {
     ssUpdated()
 
@@ -49,7 +54,7 @@ export default function ssVest() {
 
       <Grid container lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center" spacing={6}>
 
-              <Grid item lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">       
+              <Grid item xs={4} justifyContent="center" alignItems="center">       
 
                 <Grid className={classes.descTp} direction="column" >              
                     <Typography className={classes.title}>Create Lock</Typography>
@@ -62,9 +67,18 @@ export default function ssVest() {
 
               </Grid>
 
-              <Grid item lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center">     
-                
 
+              <Grid item justifyContent="flex-start" alignItems="flex-start">
+
+                <IconButton className={ classes.vestBackButton } onClick={ onBack }>
+                    <ArrowBackIcon className={ classes.backIcon } />
+                </IconButton>
+
+              </Grid>
+              
+              <Grid item xs={6} justifyContent="center" alignItems="center">     
+                
+              
               { router.query.id === 'create' && (
                   <Lock
                     nft={nft}
