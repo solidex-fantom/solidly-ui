@@ -6,13 +6,9 @@ import moment from 'moment';
 import { formatCurrency } from '../../utils';
 import classes from "./ssVest.module.css";
 import stores from '../../stores'
-import {
-  ACTIONS
-} from '../../stores/constants';
-
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { ACTIONS } from '../../stores/constants';
 import VestingInfo from "./vestingInfo"
-import { styled, makeStyles } from '@material-ui/core/styles';
+import { styled, withStyles } from '@material-ui/core/styles';
 
 export default function ssLock({ govToken, veToken }) {
 
@@ -26,6 +22,16 @@ export default function ssLock({ govToken, veToken }) {
   const [selectedValue, setSelectedValue] = useState('week');
   const [selectedDate, setSelectedDate] = useState(moment().add(7, 'days').format('YYYY-MM-DD'));
   const [selectedDateError, setSelectedDateError] = useState(false);
+
+  const ColorRadio = withStyles({
+    root: {      
+      "&.MuiRadio-colorPrimary.Mui-checked": {
+        color: "#CD74CC",
+        border: "1px solid transparent",        
+      }      
+    },
+    checked: {}
+  })((props) => <Radio color="primary" {...props} />);
 
   useEffect(() => {
     const lockReturned = () => {
@@ -255,10 +261,10 @@ export default function ssLock({ govToken, veToken }) {
           <div className={ classes.inline }>
             <Typography className={ classes.expiresIn }>Expires: </Typography>
             <RadioGroup className={classes.vestPeriodToggle} row onChange={handleChange} value={selectedValue}>
-              <FormControlLabel className={ classes.vestPeriodLabel } value="week" control={<Radio color="primary" />} label="1 week" labelPlacement="left" />
-              <FormControlLabel className={ classes.vestPeriodLabel } value="month" control={<Radio color="primary" />} label="1 month" labelPlacement="left" />
-              <FormControlLabel className={ classes.vestPeriodLabel } value="year" control={<Radio color="primary" />} label="1 year" labelPlacement="left" />
-              <FormControlLabel className={ classes.vestPeriodLabel } value="years" control={<Radio color="primary" />} label="4 years" labelPlacement="left" />
+              <FormControlLabel className={ classes.vestPeriodLabel } value="week" control={<ColorRadio />} label="1 week" labelPlacement="left" />
+              <FormControlLabel className={ classes.vestPeriodLabel } value="month" control={<ColorRadio />} label="1 month" labelPlacement="left" />
+              <FormControlLabel className={ classes.vestPeriodLabel } value="year" control={<ColorRadio />} label="1 year" labelPlacement="left" />
+              <FormControlLabel className={ classes.vestPeriodLabel } value="years" control={<ColorRadio />} label="4 years" labelPlacement="left" />
             </RadioGroup>
           </div>
         </div>
@@ -272,6 +278,7 @@ export default function ssLock({ govToken, veToken }) {
             onClick={ onLock }
             >
               <Img alt="complex" src="/images/Barra_boton.png"/>
+              
             <Typography className={ classes.actionButtonText }>{ lockLoading ? `Locking` : `Lock` }</Typography>
             { lockLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
           </Button>

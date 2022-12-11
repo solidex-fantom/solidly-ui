@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Typography, Button, TextField, InputAdornment, CircularProgress } from '@material-ui/core';
+import { Typography, Button, TextField, CircularProgress } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import BigNumber from 'bignumber.js';
-import moment from 'moment';
 import { formatCurrency } from '../../utils';
 import classes from "./ssVest.module.css";
 import stores from '../../stores'
-import {
-  ACTIONS
-} from '../../stores/constants';
-
+import { styled } from '@material-ui/core/styles';
+import { ACTIONS } from '../../stores/constants';
 export default function ffLockAmount({ nft, govToken, updateLockAmount }) {
 
   const [ approvalLoading, setApprovalLoading ] = useState(false)
@@ -19,6 +16,14 @@ export default function ffLockAmount({ nft, govToken, updateLockAmount }) {
   const [amountError, setAmountError] = useState(false);
 
   const router = useRouter();
+  
+
+  const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  });
 
   useEffect(() => {
     const lockReturned = () => {
@@ -130,8 +135,13 @@ export default function ffLockAmount({ nft, govToken, updateLockAmount }) {
           disabled={ lockLoading }
           onClick={ onLock }
           >
+
+          <Img alt="complex" src="/images/Small_Button.png" width={'70%'}/>
+
           <Typography className={ classes.actionButtonText }>{ lockLoading ? `Increasing Lock Amount` : `Increase Lock Amount` }</Typography>
           { lockLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+          
+
         </Button>
       </div>
     </div>

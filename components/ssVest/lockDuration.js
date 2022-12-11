@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Grid, Typography, Button, TextField, CircularProgress, RadioGroup, Radio, FormControlLabel, InputAdornment } from '@material-ui/core';
+import { Typography, Button, TextField, CircularProgress, RadioGroup, Radio, FormControlLabel, InputAdornment } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import moment from 'moment';
 import BigNumber from 'bignumber.js';
 import classes from "./ssVest.module.css";
+import { withStyles, styled } from '@material-ui/core/styles';
 import stores from '../../stores'
 import {
   ACTIONS
@@ -20,6 +21,23 @@ export default function ffLockDuration({ nft, updateLockDuration }) {
 
   const router = useRouter();
 
+  const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  });
+
+  const ColorRadio = withStyles({
+    root: {      
+      "&.MuiRadio-colorPrimary.Mui-checked": {
+        color: "#CD74CC",
+        border: "1px solid transparent",        
+      }      
+    },
+    checked: {}
+  })((props) => <Radio color="primary" {...props} />);
+  
   useEffect(() => {
     const lockReturned = () => {
       setLockLoading(false)
@@ -144,10 +162,12 @@ export default function ffLockDuration({ nft, updateLockDuration }) {
         <div className={ classes.inline }>
           <Typography className={ classes.expiresIn }>Expires: </Typography>
           <RadioGroup className={classes.vestPeriodToggle} row onChange={handleChange} value={selectedValue}>
-            <FormControlLabel className={ classes.vestPeriodLabel } value="week" control={<Radio color="primary" />} label="1 week" labelPlacement="left" />
-            <FormControlLabel className={ classes.vestPeriodLabel } value="month" control={<Radio color="primary" />} label="1 month" labelPlacement="left" />
-            <FormControlLabel className={ classes.vestPeriodLabel } value="year" control={<Radio color="primary" />} label="1 year" labelPlacement="left" />
-            <FormControlLabel className={ classes.vestPeriodLabel } value="years" control={<Radio color="primary" />} label="4 years" labelPlacement="left" />
+            
+            <FormControlLabel className={ classes.vestPeriodLabel } value="week" control={<ColorRadio />} label="1 week" labelPlacement="left" />
+            <FormControlLabel className={ classes.vestPeriodLabel } value="month" control={<ColorRadio color="primary" />} label="1 month" labelPlacement="left" />
+            <FormControlLabel className={ classes.vestPeriodLabel } value="year" control={<ColorRadio color="primary" />} label="1 year" labelPlacement="left" />
+            <FormControlLabel className={ classes.vestPeriodLabel } value="years" control={<ColorRadio color="primary" />} label="4 years" labelPlacement="left" />
+
           </RadioGroup>
         </div>
       </div>
@@ -161,6 +181,9 @@ export default function ffLockDuration({ nft, updateLockDuration }) {
           disabled={ lockLoading }
           onClick={ onLock }
           >
+            
+          <Img alt="complex" src="/images/Small_Button.png" width={'70%'}/>
+
           <Typography className={ classes.actionButtonText }>{ lockLoading ? `Increasing Duration` : `Increase Duration` }</Typography>
           { lockLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
         </Button>
