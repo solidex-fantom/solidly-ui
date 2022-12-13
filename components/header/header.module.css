@@ -135,6 +135,14 @@
   border-radius: 40px !important;
   color: rgba(255, 255, 255, 0.87) !important; 
 }
+.transactionButton {
+  height: 33px;
+  right: 10px;
+  background-color: #0D142E !important;
+  border: 0 !important;
+  border-radius: 40px !important;
+  color: rgba(255, 255, 255, 0.87) !important; 
+}
 
 .iconColor {
   color: #fff;
@@ -394,6 +402,9 @@
   /* .containerMenuWallet {              
     display: none;   
   } */
+  .transactionButton{
+    display: none !important;
+  }
 
 }
 
@@ -410,6 +421,7 @@
   .socialButton {
     display: none;   
   }
+
 
 
   .containerMenuWallet {              

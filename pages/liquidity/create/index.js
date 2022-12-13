@@ -6,30 +6,28 @@ import classes from './liquidity.module.css';
 function Pair({ changeTheme }) {
 
   return (
-    <div className={classes.container}>
 
-          <Grid container alignItems="center" justifyContent="center">
 
-            <Grid item xs={12} sm={6} container>       
+    <Grid container alignItems="center" justifyContent="center" className={classes.container} spacing={5}>
 
-              <Grid item xs={12} className={classes.descTp} >              
-                  <Typography className={classes.title} variant='h1'>Add Liquidity</Typography>
-                  <Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography>
-              </Grid>     
+      <Grid item xs={12} md={6} container>       
 
-              <Grid item xs={12}>              
-                <div className={classes.sphere}></div>                         
-              </Grid>    
+        <Grid item xs={12} className={classes.descTp} >              
+            <Typography className={classes.title} variant='h1'>Add Liquidity</Typography>
+            <Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography>
+        </Grid>     
 
-            </Grid>
+        <Grid item xs={12}>              
+          <div className={classes.sphere}></div>                         
+        </Grid>    
 
-            <Grid item xs={12} sm={6}>       
-               <LiquidityCreate />
-            </Grid>    
+      </Grid>
 
-          </Grid>
-      
-    </div>
+      <Grid item xs={12} md={6} >       
+          <LiquidityCreate />
+      </Grid>    
+
+    </Grid>
   );
 }
 

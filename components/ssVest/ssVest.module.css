@@ -4,6 +4,7 @@
   margin: 0 auto;
   margin-top: 80px;
   position: relative;    
+  
 }
 
 .backButton {
@@ -25,14 +26,15 @@
   border: 1px solid rgba(104, 108, 122, 0.25);
   margin: auto;
   margin-bottom: 60px;
+  
   padding: 20px 0px;
+  
   
 }
 
 
 .container2 {
   width: calc(100%);
-  border: 1px solid;
   
   left: 0;
   right: 0;
@@ -41,6 +43,13 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 36px;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 12px;   
   
 }
 
@@ -71,8 +80,17 @@
 
 .lockedInfo {
   color: #CD74CC;
-  font-family: 'Arista' !important;      
+  font-family: 'Righteous' !important;    
   
+}
+
+.val1 {
+
+  color: green !important;
+}
+
+.MuiRadio-colorPrimary.Mui-checked {
+  color: green !important;
 }
 
 .lineLockedInfo {
@@ -318,6 +336,7 @@
 }
 
 .vestPeriodLabel > span {
+  padding: 10px;
   font-size: 14px !important;
 }
 
@@ -478,6 +497,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 12px;
+  
 }
 
 .titleSection {
@@ -493,10 +513,16 @@
   min-height: 60px;
 }
 
-.backButton {
-  position: absolute !important;
-  left: 5px !important;
-  top: 5px;
+.vestBackButton {
+  
+  width: 40px;
+  flex: 1;
+  bottom: 270px;
+  left: 5px;
+  position: absolute;
+  z-index: 0;
+  color: white !important;
+  border-radius: 60px;
 }
 
 .backIcon {
@@ -512,6 +538,7 @@
 .vestInfoContainer {
   margin-right: 10px;
   margin-right: 10px;
+  
 }
 
 .vestInfoContainer > .title {
@@ -616,6 +643,10 @@
 
   .container { 
     margin-top: 10%;    
+  }
+
+  .vestBackButton {      
+    bottom: 370px;    
   }
 }
 

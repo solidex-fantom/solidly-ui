@@ -1,11 +1,11 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin: auto;
-
+  align-items: center;
+  margin-right: 5%;
+  width: 50%;
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#131b4c 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
@@ -15,7 +15,8 @@
 }
 
 .retain {
-  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .smallerText {
@@ -57,7 +58,7 @@
 
 .topLeftButton,
 .bottomLeftButton {
-  border-radius: 8px 8px 0 0 !important;
+  border-radius: 8px 10px 0 0 !important;
   width: 100%;
   min-height: 50px;
   display: flex;
@@ -210,7 +211,6 @@
   /* border-left: 1px solid rgba(104, 108, 122, 0.25); */
   padding: 0px 24px;
   width: 100%;
-  height: 100%;
   margin-top: 12px;
 }
 
@@ -243,9 +243,6 @@
   color: #CD74CC !important;
 }
 
-.toggleButtons:hover {
-  background: rgb(19, 44, 60) !important;
-}
 
 .button {
   border-radius: 0px !important;
@@ -257,7 +254,7 @@
 }
 
 .buttonActive {
-  
+  border-radius: 10px 10px 0px 0px !important;
   flex: 1;
   border-bottom: 1px solid #CD74CC !important; 
   color: #CD74CC !important;
@@ -283,14 +280,49 @@
   padding-bottom: 0px;
 }
 
-.buttonOverride {
-  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+.buttonPink{
+  background: rgb(205, 116, 204) !important;
+  color: rgb(20 30 63) !important;
+  font-weight: 200 !important;
+}
+.buttonPink:hover{
+  background: rgba(205, 116, 204, 80%) !important;
+}
+
+.buttonYellow{
+  background: rgb(255, 189, 89) !important;
   color: rgb(20 30 63) !important;
   font-weight: 200 !important;
 }
 
-.buttonOverride:hover {
+.buttonYellow:hover{
+  background: rgb(255, 189, 89, 80%) !important;
+}
+
+.buttonGreen{
+  background: rgb(112, 221, 136) !important;
+  color: rgb(20 30 63) !important;
+  font-weight: 200 !important;
+}
+.buttonGreen:hover{
+  background: rgb(112, 221, 136, 80%) !important;
+}
+
+.buttonOverride {
+  background: #CD74CC !important;
+  color: rgb(20 30 63) !important;
+  font-weight: 200 !important;
+}
+
+.buttonUnstake {
   background: #FFBD59 !important;
+  color: rgb(20 30 63) !important;
+  font-weight: 200 !important;
+}
+
+
+.buttonOverride:hover {
+  background: #e29ee1 !important;
 }
 
 .swapIconContainer {
@@ -301,23 +333,28 @@
   height: 0px;
   margin-bottom: 20px;
 }
+.backIconContainer {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;  
+  
+  /* z-index: 1; */
+}
 
 
 .swapIconSubContainer {
-  
-  
-  border-radius: 12px;    
   
   background: 
   linear-gradient(#0D142E 0 0) padding-box, 
   linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
 
   border: 1px solid transparent;  
-
+  
   border-radius: 9px;
   height: 38px;
   z-index: 1;
-  margin: 10px;
+  margin-right: 10px;
 }
 
 
@@ -359,9 +396,10 @@
 }
 
 .massiveInputAssetSelect {
-  width: 124px;
+  width: 160px;
   min-height: 124px;
   height: 100%;
+
 }
 
 .massiveInputAmount {
@@ -381,7 +419,24 @@
 
 .displayDualIconContainer {
   width: 100px;
+  height: 80px;
+  flex: 1;
   position: relative;
+  display: flex;
+  padding: 10px;
+  box-sizing: content-box;
+}
+
+.img1Logo {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+}
+.img2Logo {
+  position: absolute;
+  left: 60px;
+  z-index: 1;
+  top: 10px;
 }
 
 .displayAssetIcon {  
@@ -615,14 +670,14 @@
 }
 
 .toggleOption:hover {
-  background: rgb(23, 52, 72) !important;
-  color: rgb(6, 211, 215) !important;
-  border-radius: 24px;    
+  border-radius: 15px; 
+  filter: brightness(115%);
+  background: #0D142E;
 }
 
 .toggleOption.active {
   border: 1px solid;
-  background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
   color: #111729 !important;
   border-radius: 15px;    
 }
@@ -649,16 +704,30 @@
 }
 
 .displayDualIconContainerSmall {
+  width: 108px;
+  position: relative;
+  margin-right: 12px;
+}
+.displayAssetIconContainerSmall {
   width: 60px;
   position: relative;
   margin-right: 12px;
 }
 
 .displayAssetIconSmall {
-  border: 1px solid rgba(126, 153, 153, 0.5);
-  border-radius: 30px;
-  background: rgb(33, 43, 72);
   padding: 6px;
+}
+.displayAssetIconSmall1 {
+  left: 0px;
+  padding: 8px;
+  /* top: 10px; */
+}
+.displayAssetIconSmall2 {
+  position: absolute;
+  left: 43px;
+  padding: 8px;
+  z-index: 1;
+  /* top: 10px; */
 }
 
 .manageLocalContainer {
@@ -735,6 +804,9 @@
     width: 80%;
     height: 80% !important;
   }
+  .retain {
+    max-width: 100%;
+  }
 
 }
 
@@ -763,6 +835,9 @@
     margin-top: 0px;
     width: calc(100% - 60px);
   }
+ .swapIconSubContainer{
+  display: none;
+ }
 
   .helpIcon { display: none; }
 }

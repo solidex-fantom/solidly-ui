@@ -128,7 +128,7 @@ const StyledSwitch = withStyles((theme) => ({
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
-    background: '#06D3D7',
+    background: '#FFBD59',
     color: '#000'
   },
 }))(Badge);
@@ -261,7 +261,7 @@ function Header(props) {
       <>
         { transactionQueueLength > 0 &&
           <IconButton
-            className={classes.accountButton}
+            className={classes.transactionButton}
             variant="contained"
             color={props.theme.palette.type === 'dark' ? 'primary' : 'secondary'}
             onClick={ () => {

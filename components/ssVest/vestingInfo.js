@@ -53,7 +53,7 @@ export default function VestingInfo({ currentNFT, futureNFT, veToken, govToken, 
 
               <Grid  lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
                 <div className={ classes.values }>
-                  <Typography align='center' className={ classes.val, classes.lockedInfo}>{ formatCurrency(futureNFT.lockAmount) } { govToken?.symbol } locked expires { moment.unix(futureNFT?.lockEnds).fromNow() } </Typography>
+                  <Typography align='center' className={ classes.lockedInfo}>{ formatCurrency(futureNFT.lockAmount) } { govToken?.symbol } locked expires { moment.unix(futureNFT?.lockEnds).fromNow() } </Typography>
                 </div>
                 <div className={ classes.lineLockedInfo }>
 

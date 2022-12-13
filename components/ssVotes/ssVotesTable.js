@@ -425,11 +425,8 @@ export default function EnhancedTable({ gauges, setParentSliderValues, defaultVo
   }
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, gauges.length - page * rowsPerPage);
-  const marks = [
-  {
-    value: -100,
-    label: '-100',
-  },
+  
+  const marks = [  
   {
     value: 0,
     label: '0',
@@ -566,7 +563,7 @@ export default function EnhancedTable({ gauges, setParentSliderValues, defaultVo
                       valueLabelDisplay="auto"
                       value={ sliderValue }
                       onChange={ (event, value) => { onSliderChange(event, value, row) } }
-                      min={-100}
+                      min={0}
                       max={100}
                       marks
                     />

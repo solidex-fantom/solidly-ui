@@ -1,8 +1,7 @@
 .container {
-  display: flex;
-  /* flex-direction: column;   */
-  margin: auto;
-  position: relative;    
+  position: relative;   
+  padding-top: 5%;
+  
 }
 
 .sphere {      
@@ -47,11 +46,6 @@
 
 
 @media screen and (max-width: 1600px) {
-  
-  .container {
-    padding-top: 10%;
-    margin-bottom: 60px;
-  }
 
   .containerCreate {
     width: 80%;
@@ -64,13 +58,11 @@
 
   .container {
     padding-top: 180px;
-    margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 560px) {
   .container {
     padding-top: 140px;
-    margin-bottom: 60px;
   }
 }
