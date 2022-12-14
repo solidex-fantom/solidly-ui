@@ -378,7 +378,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px',
     paddingLeft: '20px',
     paddingRight: '20px',
-    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
+    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
 
   },
   toolbar: {
@@ -397,7 +397,7 @@ const useStyles = makeStyles((theme) => ({
     background: '#141d40'
   },
   filterButton: {
-    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59)',
+    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
     border: '1px solid rgba(126,153,176,0.3)',
     color: '#0D142E',
     width: '100%',

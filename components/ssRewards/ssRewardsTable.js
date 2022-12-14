@@ -346,11 +346,14 @@ const useStyles = makeStyles((theme) => ({
     padding: '0px',
   },
   tableContainer: {
-    border: '1px solid rgba(126,153,176,0.2)',
+    background: 'linear-gradient(#141d40 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
+    border: '1px solid transparent',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    paddingLeft: '0px !important',
+    paddingRight: '0px !important'
   },
   filterButton: {
     background: '#111729',

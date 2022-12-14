@@ -15,22 +15,16 @@
 }
 
 .tableContainer {
-      
-  background: 
-    transparent, 
-    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
-    
+  border-radius: 30px;    
   border: 1px solid transparent;  
-  border-radius: 12px;    
-  border: 1px solid transparent;  
-
+  margin-top: 24px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
 
 }
@@ -45,7 +39,7 @@
   transform: translatex(-50%);
 
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box !important;
     
   border: 1px solid transparent !important;  
@@ -113,7 +107,7 @@
   max-height: 48px;
 
   color: #0D142E !important;    
-  background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59) !important;  
+  background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88) !important;  
   font-family: 'Arista' !;
 }
 
@@ -123,7 +117,11 @@
 
 .tokenIDContainer {
   border: 1px solid rgba(104, 108, 122, 0.25);
-  border-radius: 12px;
+  border-radius: 30px;
+}
+.middleTopContainer{
+  padding-left: 8px !important;
+  padding-right: 8px !important;
 }
 
 .searchVote {
@@ -135,12 +133,9 @@
   min-height: 60px;
     
   border-radius: 18px;   
-  border: 1px solid transparent !important;    
-  
-  background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
-    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box !important;
-    
+  border: 1px solid !important;
+  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59 !important;
+
     
 }
 
@@ -169,18 +164,17 @@
 .mediumInputContainer {
   display: flex;
   flex-wrap: wrap;
-  border-radius: 10px;
   width: 100%;
   align-items: center;  
   padding: 0 20px;
   
   
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
         linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
 
   border: 1px solid transparent;  
-  border-radius: 12px;    
+  border-radius: 20px;    
 }
 
 .mediumInputAssetSelect {
@@ -194,6 +188,8 @@
   flex: 1;
   height: 100%;
   width: 300px;
+  display: flex;
+  align-items: center;
 }
 
 .mediumInputAddress {
@@ -225,11 +221,11 @@
   margin-top: 80px;
   
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 12px;    
+  border-radius: 30px;    
 
 }
 
@@ -239,11 +235,11 @@
   padding: 8px;     
   
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 12px;    
+  border-radius: 30px;    
 }
 
 .infoBanner {
@@ -332,12 +328,12 @@
 }
 
 .filterButton1 {  
-  background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);  
+  background-image: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);  
   color: #0D142E !important;    
   border: 1px solid rgba(126,153,176,0.3 ) !important;
   width: 100% !important;
   height: 94.5% !important;
-  border-radius: 10px !important;
+  border-radius: 20px !important;
 }
 
 @media screen and (max-width: 1200px) {
