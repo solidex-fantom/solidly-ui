@@ -198,7 +198,7 @@ export default function ssVotes() {
     <div className={ classes.container }>
       <div className={ classes.topBarContainer }>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={6}>
 
           <Grid container className={classes.gridBanner} xs={12} justifyContent="center" alignItems="center">
 
@@ -212,41 +212,41 @@ export default function ssVotes() {
             </Grid>
                                 
           </Grid>   
-              
-          <Grid item xs={4}>
+          <Grid item container justifyContent='space-evenly' spacing={2} className={classes.middleTopContainer}>
+            <Grid item xs={5}>
 
-            <TextField
-              className={classes.searchVote}              
-              fullWidth
-              placeholder="KAVA, USDC, VARA..."
-              value={search}
-              onChange={onSearchChanged}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>  
-                  
-          <Grid item xs={6}>
-            <div className={ classes.tokenIDContainer }>
-              { renderMediumInput(token, vestNFTs) }
-            </div>
+              <TextField
+                className={classes.searchVote}              
+                fullWidth
+                placeholder="KAVA, USDC, VARA..."
+                value={search}
+                onChange={onSearchChanged}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>  
+                    
+            <Grid item xs={6}>
+              <div className={ classes.tokenIDContainer }>
+                { renderMediumInput(token, vestNFTs) }
+              </div>
+            </Grid>
+
+            <Grid item xs={1}>      
+          
+              <Tooltip placement="top" title="Filter list">        
+                <IconButton onClick={handleClick} className={ classes.filterButton1 } aria-label="filter list">                                    
+                    <FilterListIcon />              
+                </IconButton>          
+
+              </Tooltip>
+            </Grid>
           </Grid>
-
-          <Grid item xs={2}>      
-        
-        <Tooltip placement="top" title="Filter list">        
-          <IconButton onClick={handleClick} className={ classes.filterButton1 } aria-label="filter list">                                    
-              <FilterListIcon />              
-          </IconButton>          
-
-        </Tooltip>
-
-      </Grid>
 
           <Grid container className={classes.gridInfoVote} xs={12} justifyContent="center" alignItems="center">
             <Grid direction="column">  

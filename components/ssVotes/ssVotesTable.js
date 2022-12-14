@@ -10,13 +10,13 @@ import { formatCurrency } from '../../utils';
 
 const PrettoSlider = withStyles({
   root: {
-    color: '#06D3D7',
+    color: '#FFBD59',
     height: 8,
   },
   thumb: {
     height: 24,
     width: 24,
-    backgroundColor: '#06D3D7',
+    backgroundColor: '#FFBD59',
     border: '2px solid currentColor',
     marginTop: -8,
     marginLeft: -12,

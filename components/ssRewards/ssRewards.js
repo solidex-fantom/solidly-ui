@@ -10,6 +10,7 @@ import {
   Popper,
   Fade,
   Grid,
+  Toolbar,
   Switch,
   Select,
   MenuItem
@@ -155,12 +156,12 @@ export default function ssRewards() {
   const renderMediumInput = (value, options) => {
     return (
       <div className={ classes.textField}>
-        <div className={ classes.mediumInputContainer}>
-          <Grid container>
-            <Grid item lg='auto' md='auto' sm={12} xs={12}>
+        <Grid container className={ classes.mediumInputContainer}>
+          <Grid item container>
+            <Grid item xs={4}>
               <Typography variant="body2" className={ classes.helpText }>Please select your veVARA:</Typography>
             </Grid>
-            <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Grid item xs={4}>
             <div className={ classes.mediumInputAmount }>
               <Select
                 fullWidth
@@ -187,59 +188,53 @@ export default function ssRewards() {
             </div>
             </Grid>
           </Grid>
-        </div>
+        </Grid>
       </div>
     )
   }
 
   return (
-    <div className={ classes.container}>
-      <div className={ classes.toolbarContainer }>
-        <Grid container spacing={2}>
+    <Toolbar className={ classes.toolbar }>
+
+        <Grid container className={ classes.container } alignItems='center' justifyContent='center' spacing={6} >
 
 
-        <Grid container className={classes.gridBanner} lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center">
+          <Grid item container className={classes.gridBanner} xs={12} justifyContent="center" alignItems="flex-start">
 
-            <Grid direction="column" lg={8} md={8} sm={8} xs={8}>            
+            <Grid item container direction="column" xs={8}  justifyContent="flex-start">            
             
-              <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Rewards</Typography></Grid>    
-              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}  variant="h2">Claim rewards for locking tokens, including new token emissions, bribes and a slice of the transaction fees from your pools</Typography></Grid>                                  
+              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Rewards</Typography></Grid>    
+              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle}  variant="h2">Claim rewards for locking tokens, including new token emissions, bribes and a slice of the transaction fees from your pools</Typography></Grid>                                  
             </Grid>   
 
-            <Grid item lg={4} md={4} sm={4} xs={4} justifyContent="center" alignItems="center">            
+            <Grid item xs={4} justifyContent="center" alignItems="center">            
               <div className={classes.sphere}></div>  
             </Grid>
                                 
           </Grid>   
 
 
-          <Grid item lg={8} md={8} sm={8} xs={8}>
-            <div className={ classes.tokenIDContainer }>
+          <Grid item xs={8} className={ classes.tokenIDContainer }>
               { renderMediumInput(token, vestNFTs) }
-            </div>
           </Grid>
           
-          <Grid item lg={4} md={4} sm={4} xs={4}>
-        
-            <Button className={ classes.buttonOverride } onClick={ onClaimAll }>
-              <Img alt="complex" src="/images/Small_Button.png" width={'50%'}  />
+          <Grid item xs={4}>
+            <Button className={ classes.buttonOverride } onClick={ onClaimAll } variant='contained' size='large'>
               <Typography className={ classes.actionButtonText }>Claim All</Typography>
             </Button>   
-
-        </Grid> 
+          </Grid> 
         
 
-          <Grid item lg={12} md={12} sm={12} xs={12}>
-            <div className={ classes.disclaimerContainer }>
+          <Grid item xs={12} className={ classes.disclaimerContainer }>
               <Typography className={ classes.disclaimerMain }>Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim.</Typography>
               <Typography className={ classes.disclaimer }>For details refer to our <a className={ classes.disclaimerDocs }>docs</a></Typography>              
-            </div>
           </Grid>
 
+          <Grid item xs={12} className={classes.tableContainer}>
+            <RewardsTable rewards={rewards} vestNFTs={ vestNFTs } tokenID={ token?.id } />
+          </Grid>
+          
         </Grid>
-
-      </div>
-      <RewardsTable rewards={rewards} vestNFTs={ vestNFTs } tokenID={ token?.id } />
-    </div>
+    </Toolbar>
   );
 }
