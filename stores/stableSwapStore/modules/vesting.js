@@ -88,20 +88,52 @@ export async function withdrawVest(payload) {
 
     // ADD TRNASCTIONS TO TRANSACTION QUEUE DISPLAY
     let vestTXID = this.getTXUUID()
-
-    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Withdraw vest amount on token #${tokenID}`, type: 'Vest', verb: 'Vest Withdrawn', transactions: [
-        {
-          uuid: vestTXID,
-          description: `Withdrawing your expired tokens`,
-          status: 'WAITING'
-        }
-      ]})
-
+    let resetTXID = this.getTXUUID()
 
     const gasPrice = await stores.accountStore.getGasPrice()
 
     // SUBMIT INCREASE TRANSACTION
     const veTokenContract = new web3.eth.Contract(CONTRACTS.VE_TOKEN_ABI, CONTRACTS.VE_TOKEN_ADDRESS)
+
+    let voted;
+
+    try {
+      voted = await veTokenContract.methods.voted(tokenID).call()
+    } catch (err) {
+      console.error(err)
+      this.emitter.emit(ACTIONS.ERROR, "Couldn't check if veNFT is voted")
+    }
+
+    const transactions = [
+      {
+        uuid: vestTXID,
+        description: `Withdrawing your expired tokens`,
+        status: 'WAITING'
+      }
+    ]
+
+    if (voted) {
+      transactions.splice(0, 0, {
+        uuid: resetTXID,
+        description: 'Resetting voted tokens',
+        status: 'WAITING'
+      })
+    }
+
+    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Withdraw vest amount on token #${tokenID}`, type: 'Vest', verb: 'Vest Withdrawn', transactions})
+
+    if (voted) {
+      const voterContract = new web3.eth.Contract(CONTRACTS.VOTER_ABI, CONTRACTS.VOTER_ADDRESS);
+      await new Promise((resolve, reject) => {
+        this._callContractWait(web3, voterContract, 'reset', [tokenID], account, gasPrice, null, null, resetTXID, err => {
+          if (err) {
+            reject()
+            return
+          }
+          resolve()
+        })
+      })
+    }
 
     this._callContractWait(web3, veTokenContract, 'withdraw', [tokenID], account, gasPrice, null, null, vestTXID, (err) => {
       if (err) {
