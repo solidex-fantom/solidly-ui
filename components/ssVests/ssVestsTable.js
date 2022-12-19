@@ -229,11 +229,15 @@ const useStyles = makeStyles((theme) => ({
     width: '70px',
     height: '35px'
   },
-  buttonOverride: {            
+
+  buttonOverride: {   
+    background: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
+    borderRadius: '30px',
     color: '#0D142E',
     fontWeight: '700',
+    width: '220px',
     position: 'relative',
-    bottom: '60px',
+    height: '40px',
     '&:hover': {
       background: 'rgb(19, 44, 60)'
     },
@@ -243,9 +247,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '0px',
   },
   tableContainer: {    
-    borderRadius: '12px',    
+    borderRadius: '30px',    
     border: '1px solid transparent',
-    background: 'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
+    background: 'linear-gradient(#141d40 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -254,33 +258,29 @@ const useStyles = makeStyles((theme) => ({
   actionButtonText: {
     fontSize: '15px',
     fontWeight: '700',
-    position: 'absolute',
-    top: '40%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
   },
   gridBanner: {          
     height: '220px',
     margin: '10px',
-    padding: '8px',    
-    marginTop: '80px',    
-    borderRadius: '12px',        
+    padding: '18px',    
+    // marginTop: '80px',    
+    borderRadius: '30px',        
     border: '1px solid transparent',
-    background: 'linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
+    background: 'linear-gradient(#141d40 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
   },
   title: {
     fontFamily: 'Righteous',
-    fontSize: '50px',
+    fontSize: '32px',
     color: '#FFFFFF',        
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '800',
     lineHeight: '62px',
     letterSpacing: '0.13em'    
   },
   subtitle: {            
     fontFamily: 'Arista',    
     fontStyle: 'normal',
-    fontWeight: '300',
+    fontWeight: '700',
     fontSize: '15px',
     lineHeight: '27px',
     letterSpacing: '0.13em',
@@ -288,7 +288,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sphere: {        
     width: '100%',
-    height: '320px',
+    height: '280px',
     background: 'url(\'/images/Rainbow_clock_4.png\') no-repeat right',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',    
@@ -297,8 +297,6 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarInfo: {
     margin: '15px',
-    position: 'relative',
-    bottom: '60px',
     letterSpacing: '6px'    
   }
 }));
@@ -331,16 +329,15 @@ const EnhancedTableToolbar = (props) => {
 
       <Grid container spacing={2}>
 
-        <Grid container className={classes.gridBanner} xs={12} spacing={2} justifyContent="center" alignItems="center">
+        <Grid container className={classes.gridBanner} xs={12} spacing={6} alignItems="flex-start">
 
-            <Grid direction="column" spacing={2}  lg={8} md={8} sm={8} xs={8}>       
+            <Grid direction="column" spacing={6} xs={8}>       
 
               <Grid className={classes.toolbarInfo}><Typography className={classes.title}>Vest</Typography></Grid>                  
               <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}>More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
 
-              <Grid>
+              <Grid item xs={4}>
                 <Button className={ classes.buttonOverride } onClick={ onCreate }>
-                  <Img alt="complex" src="/images/Small_Button.png" width={'100%'}/>
                   <Typography className={ classes.actionButtonText }>Create Lock</Typography>
                 </Button>   
               </Grid> 
@@ -348,7 +345,7 @@ const EnhancedTableToolbar = (props) => {
             </Grid>   
 
             
-            <Grid item display='flex'  lg={4} md={4} sm={4} xs={4}>            
+            <Grid item display='flex' xs={4}>            
               <div className={classes.sphere}></div>  
             </Grid>
                                 

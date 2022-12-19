@@ -121,7 +121,7 @@
   width: calc(100% - 180px);
 
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  

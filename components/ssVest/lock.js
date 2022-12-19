@@ -140,7 +140,7 @@ export default function ssLock({ govToken, veToken }) {
             <div className={ classes.displaySelectContainer }>
               <div className={ classes.assetSelectMenuItem }>
                 <div className={ classes.displayDualIconContainer }>
-
+                  {/* <Img alt="complex" src="/images/Wallet_Icon.svg" /> */}
                 </div>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function ssLock({ govToken, veToken }) {
             disabled={ lockLoading }
             onClick={ onLock }
             >
-              <Img alt="complex" src="/images/Barra_boton.png"/>
+              {/* <Img alt="complex" src="/images/Barra_boton.png"/> */}
               
             <Typography className={ classes.actionButtonText }>{ lockLoading ? `Locking` : `Lock` }</Typography>
             { lockLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
