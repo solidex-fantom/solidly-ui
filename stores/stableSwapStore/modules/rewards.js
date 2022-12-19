@@ -197,7 +197,7 @@ export async function claimBribes(payload) {
     // ADD TRNASCTIONS TO TRANSACTION QUEUE DISPLAY
     let claimTXID = this.getTXUUID()
 
-    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Claim rewards for ${pair.token0.symbol}/${pair.token1.symbol}`, verb: 'Rewards Claimed', transactions: [
+    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Claim bribes for ${pair.token0.symbol}/${pair.token1.symbol}`, verb: 'Rewards Claimed', transactions: [
         {
           uuid: claimTXID,
           description: `Claiming your bribes`,
@@ -210,7 +210,7 @@ export async function claimBribes(payload) {
     // SUBMIT CLAIM TRANSACTION
     const gaugesContract = new web3.eth.Contract(CONTRACTS.VOTER_ABI, CONTRACTS.VOTER_ADDRESS)
 
-    const sendGauges = [ pair.gauge.bribeAddress ]
+    const sendGauges = [ pair.gauge.wrapped_bribe_address ]
     const sendTokens = [ pair.gauge.bribesEarned.map((bribe) => {
       return bribe.token.address
     }) ]
@@ -270,7 +270,7 @@ export async function claimAllRewards(payload) {
     })
 
     const sendGauges = bribePairs.map((pair) => {
-      return pair.gauge.bribeAddress
+      return pair.gauge.wrapped_bribe_address
     })
     const sendTokens = bribePairs.map((pair) => {
       return pair.gauge.bribesEarned.map((bribe) => {
@@ -359,33 +359,24 @@ export async function claimAllRewards(payload) {
       for(let i = 0; i < feePairs.length; i++) {
         const gaugesContract = new web3.eth.Contract(CONTRACTS.VOTER_ABI, CONTRACTS.VOTER_ADDRESS)
 
-        const sendGauges = [ pair.gauge.feeAddress ]
+        const pair = feePairs[0]
+
+        const sendGauges = [ pair.gauge.feesAddress ]
         const sendTokens = [ pair.gauge.feesEarned.map((fee) => {
-          return fee.token.address
-        }) ]
+            return fee.address
+          })
+        ]
 
-        this._callContractWait(web3, gaugesContract, 'claimFees', [sendGauges, sendTokens, tokenID], account, gasPrice, null, null, feeClaimTXIDs[i], (err) => {
-          if (err) {
-            return this.emitter.emit(ACTIONS.ERROR, err)
+        await new Promise( (resolve, reject) => {
+          context._callContractWait(web3, gaugesContract, 'claimFees', [sendGauges, sendTokens, tokenID], account, gasPrice, null, null, feeClaimTXIDs[i], (err) => {
+              if (err) {
+                reject()
+                return
+              }
+              resolve()
+            })
           }
-
-          this.getRewardBalances({ content: { tokenID } })
-          this.emitter.emit(ACTIONS.CLAIM_REWARD_RETURNED)
-        })
-        // const pairContract = new web3.eth.Contract(CONTRACTS.PAIR_ABI, feePairs[i].address)
-
-        // const claimPromise = new Promise((resolve, reject) => {
-        //   context._callContractWait(web3, pairContract, 'claimFees', [], account, gasPrice, null, null, feeClaimTXIDs[i], (err) => {
-        //     if (err) {
-        //       reject(err)
-        //       return
-        //     }
-
-        //     resolve()
-        //   })
-        // })
-
-        await Promise.all([claimPromise])
+        )
       }
     }
 
