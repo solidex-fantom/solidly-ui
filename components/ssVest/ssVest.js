@@ -8,7 +8,7 @@ import moment from "moment";
 import ExistingLock from "./existingLock";
 import Unlock from "./unlock";
 import Lock from './lock';
-import { Grid, Typography, IconButton } from '@material-ui/core';
+import { Grid, Typography, IconButton, Link } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function ssVest() {
@@ -48,36 +48,45 @@ export default function ssVest() {
     ssUpdated()
   }, [router.query.id])
 
+  const renderIconArrowLeft = () => {
+    return(
+      <div className={ classes.backIconContainer }>
+        <div className={ classes.vestIconSubContainer }>
+          <Link
+            color='textPrimary'
+            variant='button'
+            underline='none'
+            href="/vest"
+            >
+            <ArrowBackIcon className={ classes.backIcon } />
+          </Link>
+          
+        </div>      
+      </div>
+    )
+  }
+
   return (
     <div className={ classes.vestContainer }>
       
 
-      <Grid container lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center" spacing={6}>
+      <Grid container xs={12} justifyContent="space" alignItems="center">
 
-              <Grid item xs={4} justifyContent="center" alignItems="center">       
+              <Grid item xs={12} md={6} justifyContent="center" alignItems="center" container>       
 
-                <Grid className={classes.descTp} direction="column" >              
+                <Grid item xs={12} className={classes.descTp} direction="column" >              
                     <Typography className={classes.title}>Create Lock</Typography>
                     <Typography className={classes.subtitle}>More tokens locked for longer = greater voting power = higher rewards</Typography>
                 </Grid>     
 
-                <Grid>              
+                <Grid item xs={12}>              
                     <div className={classes.sphere}></div>                         
                   </Grid>    
 
               </Grid>
-
-
-              <Grid item justifyContent="flex-start" alignItems="flex-start">
-
-                <IconButton className={ classes.vestBackButton } onClick={ onBack }>
-                    <ArrowBackIcon className={ classes.backIcon } />
-                </IconButton>
-
-              </Grid>
               
-              <Grid item xs={6} justifyContent="center" alignItems="center">     
-                
+              <Grid item xs={12} md={6} className={classes.retain}>     
+              {renderIconArrowLeft()}  
               
               { router.query.id === 'create' && (
                   <Lock

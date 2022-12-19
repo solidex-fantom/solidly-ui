@@ -45,9 +45,6 @@ export default function Unlock({ nft, govToken, veToken }) {
   return (
     <Paper elevation={0} className={ classes.container2 }>
       <div className={ classes.titleSection }>
-        <IconButton className={ classes.backButton } onClick={ onBack }>
-          <ArrowBackIcon className={ classes.backIcon } />
-        </IconButton>
         <Typography className={ classes.titleText }>Manage Existing Lock</Typography>
       </div>
       <VestingInfo currentNFT={nft} veToken={veToken} />

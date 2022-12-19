@@ -2,15 +2,8 @@
   
   width: calc(100% - 180px);  
   margin: 0 auto;
-  margin-top: 80px;
   position: relative;    
-  
-}
-
-.backButton {
-  top: 24px;
-  left: 0px;
-  position: absolute !important;
+  max-width: 1400px;
 }
 
 .smallerText {
@@ -20,32 +13,18 @@
   color: white;
 }
 
-.container {
-  width: calc(100% - 180px);
-  display: flex;
-  border: 1px solid rgba(104, 108, 122, 0.25);
-  margin: auto;
-  margin-bottom: 60px;
-  
-  padding: 20px 0px;
-  
-  
-}
 
 
 .container2 {
-  width: calc(100%);
-  
-  left: 0;
-  right: 0;
-  margin: auto;
-  padding: 24px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 36px;
+  width: 50%;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5%;
+  padding: 24px; 
 
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
@@ -54,17 +33,15 @@
 }
 
 .container3 {
-  width: calc(100%);  
-  left: 0;
-  right: 0;
-  margin: auto;
-  padding: 24px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 4px;  
+  width: 80%;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5%;
+  padding: 24px; 
   
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
@@ -243,10 +220,13 @@
   margin-bottom: 10px !important;
 }
 
-.buttonOverride {
-  color: #0D142E !important;  
-  background-color: transparent !important;
+.buttonOverride {  
   font-weight: 700 !important;
+  width: 100%;
+  height: 100%;
+  min-width: 200px !important;    
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
+  border-radius: 30px;
 }
 
 .toggleButtons {
@@ -429,7 +409,7 @@
   height: 100px;
 
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
@@ -443,7 +423,7 @@
   height: 100px;
 
   background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
@@ -504,8 +484,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: 1px solid #212B48;
   border-radius: 10px;
   width: calc(100% - 0px);
   margin: 0px 0px 15px 0px;
@@ -515,18 +493,55 @@
 
 .vestBackButton {
   
-  width: 40px;
-  flex: 1;
-  bottom: 270px;
-  left: 5px;
-  position: absolute;
-  z-index: 0;
-  color: white !important;
-  border-radius: 60px;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: 
+  linear-gradient(#0D142E 0 0) padding-box, 
+  linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+
+  border: 1px solid transparent;  
+  
+  border-radius: 9px;
+  height: 38px;
+  z-index: 1;
+  margin-right: 10px;
 }
 
+.backIconContainer {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;  
+  
+  /* z-index: 1; */
+}
+
+.retain {
+  display: flex;
+  justify-content: center;
+}
+
+.vestIconSubContainer {
+  
+  background: 
+  linear-gradient(#0D142E 0 0) padding-box, 
+  linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+
+  border: 1px solid transparent;  
+  
+  border-radius: 9px;
+  height: 38px;
+  z-index: 1;
+  margin-right: 10px;
+}
 .backIcon {
-  color: #06D3D7 !important;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 30px !important;
+  margin: 4px;
+  border-radius: 6px;  
 }
 
 .titleText {
@@ -640,9 +655,15 @@
 
 
 @media screen and (max-width: 1600px) {  
+  .container2 {  
 
-  .container { 
-    margin-top: 10%;    
+    width: 80%;
+    height: 80% !important;
+  }
+  .container3 {  
+
+    width: 80%;
+    height: 80% !important;
   }
 
   .vestBackButton {      
@@ -650,17 +671,16 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .container {
-    top: 180px;
-  }
-}
 
 @media screen and (max-width: 960px) {
-  .container {
-    top: 360px;
+  .container2 {
+    margin-top: 0px;
+    width: calc(100% - 60px);
   }
-
+  .container3 {
+    margin-top: 0px;
+    width: calc(100% - 60px);
+  }
   .vestContainer {
     width: calc(100% - 60px);
   }
