@@ -17,7 +17,7 @@ import classes from './header.module.css';
 import MenuIcon from '@material-ui/icons/Menu'
 import { ChevronLeft } from '@material-ui/icons';
 import MobileNavigation from '../mobileNavigation/mobileNavigation';
-
+import {formatCurrency} from "../../utils";
 
 const { CONNECT_WALLET,CONNECTION_DISCONNECTED, ACCOUNT_CONFIGURED, ACCOUNT_CHANGED, FIXED_FOREX_BALANCES_RETURNED, FIXED_FOREX_CLAIM_VECLAIM, FIXED_FOREX_VECLAIM_CLAIMED, FIXED_FOREX_UPDATED, ERROR } = ACTIONS
 
@@ -30,6 +30,7 @@ function WrongNetworkIcon(props) {
       </SvgIcon>
   );
 }
+
 
 const StyledMenu = withStyles({
   paper: {
@@ -145,11 +146,13 @@ function Header(props) {
   const [loading, setLoading] = useState(false)
   const [transactionQueueLength, setTransactionQueueLength] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [accountBalance, setAccountBalance] = useState(0);
+  const [accountToken, setAccountToken] = useState('KAVA');
 
   useEffect(() => {
     const accountConfigure = () => {
       const accountStore = stores.accountStore.getStore('account');
-      setAccount(accountStore);
+      setAccount(accountStore);            
       closeUnlock();
     };
     const connectWallet = () => {
@@ -161,7 +164,9 @@ function Header(props) {
     }
 
     const invalid = stores.accountStore.getStore('chainInvalid');
-    setChainInvalid(invalid)
+    setChainInvalid(invalid)  
+    
+    getBalance()
 
     stores.emitter.on(ACCOUNT_CONFIGURED, accountConfigure);
     stores.emitter.on(CONNECT_WALLET, connectWallet);
@@ -198,6 +203,25 @@ function Header(props) {
   const callClaim = () => {
     setLoading(true)
     stores.dispatcher.dispatch({ type: FIXED_FOREX_CLAIM_VECLAIM, content: {} })
+  }
+
+  async function getBalance() {
+    try {
+      const web3 = await stores.accountStore.getWeb3Provider()
+      if (!web3) {
+        console.warn('web3 not found')
+        return null
+      }
+                
+      const balance = await web3.eth.getBalance(accountStore.address);      
+      setAccountBalance(balance);
+      setAccountToken(' VARA')
+              
+    }
+    catch {      
+      setAccountBalance(0);
+    }
+
   }
 
   const switchChain = async () => {
@@ -277,6 +301,7 @@ function Header(props) {
     )
   }
 
+  
 
   const renderWalletInfo = () => {
 
@@ -289,7 +314,7 @@ function Header(props) {
             <Grid container className={classes.containerMenu} alignItems="center" spacing={1}>
 
                 <Grid item xs={4} className={classes.headAccountBalance}>
-                  <Typography className={classes.headBtnTxt}>{'0 KAVA'}</Typography>
+                  <Typography className={classes.headBtnTxt}>{formatCurrency(accountBalance)}{accountToken}</Typography>
                 </Grid>
 
                 <Grid item xs={8} className={classes.subcontainerMenu} >
