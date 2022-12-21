@@ -213,9 +213,10 @@ function Header(props) {
         return null
       }
                 
-      const balance = await web3.eth.getBalance(accountStore.address);      
+      const balanceWei = await web3.eth.getBalance(accountStore.address);
+      const balance = web3.utils.fromWei(balanceWei, 'ether');
       setAccountBalance(balance);
-      setAccountToken(' VARA')
+      setAccountToken(' KAVA')
               
     }
     catch {      
@@ -270,7 +271,7 @@ function Header(props) {
     
     return (
       <>
-        { process.env.NEXT_PUBLIC_CHAINID == '4002' &&
+        { process.env.NEXT_PUBLIC_CHAINID == '4001' &&
           <div className={ classes.testnetDisclaimer}>
             <Typography className={ classes.testnetDisclaimerText}>Testnet</Typography>
           </div>
