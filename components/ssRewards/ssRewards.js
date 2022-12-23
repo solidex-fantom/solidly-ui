@@ -26,6 +26,8 @@ import { formatCurrency } from '../../utils';
 import stores from '../../stores'
 import { ACTIONS } from '../../stores/constants';
 
+import { REWARDS } from '../../stores/constants/mocks';
+
 export default function ssRewards() {
 
   const [, updateState] = useState();
@@ -75,6 +77,7 @@ export default function ssRewards() {
         setRewards([...re.bribes, ...re.fees, ...re.rewards, ...re.veDist])
       }
     }
+    setRewards(REWARDS)
   }
 
   useEffect(() => {

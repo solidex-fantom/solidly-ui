@@ -216,10 +216,9 @@
 }
 
 .gridBanner {      
-  height: 170px;
+  height: 220px;
   margin: 10px;
-  padding: 8px;    
-  margin-top: 80px;
+  padding: 18px;    
   
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
@@ -267,14 +266,13 @@
   margin: 15px;
   position: relative;
   bottom: 80px;
-  right: 60px  
 }
 
 .title {
   font-family: 'Righteous' !important;
   font-style: normal !important;
-  font-weight: 400 !important;
-  font-size: 50px !important;
+  font-weight: 800 !important;
+  font-size: 32px !important;
   line-height: 62px !important ;
   letter-spacing: 0.13em !important;
   color: #FFFFFF;  
@@ -283,8 +281,8 @@
 .subtitle {  
   font-family: 'Arista' !important;
   font-style: normal !important;
-  font-weight: 300 !important;
-  font-size: 20px;
+  font-weight: 700 !important;
+  font-size: 15px;
   line-height: 27px;
   letter-spacing: 0.13em;
   color: #FFFFFF;

@@ -95,7 +95,7 @@ async function getDistribution(context, tokenID, web3) {
       lockToken: veToken,
       rewardToken: govToken,
       earned: BigNumber(veDistEarned).div(10**govToken.decimals).toFixed(govToken.decimals),
-      rewardType: 'Distribution'
+      rewardType: 'Rebase'
     })
   }
 
@@ -266,7 +266,7 @@ export async function claimAllRewards(payload) {
     })
 
     let distribution = pairs.filter((pair) => {
-      return pair.rewardType === 'Distribution'
+      return pair.rewardType === 'Rebase'
     })
 
     const sendGauges = bribePairs.map((pair) => {

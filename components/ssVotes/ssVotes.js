@@ -200,9 +200,9 @@ export default function ssVotes() {
 
         <Grid container spacing={6}>
 
-          <Grid container className={classes.gridBanner} xs={12} justifyContent="center" alignItems="center">
+          <Grid container className={classes.gridBanner} xs={12} alignItems="center">
 
-            <Grid direction="column" xs={6}>    
+            <Grid direction="column" xs={8}>    
               <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Vote</Typography></Grid>                                
               <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}  variant="h2">Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
             </Grid>   

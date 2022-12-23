@@ -443,7 +443,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
       stores.dispatcher.dispatch({ type: ACTIONS.CLAIM_PAIR_FEES, content: { pair: reward, tokenID } })
     } else if (reward.rewardType === 'Reward') {
       stores.dispatcher.dispatch({ type: ACTIONS.CLAIM_REWARD, content: { pair: reward, tokenID } })
-    } else if (reward.rewardType === 'Distribution') {
+    } else if (reward.rewardType === 'Rebase') {
       stores.dispatcher.dispatch({ type: ACTIONS.CLAIM_VE_DIST, content: { tokenID } })
     }
   };
@@ -507,7 +507,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                           </div>
                         </div>
                       }
-                      { ['Distribution'].includes(row.rewardType) &&
+                      { ['Rebase'].includes(row.rewardType) &&
                         <div className={classes.inline}>
                           <div className={ classes.doubleImages}>
                             <img
@@ -595,7 +595,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                             </div>
                           </>
                         }
-                        { (row && row.rewardType === 'Distribution') &&
+                        { (row && row.rewardType === 'Rebase') &&
                           <>
                             <div className={ classes.inlineEnd }>
                               <Typography variant='h5' className={classes.textSpaced}>
@@ -691,7 +691,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                             </div>
                           </>
                         }
-                        { (row && row.rewardType === 'Distribution') &&
+                        { (row && row.rewardType === 'Rebase') &&
                           <>
                             <div className={ classes.inlineEnd }>
                               <Typography variant='h5' className={classes.textSpaced}>
