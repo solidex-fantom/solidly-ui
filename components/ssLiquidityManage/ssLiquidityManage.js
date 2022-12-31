@@ -1055,7 +1055,7 @@ export default function ssLiquidityManage() {
                       <Typography>Token #{option.id}</Typography>
                       <div>
                         <Typography align='right' className={ classes.smallerText }>{ formatCurrency(option.lockValue) }</Typography>
-                        <Typography  className={ classes.smallerText }>{veToken?.symbol}</Typography>
+                        <Typography className={ classes.smallerText }>{veToken?.symbol}</Typography>
                       </div>
                     </div>
                   </MenuItem>
@@ -1179,7 +1179,7 @@ export default function ssLiquidityManage() {
                   <Button
                     variant='contained'
                     size='large'
-                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonPink }
+                    className={ (createLoading || depositLoading) ? classes.multiApprovalButton : classes.buttonGreen }
                     color='primary'
                     disabled={ createLoading || depositLoading }
                     onClick={ onCreateAndStake }
@@ -1272,7 +1272,7 @@ export default function ssLiquidityManage() {
                     <Button
                       variant='contained'
                       size='large'
-                      className={ ((amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonPink }
+                      className={ ((amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading) ? classes.multiApprovalButton : classes.buttonGreen }
                       color='primary'
                       disabled={ (amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading }
                       onClick={ onDepositAndStake }
@@ -1334,7 +1334,7 @@ export default function ssLiquidityManage() {
                       variant='contained'
                       size='large'
                       color='primary'
-                      className={ (depositLoading || stakeLoading || depositStakeLoading || withdrawAmount === '') ? classes.multiApprovalButton : classes.buttonPink }
+                      className={ (depositLoading || stakeLoading || depositStakeLoading || withdrawAmount === '') ? classes.multiApprovalButton : classes.buttonGreen }
                       disabled={ depositLoading || stakeLoading || depositStakeLoading || withdrawAmount === '' }
                       onClick={ onUnstakeAndWithdraw }
                       >
@@ -1521,11 +1521,11 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
+          <Typography color='textSecondary' variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectBalance}>
           <Typography variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
-          <Typography variant='subtitle1'>{ 'Balance' }</Typography>
+          <Typography color='textSecondary' variant='subtitle1'>{ 'Balance' }</Typography>
         </div>
       </MenuItem>
     )

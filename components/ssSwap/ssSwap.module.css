@@ -12,19 +12,20 @@
   padding: 35px;
   display: flex;
   flex-direction: column;  
-  border: 1px solid;
-  border-radius: 30px !important;      
+
+  
   box-sizing: border-box;
   box-shadow: 10px 10px #0D142E;
+  color: #313149;
   background-color: #131b4c !important;
 
+  display: inline-block;
   background: 
     linear-gradient(#131b4c 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
-  color: #313149;
-  
+    
   border: 1px solid transparent;  
-  display: inline-block;
+  border-radius: 30px !important;      
 }
 
 
@@ -39,7 +40,8 @@
 
 .smallerText {
   letter-spacing: 2px;
-  font-size: 14px !important;
+  font-size: 12px !important;
+  font-family: 'Arista';
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
@@ -175,13 +177,7 @@
 }
 
 .displayAssetIconSmall {  
-  padding: 6px;
-
-  background: 
-    linear-gradient(#0D142E 0 0) padding-box, 
-    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
-  
-  border: 1px solid transparent;  
+  padding: 6px;  
   border-radius: 30px;  
 }
 
@@ -404,6 +400,7 @@
   height: 0px;
 }
 
+
 .swapIconSubContainer {
   border-radius: 9px;
   height: 38px;
@@ -415,9 +412,13 @@
   padding: 6px;
   font-size: 38px !important;  
   margin: 4px;  
-  border: 1px solid;
-  border-radius: 12px;    
-  border-color: #CD74CC #FFBD59 #70DD88;
+
+  background: 
+    linear-gradient(#0D142E 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 10px;
 }
 
 .swapInfoContainer {

@@ -1,248 +1,77 @@
-.ffContainer {
-  height: 100%;
-  width: auto;
-  margin-top: 0px;
-  position: relative;
+.ffContainer{
+  
 }
 
-.contentContainerFull,
-.contentContainerFullTwo {
-  height: 100vh;
-  width: 100%;
-  position: relative;
+.headerContainer {
+  margin-top: 2%;
 }
 
-.homeContentMain {
-  text-align: center !important;
-  max-width: 50vw;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.centerContainer{
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);  
+}
+
+.footerContainer {  
+  position: fixed; 
+  bottom: 0; 
+  left: 50%; 
   transform: translate(-50%, -50%);
-  z-index: 2;
+
 }
 
-.mainTitle {
-  font-family: 'Monument' !important;
-  font-size: 60px !important;
-  margin-bottom: 30px !important;
-  animation: mainTitleAnim 1s ease 1;
-  animation-delay: 200ms;
-  animation-fill-mode: forwards;
-  position: relative;
-  bottom: 0;
-  opacity: 0;
-  text-align: center !important;
-  }
+.buttonLaunch {  
+  font-weight: 700 !important;
+  width: 100%;
+  min-width: 200px !important;    
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+}
 
-  @keyframes mainTitleAnim {
-  0% {
-    bottom: -100px;
-    opacity: 0;
-  }
-  100% {
-    bottom: 0;
-    opacity: 1;
-  }
-  }
+.buttonLaunch:hover {
+  background: rgb(19, 44, 60);
+}
+
+
+.actionButtonText {
+  color: #0D142E;  
+  font-size: 12px;
+  font-weight: 700;
+  position: absolute;
+  top: 40%;  
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.appLinkTree{
+  height: 80% !important;
+  width: 80% !important;
+}
 
 .appLogo {
-  transform: scale(6);
-  position: fixed;
-  left: 100px;
-  top: 30px;
+  
 }
 
-.preTitle {
-  font-family: 'Monument' !important;
-  font-size: 18px !important;
-  text-transform: uppercase;
-  color: #06D3D7 !important;
-  margin-bottom: 20px !important;
-  font-weight: 100 !important;
-  letter-spacing: 3px;
-  animation: preTitleAnim 1s ease 1;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
-  position: relative;
-  bottom: 0;
-  opacity: 0;
+.appSlogan{
+
 }
 
-@keyframes preTitleAnim {
-0% {
-  bottom: -100px;
-  opacity: 0;
-}
-100% {
-  bottom: 0;
-  opacity: 1;
-}
-}
+.footerTitle {
 
-.secTitle {
-  font-family: 'Monument' !important;
-  font-size: 30px !important;
-  margin-bottom: 20px !important;
-  text-align: center !important;
+  color: white; 
+  font-family: 'Arista';  
+  letter-spacing: 1px; 
+  font-size: 14px !important;
+  font-weight: 200 !important;  
+  padding: 24px !important;  
+
 }
 
-.mainDescription {
-  font-size: 20px !important;
-  margin-bottom: 20px !important;
-  line-height: 1.7rem !important;
-  color: rgba(255,255,255,0.7) !important;
-}
 
-.secDescription {
-  font-size: 16px !important;
-  margin-bottom: 20px !important;
-  line-height: 1.7rem !important;
-  color: #7E99B0 !important;
-}
 
-.buttonInfo {
-  background: #212B48 !important;
-  font-family: 'Monument' !important;
-  padding: 12px 20px 10px 20px !important;
-  min-width: 100% !important;
-  text-transform: capitalize !important;
-  color: #7E99B0 !important;
-  animation: buttonInfoAnim 1s ease 1;
-  animation-delay: 400ms;
-  animation-fill-mode: forwards;
-  position: relative;
-  bottom: 0;
-  opacity: 0;
-  }
 
-  @keyframes buttonInfoAnim {
-    0% {
-    bottom: -100px;
-    opacity: 0;
-    }
-    100% {
-    bottom: 0;
-    opacity: 1;
-    }
-  }
 
-.buttonEnter {
-  animation: buttonInfoAnim 1s ease 1;
-  animation-delay: 600ms;
-  animation-fill-mode: forwards;
-  position: relative;
-  bottom: 0;
-  opacity: 0;
-}
 
-.buttonEnter,
-.buttonEnterSingle {
-  background: rgba(6,211,215,0.1) !important;
-  font-family: 'Monument' !important;
-  padding: 12px 20px 10px 20px !important;
-  min-width: 100% !important;
-  text-transform: capitalize !important;
-  color: #06D3D7 !important;
-}
 
-.floatingSphere {
-    height: 600px;
-    width: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url('/images/sphere_001.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-    mix-blend-mode: lighten;
-    opacity: 0.5;
-}
-
-@media screen and (max-width: 960px) {
-  .floatingSphere { display: none; }
-
-  .homeContentMain {
-    text-align: center;
-    max-width: 80vw;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-  }
-
-  .mainDescription {
-    font-size: 16px !important;
-    margin-bottom: 20px !important;
-    line-height: 1.7rem !important;
-    color: rgba(255,255,255,0.7) !important;
-  }
-
-  .secDescription {
-    font-size: 14px !important;
-    margin-bottom: 20px !important;
-    line-height: 1.2rem !important;
-    color: #7E99B0 !important;
-  }
-
-  .buttonInfo,
-  .buttonEnter {
-    width: 100% !important;
-    margin: 0 !important;
-    float: none !important;
-  }
-
-  .buttonEnterSingle {
-    width: 100% !important;
-  }
-
-  .mainTitle {
-    font-size: 38px !important;
-    margin-bottom: 25px !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .viewCollateral {
-    margin: 80px 0 0px 15px !important;
-    float: right;
-  }
-
-  .mainTitle {
-    font-size: 32px !important;
-    margin-bottom: 25px !important;
-  }
-
-  .secTitle {
-    font-size: 20px !important;
-  }
-
-  .mainDescription {
-    font-size: 14px !important;
-    margin-bottom: 20px !important;
-    line-height: 1.4rem !important;
-    color: rgba(255,255,255,0.7) !important;
-  }
-
-  .secDescription {
-    font-size: 13px !important;
-    margin-bottom: 20px !important;
-    line-height: 1.2rem !important;
-    color: #7E99B0 !important;
-  }
-
-  .mainHeading {
-    margin: 0px 0 0px 0 !important;
-    text-align: left !important;
-    font-size: 20px !important;
-  }
-
-  .accountInfo {
-    display: none;
-  }
-}

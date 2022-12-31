@@ -238,6 +238,7 @@ const useStyles = makeStyles((theme) => ({
     width: '220px',
     position: 'relative',
     height: '40px',
+    marginLeft: '15px',
     '&:hover': {
       background: 'rgb(19, 44, 60)'
     },
@@ -288,12 +289,12 @@ const useStyles = makeStyles((theme) => ({
   },
   sphere: {        
     width: '100%',
-    height: '280px',
+    height: '200px',
     background: 'url(\'/images/Rainbow_clock_4.png\') no-repeat right',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',    
     position: 'relative',
-    bottom: '140px',        
+    bottom: '40px',        
   },
   toolbarInfo: {
     margin: '15px',

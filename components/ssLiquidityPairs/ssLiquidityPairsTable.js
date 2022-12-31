@@ -350,7 +350,7 @@ const useStyles = makeStyles((theme) => ({
     background: 'rgb(25, 33, 56)',
   },
   overrideTableHead: {
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+    borderColor: 'white',
     '@media (max-width: 1000px)': {
         display: 'none',
       },
@@ -363,46 +363,45 @@ const useStyles = makeStyles((theme) => ({
   },
   searchContainer: {
     minHeight: '60px',
-    border: '1px solid',
-    borderRadius: '18px',
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+    width: '100%',
+    background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
+    border: '1px solid transparent',
+    borderRadius: '12px',    
     '& .MuiInputBase-input': {
       border: '0 px',
     }
     
   },
   buttonOverride: {
-    color: '#0D142E',
-    position: 'relative',
+    color: '#0D142E',    
     borderRadius: '30px',
-    padding: '10px',
-    paddingLeft: '20px',
-    paddingRight: '20px',
-    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
-
+    background: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
+    marginTop: '15px',
+    marginBottom: '30px',
+    marginLeft: '30px'
   },
+  
   toolbar: {
-    margin: '48px 10px',
+    margin: 'auto',
     padding: '0px',
   },
   tableContainer: {
-    border: '1px solid',
-    borderRadius: '12px',
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+    background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
+    border: '1px solid transparent',
+    borderRadius: '12px',    
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end',
-    background: 'transparent !important',
-    background: '#141d40'
+    alignItems: 'flex-end',    
   },
   filterButton: {
-    backgroundImage: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
-    border: '1px solid rgba(126,153,176,0.3)',
-    color: '#0D142E',
+    background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
+    border: '1px solid transparent',
+    borderRadius: '12px',    
+    color: 'white',
     width: '100%',
-    height: '100%',
-    borderRadius: '20px',
+    height: '100%',    
+    marginLeft: '15px',
     boxShadow: '-3px 3px #1F2E64',
     '@media (max-width: 600px)': {
       display: 'none',
@@ -421,16 +420,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '100',
     letterSpacing: '1px'
   },
-  filterContainer: {
-    background: '#212b48',
+  filterContainer: {    
     minWidth: '300px',
-    marginTop: '15px',
-    borderRadius: '10px',
-    padding: '20px',
-    boxShadow: '0 10px 20px 0 rgba(0,0,0,0.2)',
-    border: '1px solid',
-    borderRadius: '12px',
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
+    marginTop: '15px',    
+    padding: '20px',    
+    background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
+    border: '1px solid transparent',
+    borderRadius: '12px',    
+    color: 'white',
   },
   alignContentRight: {
     textAlign: 'right',
@@ -473,12 +470,10 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   gridBanner: {
-    border: '1px solid',
-    borderRadius: '24px',
-    borderColor: '#CD74CC #FFBD59 #70DD88 #FFBD59',
-    padding: '7px',
-    background: '#141d40'
-
+    background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
+    border: '1px solid transparent',
+    borderRadius: '15px',        
+    marginBottom: '10px'
   },
   infoBanner: {
     display: 'flex',
@@ -502,15 +497,13 @@ const useStyles = makeStyles((theme) => ({
     opacity: '1',
     zIndex: '1 !important'
   },
-  gridSearchBar: {
-    paddingLeft: '0px !important',
-    paddingRight: '0px !important',
-    margin: '0px !important'
+  gridSearchBar: {    
+    marginBottom: '10px'
   },
   toolbarInfo: {
-    margin: '15px',
-    position: 'relative',
-    fontFamily: 'Arista',
+    marginTop: '30px',
+    marginLeft: '30px',
+    letterSpacing: '6px'    
   },
   title: {
     marginBottom: '24px !important',
@@ -625,139 +618,153 @@ const EnhancedTableToolbar = (props) => {
   const open = Boolean(anchorEl);
   const id = open ? 'transitions-popper' : undefined;
 
+  const renderContainersHeader = () => {
+    return( 
+      <>        
+        <Grid container xs={12} className={classes.gridBanner} justifyContent='space-between'>
+
+        <Grid direction="column" spacing={6} xs={8}>       
+
+          <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>
+          <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography></Grid>
+
+            <Grid item xs={4}>
+              <Button className={ classes.buttonOverride } onClick={ onCreate }>
+                <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
+              </Button>   
+            </Grid> 
+
+           </Grid>   
+
+            <Grid item sm={2} className={classes.gridSphere}>
+              <div className={classes.sphere}></div>
+            </Grid>
+
+        </Grid>
+      </>
+    )
+  }
+
+
+  const renderContainersCenter = () => {
+    return(
+      <>
+          {/* Search */}
+          <Grid item xs={12} className={classes.gridSearchBar} container justifyContent='space-between' spacing={2}>
+            <Grid item xs={12} sm={11}>
+              <TextField
+                className={classes.searchContainer}
+                variant="outlined"
+                fullWidth
+                placeholder="KAVA, USDC, VARA..."
+                value={search}
+                onChange={onSearchChanged}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
+          {/* Filter */}
+            <Grid item xs={0} sm={1}>
+              <Tooltip placement="top" title="Filter list">
+                <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">
+                  <FilterListIcon />
+                </IconButton>
+              </Tooltip>
+            </Grid>
+          </Grid>
+      </>
+    )
+  }
+
+  const renderListFilterOptions = () => {
+    return(
+      <>
+
+        <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
+                {({ TransitionProps }) => (
+                  <Fade {...TransitionProps} timeout={350}>
+                    <div className={classes.filterContainer}>
+                      <Typography className={classes.filterListTitle} variant="h5">List Filters</Typography>
+
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">My Deposits</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            checked={ toggleActive }
+                            name={ 'toggleActive' }
+                            onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">Show Active Gauges</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            checked={ toggleActiveGauge }
+                            name={ 'toggleActiveGauge' }
+                            onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">Show Stable Pools</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            checked={ toggleStable }
+                            name={ 'toggleStable' }
+                            onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">Show Volatile Pools</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            checked={ toggleVariable }
+                            name={ 'toggleVariable' }
+                            onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
+
+                    </div>
+                  </Fade>
+                )}
+                </Popper>
+      </>
+    )
+  }
+
   return (
     <Toolbar className={ classes.toolbar }>
 
-    <Grid container spacing={6}>
-      {/* Header */}
-      <Grid item xs={12} className={classes.gridBanner} container justifyContent='space-between'>
-          <Grid item xs={12} sm={8} container alignItems='center' justifyContent='space-around'>
-            <Grid item xs={6} container>
-              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>
-              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} variant="h2">Add liquidity and earn weekly rewards</Typography></Grid>
-            </Grid>
-
-            <Grid item xs={6}>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size='large'
-                  className={ classes.buttonOverride }
-                  onClick={ onCreate }
-              >
-                <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid item sm={4} className={classes.gridSphere}>
-            <div className={classes.sphere}></div>
-          </Grid>
-
-      </Grid>
-
-      {/* Search */}
-      <Grid item xs={12} className={classes.gridSearchBar} container justifyContent='space-between' spacing={2}>
-        <Grid item xs={12} sm={11}>
-          <TextField
-            className={classes.searchContainer}
-            variant="outlined"
-            fullWidth
-            placeholder="KAVA, USDC, VARA..."
-            value={search}
-            onChange={onSearchChanged}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Grid>
-      {/* Filter */}
-      <Grid item xs={0} sm={1}>
-
-        <Tooltip placement="top" title="Filter list">
-          <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-
-      </Grid>
-      </Grid>
+    <Grid container className={ classes.ffcontainer }>      
+        {renderContainersHeader()}
+        {renderContainersCenter()}      
     </Grid>
-    {/* <Grid container>
-      <Grid item> */}
-        <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
-        {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={350}>
-            <div className={classes.filterContainer}>
-              <Typography className={classes.filterListTitle} variant="h5">List Filters</Typography>
-
-
-              <Grid container spacing={0}>
-                <Grid item lg={9} className={classes.labelColumn}>
-                  <Typography className={classes.filterLabel} variant="body1">My Deposits</Typography>
-                </Grid>
-                <Grid item lg={3} className={classes.alignContentRight}>
-                  <Switch
-                    color="primary"
-                    checked={ toggleActive }
-                    name={ 'toggleActive' }
-                    onChange={ onToggle }
-                  />
-                </Grid>
-              </Grid>
-
-              <Grid container spacing={0}>
-                <Grid item lg={9} className={classes.labelColumn}>
-                  <Typography className={classes.filterLabel} variant="body1">Show Active Gauges</Typography>
-                </Grid>
-                <Grid item lg={3} className={classes.alignContentRight}>
-                  <Switch
-                    color="primary"
-                    checked={ toggleActiveGauge }
-                    name={ 'toggleActiveGauge' }
-                    onChange={ onToggle }
-                  />
-                </Grid>
-              </Grid>
-
-              <Grid container spacing={0}>
-                <Grid item lg={9} className={classes.labelColumn}>
-                  <Typography className={classes.filterLabel} variant="body1">Show Stable Pools</Typography>
-                </Grid>
-                <Grid item lg={3} className={classes.alignContentRight}>
-                  <Switch
-                    color="primary"
-                    checked={ toggleStable }
-                    name={ 'toggleStable' }
-                    onChange={ onToggle }
-                  />
-                </Grid>
-              </Grid>
-
-              <Grid container spacing={0}>
-                <Grid item lg={9} className={classes.labelColumn}>
-                  <Typography className={classes.filterLabel} variant="body1">Show Volatile Pools</Typography>
-                </Grid>
-                <Grid item lg={3} className={classes.alignContentRight}>
-                  <Switch
-                    color="primary"
-                    checked={ toggleVariable }
-                    name={ 'toggleVariable' }
-                    onChange={ onToggle }
-                  />
-                </Grid>
-              </Grid>
-
-
-            </div>
-          </Fade>
-        )}
-        </Popper>
-      {/* </Grid>
-    </Grid> */}
+        {renderListFilterOptions()}
     </Toolbar>
   );
 };
@@ -765,14 +772,11 @@ const EnhancedTableToolbar = (props) => {
 export default function EnhancedTable({ pairs }) {
   const classes = useStyles();
   const router = useRouter();
-
   const [order, setOrder] = useState('desc');
   const [orderBy, setOrderBy] = useState('stakedBalance');
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
-
   const localToggles = getLocalToggles()
-
   const [search, setSearch] = useState('')
   const [toggleActive, setToggleActive] = useState(localToggles.toggleActive);
   const [toggleActiveGauge, setToggleActiveGauge] = useState(localToggles.toggleActiveGauge);

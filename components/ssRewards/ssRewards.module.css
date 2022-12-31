@@ -49,7 +49,9 @@
   height: 100%;
   min-width: 200px !important;    
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
-  border-radius: 30px;
+  border-radius: 30px;  
+  position: relative;
+  margin-left: 15px !important;
 }
 
 .buttonOverride:hover {
@@ -156,31 +158,33 @@
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 30px;
+  border-radius: 12px;
   
 }
 
 .disclaimer {
-  font-size: 16px !important;
+  font-family: 'Arista';
+  text-align: center;
+  font-size: 12px !important;
   color: white;
   padding-left: 21.5px !important;
-  padding-bottom: 21.5px !important;
   letter-spacing: 2px;
 }
 
 
 .disclaimerDocs {
-  font-size: 16px !important;
+  font-family: 'Arista';
+  font-size: 12px !important;
   color: yellow;
   padding-left: 5px !important;
-  padding-bottom: 21.5px !important;
+  padding-bottom: 21.5px !important;  
 }
 
 .disclaimerMain {
-  font-size: 16px !important;
-  color: #CD74CC;
-  padding: 21.5px !important;
-  letter-spacing: 4px;
+  font-family: 'Arista';
+  font-size: 12px !important;
+  color: #CD74CC;  
+  letter-spacing: 2px;
 }
 
 .gridBanner {      
@@ -212,9 +216,15 @@
   background-repeat: no-repeat;  
 }
 
+
 .toolbarInfo {
-  margin: 15px;
-  
+  margin: 15px;  
+}
+
+.containerTitles{
+  position: relative;
+  padding-top: 15px !important;  
+  padding-left: 10px !important
 }
 
 .title {
@@ -233,7 +243,7 @@
   font-weight: 300 !important;
   font-size: 20px;
   line-height: 27px;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.16em;
   color: #FFFFFF;
 }
 

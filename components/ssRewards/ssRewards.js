@@ -1,31 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { styled, makeStyles } from '@material-ui/core/styles';
-import {
-  Button,
-  Typography,
-  Tooltip,
-  IconButton,
-  TextField,
-  InputAdornment,
-  Popper,
-  Fade,
-  Grid,
-  Toolbar,
-  Switch,
-  Select,
-  MenuItem
-} from '@material-ui/core';
+import { Button, Typography,   Grid, Toolbar,   Select, MenuItem} from '@material-ui/core';
 import classes from './ssRewards.module.css';
-
-import FilterListIcon from '@material-ui/icons/FilterList';
-import SearchIcon from '@material-ui/icons/Search';
 import RewardsTable from './ssRewardsTable.js'
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-
 import { formatCurrency } from '../../utils';
 import stores from '../../stores'
 import { ACTIONS } from '../../stores/constants';
-
 import { REWARDS } from '../../stores/constants/mocks';
 
 export default function ssRewards() {
@@ -40,6 +20,8 @@ export default function ssRewards() {
   const [ token, setToken ] = useState(null)
   const [ veToken, setVeToken ] = useState(null)
   const [ loading, setLoading ] = useState(false)
+
+  
 
   const stableSwapUpdated = (rew) => {
     const nfts = stores.stableSwapStore.getStore('vestNFTs')
@@ -144,18 +126,33 @@ export default function ssRewards() {
   const id = open ? 'transitions-popper' : undefined;
 
   const useStyles = makeStyles((theme) => ({
+
+    container: {
+      marginTop: "10%",
+    },
+    formControl: {
+      minWidth: 120,
+    },
+    label: {
+      color: "#CD74CC",
+      "&.Mui-focused": {
+        color: "#CD74CC",
+      },
+    },
+    select: {
+      "&:after": {
+        borderBottomColor: "#CD74CC",
+      },
+      "& .MuiSvgIcon-root": {
+        color: "#CD74CC",
+      },
+    },
+
+
   }))
 
-  const Img = styled('img')({
-    position: 'relative',
-    marginLeft: '10px',    
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-    
-  });
+  const classesSelect = useStyles();
   
-
   const renderMediumInput = (value, options) => {
     return (
       <div className={ classes.textField}>
@@ -164,12 +161,13 @@ export default function ssRewards() {
             <Grid item xs={4}>
               <Typography variant="body2" className={ classes.helpText }>Please select your veVARA:</Typography>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={8}>
             <div className={ classes.mediumInputAmount }>
               <Select
                 fullWidth
                 value={ value }
                 onChange={handleChange}
+                className={classesSelect.select}
                 InputProps={{
                   className: classes.mediumInput,
                 }}
@@ -201,13 +199,13 @@ export default function ssRewards() {
 
         <Grid container className={ classes.container } alignItems='center' justifyContent='center' spacing={6} >
 
-
           <Grid item container className={classes.gridBanner} xs={12} justifyContent="center" alignItems="flex-start">
 
-            <Grid item container direction="column" xs={8}  justifyContent="flex-start">            
+            <Grid item container direction="column" xs={8}  justifyContent="flex-start"  className={classes.containerTitles}>            
             
               <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Rewards</Typography></Grid>    
-              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle}  variant="h2">Claim rewards for locking tokens, including new token emissions, bribes and a slice of the transaction fees from your pools</Typography></Grid>                                  
+              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} >Claim rewards for locking tokens, including new token emissions</Typography></Grid>                                  
+              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} >bribes and a slice of the transaction fees from your pools.</Typography></Grid>                                                
             </Grid>   
 
             <Grid item xs={4} justifyContent="center" alignItems="center">            
@@ -229,8 +227,7 @@ export default function ssRewards() {
         
 
           <Grid item xs={12} className={ classes.disclaimerContainer }>
-              <Typography className={ classes.disclaimerMain }>Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim.</Typography>
-              <Typography className={ classes.disclaimer }>For details refer to our <a className={ classes.disclaimerDocs }>docs</a></Typography>              
+              <Typography className={ classes.disclaimerMain }  >Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim. For details refer to our<a className={ classes.disclaimerDocs }>docs</a>.</Typography>                            
           </Grid>
 
           <Grid item xs={12} className={classes.tableContainer}>

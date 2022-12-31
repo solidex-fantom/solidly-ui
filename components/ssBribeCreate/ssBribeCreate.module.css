@@ -2,18 +2,24 @@
   margin-top: 10%;
   margin-bottom: 10%;
   margin-inline: 15%;
-  border: 1px solid;
-  border-radius: 30px !important;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  
   box-sizing: border-box;
   padding-bottom: 5%;
   padding-top: 5%;
+
+  background: 
+    linear-gradient(#131b4c 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+    
+  border: 1px solid transparent;  
 }
 
 .smallerText {
   font-size: 12px !important;
+  font-family: 'Arista';
   margin-top: 0px !important;
   margin-bottom: 0px !important;
+  letter-spacing: 2px;
 }
 
 .inputsContainer {
@@ -168,7 +174,6 @@
   padding: 10px;
 }
 
-
 .img1Logo {
   position: absolute;
   left: 0px;
@@ -193,8 +198,6 @@
   font-size: 30px !important;
 }
 
-
-
 .depositInfoContainer {
   margin-top: 12px;
   padding: 12px;
@@ -209,7 +212,7 @@
 .depositInfoHeading {
   width: 100%;
   padding-bottom: 12px !important;
-  font-size: 12px !important;
+  font-size: 10px !important;
   line-height: 23px !important;
   text-align: center;
   color: #FFF !important;
@@ -244,6 +247,7 @@
 }
 
 .titleText {
+  font-family: 'Arista';
   font-size: 16px !important;
   letter-spacing: normal !important;
 }
@@ -256,6 +260,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista';
   font-size: 12px !important;
   margin-top: 5px !important;
 }

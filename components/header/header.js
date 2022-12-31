@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
-import { Typography, Switch, Button, SvgIcon, Badge, IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Grid, Hidden, SwipeableDrawer, Divider } from '@material-ui/core';
+import { Typography, Switch, Button, SvgIcon, Badge, IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Grid, SwipeableDrawer, Divider } from '@material-ui/core';
 import { withStyles, withTheme } from '@material-ui/core/styles';
 import ListIcon from '@material-ui/icons/List';
 import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined';
@@ -19,7 +19,7 @@ import { ChevronLeft } from '@material-ui/icons';
 import MobileNavigation from '../mobileNavigation/mobileNavigation';
 import {formatCurrency} from "../../utils";
 
-const { CONNECT_WALLET,CONNECTION_DISCONNECTED, ACCOUNT_CONFIGURED, ACCOUNT_CHANGED, FIXED_FOREX_BALANCES_RETURNED, FIXED_FOREX_CLAIM_VECLAIM, FIXED_FOREX_VECLAIM_CLAIMED, FIXED_FOREX_UPDATED, ERROR } = ACTIONS
+const { CONNECT_WALLET,CONNECTION_DISCONNECTED, ACCOUNT_CONFIGURED, ACCOUNT_CHANGED, FIXED_FOREX_BALANCES_RETURNED, FIXED_FOREX_CLAIM_VECLAIM, FIXED_FOREX_VECLAIM_CLAIMED, FIXED_FOREX_UPDATED, ERROR, HIDE_HEADER } = ACTIONS
 
 
 function WrongNetworkIcon(props) {
@@ -134,6 +134,7 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
+
 function Header(props) {
 
   const accountStore = stores.accountStore.getStore('account');
@@ -141,6 +142,7 @@ function Header(props) {
 
   const [account, setAccount] = useState(accountStore);
   const [darkMode, setDarkMode] = useState(props.theme.palette.type === 'dark' ? true : false);
+  const [hiddenMode, setHidden] = useState(false);
   const [unlockOpen, setUnlockOpen] = useState(false);
   const [chainInvalid, setChainInvalid] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -148,6 +150,8 @@ function Header(props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [accountBalance, setAccountBalance] = useState(0);
   const [accountToken, setAccountToken] = useState('KAVA');
+
+  const [darkBackground, setBackground] = useState(false);
 
   useEffect(() => {
     const accountConfigure = () => {
@@ -165,8 +169,15 @@ function Header(props) {
 
     const invalid = stores.accountStore.getStore('chainInvalid');
     setChainInvalid(invalid)  
-    
+
+    const hiddenHeader = () => {
+      setHidden(true);
+    }
+     
     getBalance()
+    setHidden(false);
+
+    stores.emitter.on(HIDE_HEADER, hiddenHeader);
 
     stores.emitter.on(ACCOUNT_CONFIGURED, accountConfigure);
     stores.emitter.on(CONNECT_WALLET, connectWallet);
@@ -175,8 +186,25 @@ function Header(props) {
       stores.emitter.removeListener(ACCOUNT_CONFIGURED, accountConfigure);
       stores.emitter.removeListener(CONNECT_WALLET, connectWallet);
       stores.emitter.removeListener(ACCOUNT_CHANGED, accountChanged);
+      stores.emitter.removeListener(HIDE_HEADER, hiddenHeader);
     };
   }, []);
+
+
+
+  const listenScrollEvent = e => {    
+    
+    if (window && window.scrollY > 200) {      
+      setBackground(true);
+    } else {      
+      setBackground(false);
+    }
+  }
+
+  window.addEventListener('scroll', listenScrollEvent)
+
+
+
 
   const handleToggleChange = (event, val) => {
     setDarkMode(val);
@@ -312,7 +340,7 @@ function Header(props) {
 
         <div>
            
-            <Grid container className={classes.containerMenu} alignItems="center" spacing={1}>
+            <Grid container className={classes.containerMenu} alignItems="center">
 
                 <Grid item xs={4} className={classes.headAccountBalance}>
                   <Typography className={classes.headBtnTxt}>{formatCurrency(accountBalance)}{accountToken}</Typography>
@@ -332,11 +360,9 @@ function Header(props) {
                       <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
                         <Img alt="complex" src="/images/Wallet_Icon.svg" />
                       </IconButton>          
-                    
+
                     </Button>
-
                 </Grid>                       
-
             </Grid>                     
                                                                 
 
@@ -399,17 +425,20 @@ function Header(props) {
         {renderTestNet()}
         {renderTransactionsQueue()}
         {renderWalletInfo()}
-        {renderModal()}                                
+        {renderModal()}   
+        {renderSocialMenu()}
       </>
     )
   } 
 
   const renderSocialMenu = () => {
+    
     return (
-      <>          
-          <IconButton onClick={handleClick} aria-label="social list">                      
-              <Img alt="complex" src="/images/Linktree_icon.svg"/>
-          </IconButton>                                                     
+      <>                
+          <IconButton onClick={handleClick} aria-label="social list" className={classes.socialButton} >                      
+              <Img alt="complex" src="/images/Linktree_icon.svg" width={"70%"}/>
+          </IconButton>                                                             
+          
       </>
     )
   }
@@ -433,27 +462,15 @@ function Header(props) {
     )
   }
 
-
-  return (
-
-    <div>
-
-        <Grid container className={classes.headerContainer} alignItems='center' justifyContent='space-between'>
-          <Hidden smDown>
-          <Grid item xs={12} sm={4} md={3} justifyContent={{xs:"center",sm:'flex-start'}} className={classes.appLogo}>
-            <a onClick={() => router.push('/home')}> <Img alt="complex" src="/images/Logo.png" /></a>          
-          </Grid>
-
-          <Grid item xs={9} lg={6} className={classes.containerNav} >
-              <Navigation changeTheme={props.changeTheme} />
-          </Grid>
-          </Hidden>
-          <Hidden mdUp>
-            <IconButton>
+  const renderMobileMenu = () => {
+    
+    return (
+      <>
+          <IconButton sx={{ display: { xl: 'none', xs: 'block' } }}>
               <MenuIcon onClick={() => setMobileMenuOpen(true)} />
-            </IconButton>
-          </Hidden>
-          <SwipeableDrawer 
+            </IconButton>          
+
+          <SwipeableDrawer sx={{ display: { xl: 'none', xs: 'block' } }}
               anchor='left' 
               open={mobileMenuOpen} 
               onOpen={() => setMobileMenuOpen(true)} 
@@ -468,23 +485,47 @@ function Header(props) {
             <Divider />
             <MobileNavigation  />
           </SwipeableDrawer>
-          <Grid item xs={8} sm={4} md={3} xl={2} className={classes.containerMenuWallet}>
-                {renderRightMenuWallet()}                      
-          </Grid>
+        </>
+    )
+  }
 
-        </Grid>
-
-        {renderNotConnected()}
-
-      <div>
-                      
-    </div>
+  return (
+    <> {hiddenMode ? null : (
+          <div>
 
 
+            <Grid container className={classes.headerContainer} alignItems='center' justifyContent='space-between' 
+                      style={{background : `${darkBackground ? '#0D142E' : ''}`}}>
+
+            <Grid item justifyContent={'flex-start'} className={classes.containerMobile}>
+                  {renderMobileMenu()};
+              </Grid>
+                        
+              <Grid item sm={3} justifyContent={'flex-start'} className={classes.containerLogo}>            
+                <a onClick={() => router.push('/home')}> <Img className={classes.appLogo}  alt="complex" src="/images/Logo.png" /></a>                                  
+              </Grid>          
+
+              <Grid item justifyContent={'center'} className={classes.containerNav} >
+                  <Navigation changeTheme={props.changeTheme} />
+              </Grid>          
+                                    
+              <Grid item sm={3} alignItems="center" justifyContent={'flex-end'} className={classes.containerMenuWallet}>
+                    {renderRightMenuWallet()}                               
+              </Grid>
+
+            </Grid>
+
+            {renderNotConnected()}
+
+        <div>
+                        
+      </div>    
       
-    </div>
+      </div>    
+    )}
 
-  );
+    </>
+  )
 }
 
 export default withTheme(Header);

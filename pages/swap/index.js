@@ -42,63 +42,65 @@ function Swap({ changeTheme }) {
     setUnlockOpen(false);
   };
 
-  return (
-    <div className={classes.ffContainer}>
-      {account && account.address ? (
-        <Grid container alignItems="center" justifyContent="center" spacing={6}>
-          <Grid
-            container
-            item
-            className={classes.endAsset}
-            alignItems="center"
-            justifyContent="center"
-            lg={6}
-            xs={12}
-          >
-            <Grid item xl={12}>
-              <Typography className={classes.title} variant="h1">
-                Swap
-              </Typography>
-              <Typography className={classes.subtitle}>
-                Enjoy minimal slippage, low swapping fees and deep liquidity
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={6} xl={12}>
-              <div className={classes.sphere}></div>
-            </Grid>
+
+  const renderContainerConnect = () => {
+    return (
+      <>
+          <Grid container alignItems="center" justifyContent="center" spacing={6}>
+            <Paper className={classes.notConnectedContent}>
+              <div className={classes.contentFloat}>
+                <Typography className={classes.title} variant="h1">
+                  
+                </Typography>
+                <Typography className={classes.subtitle} variant="body2">
+                  
+                </Typography>
+                <Button
+                  disableElevation
+                  className={classes.buttonConnect}
+                  variant="contained"
+                  onClick={onAddressClicked}
+                >
+                  {account && account.address && (
+                    <div
+                      className={`${classes.accountIcon} ${classes.metamask}`}
+                    ></div>
+                  )}
+                  <Typography>Connect Wallet</Typography>
+                </Button>
+              </div>
+            </Paper>
+          </Grid>
+      </>
+    )
+  }
+
+  const renderContainer = () => {
+    return(
+
+      <>
+      <Grid container alignItems="center" justifyContent="center" spacing={0}>
+
+          <Grid item alignItems="center" justifyContent="center" lg={6} xs={12}>                          
+              <Typography className={classes.title} variant="h1">Swap</Typography>
+              <Typography className={classes.subtitle}>Minimal slippage, low swapping fees & deep liquidity</Typography>
+              <div className={classes.sphere}></div>                          
           </Grid>
 
-          <Grid item lg={6} xs={12}>
+          <Grid className={classes.swapContainer} item xs={12} lg={6}>
+            
             <SwapComponent />
           </Grid>
+          
         </Grid>
-      ) : (
-        <Grid container alignItems="center" justifyContent="center" spacing={6}>
-          <Paper className={classes.notConnectedContent}>
-            <div className={classes.contentFloat}>
-              <Typography className={classes.title} variant="h1">
-                Swap
-              </Typography>
-              <Typography className={classes.subtitle} variant="body2">
-                Enjoy minimal slippage, low swapping fees and deep liquidity.
-              </Typography>
-              <Button
-                disableElevation
-                className={classes.buttonConnect}
-                variant="contained"
-                onClick={onAddressClicked}
-              >
-                {account && account.address && (
-                  <div
-                    className={`${classes.accountIcon} ${classes.metamask}`}
-                  ></div>
-                )}
-                <Typography>Connect Wallet to Continue</Typography>
-              </Button>
-            </div>
-          </Paper>
-        </Grid>
-      )}
+      </>
+
+    )
+  }
+
+  return (
+    <div className={classes.ffContainer}>
+      {account && account.address ? renderContainer() : renderContainerConnect()}
       {unlockOpen && <Unlock modalOpen={unlockOpen} closeModal={closeUnlock} />}
     </div>
   );

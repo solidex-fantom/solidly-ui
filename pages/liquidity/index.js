@@ -15,6 +15,7 @@ function Liquidity({ changeTheme }) {
   const [account, setAccount] = useState(accountStore);
   const [unlockOpen, setUnlockOpen] = useState(false);
 
+  
   useEffect(() => {
     const accountConfigure = () => {
       const accountStore = stores.accountStore.getStore('account');

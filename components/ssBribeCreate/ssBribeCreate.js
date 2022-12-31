@@ -232,7 +232,7 @@ export default function ssBribeCreate() {
   const renderCreateInfo = () => {
     return (
       <div className={ classes.depositInfoContainer }>
-        <Typography className={ classes.depositInfoHeading } >You are creating a bribe of <span className={classes.highlight}>{ formatCurrency(amount) } { asset?.symbol }</span> to incentivize Voters to vote for the <span className={classes.highlight}>{ gauge?.token0?.symbol }/{ gauge?.token1?.symbol } Pool</span></Typography>
+        <Typography className={ classes.depositInfoHeading } >You are creating a bribe of <span className={classes.highlight}>{ formatCurrency(amount) } { asset?.symbol }</span> for the <span className={classes.highlight}>{ gauge?.token0?.symbol }/{ gauge?.token1?.symbol } Pool</span></Typography>
       </div>
     )
   }
@@ -351,7 +351,7 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
+          <Typography variant='subtitle1' color='textSecondary'>t{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectActions}>
           <IconButton onClick={ () => { deleteOption(asset) } }>
