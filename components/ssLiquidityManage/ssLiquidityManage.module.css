@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: center;
   margin-right: 5%;
-  width: 50%;
+  /*transform: scale(0.7);*/
+
   background: 
     linear-gradient(#131b4c 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 12px;    
-  
+  border-radius: 12px;      
   box-shadow: 1px 1px #0D142E;
 }
 
@@ -256,8 +256,8 @@
 .buttonActive {
   border-radius: 10px 10px 0px 0px !important;
   flex: 1;
-  border-bottom: 1px solid #CD74CC !important; 
-  color: #CD74CC !important;
+  border-bottom: 1px solid #FFBD59 !important; 
+  color: #FFBD59 !important;
   margin-top: 1px;
 } 
 
@@ -300,7 +300,7 @@
 }
 
 .buttonGreen{
-  background: rgb(112, 221, 136) !important;
+  background: #70DD88 !important;
   color: rgb(20 30 63) !important;
   font-weight: 200 !important;
 }
@@ -643,9 +643,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;  
-  border: 1px solid;
-  border-radius: 15px;    
-  border-color: #CD74CC #FFBD59 #70DD88 #FFBD59;
+  
   box-shadow: 1px 1px #0D142E;
   height: 50px;
 
@@ -677,7 +675,7 @@
 
 .toggleOption.active {
   border: 1px solid;
-  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
   color: #111729 !important;
   border-radius: 15px;    
 }
@@ -756,6 +754,10 @@
   flex-direction: column;
   margin-top: 12px;
   min-width: 390px;
+}
+
+.smallInput{
+  text-align: right !important;
 }
 
 .smallInputContainer {

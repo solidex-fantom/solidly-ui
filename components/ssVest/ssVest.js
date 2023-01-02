@@ -70,13 +70,15 @@ export default function ssVest() {
     <div className={ classes.vestContainer }>
       
 
-      <Grid container xs={12} justifyContent="space" alignItems="center">
+      <Grid container xs={12} justifyContent="space-between" alignItems="center">
 
               <Grid item xs={12} md={6} justifyContent="center" alignItems="center" container>       
 
                 <Grid item xs={12} className={classes.descTp} direction="column" >              
                     <Typography className={classes.title}>Create Lock</Typography>
-                    <Typography className={classes.subtitle}>More tokens locked for longer = greater voting power = higher rewards</Typography>
+                    <Typography className={classes.subtitle}>Amount of tokens locked <a className={classes.yellow}>+</a> vesting period length <a className={classes.yellow}>=</a> Voting Power Size</Typography>
+                    <Typography className={classes.subtitle1}>With great voting power come great rewards.</Typography>
+                    
                 </Grid>     
 
                 <Grid item xs={12}>              

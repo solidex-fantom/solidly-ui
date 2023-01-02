@@ -251,22 +251,33 @@ export default function ssLock({ govToken, veToken }) {
     router.push('/vest')
   }
 
+  const renderOptionsExpires = () => {
+    return (
+      <>
+
+            <div className={ classes.inline }>
+              <Typography className={ classes.expiresIn }>Expires:</Typography>
+              <RadioGroup className={classes.vestPeriodToggle} row onChange={handleChange} value={selectedValue}>
+                <FormControlLabel className={ classes.vestPeriodLabel } value="week" control={<ColorRadio />} label="1 week" labelPlacement="left" />
+                <FormControlLabel className={ classes.vestPeriodLabel } value="month" control={<ColorRadio />} label="1 month" labelPlacement="left" />
+                <FormControlLabel className={ classes.vestPeriodLabel } value="year" control={<ColorRadio />} label="1 year" labelPlacement="left" />
+                <FormControlLabel className={ classes.vestPeriodLabel } value="years" control={<ColorRadio />} label="4 years" labelPlacement="left" />
+              </RadioGroup>
+          </div>
+      </>
+    )
+  }
+
   return (
     <>
       <Paper elevation={0} className={ classes.container3 }>
         
+
         { renderMassiveInput('amount', amount, amountError, onAmountChanged, govToken) }
         <div>
           { renderMassiveDateInput('date', selectedDate, selectedDateError, handleDateChange, govToken?.balance, govToken?.logoURI) }
-          <div className={ classes.inline }>
-            <Typography className={ classes.expiresIn }>Expires: </Typography>
-            <RadioGroup className={classes.vestPeriodToggle} row onChange={handleChange} value={selectedValue}>
-              <FormControlLabel className={ classes.vestPeriodLabel } value="week" control={<ColorRadio />} label="1 week" labelPlacement="left" />
-              <FormControlLabel className={ classes.vestPeriodLabel } value="month" control={<ColorRadio />} label="1 month" labelPlacement="left" />
-              <FormControlLabel className={ classes.vestPeriodLabel } value="year" control={<ColorRadio />} label="1 year" labelPlacement="left" />
-              <FormControlLabel className={ classes.vestPeriodLabel } value="years" control={<ColorRadio />} label="4 years" labelPlacement="left" />
-            </RadioGroup>
-          </div>
+          {renderOptionsExpires()}
+          
         </div>
         { renderVestInformation() }
         <div className={ classes.actionsContainer }>

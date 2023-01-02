@@ -2,14 +2,20 @@
   
   width: calc(100% - 180px);  
   margin: 0 auto;
-  position: relative;    
-  max-width: 1400px;
+  position: relative;      
+  transform: scale(0.9);
 }
 
 .smallerText {
   font-size: 12px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
+  color: white;
+}
+
+.voteText {
+  font-size: 12px !important;
+  margin-top: 23px !important;  
   color: white;
 }
 
@@ -302,12 +308,12 @@
 }
 
 .expiresIn {
-  background: none;  
-  width: 80px;
+  background: none;    
   font-family: 'Arista' !important;      
   font-size: 16px !important;
   font-weight: bold;  
   color: #CD74CC;
+  margin-right: 20px !important;
 }
 
 .vestPeriodToggle {
@@ -316,8 +322,10 @@
 }
 
 .vestPeriodLabel > span {
-  padding: 10px;
-  font-size: 14px !important;
+  text-align: flex-end;
+  padding: 1px;
+  margin-left: 3px;
+  font-size: 12px !important;
 }
 
 .vestingInfoContainer {
@@ -602,13 +610,11 @@
 
 
 .sphere {      
-  height: 420px;  
+  height: 300px;  
   background-image: url('/images/Rainbow_clock_4.png');
   background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  
+  background-repeat: no-repeat;  
 }
 
 .descTp {
@@ -643,13 +649,31 @@
 
 .subtitle {
   text-align: center !important;
-  font-size: 18px !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
   font-family: 'Arista' !important;  
   color: #FFFFFF;
-  letter-spacing: 6px;
-  margin: 50px auto 50px auto !important;
+  letter-spacing: 1.5px;
+  margin: 50px auto 20px auto !important;
   line-height: 1.5
+}
+
+.subtitle1 {
+
+  text-align: center !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  font-family: 'Arista' !important;  
+  color: #FFFFFF;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px !important;
+  line-height: 1.5
+  
+}
+
+
+.yellow{
+  color: #FFBD59;
 }
 
 

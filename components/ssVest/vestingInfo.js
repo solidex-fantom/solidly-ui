@@ -28,7 +28,8 @@ export default function VestingInfo({ currentNFT, futureNFT, veToken, govToken, 
                   <Grid container  className={classes.mrgTp20}>
 
                     <Grid lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center" >
-                      <Typography>Your voting power will be:</Typography>          
+                      <Typography className={ classes.voteText }>Your voting power will be:</Typography>          
+
                     </Grid>
 
                     <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>

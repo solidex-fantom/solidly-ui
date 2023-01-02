@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   margin: auto;  
+  margin-top: 180px;
+}
+
+.swapContainer {
+  position: relative !important;
+  margin-top: -100px !important;
 }
 
 .notConnectedContent {
@@ -21,25 +27,19 @@
   top: 0;
 }
 
-
 .contentFloat {
   position: relative;
   z-index: 9;
 }
 
-.swapComp {
-  display: inline-block;      
-}
-
-
 .sphere {      
-  height: 420px;  
+  min-height: 250px;
   background-image: url('/images/Balls_at_balance_-_Graphic.png');
   background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  margin-top: -80px;
+  background-repeat: no-repeat;  
+  position: relative !important;
+  margin-top: -80px !important;
 }
 
 .overviewIcon {
@@ -57,13 +57,12 @@
   font-weight: 400;  
   line-height: 62px;
   letter-spacing: 0.13em;
-  color: #FFFFFF;
-  
+  color: #FFFFFF;    
 }
 
 .subtitle {
   text-align: center !important;
-  font-size: 21px !important;
+  font-size: 18px !important;
   font-weight: 300 !important;
   font-family: 'Arista' !important;  
   color: #FFFFFF;
@@ -73,7 +72,6 @@
   line-height: 27px;
   letter-spacing: 0.13em;  
 }
-
 
 .buttonConnect {
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
@@ -90,6 +88,7 @@
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
+
 .buttonConnect:hover {
   background: #FFBD59 !important;
   color: #111729 !important;

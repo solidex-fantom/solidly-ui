@@ -137,17 +137,33 @@ export default function ssVotes() {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
-  const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  });
-
+ 
 
   const useStyles = makeStyles((theme) => ({
 
-  }));
+    container: {
+      marginTop: "10%",
+    },
+    formControl: {
+      minWidth: 120,
+    },
+    label: {
+      color: "#CD74CC",
+      "&.Mui-focused": {
+        color: "#CD74CC",
+      },
+    },
+    select: {
+      "&:after": {
+        borderBottomColor: "#CD74CC",
+      },
+      "& .MuiSvgIcon-root": {
+        color: "#CD74CC",
+      },
+    },
+
+
+  }))
   
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -167,6 +183,7 @@ export default function ssVotes() {
                   fullWidth
                   value={ value }
                   onChange={handleChange}
+                  className={classesSelect.select}
                   InputProps={{
                     className: classes.mediumInput,
                   }}
@@ -193,25 +210,30 @@ export default function ssVotes() {
     )
   }
 
+  const classesSelect = useStyles();
+
   return (
 
     <div className={ classes.container }>
       <div className={ classes.topBarContainer }>
 
-        <Grid container spacing={6}>
+        <Grid container spacing={2}>
 
-          <Grid container className={classes.gridBanner} xs={12} alignItems="center">
+          <Grid container className={classes.gridBanner} xs={12} justifyContent='space-between' alignContent='center'>
 
             <Grid direction="column" xs={8}>    
               <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Vote</Typography></Grid>                                
-              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}  variant="h2">Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
+              <Grid className={classes.toolbarInfo1}><Typography className={classes.subtitle}  variant="h2">Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
             </Grid>   
 
-            <Grid item display='flex' xs={4}>            
+            <Grid item xs={4}>            
               <div className={classes.sphere}></div>  
             </Grid>
                                 
-          </Grid>   
+          </Grid> 
+
+
+
           <Grid item container justifyContent='space-evenly' spacing={2} className={classes.middleTopContainer}>
             <Grid item xs={5}>
 
@@ -223,7 +245,7 @@ export default function ssVotes() {
                 onChange={onSearchChanged}
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">
+                    <InputAdornment position="center" className={classes.searchVote1}              >
                       <SearchIcon />
                     </InputAdornment>
                   ),
@@ -240,7 +262,7 @@ export default function ssVotes() {
             <Grid item xs={1}>      
           
               <Tooltip placement="top" title="Filter list">        
-                <IconButton onClick={handleClick} className={ classes.filterButton1 } aria-label="filter list">                                    
+                <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                                    
                     <FilterListIcon />              
                 </IconButton>          
 
@@ -252,7 +274,7 @@ export default function ssVotes() {
             <Grid direction="column">  
               <Grid><Typography className={classes.toolbarText}>Votes are due by Wendnesday at <a className={classes.toolbarSubText}>23:59 UTC</a>, when the next epoch begins. Each veNFT can only cast votes once per epoch.</Typography></Grid>    
               <Grid><Typography className={classes.toolbarText}>Your vote will allocate <a className={classes.toolbarSubText}>100%</a> of that  veNFT's vote power. Each veNFT's votes will carry over into the next epoch.</Typography></Grid>                 
-              <Grid><Typography className={classes.toolbarText}>Voters will earn bribes no matter when in the epoch the bribes are added.  <a className={ classes.disclaimerDocs1 }>For details refer</a> <a className={ classes.disclaimerDocs }>docs</a></Typography></Grid>     
+              <Grid><Typography className={classes.toolbarText}>Voters will earn bribes no matter when in the epoch the bribes are added.  <a className={ classes.disclaimerDocs1 }>For details refer</a><a href='https://equilibre-finance.gitbook.io/equilibre-finance/what-is-equilibre/trading-and-liquidity-marketplace' className={ classes.disclaimerDocs }>docs</a></Typography></Grid>     
             </Grid>             
          </Grid>            
       </Grid>
@@ -279,7 +301,7 @@ export default function ssVotes() {
 
       </Paper>
       
-      <Paper elevation={10} className={ classes.actionButtons }>
+      <Paper elevation={10} className={ `${BigNumber(totalVotes).gt(0) ? classes.actionButtons : classes.actionButtons1}` }>
         <Grid container spacing={2}>
           <Grid item lg={6}>
             <div className={ classes.infoSection }>

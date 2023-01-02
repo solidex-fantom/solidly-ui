@@ -14,8 +14,10 @@
 
 .smallerText {
   font-size: 12px !important;
+  font-family: 'Arista';
   margin-top: 0px !important;
   margin-bottom: 0px !important;
+  letter-spacing: 2px;
 }
 
 .helpIcon {

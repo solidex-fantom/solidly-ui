@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-.ffContainer {
-  
+.ffContainer {  
   display: flex;
   flex-direction: column;  
-  
+  margin: auto;  
+  margin-top: 100px;  
 }
 
 .connected {
   background: none;  
 }
+
 
 .notConnectedContent {
   width: calc(100%) !important;

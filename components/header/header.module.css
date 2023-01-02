@@ -1,6 +1,6 @@
 .headerContainer {
   padding: 45px 50px;
-  position: static;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 9 !important;
@@ -17,16 +17,6 @@
   width: fit-content !important;
   display: flex;
   justify-content: flex-end;
-}
-
-.subcontainerMenu {  
- 
-}
-
-.containerNav {    
-  border: 1px solid transparent;
-  display: flex;
-  justify-content: center;
 }
 
 .containerMenuWallet {              
@@ -59,7 +49,7 @@
 
 .appLogo {    
   cursor: pointer;
-  transform: scale(0.50);
+  
 }
 
 .version {
@@ -218,14 +208,12 @@
 .headAccountBalance {
   position: relative;
   margin: auto;  
-  padding-left: 5% !important;
-  /* margin-bottom: 13px;
-  margin-left: 25px; */
+  padding-left: 5% !important;  
 }
 
 
 .headBtnTxt {
-  font-size: 11px !important;
+  font-size: 10px !important;
   font-weight: 400 !important;      
   font-style: normal;
   line-height: 19px;
@@ -234,7 +222,9 @@
 }
 
 .containerLogo {  
-  height: 30px;
+  position: relative;
+  margin: auto;  
+  padding-right: 10% !important;
 }
 
 .metamask {
@@ -353,19 +343,29 @@
   width: 50%;
 }
 
+.appLogo {        
+  padding-top: 2%;  
+} 
+
+.socialButton:hover {
+ 
+}
+
 
 @media screen and (max-width: 1600px) {
 
+  .containerMobile{
+    display: none !important;
+  }
 
   .headerContainer {
     padding: 2%;  
   }
 
   .socialButton {
-    width: 80%;
+    
   }
-  
-
+      
 }
 
 @media screen and (max-width: 1200px) {
@@ -380,35 +380,78 @@
 
   .userMenuText {
     transform: scale(1);
+  }  
+
+  .containerMobile{
+    display: none !important;
+  }
+
+  .containerLogo{
+    display: block;
   }
 
   .socialButton {
-    display: none;   
+    transform: scale(0.7);
   }
-
-  /* .appLogo {
-    display: flex;
-    align-items: center;
-  } */
 
 }
 
 @media screen and (max-width: 1024px) {
  
-
-  .appLogo {
-    transform: scale(0.85);
+  .containerNav {
+    transform: scale(0.7);
   }
-  /* .containerMenuWallet {              
-    display: none;   
-  } */
+  
   .transactionButton{
     display: none !important;
   }
 
+  .socialButton {
+    display: none!important;
+  }
+
+  .containerNav{
+    display: none;
+  }
+
+  .containerMobile{
+    display: block !important;
+  }
+  
+  .containerLogo{
+    display: block;
+    position: relative;
+    margin-left: 10px;
+  }
+
+  .headBtnTxt {
+    font-size: 8px !important;
+    font-weight: 400 !important;      
+    font-style: normal;
+    line-height: 19px;
+    letter-spacing: 0.10em;
+    color: #FFFFFF;
+  }
+  
 }
 
 @media screen and (max-width: 560px) {
+
+  .containerLogo{
+    display: none;
+  }
+  
+  .containerGridDesktop {
+    display: none;
+  }
+
+  .containerMobile{
+    display: block !important;
+  }
+
+  .containerNav {
+    display: none;
+  }
   
   .accountButton {
     display: none;
@@ -419,15 +462,15 @@
   }
 
   .socialButton {
-    display: none;   
+    display: none !important;   
   }
-
-
 
   .containerMenuWallet {              
     padding-top: 2%;
     padding-right: 2%;
   }
+
+
  
 }
 

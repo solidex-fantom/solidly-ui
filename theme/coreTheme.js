@@ -129,7 +129,11 @@ const coreTheme = {
     },
     MuiButton: {
       root: {
-        minWidth: "50px"
+        minWidth: "50px",
+        "&:hover": {
+          backgroundColor: '"#131b4c',
+        },
+        
       },
       outlinedSizeSmall: {
         fontSize: "0.7rem",

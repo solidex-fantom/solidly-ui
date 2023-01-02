@@ -20,7 +20,7 @@ function Bribe({ changeTheme }) {
             Bribes
           </Typography>
           <Typography className={classes.subtitle}>
-            Offer incentives to attract votes and maximize emissions awarded to your pools
+            Add incentives to your LPs to attract voters to it
           </Typography>
         </Grid>
         <Grid item xs={12}>
