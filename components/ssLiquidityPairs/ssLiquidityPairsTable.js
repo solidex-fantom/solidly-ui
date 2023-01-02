@@ -858,7 +858,7 @@ export default function EnhancedTable({ pairs }) {
   })
 
   const emptyRows = 5 - Math.min(5, filteredPairs.length - page * 5);
-
+  console.log("Pairs: ", pairs)
   return (
     <div className={classes.root}>
       <EnhancedTableToolbar setSearch={setSearch} setToggleActive={setToggleActive} setToggleActiveGauge={setToggleActiveGauge} setToggleStable={setToggleStable} setToggleVariable={setToggleVariable}/>
@@ -1099,7 +1099,7 @@ export default function EnhancedTable({ pairs }) {
                         <Grid container spacing={0}>
                           <Grid item lg={12}>
                             <Typography variant='h2' className={classes.textSpaced}>
-                              0.00%
+                              {row.apr}%
                             </Typography>
                           </Grid>
                           {/* <Grid item lg={2}>
