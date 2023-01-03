@@ -41,6 +41,9 @@ export default function ssVotes() {
   const [search, setSearch] = useState('');
 
   
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const id = open ? 'transitions-popper' : undefined;  
 
 
   const ssUpdated = () => {
@@ -137,6 +140,7 @@ export default function ssVotes() {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
+  
  
 
   const useStyles = makeStyles((theme) => ({
@@ -165,7 +169,54 @@ export default function ssVotes() {
 
   }))
   
-  const [anchorEl, setAnchorEl] = useState(null);
+  
+
+  const renderListFilterOptions = () => {
+    return(
+      <>
+
+        <Popper id={id} open={open} anchorEl={anchorEl} transition placement="bottom-end">
+                {({ TransitionProps }) => (
+                  <Fade {...TransitionProps} timeout={350}>
+                    <div className={classes.filterContainer}>
+                      <Typography className={classes.filterListTitle} variant="h5">List Filters</Typography>
+
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">My votes</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            //checked={ toggleActive }
+                            //name={ 'toggleActive' }
+                           // onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">Voting APR</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            //checked={ toggleActiveGauge }
+                            //name={ 'toggleActiveGauge' }
+                            //onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
+                    </div>
+                  </Fade>
+                )}
+                </Popper>
+      </>
+    )
+  }
 
   
   const renderMediumInput = (value, options) => {
@@ -215,7 +266,7 @@ export default function ssVotes() {
   return (
 
     <div className={ classes.container }>
-      <div className={ classes.topBarContainer }>
+      <div className={ classes.topBarContainer }>        
 
         <Grid container spacing={2}>
 
@@ -323,6 +374,9 @@ export default function ssVotes() {
             </Button>
           </Grid>
         </Grid>
+
+        {renderListFilterOptions()}
+
       </Paper>
     </div>
   );

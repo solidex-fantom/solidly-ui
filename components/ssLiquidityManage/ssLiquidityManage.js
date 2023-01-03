@@ -992,7 +992,7 @@ export default function ssLiquidityManage() {
         <div className={ classes.smallInputContainer }>
           <TextField
             placeholder='0.00'
-            fullWidth
+            fullWidth            
             error={ amountError }
             helperText={ amountError }
             value={ amountValue }
@@ -1105,7 +1105,7 @@ export default function ssLiquidityManage() {
 
   return (
     <div className={classes.retain}>
-      {renderIconArrowLeft()}
+      
       <Paper elevation={0} className={ classes.container }>
         <div className={classes.toggleButtons}>
           <Grid container spacing={0}>

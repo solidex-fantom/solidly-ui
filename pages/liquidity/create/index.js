@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, Link } from 'react';
 import LiquidityCreate from '../../../components/ssLiquidityManage'
 import { Grid, Typography } from '@material-ui/core';
 import classes from './liquidity.module.css';
 
-function Pair({ changeTheme }) {
 
+function Pair({ changeTheme }) {
+ 
   return (
 
 
@@ -22,6 +23,7 @@ function Pair({ changeTheme }) {
         </Grid>    
 
       </Grid>
+      
 
       <Grid item xs={12} md={6} >       
           <LiquidityCreate />

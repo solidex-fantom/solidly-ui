@@ -14,7 +14,7 @@
 
 .smallerText {
   font-size: 12px !important;
-  font-family: 'Arista';
+  font-family: 'Arista' !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
   letter-spacing: 2px;
@@ -623,6 +623,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   font-size: 12px !important;
 }
 

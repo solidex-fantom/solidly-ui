@@ -192,7 +192,7 @@ a.linkz { cursor: pointer !important; }
 }
 
 .subtitleText {
-  font-family: 'Arista';
+  font-family: 'Arista' !important;
   font-size: 16px !important;
   font-weight: 100 !important;
   margin: 0 !important;  
@@ -309,6 +309,7 @@ a.linkz { cursor: pointer !important; }
   padding: 8px 24px 10px 24px !important;
   text-transform: capitalize !important;
   color: #7E99B0 !important;
+  font-family: 'Arista' !important;
 } 
 
 .testChange {
@@ -366,7 +367,7 @@ a.linkz { cursor: pointer !important; }
   }
 
   .subtitleText {
-    font-family: 'Arista';
+    font-family: 'Arista' !important;
     font-size: 12px !important;    
   }
    

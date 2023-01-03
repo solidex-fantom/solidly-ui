@@ -1,9 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-right: 5%;
-  /*transform: scale(0.7);*/
+  align-items: center;  
+  transform: scale(0.85);
 
   background: 
     linear-gradient(#131b4c 0 0) padding-box, 
@@ -20,6 +19,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   font-size: 14px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
@@ -635,6 +635,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   letter-spacing: 2px;
   font-size: 12px !important;
 }
@@ -765,10 +766,10 @@
   flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
-  align-items: center;  
+  align-items: flex-end !important;  
   max-width: 80px;
   min-height: 50px;
-  padding: 20px 12px 4px 12px ;
+  padding: 20px 12px 4px 41px ;
 }
 
 .inputTitleContainerSlippage {

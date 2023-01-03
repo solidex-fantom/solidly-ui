@@ -4,15 +4,30 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: auto;
-  margin-bottom: 60px;
-  padding: 0 0 70px 0px;
+  margin: auto;    
 }
 
 .smallText {
   color: white;
   margin: 0 15px 0 0 !important;
   padding: 18px 0;
+}
+
+.filterContainer {
+  
+  min-width: 300px;
+  margin-top: 15px;
+  
+  padding: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);  
+  
+  background: 
+    linear-gradient(#141d40 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 10px;
+  
 }
 
 .tableContainer {
@@ -221,6 +236,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   font-size: 12px !important;
 }
 
