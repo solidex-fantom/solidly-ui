@@ -19,7 +19,7 @@
   min-width: 300px;
   margin-top: 15px;
   
-  padding: 20px;
+  padding: 20px !important;
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);  
   
   background: 
@@ -29,6 +29,10 @@
   border: 1px solid transparent;  
   border-radius: 10px;
   
+}
+.labelColumn{
+  display: flex;
+  align-items: center,
 }
 
 .tableContainer {
@@ -354,6 +358,22 @@
   font-family: 'Righteous' !important;    
   letter-spacing: 5px;  
   font-weight:  700 !important;
+}
+
+.filterListTitle {
+  margin-bottom: 10px !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid;
+  border-bottom-color: #CD74CC;  
+  font-family: 'Arista' !important 
+}
+
+.filterLabel{
+  font-size: 14px,
+}
+
+.alignContentRight {
+  text-align: right,
 }
 
 .imgIconList {

@@ -209,60 +209,19 @@ export default function ssVotes() {
                 {({ TransitionProps }) => (
                   <Fade {...TransitionProps} timeout={350}>
                     <div className={classes.filterContainer}>
+
                       <Typography className={classes.filterListTitle} variant="h5">List Filters</Typography>
 
 
                       <Grid container spacing={0}>
                         <Grid item lg={9} className={classes.labelColumn}>
-                          <Typography className={classes.filterLabel} variant="body1">My Deposits</Typography>
+                          <Typography className={classes.filterLabel} variant="body1">Show Inactive Pools</Typography>
                         </Grid>
                         <Grid item lg={3} className={classes.alignContentRight}>
                           <Switch
                             color="primary"
                             checked={ toggleActive }
                             name={ 'toggleActive' }
-                            onChange={ onToggle }
-                          />
-                        </Grid>
-                      </Grid>
-
-                      <Grid container spacing={0}>
-                        <Grid item lg={9} className={classes.labelColumn}>
-                          <Typography className={classes.filterLabel} variant="body1">Show Active Gauges</Typography>
-                        </Grid>
-                        <Grid item lg={3} className={classes.alignContentRight}>
-                          <Switch
-                            color="primary"
-                            checked={ toggleActiveGauge }
-                            name={ 'toggleActiveGauge' }
-                            onChange={ onToggle }
-                          />
-                        </Grid>
-                      </Grid>
-
-                      <Grid container spacing={0}>
-                        <Grid item lg={9} className={classes.labelColumn}>
-                          <Typography className={classes.filterLabel} variant="body1">Show Stable Pools</Typography>
-                        </Grid>
-                        <Grid item lg={3} className={classes.alignContentRight}>
-                          <Switch
-                            color="primary"
-                            checked={ toggleStable }
-                            name={ 'toggleStable' }
-                            onChange={ onToggle }
-                          />
-                        </Grid>
-                      </Grid>
-
-                      <Grid container spacing={0}>
-                        <Grid item lg={9} className={classes.labelColumn}>
-                          <Typography className={classes.filterLabel} variant="body1">Show Volatile Pools</Typography>
-                        </Grid>
-                        <Grid item lg={3} className={classes.alignContentRight}>
-                          <Switch
-                            color="primary"
-                            checked={ toggleVariable }
-                            name={ 'toggleVariable' }
                             onChange={ onToggle }
                           />
                         </Grid>
