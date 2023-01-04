@@ -5,9 +5,8 @@
   flex-direction: column;
   align-items: flex-end;
   margin: auto;
-  margin-bottom: 60px;
-  padding: 0 0 10px 0px;
-  margin-top: 50px;
+  margin-bottom: 60px;  
+  margin-top: 10% !important;
   
 }
 

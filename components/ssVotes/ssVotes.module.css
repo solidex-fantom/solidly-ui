@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: flex-end;
   margin: auto;    
+  margin-top: 10%; 
 }
 
 .smallText {
@@ -192,8 +193,7 @@
   width: 100%;
   align-items: center;  
   padding: 0 20px;
-  
-  
+    
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
         linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
@@ -211,10 +211,10 @@
 
 .mediumInputAmount {
   flex: 1;
-  height: 100%;
-  width: 300px;
+  height: 100%;  
   display: flex;
   align-items: center;
+  
 }
 
 .mediumInputAddress {
@@ -257,7 +257,8 @@
 .gridInfoVote {      
   height: 100px;
   margin: 10px;
-  padding: 8px;     
+  padding-left: 50px;  
+  padding-right: 50px;  
   
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
@@ -316,7 +317,7 @@
   font-family: 'Arista' !important;
   font-style: normal !important;
   font-weight: 700 !important;
-  font-size: 15px !important;
+  font-size: 18px !important;
   line-height: 27px;
   
   color: #FFFFFF;
@@ -341,10 +342,10 @@
 .toolbarText {  
   font-family: 'Arista' !important;
   font-style: normal !important;  
-  font-size: 15px  !important;  
+  font-size: 16px  !important;  
   letter-spacing: 0.13em  !important;
   color: #CD74CC  !important;
-  text-align: justify;  
+  text-align: justify  !important;  
 }
 
 .toolbarSubText{

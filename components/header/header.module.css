@@ -352,6 +352,10 @@
  
 }
 
+.containerMobile{
+  display: none !important;
+}
+
 
 @media screen and (max-width: 1600px) {
 
@@ -416,7 +420,8 @@
   }
 
   .containerMobile{
-    display: block !important;
+    
+    display: none !important;
   }
   
   .containerLogo{
@@ -433,6 +438,9 @@
     letter-spacing: 0.10em;
     color: #FFFFFF;
   }
+  
+
+
   
 }
 

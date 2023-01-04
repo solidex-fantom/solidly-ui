@@ -592,7 +592,7 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography className={ classes.assetSelectText } variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography className={ classes.assetSelectText }variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
+          <Typography className={ classes.assetSelectText } variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectBalance}>
           <Typography variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>

@@ -3,8 +3,8 @@
   justify-content: space-evenly;
   align-items: center;
   min-height: calc(100vh - 423px);  
+  margin-top: 25%; 
 }
-
 
 .swapContainer {
   padding: 35px;
@@ -535,10 +535,8 @@
 }
 
 .assetSelectText {
-
   font-family: 'Arista' !important;
-  font-size: 16px !important;
-
+  font-size: 18px !important;
 }
 
 .searchInline {

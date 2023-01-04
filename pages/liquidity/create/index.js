@@ -26,7 +26,12 @@ function Pair({ changeTheme }) {
       
 
       <Grid item xs={12} md={6} >       
-          <LiquidityCreate />
+        <Grid item xs={2}>       
+               
+        </Grid>
+        
+        <Grid><LiquidityCreate /></Grid>
+          
       </Grid>    
 
     </Grid>

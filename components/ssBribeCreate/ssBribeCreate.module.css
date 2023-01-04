@@ -250,6 +250,12 @@
   
 }
 
+.assetSelectText, .fillerText {
+  font-family: 'Arista' !important;
+  font-size: 16px !important;
+}
+
+
 .menuOption {
   display: flex !important;
   align-items: center !important;

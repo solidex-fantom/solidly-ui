@@ -1,8 +1,7 @@
 .container {
   display: flex;
-  position: relative;
-  padding-top: 50px;
-  padding-inline: 50px;
+  position: relative;  
+  margin-top: 10% !important;
 }
 .sphere {      
   height: 270px;  

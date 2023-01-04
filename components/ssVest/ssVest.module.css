@@ -1,8 +1,7 @@
-.vestContainer {
-  width: calc(100% - 180px);  
+.vestContainer {  
   margin: 0 auto;
-  position: relative;      
-  transform: scale(0.9);
+  position: relative;        
+  margin-top: 10% !important;
 }
 
 .smallerText {
@@ -390,7 +389,7 @@
 .massiveInputAmount {
   flex: 1;
   height: 100%;
-  max-width: calc(100% - 124px);
+  width: 100% !important;
   
 }
 

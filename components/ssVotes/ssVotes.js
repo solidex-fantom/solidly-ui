@@ -40,11 +40,41 @@ export default function ssVotes() {
   const [ vestNFTs, setVestNFTs ] = useState([])
   const [search, setSearch] = useState('');
 
+
+  
+
   
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const id = open ? 'transitions-popper' : undefined;  
 
+
+
+  const getLocalToggles = () => {
+    let localToggles = {
+      toggleActive: true,
+      toggleActiveGauge: true,
+      toggleVariable: true,
+      toggleStable: true
+    }
+    // get locally saved toggles
+    try {
+      const localToggleString = localStorage.getItem('solidly-votesToggle-v1')
+      if(localToggleString && localToggleString.length > 0) {
+        localToggles = JSON.parse(localToggleString)
+      }
+    } catch(ex) {
+      console.log(ex)
+    }
+  
+    return localToggles
+  }
+
+  const localToggles = getLocalToggles()
+  const [toggleActive, setToggleActive] = useState(localToggles.toggleActive);
+  const [toggleActiveGauge, setToggleActiveGauge] = useState(localToggles.toggleActiveGauge);
+  const [toggleStable, setToggleStable] = useState(localToggles.toggleStable);
+  const [toggleVariable, setToggleVariable] = useState(localToggles.toggleVariable);
 
   const ssUpdated = () => {
     setVeToken(stores.stableSwapStore.getStore('veToken'))
@@ -184,31 +214,60 @@ export default function ssVotes() {
 
                       <Grid container spacing={0}>
                         <Grid item lg={9} className={classes.labelColumn}>
-                          <Typography className={classes.filterLabel} variant="body1">My votes</Typography>
+                          <Typography className={classes.filterLabel} variant="body1">My Deposits</Typography>
                         </Grid>
                         <Grid item lg={3} className={classes.alignContentRight}>
                           <Switch
                             color="primary"
-                            //checked={ toggleActive }
-                            //name={ 'toggleActive' }
-                           // onChange={ onToggle }
+                            checked={ toggleActive }
+                            name={ 'toggleActive' }
+                            onChange={ onToggle }
                           />
                         </Grid>
                       </Grid>
 
                       <Grid container spacing={0}>
                         <Grid item lg={9} className={classes.labelColumn}>
-                          <Typography className={classes.filterLabel} variant="body1">Voting APR</Typography>
+                          <Typography className={classes.filterLabel} variant="body1">Show Active Gauges</Typography>
                         </Grid>
                         <Grid item lg={3} className={classes.alignContentRight}>
                           <Switch
                             color="primary"
-                            //checked={ toggleActiveGauge }
-                            //name={ 'toggleActiveGauge' }
-                            //onChange={ onToggle }
+                            checked={ toggleActiveGauge }
+                            name={ 'toggleActiveGauge' }
+                            onChange={ onToggle }
                           />
                         </Grid>
                       </Grid>
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">Show Stable Pools</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            checked={ toggleStable }
+                            name={ 'toggleStable' }
+                            onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
+                      <Grid container spacing={0}>
+                        <Grid item lg={9} className={classes.labelColumn}>
+                          <Typography className={classes.filterLabel} variant="body1">Show Volatile Pools</Typography>
+                        </Grid>
+                        <Grid item lg={3} className={classes.alignContentRight}>
+                          <Switch
+                            color="primary"
+                            checked={ toggleVariable }
+                            name={ 'toggleVariable' }
+                            onChange={ onToggle }
+                          />
+                        </Grid>
+                      </Grid>
+
 
                     </div>
                   </Fade>
@@ -218,17 +277,57 @@ export default function ssVotes() {
     )
   }
 
+  const onToggle = (event) => {
+
+    const localToggles = getLocalToggles()
+
+    switch (event.target.name) {
+      case 'toggleActive':
+        setToggleActive(event.target.checked)
+        props.setToggleActive(event.target.checked)
+        localToggles.toggleActive = event.target.checked
+        break;
+      case 'toggleActiveGauge':
+        setToggleActiveGauge(event.target.checked)
+        props.setToggleActiveGauge(event.target.checked)
+        localToggles.toggleActiveGauge = event.target.checked
+        break;
+      case 'toggleStable':
+        setToggleStable(event.target.checked)
+        props.setToggleStable(event.target.checked)
+        localToggles.toggleStable = event.target.checked
+        break;
+      case 'toggleVariable':
+        setToggleVariable(event.target.checked)
+        props.setToggleVariable(event.target.checked)
+        localToggles.toggleVariable = event.target.checked
+        break;
+      default:
+
+    }
+
+    // set locally saved toggles
+    try {
+      localStorage.setItem('solidly-pairsToggle-v1', JSON.stringify(localToggles))
+    } catch(ex) {
+      console.log(ex)
+    }
+  }
+
+
   
   const renderMediumInput = (value, options) => {
     return (
       <div className={ classes.textField}>
         <div className={ classes.mediumInputContainer}>
+
           <Grid container>
-            <Grid item lg='auto' md='auto' sm={12} xs={12}>
-              <Typography variant="body2" className={ classes.smallText }>Please select your veVARA:</Typography>
+            
+            <Grid item md={6}>
+              <Typography variant="body2" className={ classes.smallText }>Please select your veVARA:</Typography>              
             </Grid>
 
-            <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Grid container md={6} sm={12} xs={12} justifyContent='flex-end'>
               <div className={ classes.mediumInputAmount }>
                 <Select
                   fullWidth
@@ -255,6 +354,8 @@ export default function ssVotes() {
                 </Select>
               </div>
             </Grid>
+
+
           </Grid>
         </div>
       </div>
@@ -321,12 +422,12 @@ export default function ssVotes() {
             </Grid>
           </Grid>
 
-          <Grid container className={classes.gridInfoVote} xs={12} justifyContent="center" alignItems="center">
-            <Grid direction="column">  
-              <Grid><Typography className={classes.toolbarText}>Votes are due by Wendnesday at <a className={classes.toolbarSubText}>23:59 UTC</a>, when the next epoch begins. Each veNFT can only cast votes once per epoch.</Typography></Grid>    
-              <Grid><Typography className={classes.toolbarText}>Your vote will allocate <a className={classes.toolbarSubText}>100%</a> of that  veNFT's vote power. Each veNFT's votes will carry over into the next epoch.</Typography></Grid>                 
-              <Grid><Typography className={classes.toolbarText}>Voters will earn bribes no matter when in the epoch the bribes are added.  <a className={ classes.disclaimerDocs1 }>For details refer</a><a href='https://equilibre-finance.gitbook.io/equilibre-finance/what-is-equilibre/trading-and-liquidity-marketplace' className={ classes.disclaimerDocs }>docs</a></Typography></Grid>     
-            </Grid>             
+          <Grid container className={classes.gridInfoVote} xs={12} justifyContent="space-around" alignItems="center">                                    
+              <Typography className={classes.toolbarText}>
+                  Votes are due by Wendnesday at <a className={classes.toolbarSubText}>23:59 UTC</a>, when the next epoch begins. Each veNFT can only cast votes once per epoch.
+                  Your vote will allocate <a className={classes.toolbarSubText}>100%</a> of that  veNFT's vote power. Each veNFT's votes will carry over into the next epoch.
+                  Voters will earn bribes no matter when in the epoch the bribes are added.  <a className={ classes.disclaimerDocs1 }>For details refer</a><a href='https://equilibre-finance.gitbook.io/equilibre-finance/what-is-equilibre/trading-and-liquidity-marketplace' className={ classes.disclaimerDocs }>docs</a>
+              </Typography>            
          </Grid>            
       </Grid>
 

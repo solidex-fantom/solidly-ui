@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { Paper, Grid, Typography, Button, TextField, InputAdornment, Link, CircularProgress, Tooltip, IconButton, FormControlLabel, Switch, Select, MenuItem, Dialog  } from '@material-ui/core'
+import { Paper, Grid, Typography, Button, TextField, InputAdornment, CircularProgress, Link, IconButton, FormControlLabel, Switch, Select, MenuItem, Dialog  } from '@material-ui/core'
 import BigNumber from 'bignumber.js'
 import { formatCurrency } from '../../utils'
 import classes from './ssLiquidityManage.module.css'
@@ -1000,7 +1000,7 @@ export default function ssLiquidityManage() {
             disabled={ depositLoading || stakeLoading || depositStakeLoading || createLoading }
             InputProps={{
               className: classes.smallInput,
-              endAdornment: <InputAdornment position="end">
+              endAdornment: <InputAdornment position="start">
                 %
               </InputAdornment>,
             }}
@@ -1104,11 +1104,16 @@ export default function ssLiquidityManage() {
   }
 
   return (
-    <div className={classes.retain}>
-      
-      <Paper elevation={0} className={ classes.container }>
-        <div className={classes.toggleButtons}>
+    <div className={classes.retain}>      
+
+      {renderIconArrowLeft()}  
+                  
+      <Paper elevation={0} className={ classes.container }>      
+
+        <div className={classes.toggleButtons}>        
+          
           <Grid container spacing={0}>
+          
             <Grid item xs={6}>
               <Paper className={ `${activeTab === 'deposit' ? classes.buttonActive : classes.button} ${ classes.topLeftButton }` } onClick={ toggleDeposit } disabled={ depositLoading }>
                 <Typography variant='h5'>Deposit</Typography>
@@ -1469,8 +1474,10 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
           </div>
         </div>
         <div className={ classes.assetSelectIconName }>
-          <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
+
+          <Typography className={ classes.assetSelectText } variant='h5'>{ asset ? asset.symbol : '' }</Typography>
+          <Typography className={ classes.assetSelectText } variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
+
         </div>
         <div className={ classes.assetSelectActions}>
           <IconButton onClick={ () => { deleteOption(asset) } }>
@@ -1520,8 +1527,8 @@ function AssetSelect({ type, value, assetOptions, onSelect, disabled }) {
           }
         </div>
         <div className={ classes.assetSelectIconName }>
-          <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography color='textSecondary' variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
+          <Typography className={ classes.assetSelectText } variant='h5'>{ asset ? asset.symbol : '' }</Typography>
+          <Typography className={ classes.assetSelectText } color='textSecondary' variant='subtitle1' >{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectBalance}>
           <Typography variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
