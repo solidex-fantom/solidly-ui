@@ -194,7 +194,7 @@ function Header(props) {
 
   const listenScrollEvent = e => {    
     
-    if (window && window.scrollY > 200) {      
+    if (window && window.scrollY > 150) {      
       setBackground(true);
     } else {      
       setBackground(false);
@@ -435,7 +435,7 @@ function Header(props) {
     
     return (
       <>                
-          <IconButton onClick={handleClick} aria-label="social list" className={classes.socialButton} >                      
+          <IconButton  href="https://linktr.ee/equilibrefinance" aria-label="social list" className={classes.socialButton} >                      
               <Img alt="complex" src="/images/Linktree_icon.svg" width={"70%"}/>
           </IconButton>                                                             
           

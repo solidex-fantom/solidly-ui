@@ -1,13 +1,11 @@
 .ffContainer {  
   display: flex;
   flex-direction: column;
-  margin: auto;  
-  margin-top: 180px;
+  margin: auto;    
 }
 
-.swapContainer {
-  position: relative !important;
-  margin-top: -100px !important;
+.titleContainer{
+  margin-top: 10% !important;
 }
 
 .notConnectedContent {
@@ -67,7 +65,7 @@
   font-family: 'Arista' !important;  
   color: #FFFFFF;
   letter-spacing: 6px;
-  margin: 50px auto 50px auto !important;
+  margin: 30px auto 70px auto !important;
   font-style: normal;    
   line-height: 27px;
   letter-spacing: 0.13em;  

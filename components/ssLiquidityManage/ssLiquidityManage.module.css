@@ -1,9 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-right: 5%;
-  /*transform: scale(0.7);*/
+  align-items: center;  
+  transform: scale(0.9);
 
   background: 
     linear-gradient(#131b4c 0 0) padding-box, 
@@ -12,6 +11,7 @@
   border: 1px solid transparent;  
   border-radius: 12px;      
   box-shadow: 1px 1px #0D142E;
+  margin-top: 5%;
 }
 
 .retain {
@@ -20,6 +20,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   font-size: 14px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
@@ -333,28 +334,27 @@
   height: 0px;
   margin-bottom: 20px;
 }
+
 .backIconContainer {
-  width: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;  
-  
-  /* z-index: 1; */
+
+  width: auto;  
+  position: relative;
+  margin-top: 9% !important;        
+
+}
+
+.assetSelectText {  
+  font-family: 'Arista' !important;
+  font-size: 18px !important;
 }
 
 
 .swapIconSubContainer {
   
-  background: 
-  linear-gradient(#0D142E 0 0) padding-box, 
-  linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
-
-  border: 1px solid transparent;  
-  
+  background: linear-gradient(#0D142E 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  border: 1px solid transparent;    
   border-radius: 9px;
-  height: 38px;
-  z-index: 1;
-  margin-right: 10px;
+  height: 38px;    
 }
 
 
@@ -635,6 +635,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   letter-spacing: 2px;
   font-size: 12px !important;
 }
@@ -765,10 +766,10 @@
   flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
-  align-items: center;  
+  align-items: flex-end !important;  
   max-width: 80px;
   min-height: 50px;
-  padding: 20px 12px 4px 12px ;
+  padding: 20px 12px 4px 41px ;
 }
 
 .inputTitleContainerSlippage {

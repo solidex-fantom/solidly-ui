@@ -4,15 +4,35 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: auto;
-  margin-bottom: 60px;
-  padding: 0 0 70px 0px;
+  margin: auto;    
+  margin-top: 10%; 
 }
 
 .smallText {
   color: white;
   margin: 0 15px 0 0 !important;
   padding: 18px 0;
+}
+
+.filterContainer {
+  
+  min-width: 300px;
+  margin-top: 15px;
+  
+  padding: 20px !important;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);  
+  
+  background: 
+    linear-gradient(#141d40 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  
+  border: 1px solid transparent;  
+  border-radius: 10px;
+  
+}
+.labelColumn{
+  display: flex;
+  align-items: center,
 }
 
 .tableContainer {
@@ -177,8 +197,7 @@
   width: 100%;
   align-items: center;  
   padding: 0 20px;
-  
-  
+    
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
         linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
@@ -196,10 +215,10 @@
 
 .mediumInputAmount {
   flex: 1;
-  height: 100%;
-  width: 300px;
+  height: 100%;  
   display: flex;
   align-items: center;
+  
 }
 
 .mediumInputAddress {
@@ -221,6 +240,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   font-size: 12px !important;
 }
 
@@ -241,7 +261,8 @@
 .gridInfoVote {      
   height: 100px;
   margin: 10px;
-  padding: 8px;     
+  padding-left: 50px;  
+  padding-right: 50px;  
   
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
@@ -300,7 +321,7 @@
   font-family: 'Arista' !important;
   font-style: normal !important;
   font-weight: 700 !important;
-  font-size: 15px !important;
+  font-size: 18px !important;
   line-height: 27px;
   
   color: #FFFFFF;
@@ -325,10 +346,10 @@
 .toolbarText {  
   font-family: 'Arista' !important;
   font-style: normal !important;  
-  font-size: 15px  !important;  
+  font-size: 16px  !important;  
   letter-spacing: 0.13em  !important;
   color: #CD74CC  !important;
-  text-align: justify;  
+  text-align: justify  !important;  
 }
 
 .toolbarSubText{
@@ -337,6 +358,22 @@
   font-family: 'Righteous' !important;    
   letter-spacing: 5px;  
   font-weight:  700 !important;
+}
+
+.filterListTitle {
+  margin-bottom: 10px !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid;
+  border-bottom-color: #CD74CC;  
+  font-family: 'Arista' !important 
+}
+
+.filterLabel{
+  font-size: 14px,
+}
+
+.alignContentRight {
+  text-align: right,
 }
 
 .imgIconList {

@@ -1,9 +1,7 @@
-.vestContainer {
-  
-  width: calc(100% - 180px);  
+.vestContainer {  
   margin: 0 auto;
-  position: relative;      
-  transform: scale(0.9);
+  position: relative;        
+  margin-top: 10% !important;
 }
 
 .smallerText {
@@ -11,6 +9,7 @@
   margin-top: 0px !important;
   margin-bottom: 0px !important;
   color: white;
+  font-family: 'Arista' !important;
 }
 
 .voteText {
@@ -18,8 +17,6 @@
   margin-top: 23px !important;  
   color: white;
 }
-
-
 
 .container2 {
   width: 50%;  
@@ -392,7 +389,7 @@
 .massiveInputAmount {
   flex: 1;
   height: 100%;
-  max-width: calc(100% - 124px);
+  width: 100% !important;
   
 }
 

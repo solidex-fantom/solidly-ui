@@ -2,10 +2,8 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  min-height: calc(100vh - 423px);
-  margin-top: 10%;
-  margin-bottom: 10%;
-  margin-inline: 12%;
+  min-height: calc(100vh - 423px);  
+  margin-top: 25%; 
 }
 
 .swapContainer {
@@ -41,7 +39,7 @@
 .smallerText {
   letter-spacing: 2px;
   font-size: 12px !important;
-  font-family: 'Arista';
+  font-family: 'Arista' !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
@@ -172,8 +170,7 @@
 }
 
 .displayAssetIcon {  
-  border: 1px solid;    
-  border-radius: 64px;    
+  
 }
 
 .displayAssetIconSmall {  
@@ -537,7 +534,15 @@
   max-width: none;
 }
 
+.assetSelectText {
+  font-family: 'Arista' !important;
+  font-size: 18px !important;
+}
+
 .searchInline {
+
+  font-family: 'Arista' !important;
+  font-size: 12px !important;
   display: flex;
   align-items: center;
 }
@@ -728,10 +733,15 @@
 @media screen and (max-width: 1600px) {
   
   .swapContainer {
-    padding: 24px;
+    padding: 24px;   
   }
+
   .newSwapContainer {    
     flex-direction: column;
+
+    margin-top: 20% !important;
+    margin-bottom: 10%;
+    margin-inline: 12%;    
   }
 
 }

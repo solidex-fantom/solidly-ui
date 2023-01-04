@@ -351,7 +351,7 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>t{ asset ? asset.name : '' }</Typography>
+          <Typography variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectActions}>
           <IconButton onClick={ () => { deleteOption(asset) } }>

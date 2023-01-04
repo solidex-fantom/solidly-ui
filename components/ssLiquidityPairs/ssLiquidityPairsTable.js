@@ -440,9 +440,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
   },
   filterListTitle: {
+    fontFamily:'Arista !important',
     marginBottom: '10px',
     paddingBottom: '20px',
-    borderBottom: '1px solid rgb(205, 116, 204)',
+    borderBottom: '1px solid #CD74CC',
   },
   infoIcon: {
     color: '#06D3D7',

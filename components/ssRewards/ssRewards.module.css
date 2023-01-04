@@ -1,12 +1,11 @@
 .container {    
   display: flex;
-  max-width: 1400px;
-  padding: 0 0 10px 0px;
-  margin-top: 100px !important;
+  max-width: 1400px;  
+  margin-top: 15% !important;
 }
 
 .toolbar {
-  margin: 48px 10px;
+  margin: 10px 10px;
   padding: 0px;
 }
 
@@ -144,6 +143,7 @@
 }
 
 .smallerText {
+  font-family: 'Arista' !important;
   font-size: 12px !important;
 }
 
@@ -163,7 +163,7 @@
 }
 
 .disclaimer {
-  font-family: 'Arista';
+  font-family: 'Arista' !important;
   text-align: center;
   font-size: 12px !important;
   color: white;
@@ -173,7 +173,7 @@
 
 
 .disclaimerDocs {
-  font-family: 'Arista';
+  font-family: 'Arista' !important;
   font-size: 12px !important;
   color: yellow;
   padding-left: 5px !important;
@@ -181,10 +181,11 @@
 }
 
 .disclaimerMain {
-  font-family: 'Arista';
-  font-size: 12px !important;
+  font-family: 'Arista' !important;
+  font-size: 15px !important;
   color: #CD74CC;  
   letter-spacing: 2px;
+  text-align: center;
 }
 
 .gridBanner {      

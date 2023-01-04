@@ -17,6 +17,16 @@
   margin-top: 50px;
 }
 
+.backIconContainer {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;    
+  z-index: 1; 
+  position: fixed;
+  padding-right: 10px;
+}
+
 
 .overviewIcon {
   font-size: 110px !important;
