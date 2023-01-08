@@ -287,6 +287,9 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: '0.13em',
     color: '#FFFFFF'
   },
+  textEqual: {            
+    color: '#FFBD59'
+  },
   sphere: {        
     width: '100%',
     height: '200px',
@@ -335,7 +338,7 @@ const EnhancedTableToolbar = (props) => {
             <Grid direction="column" spacing={6} xs={8}>       
 
               <Grid className={classes.toolbarInfo}><Typography className={classes.title}>Vest</Typography></Grid>                  
-              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}>More tokens locked for longer = greater voting power = higher rewards</Typography></Grid>                    
+              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}>More tokens locked for longer <a className={classes.textEqual}>=</a> greater voting power <a className={classes.textEqual}>=</a> higher rewards</Typography></Grid>                    
 
               <Grid item xs={4}>
                 <Button className={ classes.buttonOverride } onClick={ onCreate }>

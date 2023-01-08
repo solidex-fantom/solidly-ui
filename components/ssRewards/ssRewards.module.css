@@ -79,6 +79,7 @@
   padding-bottom: 20px;
   border-bottom: 1px solid;
   border-bottom-color: white;
+  font-family: 'Rigtheous' !important
   
 }
 
@@ -185,7 +186,7 @@
   font-size: 15px !important;
   color: #CD74CC;  
   letter-spacing: 2px;
-  text-align: center;
+  text-align: flex-start;
 }
 
 .gridBanner {      

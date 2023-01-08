@@ -7,26 +7,21 @@ import {
   MenuItem,
   IconButton,
   Dialog,
-  CircularProgress,
-  Tooltip,
+  CircularProgress,  
   Grid
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ToggleButton from '@material-ui/lab/ToggleButton';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-
 import { withTheme } from '@material-ui/core/styles';
-
-import { formatCurrency, formatAddress, formatCurrencyWithSymbol, formatCurrencySmall } from '../../utils'
-import { styled, makeStyles } from '@material-ui/core/styles';
-
+import { formatCurrency } from '../../utils'
 import classes from './ssSwap.module.css'
 
 import stores from '../../stores'
 import {
   ACTIONS,
+  CONTRACTS,
   ETHERSCAN_URL
 } from '../../stores/constants'
 import BigNumber from 'bignumber.js'
@@ -59,12 +54,6 @@ function Setup() {
   const [ quoteError, setQuoteError ] = useState(null)
   const [ quote, setQuote ] = useState(null)
 
-  const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  });
 
   const errorReturned = () => {
     setLoading(false)
@@ -232,6 +221,100 @@ function Setup() {
       setLoading(true)
 
       stores.dispatcher.dispatch({ type: ACTIONS.SWAP, content: {
+        fromAsset: fromAssetValue,
+        toAsset: toAssetValue,
+        fromAmount: fromAmountValue,
+        toAmount: toAmountValue,
+        quote: quote,
+        slippage: slippage
+      } })
+    }
+  }
+
+  const onWrap = () => {
+    setFromAmountError(false)
+    setFromAssetError(false)
+    setToAssetError(false)
+
+    let error = false
+
+    if(!fromAmountValue || fromAmountValue === '' || isNaN(fromAmountValue)) {
+      setFromAmountError('From amount is required')
+      error = true
+    } else {
+      if(!fromAssetValue.balance || isNaN(fromAssetValue.balance) || BigNumber(fromAssetValue.balance).lte(0))  {
+        setFromAmountError('Invalid balance')
+        error = true
+      } else if(BigNumber(fromAmountValue).lt(0)) {
+        setFromAmountError('Invalid amount')
+        error = true
+      } else if (fromAssetValue && BigNumber(fromAmountValue).gt(fromAssetValue.balance)) {
+        setFromAmountError(`Greater than your available balance`)
+        error = true
+      }
+    }
+
+    if(!fromAssetValue || fromAssetValue === null) {
+      setFromAssetError('From asset is required')
+      error = true
+    }
+
+    if(!toAssetValue || toAssetValue === null) {
+      setFromAssetError('To asset is required')
+      error = true
+    }
+
+    if(!error) {
+      setLoading(true)
+
+      stores.dispatcher.dispatch({ type: ACTIONS.WRAP, content: {
+        fromAsset: fromAssetValue,
+        toAsset: toAssetValue,
+        fromAmount: fromAmountValue,
+        toAmount: toAmountValue,
+        quote: quote,
+        slippage: slippage
+      } })
+    }
+  }
+
+  const onUnwrap = () => {
+    setFromAmountError(false)
+    setFromAssetError(false)
+    setToAssetError(false)
+
+    let error = false
+
+    if(!fromAmountValue || fromAmountValue === '' || isNaN(fromAmountValue)) {
+      setFromAmountError('From amount is required')
+      error = true
+    } else {
+      if(!fromAssetValue.balance || isNaN(fromAssetValue.balance) || BigNumber(fromAssetValue.balance).lte(0))  {
+        setFromAmountError('Invalid balance')
+        error = true
+      } else if(BigNumber(fromAmountValue).lt(0)) {
+        setFromAmountError('Invalid amount')
+        error = true
+      } else if (fromAssetValue && BigNumber(fromAmountValue).gt(fromAssetValue.balance)) {
+        setFromAmountError(`Greater than your available balance`)
+        error = true
+      }
+    }
+
+    if(!fromAssetValue || fromAssetValue === null) {
+      setFromAssetError('From asset is required')
+      error = true
+    }
+
+    if(!toAssetValue || toAssetValue === null) {
+      setFromAssetError('To asset is required')
+      error = true
+    }
+
+    if(!error) {
+      setLoading(true)
+
+      stores.dispatcher.dispatch({ type: ACTIONS.UNWRAP, content: {
         fromAsset: fromAssetValue,
         toAsset: toAssetValue,
         fromAmount: fromAmountValue,
@@ -427,6 +510,7 @@ function Setup() {
             />
 
             <Typography className={ classes.smallerText }>{ assetValue?.symbol }</Typography>
+            
 
           </div>
         </div>
@@ -453,6 +537,44 @@ function Setup() {
     )
   }
 
+  const RenderWrapButton = () => {
+    
+    return (      
+        <div className={ classes.actionsContainer }>
+          <Button
+            variant='contained'
+            size='large'
+            color='secondary'
+            className={classes.buttonOverride}
+            disabled={ loading || quoteLoading }
+            onClick={ onWrap }
+            >
+            <Typography className={ classes.actionButtonText }>{ loading ? `Wrapping` : `Wrap` }</Typography>
+            { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+          </Button>
+      </div>
+    )
+  }
+
+  const RenderUnwrapButton = () => {
+    
+    return (      
+        <div className={ classes.actionsContainer }>
+          <Button
+            variant='contained'
+            size='large'
+            color='secondary'
+            className={classes.buttonOverride}
+            disabled={ loading || quoteLoading }
+            onClick={ onUnwrap }
+            >
+            <Typography className={ classes.actionButtonText }>{ loading ? `Unwrapping` : `Unwrap` }</Typography>
+            { loading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+          </Button>
+      </div>
+    )
+  }
+
   return (
     <Grid container className={ classes.swapInputs }>
       <Grid item xs={12}>
@@ -470,9 +592,30 @@ function Setup() {
         { renderSwapInformation() }
       </Grid>
       <Grid item xs={12}>
-        { fromAmountValue && toAmountValue &&
+        
+        { fromAmountValue && 
+          toAmountValue && 
+          fromAssetValue.address !== toAssetValue.address &&
           <>
             <RenderSwapButton/>
+          </>
+        }
+        { fromAmountValue && 
+          toAmountValue && 
+          fromAssetValue && 
+          fromAssetValue.address == CONTRACTS.KAVA_ADDRESS && 
+          toAssetValue.address == CONTRACTS.WKAVA_ADDRESS &&
+          <>
+          <RenderWrapButton />
+          </>
+        }
+        { fromAmountValue && 
+          toAmountValue && 
+          toAssetValue && 
+          toAssetValue.address == CONTRACTS.KAVA_ADDRESS && 
+          fromAssetValue.address == CONTRACTS.WKAVA_ADDRESS &&
+          <>
+          <RenderUnwrapButton />
           </>
         }
       </Grid>
@@ -592,11 +735,11 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography className={ classes.assetSelectText } variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography className={ classes.assetSelectText } variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
+          <Typography className={ classes.assetSelectTextSubtitle } variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectBalance}>
-          <Typography variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ 'Balance' }</Typography>
+          <Typography className={ classes.assetSelectBalanceValue} variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
+          <Typography className={ classes.assetSelectBalanceText} variant='subtitle1' color='textSecondary'>{ 'Balance' }</Typography>
         </div>
       </MenuItem>
     )

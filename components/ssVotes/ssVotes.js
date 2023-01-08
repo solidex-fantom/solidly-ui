@@ -213,7 +213,7 @@ export default function ssVotes() {
                       <Typography className={classes.filterListTitle} variant="h5">List Filters</Typography>
 
 
-                      <Grid container spacing={0}>
+                      <Grid container className={classes.labelContainer}>
                         <Grid item lg={9} className={classes.labelColumn}>
                           <Typography className={classes.filterLabel} variant="body1">Show Inactive Pools</Typography>
                         </Grid>

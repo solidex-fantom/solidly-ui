@@ -983,12 +983,7 @@ export default function ssLiquidityManage() {
 
   const renderSmallInput = (type, amountValue, amountError, amountChanged) => {
     return (
-      <div className={ classes.textField}>
-        <div className={ classes.inputTitleContainerSlippage }>
-          <div className={ classes.inputBalanceSlippage }>
-            <Typography className={ classes.inputBalanceText } noWrap > Slippage </Typography>
-          </div>
-        </div>
+      <div className={ classes.textField}>        
         <div className={ classes.smallInputContainer }>
           <TextField
             placeholder='0.00'
@@ -1000,11 +995,15 @@ export default function ssLiquidityManage() {
             disabled={ depositLoading || stakeLoading || depositStakeLoading || createLoading }
             InputProps={{
               className: classes.smallInput,
-              endAdornment: <InputAdornment position="start">
-                %
-              </InputAdornment>,
+              endAdornment: 
+              <InputAdornment position="start"><p className={classes.inputBalanceText1}>%</p></InputAdornment>
             }}
           />
+        </div>
+        <div className={ classes.inputTitleContainerSlippage }>
+          <div className={ classes.inputBalanceSlippage }>
+            <Typography className={ classes.inputBalanceText2 } noWrap > Slippage </Typography>
+          </div>
         </div>
       </div>
     )

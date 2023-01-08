@@ -350,7 +350,7 @@ const useStyles = makeStyles((theme) => ({
     background: 'rgb(25, 33, 56)',
   },
   overrideTableHead: {
-    borderColor: 'white',
+    borderBottom: '1px solid rgba(126,153,176,0.2) !important',
     '@media (max-width: 1000px)': {
         display: 'none',
       },
@@ -438,9 +438,10 @@ const useStyles = makeStyles((theme) => ({
   },
   filterLabel: {
     fontSize: '14px',
+    fontFamily:'Arista !important',
   },
   filterListTitle: {
-    fontFamily:'Arista !important',
+    fontFamily:'Rigtheous !important',
     marginBottom: '10px',
     paddingBottom: '20px',
     borderBottom: '1px solid #CD74CC',
@@ -473,8 +474,7 @@ const useStyles = makeStyles((theme) => ({
   gridBanner: {
     background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
     border: '1px solid transparent',
-    borderRadius: '15px',        
-    marginBottom: '10px'
+    borderRadius: '15px'
   },
   infoBanner: {
     display: 'flex',
@@ -499,7 +499,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: '1 !important'
   },
   gridSearchBar: {    
-    marginBottom: '10px'
+    marginBottom: '10px',
+    marginTop: '10px'
   },
   toolbarInfo: {
     marginTop: '30px',
@@ -859,7 +860,7 @@ export default function EnhancedTable({ pairs }) {
   })
 
   const emptyRows = 5 - Math.min(5, filteredPairs.length - page * 5);
-
+  console.log("Pairs: ", pairs)
   return (
     <div className={classes.root}>
       <EnhancedTableToolbar setSearch={setSearch} setToggleActive={setToggleActive} setToggleActiveGauge={setToggleActiveGauge} setToggleStable={setToggleStable} setToggleVariable={setToggleVariable}/>
@@ -1100,7 +1101,7 @@ export default function EnhancedTable({ pairs }) {
                         <Grid container spacing={0}>
                           <Grid item lg={12}>
                             <Typography variant='h2' className={classes.textSpaced}>
-                              0.00%
+                              {row.apr}%
                             </Typography>
                           </Grid>
                           {/* <Grid item lg={2}>

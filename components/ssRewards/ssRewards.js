@@ -227,7 +227,7 @@ export default function ssRewards() {
         
 
           <Grid item xs={12} className={ classes.disclaimerContainer }>
-              <Typography className={ classes.disclaimerMain }  >Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim. For details refer to our<a className={ classes.disclaimerDocs }>docs</a>.</Typography>                            
+              <Typography className={ classes.disclaimerMain }>Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim. For details refer to our<a className={ classes.disclaimerDocs }>docs</a>.</Typography>                            
           </Grid>
 
           <Grid item xs={12} className={classes.tableContainer}>
