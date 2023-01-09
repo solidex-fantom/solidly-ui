@@ -13,9 +13,20 @@
 }
 
 .voteText {
-  font-size: 12px !important;
+  font-family: 'Arista' !important;
+  font-size: 16px !important;
   margin-top: 23px !important;  
   color: white;
+}
+
+.voteText1 {
+  font-family: 'Arista' !important;
+  font-size: 16px !important;  
+  color: white;
+}
+
+.containerVotingPower{
+  
 }
 
 .container2 {
@@ -36,12 +47,13 @@
 }
 
 .container3 {
-  width: 80%;  
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 5%;
   padding: 24px; 
+  width: 70%;
   
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
@@ -60,8 +72,12 @@
 
 .lockedInfo {
   color: #CD74CC;
-  font-family: 'Righteous' !important;    
-  
+  font-family: 'Righteous' !important;      
+}
+
+.lockedInfo1 {
+  color: #CD74CC;
+  font-family: 'Arista' !important;      
 }
 
 .val1 {
@@ -98,7 +114,21 @@
 }
 
 .textField {
+  color: white;
   position: relative;
+  
+}
+
+.textField1 {
+  
+}
+
+.containerInputs  {    
+  margin-right: 35% !important;
+}
+
+.containerExpires {      
+  margin-right: 30% !important;
 }
 
 .balances {
@@ -118,9 +148,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  position: absolute;
-  top: 8px;
+  justify-content: flex-end;  
+  margin-left: 200px;
 }
 
 .inputTitle {
@@ -164,7 +193,7 @@
 }
 
 .actionsContainer {
-  width: 100%;
+  width: 90%;
   margin-top: 20px;  
 }
 
@@ -227,7 +256,7 @@
   font-weight: 700 !important;
   width: 100%;
   height: 100%;
-  min-width: 200px !important;    
+  min-width: 100px !important;    
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
   border-radius: 30px;
 }
@@ -310,19 +339,28 @@
   font-size: 16px !important;
   font-weight: bold;  
   color: #CD74CC;
-  margin-right: 20px !important;
+  margin-left: 30px !important;
+  
+  
+  
 }
 
+
 .vestPeriodToggle {
-  background: none;  
-  flex: 1;  
+  background: none;      
+  padding-left: 41px;  
+}
+
+.vestPeriodLabel1 {
+  margin-left: 3px;
 }
 
 .vestPeriodLabel > span {
-  text-align: flex-end;
+  text-align: flex-start;
   padding: 1px;
   margin-left: 3px;
-  font-size: 12px !important;
+  margin-right: 23px;
+  font-size: 12px !important;  
 }
 
 .vestingInfoContainer {
@@ -354,6 +392,10 @@
   align-items: center;
   justify-content: center;
   padding: 12px 0px;
+}
+
+.title1{
+  font-family: 'Arista' !important;
 }
 
 .vestInfo > .title {
@@ -457,10 +499,10 @@
   cursor: pointer;
 }
 
+
 .inputBalanceText {
   font-weight: 100 !important;
-  font-size: 12px !important;  
-  margin-right: 6px !important;
+  font-size: 12px !important;    
   margin-top: 6px !important;
   letter-spacing: 2px;
   color: white
@@ -555,10 +597,8 @@
   font-weight: bold !important;
 }
 
-.vestInfoContainer {
-  margin-right: 10px;
-  margin-right: 10px;
-  
+.vestInfoContainer {  
+  width: 90%;
 }
 
 .vestInfoContainer > .title {

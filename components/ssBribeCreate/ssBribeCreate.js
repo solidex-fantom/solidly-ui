@@ -380,12 +380,12 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
           </div>
         </div>
         <div className={ classes.assetSelectIconName }>
-          <Typography variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
+          <Typography className={ classes.titleToken } variant='h5'>{ asset ? asset.symbol : '' }</Typography>
+          <Typography className={ classes.subtitleToken } variant='subtitle1'>{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectBalance}>
-          <Typography variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ 'Balance' }</Typography>
+          <Typography className={ classes.balanceToken } variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
+          <Typography className={ classes.balanceTextToken }variant='subtitle1'>{ 'Balance' }</Typography>
         </div>
       </MenuItem>
     )
