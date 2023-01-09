@@ -7,21 +7,15 @@ import {
   MenuItem,
   IconButton,
   Dialog,
-  CircularProgress,
-  Tooltip,
+  CircularProgress,  
   Grid
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ToggleButton from '@material-ui/lab/ToggleButton';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-
 import { withTheme } from '@material-ui/core/styles';
-
-import { formatCurrency, formatAddress, formatCurrencyWithSymbol, formatCurrencySmall } from '../../utils'
-import { styled, makeStyles } from '@material-ui/core/styles';
-
+import { formatCurrency } from '../../utils'
 import classes from './ssSwap.module.css'
 
 import stores from '../../stores'
@@ -60,12 +54,6 @@ function Setup() {
   const [ quoteError, setQuoteError ] = useState(null)
   const [ quote, setQuote ] = useState(null)
 
-  const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  });
 
   const errorReturned = () => {
     setLoading(false)
@@ -522,6 +510,7 @@ function Setup() {
             />
 
             <Typography className={ classes.smallerText }>{ assetValue?.symbol }</Typography>
+            
 
           </div>
         </div>
@@ -746,11 +735,11 @@ function AssetSelect({ type, value, assetOptions, onSelect }) {
         </div>
         <div className={ classes.assetSelectIconName }>
           <Typography className={ classes.assetSelectText } variant='h5'>{ asset ? asset.symbol : '' }</Typography>
-          <Typography className={ classes.assetSelectText } variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
+          <Typography className={ classes.assetSelectTextSubtitle } variant='subtitle1' color='textSecondary'>{ asset ? asset.name : '' }</Typography>
         </div>
         <div className={ classes.assetSelectBalance}>
-          <Typography variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
-          <Typography variant='subtitle1' color='textSecondary'>{ 'Balance' }</Typography>
+          <Typography className={ classes.assetSelectBalanceValue} variant='h5'>{ (asset && asset.balance) ? formatCurrency(asset.balance) : '0.00' }</Typography>
+          <Typography className={ classes.assetSelectBalanceText} variant='subtitle1' color='textSecondary'>{ 'Balance' }</Typography>
         </div>
       </MenuItem>
     )

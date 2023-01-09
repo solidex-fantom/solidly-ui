@@ -370,13 +370,7 @@
   flex: 1;
 }
 
-.assetSelectBalance {
-  flex: 1;
-  margin-left: 48px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
+
 
 .assetSelectActions {
   flex: 1;
@@ -535,8 +529,31 @@
 }
 
 .assetSelectText {
-  font-family: 'Arista' !important;
+  font-family: 'Righteous' !important;
   font-size: 18px !important;
+}
+
+.assetSelectTextSubtitle {
+  font-family: 'Arista' !important;
+  font-size: 14px !important;
+}
+
+.assetSelectBalance {
+  flex: 1;
+  margin-left: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  
+}
+
+.assetSelectBalanceValue {
+  font-family: 'Righteous' !important;
+}
+
+.assetSelectBalanceText{
+
+  font-family: 'Arista' !important;
 }
 
 .searchInline {
@@ -610,6 +627,7 @@
 }
 
 .priceInfo > .title {
+  font-family: 'Righteous' !important;
   font-weight: bold !important;
   font-size: 14px !important;
   padding: 6px 0px;
@@ -617,6 +635,7 @@
 
 .priceInfo > .text {
   font-size: 13px !important;  
+  font-family: 'Arista' !important;
 }
 
 .buttonOverride {
@@ -663,6 +682,7 @@
 .stabIndicator {
   font-size: 13px !important;
   color: #ffffff;
+  font-family: 'Arista' !important;
 }
 
 .routeArrow {
@@ -738,7 +758,6 @@
 
   .newSwapContainer {    
     flex-direction: column;
-
     margin-top: 20% !important;
     margin-bottom: 10%;
     margin-inline: 12%;    
@@ -755,6 +774,7 @@
   }
   .newSwapContainer {    
     flex-direction: column;
+    margin-top: 10% !important;
   }
   .inputBalance {
     padding-right: 0px;

@@ -82,6 +82,10 @@
   letter-spacing: 0.13em  !important;  
 }
 
+.textEqual {
+  color: #FFBD59;
+}
+
 .buttonConnect {
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
   color: rgb(20 30 63) !important;

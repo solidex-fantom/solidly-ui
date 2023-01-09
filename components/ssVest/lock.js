@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Paper, Typography, Button, TextField, InputAdornment, CircularProgress, RadioGroup, Radio, FormControlLabel, Tooltip, IconButton } from '@material-ui/core';
+import { Paper, Typography, Button, TextField, Grid, CircularProgress, RadioGroup, Radio, FormControlLabel, Tooltip, IconButton } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import BigNumber from 'bignumber.js';
 import moment from 'moment';
@@ -134,7 +134,7 @@ export default function ssLock({ govToken, veToken }) {
 
   const renderMassiveDateInput = (type, amountValue, amountError, amountChanged, balance, logo) => {
     return (
-      <div className={ classes.textField}>
+      <div className={ classes.textField1 }>
         <div className={ `${classes.massiveInputContainer} ${ (amountError) && classes.error }` }>
           <div className={ classes.massiveInputAssetSelect }>
             <div className={ classes.displaySelectContainer }>
@@ -176,14 +176,20 @@ export default function ssLock({ govToken, veToken }) {
     return (
       <div className={ classes.textField}>
         <div className={ classes.inputTitleContainer }>
+
           <div className={ classes.inputBalance }>
             <Typography className={ classes.inputBalanceText } noWrap onClick={ () => {
               setAmountPercent(100)
             }}>
+              
               Balance: { (token && token.balance) ? ' ' + formatCurrency(token.balance) : '' }
+
             </Typography>
           </div>
+
+          
         </div>
+
         <div className={ `${classes.massiveInputContainer} ${ (amountError) && classes.error }` }>
           <div className={ classes.massiveInputAssetSelect }>
             <div className={ classes.displaySelectContainer }>
@@ -262,6 +268,7 @@ export default function ssLock({ govToken, veToken }) {
                 <FormControlLabel className={ classes.vestPeriodLabel } value="month" control={<ColorRadio />} label="1 month" labelPlacement="left" />
                 <FormControlLabel className={ classes.vestPeriodLabel } value="year" control={<ColorRadio />} label="1 year" labelPlacement="left" />
                 <FormControlLabel className={ classes.vestPeriodLabel } value="years" control={<ColorRadio />} label="4 years" labelPlacement="left" />
+                
               </RadioGroup>
           </div>
       </>
@@ -270,20 +277,23 @@ export default function ssLock({ govToken, veToken }) {
 
   return (
     <>
-      <Paper elevation={0} className={ classes.container3 }>
+      <Paper elevation={0} className={ classes.container3 }> 
         
-
+        <Grid className={ classes.containerInputs } >
         { renderMassiveInput('amount', amount, amountError, onAmountChanged, govToken) }
-        <div>
-          { renderMassiveDateInput('date', selectedDate, selectedDateError, handleDateChange, govToken?.balance, govToken?.logoURI) }
-          {renderOptionsExpires()}
-          
-        </div>
+        { renderMassiveDateInput('date', selectedDate, selectedDateError, handleDateChange, govToken?.balance, govToken?.logoURI) }
+        </Grid>
+
+        <Grid container xs={12} >          
+          {renderOptionsExpires()}          
+        </Grid>
+
         { renderVestInformation() }
+
+        
         <div className={ classes.actionsContainer }>
           <Button
-            className={classes.buttonOverride}
-            fullWidth            
+            className={classes.buttonOverride}            
             size='large'
             disabled={ lockLoading }
             onClick={ onLock }

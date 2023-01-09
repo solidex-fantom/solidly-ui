@@ -149,18 +149,30 @@
   color: #FFFFFF;
 }
 
-.inputBalanceText {
+.inputBalanceText1 {
+  font-family: 'Righteous' !important;
+  
+
+  position: relative !important;
+  margin-right: 15px !important;
+}
+
+.inputBalanceText2{
+  font-family: 'Arista' !important;
+  color: white;
   font-weight: 100 !important;
   font-size: 12px !important;  
-  margin-right: 6px !important;
-  margin-top: 6px !important;  
+  margin-right: 12px !important;
+  margin-top: 6px !important;    
 }
 
 .inputBalanceText {
+  font-family: 'Righteous' !important;
+  color: white;
   font-weight: 100 !important;
   font-size: 12px !important;  
-  margin-right: 6px !important;
-  margin-top: 6px !important;
+  margin-right: 10px !important;
+  margin-top: 6px !important;    
 }
 
 .balances {
@@ -583,8 +595,11 @@
 }
 
 .priceInfo > .text {
+  font-family: 'Arista' !important;
   font-size: 13px !important;
-  color: #7e99b0;
+
+  color: white;
+  opacity: 0.8;
 }
 
 .titleSection {
@@ -758,7 +773,11 @@
 }
 
 .smallInput{
-  text-align: right !important;
+  padding-left: 25px;
+  font-family: 'Righteous' !important;
+  text-align: center!important;  
+  color: white !important;
+  
 }
 
 .smallInputContainer {
@@ -766,10 +785,11 @@
   flex-wrap: wrap;
   border-radius: 10px;
   width: 100%;
-  align-items: flex-end !important;  
+  align-items: center !important;  
   max-width: 80px;
-  min-height: 50px;
-  padding: 20px 12px 4px 41px ;
+  min-height: 50px;  
+  padding: 0px 12px 20px 0px ;
+  
 }
 
 .inputTitleContainerSlippage {
@@ -777,10 +797,11 @@
   display: flex;
   align-items: center;
   position: absolute;
-  top: 0px;
+  top: 25px;
 }
 
 .inputBalanceSlippage {
+
   padding-left: 12px;
 }
 

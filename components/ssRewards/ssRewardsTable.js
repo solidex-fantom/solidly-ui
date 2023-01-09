@@ -320,7 +320,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '30px',
   },
   overrideTableHead: {
-    borderBottom: '1px solid rgba(126,153,176,0.15) !important',
+    borderBottom: '1px solid rgba(126,153,176,0.2) !important',
   },
   doubleImages: {
     display: 'flex',
@@ -385,6 +385,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
   },
   filterListTitle: {
+    fontFamily:'Rigtheous !important',
     marginBottom: '10px',
     paddingBottom: '20px',
     borderBottom: '1px solid rgba(126,153,176,0.2)',

@@ -196,6 +196,7 @@
 .fillerText {
   flex: 1;
   font-size: 30px !important;
+  font-family: 'Righteous';
 }
 
 .depositInfoContainer {
@@ -212,7 +213,7 @@
 .depositInfoHeading {
   width: 100%;
   padding-bottom: 12px !important;
-  font-size: 10px !important;
+  font-size: 16px !important;
   line-height: 23px !important;
   text-align: center;
   color: #FFF !important;
@@ -251,7 +252,7 @@
 }
 
 .assetSelectText, .fillerText {
-  font-family: 'Arista' !important;
+  font-family: 'Righteous' !important;
   font-size: 16px !important;
 }
 
@@ -263,7 +264,25 @@
   padding: 6px 12px;
 }
 
+
+.titleToken{
+  font-family: 'Righteous' !important;
+}
+
+.subtitleToken{
+  font-family: 'Arista' !important;
+}
+
+.balanceToken{
+  font-family: 'Righteous' !important;
+}
+
+.balanceTextToken{
+  font-family: 'Arista' !important;
+}
+
 .smallerText {
+
   font-family: 'Arista' !important;
   font-size: 14px !important;
   letter-spacing: normal !important;  

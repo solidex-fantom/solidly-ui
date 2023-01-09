@@ -6,6 +6,7 @@
   align-items: flex-end;
   margin: auto;    
   margin-top: 10%; 
+  margin-bottom: 5%; 
 }
 
 .smallText {
@@ -32,7 +33,12 @@
 }
 .labelColumn{
   display: flex;
-  align-items: center,
+  align-items: center;
+  
+}
+
+.labelContainer{
+  margin-top: 10px;
 }
 
 .tableContainer {
@@ -365,11 +371,13 @@
   padding-bottom: 20px !important;
   border-bottom: 1px solid;
   border-bottom-color: #CD74CC;  
-  font-family: 'Arista' !important 
+  font-family: 'Righteous' !important 
 }
 
 .filterLabel{
-  font-size: 14px,
+  font-family: 'Arista' !important ;
+  font-size: 14px;
+  color: white;
 }
 
 .alignContentRight {

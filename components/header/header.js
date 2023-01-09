@@ -346,7 +346,7 @@ function Header(props) {
                   <Typography className={classes.headBtnTxt}>{formatCurrency(accountBalance)}{accountToken}</Typography>
                 </Grid>
 
-                <Grid item xs={8} className={classes.subcontainerMenu} >
+                <Grid item xs={8}>
 
                   <Button 
                       disableElevation
@@ -357,8 +357,10 @@ function Header(props) {
                       {account && account.address && <div className={`${classes.accountIcon}`}></div>}
                       <Typography className={classes.headBtnTxt}>{account && account.address ? formatAddress(account.address) : 'Connect Wallet'}</Typography>
 
-                      <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                      
-                        <Img alt="complex" src="/images/Wallet_Icon.svg" />
+                      <IconButton onClick={handleClick}  aria-label="Wallet" className={ classes.walletButton }>                      
+
+                        <Img alt="complex" src="/images/Wallet_Icon.svg" className={ classes.walletIcon }/>
+                        
                       </IconButton>          
 
                     </Button>
@@ -422,8 +424,7 @@ function Header(props) {
   const renderRightMenuWallet = () => {
     return (
       <>   
-        {renderTestNet()}
-        {renderTransactionsQueue()}
+        {renderTestNet()}        
         {renderWalletInfo()}
         {renderModal()}   
         {renderSocialMenu()}

@@ -5,10 +5,11 @@
   left: 0;
   z-index: 9 !important;
   width: calc(100%);
+  transition: background-color 0.8s ease;
 }
 
 .containerMenu {      
-  border-radius: 32px;    
+  border-radius: 30px;    
   background: 
     linear-gradient(#131d42 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
@@ -119,10 +120,10 @@
 .accountButton {
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 35px;
   background-color: #0D142E !important;
   border: 0 !important;
-  border-radius: 40px !important;
+  border-radius: 30px !important;
   color: rgba(255, 255, 255, 0.87) !important; 
 }
 .transactionButton {
@@ -340,8 +341,14 @@
 }
 
 
-.filterButton{
-  width: 50%;
+.walletButton{
+
+  
+}
+
+.walletIcon{
+  position: relative;
+  margin-left: 100% !important;  
 }
 
 .appLogo {        
@@ -437,6 +444,7 @@
     line-height: 19px;
     letter-spacing: 0.10em;
     color: #FFFFFF;
+    text-align: center !important;
   }
   
 
@@ -475,6 +483,7 @@
   }
 
   .containerMenuWallet {              
+    
     padding-top: 2%;
     padding-right: 2%;
   }

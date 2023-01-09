@@ -23,43 +23,43 @@ export default function VestingInfo({ currentNFT, futureNFT, veToken, govToken, 
         futureNFT &&
         <>
 
-        <Grid container>
+        <Grid container className={classes.containerVotingPower}>
 
-                  <Grid container  className={classes.mrgTp20}>
+            <Grid container  className={classes.mrgTp20}>
 
-                    <Grid lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center" >
-                      <Typography className={ classes.voteText }>Your voting power will be:</Typography>          
+              <Grid lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center" >
+                <Typography className={ classes.voteText }>Your voting power will be:</Typography>          
 
-                    </Grid>
+              </Grid>
 
-                    <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
-                      <div className={ classes.values }>
-                        <Typography color='textSecondary' align='right' className={ classes.val }>{ formatCurrency(futureNFT.lockAmount) } { govToken?.symbol }
-                        </Typography>
-                      </div>
-                    </Grid>
-
-                    <Grid lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
-                      <Typography>Locked until:</Typography>          
-                    </Grid>
-
-                    <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
-                        <div className={ classes.values }>
-                          <Typography color='textSecondary' align='right' className={ classes.val }> { moment.unix(futureNFT?.lockEnds).format('YYYY / MM / DD') }</Typography>
-                        </div>
-                    </Grid>
-
-                </Grid>
-
-
-              <Grid  lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
+              <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
                 <div className={ classes.values }>
-                  <Typography align='center' className={ classes.lockedInfo}>{ formatCurrency(futureNFT.lockAmount) } { govToken?.symbol } locked expires { moment.unix(futureNFT?.lockEnds).fromNow() } </Typography>
+                  <Typography align='right' className={ classes.val }>{ formatCurrency(futureNFT.lockAmount) } { govToken?.symbol }
+                  </Typography>
                 </div>
-                <div className={ classes.lineLockedInfo }>
+              </Grid>
 
-                </div>
-              </Grid>              
+              <Grid lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
+                <Typography  className={ classes.voteText1 }>Locked until:</Typography>          
+              </Grid>
+
+              <Grid  lg={6} md={6} sm={6} xs={6} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
+                  <div className={ classes.values }>
+                    <Typography align='right' className={ classes.val }> { moment.unix(futureNFT?.lockEnds).format('DD / MM / YYYY') }</Typography>
+                  </div>
+              </Grid>
+
+            </Grid>
+
+
+          <Grid  lg={12} md={12} sm={12} xs={12} justifyContent="center" alignItems="center"  className={classes.mrgTp20}>
+            <div className={ classes.values }>
+              <Typography align='center' className={ classes.lockedInfo}>{ formatCurrency(futureNFT.lockAmount) } { govToken?.symbol } <a className={ classes.lockedInfo1} >locked expires</a> <a className={ classes.lockedInfo} >{ moment.unix(futureNFT?.lockEnds).fromNow() }</a></Typography>
+            </div>
+            <div className={ classes.lineLockedInfo }>
+
+            </div>
+          </Grid>              
 
         </Grid>
 
