@@ -230,7 +230,8 @@ export async function createVest(payload) {
     let allowanceTXID = this.getTXUUID()
     let vestTXID = this.getTXUUID()
 
-    const unlockString = moment().add(unlockTime, 'seconds').format('YYYY-MM-DD')
+    const unlockString = moment().add(unlockTime, 'seconds').format('DD/MM/YYYY')
+    
 
     this.emitter.emit(ACTIONS.TX_ADDED, { title: `Vest ${govToken.symbol} until ${unlockString}`, type: 'Vest', verb: 'Vest Created', transactions: [
         {

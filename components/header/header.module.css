@@ -8,6 +8,10 @@
   transition: background-color 0.8s ease;
 }
 
+.iconWalletSmall{
+  color: #CD74CC !important;
+}
+
 .containerMenu {      
   border-radius: 30px;    
   background: 

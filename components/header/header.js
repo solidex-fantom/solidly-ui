@@ -201,7 +201,7 @@ function Header(props) {
     }
   }
 
-  window.addEventListener('scroll', listenScrollEvent)
+  //window.addEventListener('scroll', listenScrollEvent)
 
 
 
@@ -384,7 +384,7 @@ function Header(props) {
               </StyledMenuItem>
               <StyledMenuItem onClick={onAddressClicked}>
                 <ListItemIcon className={classes.userMenuIcon}>
-                  <AccountBalanceWalletOutlinedIcon fontSize="small" />
+                  <AccountBalanceWalletOutlinedIcon fontSize="small" className={classes.iconWalletSmall} />
                 </ListItemIcon>
                 <ListItemText className={classes.userMenuText} primary="Switch Wallet Provider" />
               </StyledMenuItem>

@@ -138,20 +138,22 @@ export default function TransactionQueue({ setQueueLength }) {
       return null
     }
 
-    let lottie = <Lottie loop={false} className={classes.animClass} animationData={successAnim} />
-    if(type === 'Liquidity') {
-      lottie = <Lottie loop={false} className={classes.animClass} animationData={pairSuccessAnim} />
-    } else if (type === 'Swap') {
-      lottie = <Lottie loop={false} className={classes.animClass} animationData={swapSuccessAnim} />
-    } else if (type === 'Vest') {
-      lottie = <Lottie loop={false} className={classes.animClass} animationData={lockSuccessAnim} />
-    }
+    let lottie = <img src="/images/Equilibot.png" className={classes.warningIcon} />
+
+    if(type === 'Liquidity') 
+      lottie = <img src="/images/Toboganes_7.png" className={classes.warningIcon} />
+    
+    else if (type === 'Swap') 
+      lottie = <img src="/images/Balls_at_balance_-_Graphic.png" className={classes.warningIcon} />
+    
+    else if (type === 'Vest') 
+      lottie = <img src="/images/Rainbow_clock_4.png" className={classes.warningIcon} />
+    
 
     return (
       <div className={classes.successDialog}>
         { lottie }
-        <Typography className={ classes.successTitle }>{ action ? action : 'Transaction Successful!' }</Typography>
-        <Typography className={ classes.successText }>Transaction has been confirmed by the blockchain.</Typography>
+        <Typography className={ classes.successTitle }>{ action ? action : 'Transaction Successful' }</Typography>        
         {
           txs && txs.length > 0 && txs.filter((tx) => {
             return tx.txHash != null
@@ -196,7 +198,7 @@ export default function TransactionQueue({ setQueueLength }) {
       TransitionComponent={Transition}
       fullScreen={fullScreen}
     >
-      <DialogContent>
+      <DialogContent  className={classes.dialogScale1}>
         <IconButton className={ classes.closeIconbutton }
           onClick={handleClose}>
           <CloseIcon />

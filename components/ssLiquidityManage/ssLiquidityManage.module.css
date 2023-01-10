@@ -11,7 +11,7 @@
   border: 1px solid transparent;  
   border-radius: 12px;      
   box-shadow: 1px 1px #0D142E;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .retain {
@@ -93,6 +93,12 @@
 
 .textField {
   margin-bottom: 4px;
+  position: relative;
+}
+
+.textField1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -351,7 +357,7 @@
 
   width: auto;  
   position: relative;
-  margin-top: 9% !important;        
+  margin-top: 139px !important;        
 
 }
 
@@ -359,7 +365,6 @@
   font-family: 'Arista' !important;
   font-size: 18px !important;
 }
-
 
 .swapIconSubContainer {
   
@@ -651,6 +656,12 @@
 
 .smallerText {
   font-family: 'Arista' !important;
+  letter-spacing: 2px;
+  font-size: 12px !important;
+}
+
+.smallerText1 {
+  font-family: 'Righteous' !important;
   letter-spacing: 2px;
   font-size: 12px !important;
 }

@@ -76,12 +76,17 @@ export default function ssLiquidityManage() {
   });
 
   const ssUpdated = async () => {
-    console.log(router.query.address)
+
+    
 
     const storeAssetOptions = stores.stableSwapStore.getStore('baseAssets')
     const nfts = stores.stableSwapStore.getStore('vestNFTs')
     const veTok = stores.stableSwapStore.getStore('veToken')
     const pairs = stores.stableSwapStore.getStore('pairs')
+
+    console.log('address', router.query.address)
+    console.log('pairs', pairs)
+
 
     const onlyWithBalance = pairs.filter((ppp) => {
       return BigNumber(ppp.balance).gt(0) || (ppp.gauge && BigNumber(ppp.gauge.balance).gt(0))
@@ -1036,7 +1041,7 @@ export default function ssLiquidityManage() {
     }
     
     return (
-      <div className={ classes.textField}>
+      <div className={ classes.textField1}>
         <div className={ classes.mediumInputContainer}>
           <div className={ classes.mediumInputAmount }>
             <Select
@@ -1053,7 +1058,7 @@ export default function ssLiquidityManage() {
                     <div className={ classes.menuOption }>
                       <Typography>Token #{option.id}</Typography>
                       <div>
-                        <Typography align='right' className={ classes.smallerText }>{ formatCurrency(option.lockValue) }</Typography>
+                        <Typography align='right' className={ classes.smallerText1 }>{ formatCurrency(option.lockValue) }</Typography>
                         <Typography className={ classes.smallerText }>{veToken?.symbol}</Typography>
                       </div>
                     </div>

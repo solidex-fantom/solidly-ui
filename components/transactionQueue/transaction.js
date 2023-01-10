@@ -36,13 +36,13 @@ export default function Transaction({ transaction }) {
   const mapStatusToTootip = (status) => {
     switch (status) {
       case 'WAITING':
-        return 'Transaction will be submitted once ready'
+        return 'Transaction submitted'
       case 'PENDING':
-        return 'Transaction is pending your approval in your wallet'
+        return 'Transaction pending approval'
       case 'SUBMITTED':
-        return 'Transaction has been submitted to the blockchain and we are waiting on confirmation.'
+        return 'Transaction has been submitted'
       case 'CONFIRMED':
-        return 'Transaction has been confirmed by the blockchain.'
+        return 'Transaction has been confirmed.'
       case 'REJECTED':
         return 'Transaction has been rejected.'
       default:
