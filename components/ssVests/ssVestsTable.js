@@ -406,6 +406,8 @@ export default function EnhancedTable({ vestNFTs, govToken, veToken }) {
   }
 
   const onView = (nft) => {
+
+    
     router.push(`/vest/${nft.id}`);
   };
 

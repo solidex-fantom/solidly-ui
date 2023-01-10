@@ -90,8 +90,8 @@
 
 
 .warningIcon {
-  height: 70%;
-  width: 70%;
+  height: 250px !important;
+  width: 70% !important;
   margin-bottom: 20px !important;
 
   

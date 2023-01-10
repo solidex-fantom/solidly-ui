@@ -19,9 +19,11 @@
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   color: #313149;
   border: 1px solid transparent;  
-  width: fit-content !important;
+  width: 250px !important;
+  height: 40px;
   display: flex;
   justify-content: flex-end;
+
 }
 
 .containerMenuWallet {              
@@ -124,7 +126,7 @@
 .accountButton {
   display: flex;
   align-items: center;
-  height: 35px;
+  height: 30px;
   background-color: #0D142E !important;
   border: 0 !important;
   border-radius: 30px !important;

@@ -351,16 +351,13 @@ function Header(props) {
                   <Button 
                       disableElevation
                       className={classes.accountButton}
-                      variant="contained"
-                      color={props.theme.palette.type === 'dark' ? 'primary' : 'secondary'}
+                      variant="contained"                      
                       aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                       {account && account.address && <div className={`${classes.accountIcon}`}></div>}
                       <Typography className={classes.headBtnTxt}>{account && account.address ? formatAddress(account.address) : 'Connect Wallet'}</Typography>
 
                       <IconButton onClick={handleClick}  aria-label="Wallet" className={ classes.walletButton }>                      
-
-                        <Img alt="complex" src="/images/Wallet_Icon.svg" className={ classes.walletIcon }/>
-                        
+                        <Img alt="complex" src="/images/Wallet_Icon.svg" className={ classes.walletIcon }/>                        
                       </IconButton>          
 
                     </Button>

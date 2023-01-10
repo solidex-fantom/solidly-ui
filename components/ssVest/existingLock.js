@@ -71,9 +71,16 @@ export default function existingLock({ nft, govToken, veToken }) {
       <div className={ classes.titleSection }>
         <Typography className={ classes.titleText }>Manage Existing Lock</Typography>
       </div>
-      <LockAmount nft={nft} govToken={ govToken } veToken={ veToken } updateLockAmount={ updateLockAmount } />
-      <LockDuration nft={nft} govToken={ govToken } veToken={ veToken } updateLockDuration={ updateLockDuration }/>
+      
       <VestingInfo currentNFT={nft} futureNFT={futureNFT} veToken={veToken} showVestingStructure={ false } />
+
+      <Grid item xs={4}>
+                <Button className={ classes.buttonOverride } onClick={ onCreate }>
+                  <Typography className={ classes.actionButtonText }>Create Lock</Typography>
+                </Button>   
+              </Grid> 
+
+
     </Paper>
   );
 }

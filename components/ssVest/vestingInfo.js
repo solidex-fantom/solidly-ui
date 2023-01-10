@@ -9,12 +9,18 @@ export default function VestingInfo({ currentNFT, futureNFT, veToken, govToken, 
     <div className={ classes.vestInfoContainer }>
       { currentNFT &&
         <>
-          <Typography className={ classes.title }>Your current voting power is:</Typography>
+          
+          
           <div className={ classes.mainSection }>
-            <Typography className={ classes.amount }>{ formatCurrency(currentNFT?.lockValue) } { veToken?.symbol}</Typography>
+            
             <div className={ classes.values }>
-              <Typography color='textSecondary' align='right' className={ classes.val } >{ formatCurrency(currentNFT.lockAmount) } { govToken?.symbol } locked expires { moment.unix(currentNFT?.lockEnds).fromNow() } </Typography>
-              <Typography color='textSecondary' align='right' className={ classes.val }>Locked until { moment.unix(currentNFT?.lockEnds).format('YYYY / MM / DD') }</Typography>
+            <Typography   align='left' className={ classes.titleInfoVest }>Your current voting power is:</Typography>
+              <Typography align='left' className={ classes.amount }>{ formatCurrency(currentNFT?.lockValue) } { veToken?.symbol}</Typography>
+            </div>
+            
+            <div className={ classes.values }>
+              <Typography align='right' className={ classes.val } >{ formatCurrency(currentNFT.lockAmount) } { govToken?.symbol } locked expires { moment.unix(currentNFT?.lockEnds).fromNow() } </Typography>
+              <Typography align='right' className={ classes.val }>Locked until { moment.unix(currentNFT?.lockEnds).format('DD / MM / YYYY') }</Typography>
             </div>
           </div>
         </>
