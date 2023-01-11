@@ -141,6 +141,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '200',
     fontSize: '12px'
   },
+  
   headerText: {
     fontWeight: '200',
     fontSize: '12px'
@@ -480,7 +481,7 @@ export default function EnhancedTable({ vestNFTs, govToken, veToken }) {
                         { moment.unix(row.lockEnds).format('DD/MM/YYYY') }
                       </Typography>
                       <Typography variant="h5" className={classes.textSpaced1} color='textSecondary'>
-                        Expires { moment.unix(row.lockEnds).fromNow() }
+                        Expires <a className={classes.textSpaced}>{ moment.unix(row.lockEnds).fromNow() }</a> 
                       </Typography>
                     </TableCell>
                     <TableCell className={classes.cell} align='right'>

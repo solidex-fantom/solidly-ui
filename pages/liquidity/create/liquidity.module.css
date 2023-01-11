@@ -17,16 +17,18 @@
   margin-top: 50px;
 }
 
-.backIconContainer {
-  width: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;    
-  z-index: 1; 
-  position: fixed;
-  padding-right: 10px;
+
+.swapIcon {
+  cursor: pointer;
+  padding: 6px;
+  font-size: 30px !important;
+  margin: 4px;
+  border-radius: 6px;  
 }
 
+.backIconContainer {
+  width: auto;      
+}
 
 .overviewIcon {
   font-size: 110px !important;
