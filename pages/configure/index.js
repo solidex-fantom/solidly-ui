@@ -14,7 +14,7 @@ function ProjectIcon(props) {
 function Configure({ theme }) {
   return (
     <div className={classes.configureContainer}>
-      <ProjectIcon
+      {/* <ProjectIcon
         color={
           (theme.palette.type === "dark"
           ? true
@@ -32,7 +32,7 @@ function Configure({ theme }) {
         width="123px"
         height="42.3px"
         className={classes.logo}
-      />
+      /> */}
     </div>
   );
 }
