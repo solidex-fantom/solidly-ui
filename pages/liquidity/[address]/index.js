@@ -6,7 +6,7 @@ import classes from './liquidity.module.css';
 function Pair({ changeTheme }) {
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container}>      
       <LiquidityManage />
     </div>
   );

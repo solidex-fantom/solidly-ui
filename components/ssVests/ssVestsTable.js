@@ -130,10 +130,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '12px',
   },
   textSpaced: {
+    fontFamily:  'Righteous !important',
     lineHeight: '1.5',
     fontWeight: '200',
     fontSize: '12px'
   },
+  textSpaced1: {
+    fontFamily:  'Arista !important',
+    lineHeight: '1.5',
+    fontWeight: '200',
+    fontSize: '12px'
+  },
+  
   headerText: {
     fontWeight: '200',
     fontSize: '12px'
@@ -270,7 +278,7 @@ const useStyles = makeStyles((theme) => ({
     background: 'linear-gradient(#141d40 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
   },
   title: {
-    fontFamily: 'Righteous',
+    fontFamily: 'Righteous !important',
     fontSize: '32px',
     color: '#FFFFFF',        
     fontStyle: 'normal',
@@ -279,7 +287,7 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: '0.13em'    
   },
   subtitle: {            
-    fontFamily: 'Arista',    
+    fontFamily: 'Arista !important',    
     fontStyle: 'normal',
     fontWeight: '700',
     fontSize: '15px',
@@ -399,6 +407,8 @@ export default function EnhancedTable({ vestNFTs, govToken, veToken }) {
   }
 
   const onView = (nft) => {
+
+    
     router.push(`/vest/${nft.id}`);
   };
 
@@ -444,7 +454,7 @@ export default function EnhancedTable({ vestNFTs, govToken, veToken }) {
                           <Typography variant='h2' className={classes.textSpaced}>
                             {row.id}
                           </Typography>
-                          <Typography variant='h5' className={classes.textSpaced} color='textSecondary'>
+                          <Typography variant='h5' className={classes.textSpaced1} color='textSecondary'>
                             NFT ID
                           </Typography>
                         </div>
@@ -454,7 +464,7 @@ export default function EnhancedTable({ vestNFTs, govToken, veToken }) {
                       <Typography variant='h2' className={classes.textSpaced}>
                         {formatCurrency(row.lockAmount)}
                       </Typography>
-                      <Typography variant='h5' className={classes.textSpaced} color='textSecondary'>
+                      <Typography variant='h5' className={classes.textSpaced1} color='textSecondary'>
                         { govToken?.symbol }
                       </Typography>
                     </TableCell>
@@ -462,16 +472,16 @@ export default function EnhancedTable({ vestNFTs, govToken, veToken }) {
                       <Typography variant='h2' className={classes.textSpaced}>
                         {formatCurrency(row.lockValue)}
                       </Typography>
-                      <Typography variant='h5' className={classes.textSpaced} color='textSecondary'>
+                      <Typography variant='h5' className={classes.textSpaced1} color='textSecondary'>
                         { veToken?.symbol }
                       </Typography>
                     </TableCell>
                     <TableCell className={classes.cell} align='right'>
                       <Typography variant="h2" className={classes.textSpaced}>
-                        { moment.unix(row.lockEnds).format('YYYY-MM-DD') }
+                        { moment.unix(row.lockEnds).format('DD/MM/YYYY') }
                       </Typography>
-                      <Typography variant="h5" className={classes.textSpaced} color='textSecondary'>
-                        Expires { moment.unix(row.lockEnds).fromNow() }
+                      <Typography variant="h5" className={classes.textSpaced1} color='textSecondary'>
+                        Expires <a className={classes.textSpaced}>{ moment.unix(row.lockEnds).fromNow() }</a> 
                       </Typography>
                     </TableCell>
                     <TableCell className={classes.cell} align='right'>

@@ -155,7 +155,7 @@ const coreTheme = {
         }
       }
     },
-    MuiDialog: {
+    MuiDialog: {      
       paperWidthSm: {
         maxWidth: "800px",
       }

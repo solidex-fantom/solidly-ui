@@ -58,7 +58,7 @@ function Vesting({ changeTheme }) {
           
           <div className={classes.contentFloat}>
             <Typography className={classes.title} variant='h1'>Whitelist Tokens</Typography>
-            <Typography className={classes.subtitle} variant='body2'>Whitelist tokens to be used in Solidly Gauges.</Typography>
+            <Typography className={classes.subtitle} variant='body2'>Whitelist tokens to be used in Equilibre Gauges.</Typography>
             <Button
               disableElevation
               className={classes.buttonConnect}

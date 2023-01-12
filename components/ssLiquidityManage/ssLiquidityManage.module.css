@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;  
+  
   transform: scale(0.9);
 
   background: 
@@ -11,7 +12,8 @@
   border: 1px solid transparent;  
   border-radius: 12px;      
   box-shadow: 1px 1px #0D142E;
-  margin-top: 5%;
+
+  margin-top: 7%;
 }
 
 .retain {
@@ -69,13 +71,14 @@
   cursor: pointer;
 }
 
-.inputsContainer {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 24px 0px; */
-  padding: 0px 24px;
-  /* flex: 1; */
+.containerDeposit {
+  padding: 0px 24px;  
 }
+
+.containerWithdraw {
+  padding: 0px 24px;    
+}
+
 
 .multiApproval {
   display: grid;
@@ -93,6 +96,12 @@
 
 .textField {
   margin-bottom: 4px;
+  position: relative;
+}
+
+.textField1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -347,19 +356,34 @@
   margin-bottom: 20px;
 }
 
-.backIconContainer {
-
+.backIconContainer1 {
   width: auto;  
   position: relative;
-  margin-top: 9% !important;        
+  margin-top: 175px !important;          
+}
 
+.backIconContainer2 {
+  width: auto;  
+  position: relative;
+  margin-top: 110px !important;            
+}
+
+.backIconContainer3 {
+  width: auto;         
+  position: relative;
+  margin-top: 170px !important;            
+}
+
+.backIconContainer4 {
+  width: auto;  
+  position: relative;
+  margin-top: 100px !important;            
 }
 
 .assetSelectText {  
   font-family: 'Arista' !important;
   font-size: 18px !important;
 }
-
 
 .swapIconSubContainer {
   
@@ -651,6 +675,12 @@
 
 .smallerText {
   font-family: 'Arista' !important;
+  letter-spacing: 2px;
+  font-size: 12px !important;
+}
+
+.smallerText1 {
+  font-family: 'Righteous' !important;
   letter-spacing: 2px;
   font-size: 12px !important;
 }

@@ -6,12 +6,20 @@
   font-size: 24px !important;
   width: 100%;
   text-align: center;
+  color: white;
+  
 }
 
 .transactionsContainer {
   border-radius: 12px;
   /* background: #0D142E; */
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  background: 
+    linear-gradient(#131d42 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  border: 1px solid transparent;  
+  
   padding: 24px;
   margin-bottom: 12px;
 }
@@ -20,6 +28,7 @@
   padding: 12px 12px;
   border-bottom: 1px solid rgba(108,108,123, 0.2);
   cursor: pointer;
+  
 }
 
 .transaction:hover {
@@ -42,6 +51,11 @@
   text-transform: capitalize !important;
 }
 
+.transactionDescription{
+  color: white;
+  font-family: 'Arista' !important;
+}
+
 .transactionExpanded {
 }
 
@@ -53,17 +67,17 @@
 }
 
 .orangeIcon {
-  color: #ffc512 !important;
+  color: #FFBD59 !important;
 }
 .greenIcon {
-  color: #49a766 !important;
+  color: #70DD88 !important;
 }
 .redIcon {
-  color: #dc3545 !important;
+  color: #CD74CC !important;
 }
 
 .errorText {
-  color: #dc3545 !important;
+  color: #CD74CC !important;
   padding-top: 12px !important;
 }
 
@@ -71,12 +85,39 @@
   width: 130px;
   margin: auto;
   padding: 30px 0 20px 0;
+  
+}
+
+
+.warningIcon {
+  height: 250px !important;
+  width: 70% !important;
+  margin-bottom: 20px !important;
+
+  
+}
+
+
+.animClass1{
+  width: 130px;
+  margin: auto;
+  padding: 30px 0 20px 0;
+  color: green;
 }
 
 .dialogScale {
   max-width: 640px;
   margin: auto;
-  text-align: center;
+  text-align: center;  
+}
+
+.dialogScale1 {
+  border-radius: 12px;    
+  background: 
+    linear-gradient(#131d42 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  border: 1px solid transparent;  
 }
 
 .successDialog {
@@ -84,14 +125,19 @@
   margin: auto;
   text-align: center;
   padding-bottom: 20px !important;
+
+  
+  
 }
 
 .successTitle {
   padding: 0 40px !important;
   text-align: center !important;
-  margin: 20px 0 10px 0 !important;
+  margin: 0px 0 30px 0 !important;
   font-size: 22px !important;
   font-weight: 700 !important;
+  color: #ffff !important;
+
 }
 
 .successText {
@@ -99,21 +145,27 @@
   text-align: center !important;
   line-height: 1.5rem !important;
   margin-bottom: 40px !important;
-  color: rgba(126,153,176,0.8) !important;
+  
+  color: #fff !important;
 }
 
 .viewDetailsText {
   background: none;
   margin: 10px auto 20px auto !important;
   font-size: 14px !important;
+  color: #fff;
+  font-family: 'Arista' !important
 }
 
 .viewDetailsText a {
-  color: #06D3D7 !important;
+  color: #CD74CC !important;
+  font-family: 'Arista' !important
 }
 
 .viewDetailsText a:hover {
-  color: #FFF !important;
+  color: rgb(237, 176, 176) !important;
+
+  font-family: 'Arista' !important
 }
 
 .newWindowIcon {

@@ -4,6 +4,8 @@
   justify-content: center;
   min-width: 100vw;
   min-height: 100vh;
+
+  
 }
 
 .dialogWrapper {
@@ -20,6 +22,18 @@
   border: 1px solid rgba(104,108,122,0.2);
   padding: 40px;
   border-radius: 20px;
+
+
+  background: 
+    linear-gradient(#131b4c 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+    
+  border: 1px solid transparent;  
+
+}
+
+.emptyDiv {
+  margin-bottom: 10px;
 }
 
 .warningIcon {
@@ -27,27 +41,39 @@
   margin-bottom: 20px !important;
 }
 
-.title1 {
-  font: normal normal normal 23px/36px Inter !important;
+.title1 {  
+  font-family: 'Arista' !important;
+  font-size: 18px !important;
   letter-spacing: 0px !important;
-  color: #FFF;
-  margin-bottom: 10px !important;
+  color: #CD74CC;
+  margin-bottom: 20px !important;
 }
 
 .title2 {
-  font: normal normal bold 24px/28px Inter !important;
+  font-size: 32px;
+  font-family: 'Arista' !important;
   letter-spacing: 0px !important;
   margin-bottom: 36px !important;
   text-align: center;
-  color: #06D3D7 !important;
+  color: #CD74CC !important;
+}
+
+.title3 {  
+  font-family: 'Arista' !important;
+  letter-spacing: 0px !important;
+  margin-bottom: 36px !important;
+  text-align: center;
+  color: #1F2E64 !important;
 }
 
 .paragraph {
   text-align: center;
-  font: normal normal bold 14px/22px Inter !important;
+  font: normal normal bold 22px !important;
+  font-family: 'Arista';
+  color: white;
   letter-spacing: 0px !important;
   margin-bottom: 33px !important;
-  color: rgba(126,153,176,0.8);
+  
 }
 
 .paragraph span {
@@ -59,10 +85,11 @@
 }
 
 .primaryButton {
-    background: rgb(23, 52, 72) !important;
-    font-weight: 700 !important;
-    width: 100%;
-    margin-bottom: 15px !important;
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
+  color: rgb(20 30 63) !important;
+  font-weight: 700 !important;
+  border-radius: 30px !important;
+  width: 100%;
 }
 
 .secondaryButton {
@@ -73,7 +100,7 @@
   font: normal normal bold 14px/19px Inter !important;
   letter-spacing: 0px  !important;
   text-transform: none;
-  color: rgb(6, 211, 215) !important;
+  color: #131b4c !important;
 }
 
 .buttonTextSecondary {
@@ -107,11 +134,15 @@
 
   .paragraph {
     font: normal normal bold 14px/18px Inter !important;
+    font-family: 'Arista';
+    color: white;
     margin: 0 20px 20px 20px !important;
   }
 
   .para2 {
     font: normal normal normal 14px/18px Inter !important;
+    font-family: 'Arista';
+    color: white;
     margin: 0 20px 20px 20px !important;
   }
 

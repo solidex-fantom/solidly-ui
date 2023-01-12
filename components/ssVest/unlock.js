@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Paper, Typography, Button, CircularProgress, IconButton } from '@material-ui/core';
+import { Paper, Typography, Button, CircularProgress, Link } from '@material-ui/core';
 import classes from "./ssVest.module.css";
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -42,14 +42,33 @@ export default function Unlock({ nft, govToken, veToken }) {
     router.push('/vest')
   }
 
+  const renderIconArrowLeft = () => {
+    return(
+      <div className={ classes.backIconContainer1 }>
+        <div className={ classes.vestIconSubContainer }>
+          <Link
+            color='textPrimary'
+            variant='button'
+            underline='none'
+            href="/vest"
+            >
+            <ArrowBackIcon className={ classes.backIcon } />
+          </Link>
+          
+        </div>      
+      </div>
+    )
+  }
+
   return (
-    <Paper elevation={0} className={ classes.container2 }>
+    <Paper elevation={0} className={ classes.container2 }>      
       <div className={ classes.titleSection }>
+        {renderIconArrowLeft()}          
         <Typography className={ classes.titleText }>Manage Existing Lock</Typography>
       </div>
       <VestingInfo currentNFT={nft} veToken={veToken} />
       <div className={classes.contentBox}>
-        <Typography className={ classes.para }>Your lock has expired. Please withdraw your lock before you can re-lock.</Typography>
+        <Typography className={ classes.para1 }>Your lock has expired. Please withdraw your lock before you can re-lock.</Typography>
       </div>
       <div className={ classes.actionsContainer }>
         <Button

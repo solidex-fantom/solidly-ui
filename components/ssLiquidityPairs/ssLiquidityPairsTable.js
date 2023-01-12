@@ -805,6 +805,9 @@ export default function EnhancedTable({ pairs }) {
   }
 
   const onView = (pair) => {
+
+    console.log('pair', pair);
+    
     router.push(`/liquidity/${pair.address}`);
   };
 
