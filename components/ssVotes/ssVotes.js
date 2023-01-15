@@ -188,6 +188,13 @@ export default function ssVotes() {
       },
     },
     select: {
+      border: "none",      
+      "&.Mui-focused": {
+        backgroundColor: "none",
+      },
+      '&:hover': {
+        backgroundColor: "none",
+      },
       "&:after": {
         borderBottomColor: "#CD74CC",
       },
@@ -323,121 +330,146 @@ export default function ssVotes() {
 
   const classesSelect = useStyles();
 
+  const renderTopBar = () => {
+    return(
+      <>                  
+            <Grid container className={classes.gridBanner} xs={12}  justifyContent='space-between'>
+
+              <Grid direction="column" spacing={6} xs={8}>    
+                <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Vote</Typography></Grid>                                
+                <Grid item xs={12} className={classes.toolbarInfo1}><Typography className={classes.subtitle} variant="h2">Select your veVARA and use <a  className={classes.subtitle1}>100%</a> of your votes for one or more pools to earn bribes and trading fees. </Typography></Grid>                                  
+              </Grid>   
+
+              <Grid item xs={4}>            
+                <div className={classes.sphere}></div>  
+              </Grid>                                            
+
+          </Grid>
+        
+      </>
+    )
+  }
+
+  const renderContainersCenter = () => {
+    return(
+      <>
+        <Grid container className={classes.searchContainer}  justifyContent='space-evenly' spacing={2}>
+              <Grid item xs={5}>
+
+                <TextField
+                  className={classes.searchVote}              
+                  fullWidth
+                  placeholder="KAVA, USDC, VARA..."
+                  value={search}
+                  onChange={onSearchChanged}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="center" className={classes.searchVote1}              >
+                        <SearchIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>  
+                      
+              <Grid item xs={6}>
+                <div className={ classes.tokenIDContainer }>
+                  { renderMediumInput(token, vestNFTs) }
+                </div>
+              </Grid>
+
+              <Grid item xs={1}>      
+            
+                <Tooltip placement="top" title="Filter list">        
+                  <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                                    
+                      <FilterListIcon />              
+                  </IconButton>          
+
+                </Tooltip>
+              </Grid>
+            </Grid>
+
+            <Grid container className={classes.gridInfoVote} xs={12} justifyContent="space-around" alignItems="center">                                    
+                <Typography className={classes.toolbarText}>
+                    Votes are due by Wendnesday at <a className={classes.toolbarSubText}>23:59 UTC</a>, when the next epoch begins. Each veNFT can only cast votes once per epoch.
+                    Your vote will allocate <a className={classes.toolbarSubText}>100%</a> of that  veNFT's vote power. Each veNFT's votes will carry over into the next epoch.
+                    Voters will earn bribes no matter when in the epoch the bribes are added.  <a className={ classes.disclaimerDocs1 }>For details refer</a><a href='https://equilibre-finance.gitbook.io/equilibre-finance/what-is-equilibre/trading-and-liquidity-marketplace' className={ classes.disclaimerDocs }>docs</a>
+                </Typography>            
+          </Grid> 
+      </>
+    )
+  }
+
+
+  const renderTable = () => {
+    return(
+      <>
+          <Paper elevation={0} className={ classes.tableContainer }>
+            <GaugesTable gauges={ gauges.filter((pair) => {
+              if(!search || search === '') {
+                return true
+              }
+
+              const searchLower = search.toLowerCase()
+
+              if(pair.symbol.toLowerCase().includes(searchLower) || pair.address.toLowerCase().includes(searchLower) ||
+                pair.token0.symbol.toLowerCase().includes(searchLower) || pair.token0.address.toLowerCase().includes(searchLower) || pair.token0.name.toLowerCase().includes(searchLower) ||
+                pair.token1.symbol.toLowerCase().includes(searchLower) || pair.token1.address.toLowerCase().includes(searchLower) ||  pair.token1.name.toLowerCase().includes(searchLower)) {
+                return true
+              }
+
+              return false
+
+            }) } setParentSliderValues={setVotes} defaultVotes={votes} veToken={veToken} token={ token } />
+
+          </Paper>
+      </>
+    )
+  }
+
+  const renderBottom = () => {
+    return(
+      <>
+        <Paper elevation={10} className={ `${BigNumber(totalVotes).gt(0) ? classes.actionButtons : classes.actionButtons1}` }>
+          <Grid container spacing={2}>
+            <Grid item lg={6}>
+              <div className={ classes.infoSection }>
+                <Typography>Voting Power Used: </Typography>
+                <Typography className={ `${BigNumber(totalVotes).gt(100) ? classes.errorText : classes.helpText}` }>{ totalVotes } %</Typography>
+              </div>
+            </Grid>
+            <Grid item lg={6}>
+              <Button
+                className={ classes.buttonOverrideFixed }
+                variant='contained'
+                size='large'
+                color='primary'
+                disabled={ voteLoading || BigNumber(totalVotes).eq(0) || BigNumber(totalVotes).gt(100) }
+                onClick={ onVote }
+                >
+                <Typography className={ classes.actionButtonText }>{ voteLoading ? `Casting Votes` : `Cast Votes` }</Typography>
+                { voteLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
+              </Button>
+            </Grid>
+          </Grid>
+
+          {renderListFilterOptions()}
+
+        </Paper>
+      </>
+    )
+  }
+
   return (
 
     <div className={ classes.container }>
-      <div className={ classes.topBarContainer }>        
 
-        <Grid container spacing={2}>
-
-          <Grid container className={classes.gridBanner} xs={12} justifyContent='space-between' alignContent='center'>
-
-            <Grid direction="column" xs={8}>    
-              <Grid className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Vote</Typography></Grid>                                
-              <Grid className={classes.toolbarInfo1}><Typography className={classes.subtitle}  variant="h2">Earn a share of your pools transactions fees, bribes and emission rewards for helping govern Équilibre</Typography></Grid>                                  
-            </Grid>   
-
-            <Grid item xs={4}>            
-              <div className={classes.sphere}></div>  
-            </Grid>
-                                
-          </Grid> 
-
-
-
-          <Grid item container justifyContent='space-evenly' spacing={2} className={classes.middleTopContainer}>
-            <Grid item xs={5}>
-
-              <TextField
-                className={classes.searchVote}              
-                fullWidth
-                placeholder="KAVA, USDC, VARA..."
-                value={search}
-                onChange={onSearchChanged}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="center" className={classes.searchVote1}              >
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Grid>  
-                    
-            <Grid item xs={6}>
-              <div className={ classes.tokenIDContainer }>
-                { renderMediumInput(token, vestNFTs) }
-              </div>
-            </Grid>
-
-            <Grid item xs={1}>      
-          
-              <Tooltip placement="top" title="Filter list">        
-                <IconButton onClick={handleClick} className={ classes.filterButton } aria-label="filter list">                                    
-                    <FilterListIcon />              
-                </IconButton>          
-
-              </Tooltip>
-            </Grid>
-          </Grid>
-
-          <Grid container className={classes.gridInfoVote} xs={12} justifyContent="space-around" alignItems="center">                                    
-              <Typography className={classes.toolbarText}>
-                  Votes are due by Wendnesday at <a className={classes.toolbarSubText}>23:59 UTC</a>, when the next epoch begins. Each veNFT can only cast votes once per epoch.
-                  Your vote will allocate <a className={classes.toolbarSubText}>100%</a> of that  veNFT's vote power. Each veNFT's votes will carry over into the next epoch.
-                  Voters will earn bribes no matter when in the epoch the bribes are added.  <a className={ classes.disclaimerDocs1 }>For details refer</a><a href='https://equilibre-finance.gitbook.io/equilibre-finance/what-is-equilibre/trading-and-liquidity-marketplace' className={ classes.disclaimerDocs }>docs</a>
-              </Typography>            
-         </Grid>            
-      </Grid>
-
-
-      </div>
-      <Paper elevation={0} className={ classes.tableContainer }>
-        <GaugesTable gauges={ gauges.filter((pair) => {
-          if(!search || search === '') {
-            return true
-          }
-
-          const searchLower = search.toLowerCase()
-
-          if(pair.symbol.toLowerCase().includes(searchLower) || pair.address.toLowerCase().includes(searchLower) ||
-            pair.token0.symbol.toLowerCase().includes(searchLower) || pair.token0.address.toLowerCase().includes(searchLower) || pair.token0.name.toLowerCase().includes(searchLower) ||
-            pair.token1.symbol.toLowerCase().includes(searchLower) || pair.token1.address.toLowerCase().includes(searchLower) ||  pair.token1.name.toLowerCase().includes(searchLower)) {
-            return true
-          }
-
-          return false
-
-        }) } setParentSliderValues={setVotes} defaultVotes={votes} veToken={veToken} token={ token } />
-
-      </Paper>
+      {renderTopBar()}
+      {renderContainersCenter()}
+      {renderTable()}
+      {renderBottom()}
       
-      <Paper elevation={10} className={ `${BigNumber(totalVotes).gt(0) ? classes.actionButtons : classes.actionButtons1}` }>
-        <Grid container spacing={2}>
-          <Grid item lg={6}>
-            <div className={ classes.infoSection }>
-              <Typography>Voting Power Used: </Typography>
-              <Typography className={ `${BigNumber(totalVotes).gt(100) ? classes.errorText : classes.helpText}` }>{ totalVotes } %</Typography>
-            </div>
-          </Grid>
-          <Grid item lg={6}>
-            <Button
-              className={ classes.buttonOverrideFixed }
-              variant='contained'
-              size='large'
-              color='primary'
-              disabled={ voteLoading || BigNumber(totalVotes).eq(0) || BigNumber(totalVotes).gt(100) }
-              onClick={ onVote }
-              >
-              <Typography className={ classes.actionButtonText }>{ voteLoading ? `Casting Votes` : `Cast Votes` }</Typography>
-              { voteLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
-            </Button>
-          </Grid>
-        </Grid>
-
-        {renderListFilterOptions()}
-
-      </Paper>
+      
     </div>
   );
 }

@@ -201,9 +201,8 @@
   margin-top: 20px;  
 }
 
-.actionButtonText {
-  
-  font-size: 18px !important;
+.actionButtonText {  
+  font-size: 15px !important;
   text-transform: capitalize !important;
   font-weight: 700 !important;
   position: absolute;
@@ -213,9 +212,7 @@
   line-height: 1.5;
   font-weight: 100;
   letter-spacing: 1px;
-  color: #0D142E;
-  font-family: 'Righteous' !important;    
-
+  color: #0D142E;  
 }
 
 .buttonStretch {

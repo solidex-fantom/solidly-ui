@@ -204,8 +204,7 @@ export default function ssRewards() {
             <Grid item container direction="column" xs={8}  justifyContent="flex-start"  className={classes.containerTitles}>            
             
               <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Rewards</Typography></Grid>    
-              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} >Claim rewards for locking tokens, including new token emissions</Typography></Grid>                                  
-              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} >bribes and a slice of the transaction fees from your pools.</Typography></Grid>                                                
+              <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle} >Choose your veVARA and claim your rewards.</Typography></Grid>                                                
             </Grid>   
 
             <Grid item xs={4} justifyContent="center" alignItems="center">            

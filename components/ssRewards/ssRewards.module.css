@@ -48,9 +48,9 @@
   height: 100%;
   min-width: 200px !important;    
   background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
-  border-radius: 30px;  
+  border-radius: 15px;  
   position: relative;
-  margin-left: 15px !important;
+  margin-left: 25px !important;
 }
 
 .buttonOverride:hover {
@@ -106,7 +106,7 @@
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 20px;
+  border-radius: 15px;
   
 }
 
@@ -159,7 +159,7 @@
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 12px;
+  border-radius: 15px;
   
 }
 
@@ -196,7 +196,7 @@
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 30px;
+  border-radius: 15px;
   
 }
 

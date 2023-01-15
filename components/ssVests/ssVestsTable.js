@@ -238,44 +238,38 @@ const useStyles = makeStyles((theme) => ({
     height: '35px'
   },
 
-  buttonOverride: {   
-    background: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
-    borderRadius: '30px',
-    color: '#0D142E',
-    fontWeight: '700',
-    width: '220px',
-    position: 'relative',
-    height: '40px',
-    marginLeft: '15px',
-    '&:hover': {
-      background: 'rgb(19, 44, 60)'
-    },
+  buttonOverride: {
+    fontWeight: '700 !important',
+    width: '75%',
+    height: '100%',
+    minWidth: '100px !important',
+    padding: '19px 24px',
+    color: '#0D142E',        
+    background: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)'  
   },
   toolbar: {
-    margin: '24px 0px',
+    marginBottom: '0px',
     padding: '0px',
   },
   tableContainer: {    
-    borderRadius: '30px',    
+    background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
     border: '1px solid transparent',
-    background: 'linear-gradient(#141d40 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
+    borderRadius: '12px',    
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end', 
   },
   actionButtonText: {
-    fontSize: '15px',
-    fontWeight: '700',
+    fontSize: '15px',    
+    lineHeight: '1.5',    
+    letterSpacing: '1px'
   },
   gridBanner: {          
-    height: '220px',
-    margin: '10px',
-    padding: '18px',    
-    // marginTop: '80px',    
-    borderRadius: '30px',        
+    background: 'linear-gradient(#131d42 0 0) padding-box,linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box',
     border: '1px solid transparent',
-    background: 'linear-gradient(#141d40 0 0) padding-box, linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;',
+    borderRadius: '15px',
+    marginBottom: '20px'    
   },
   title: {
     fontFamily: 'Righteous !important',
@@ -294,32 +288,31 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '27px',
     letterSpacing: '0.13em',
     color: '#FFFFFF'
-  },
-  textEqual: {            
-    color: '#FFBD59'
-  },
+  },  
   sphere: {        
-    width: '100%',
-    height: '200px',
+    height: '90%',
     background: 'url(\'/images/Rainbow_clock_4.png\') no-repeat right',
     backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',    
-    position: 'relative',
-    bottom: '40px',        
+    backgroundRepeat: 'no-repeat',          
+    marginTop: '10px'     
   },
   toolbarInfo: {
-    margin: '15px',
+    marginTop: '20px',
+    marginLeft: '30px',
     letterSpacing: '6px'    
-  }
+  },
+  toolbarInfo1: {    
+    marginTop: '10px',
+    marginLeft: '30px',
+    letterSpacing: '6px'    
+  },
+  toolbarInfo2: {
+    marginTop: '10px',
+    marginBottom: '20px',
+    marginLeft: '30px',
+    letterSpacing: '6px'    
+  },
 }));
-
-
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  maxWidth: '100%',
-  maxHeight: '100%',
-});
 
 
 const EnhancedTableToolbar = (props) => {
@@ -336,36 +329,28 @@ const EnhancedTableToolbar = (props) => {
     router.push('/vest/create')
   }
 
-  return (
-    <Toolbar className={ classes.toolbar }>
+  return (          
 
-      <Grid container spacing={2}>
-
-        <Grid container className={classes.gridBanner} xs={12} spacing={6} alignItems="flex-start">
+        <Grid container xs={12} className={classes.gridBanner} justifyContent='space-between'>
 
             <Grid direction="column" spacing={6} xs={8}>       
 
-              <Grid className={classes.toolbarInfo}><Typography className={classes.title}>Vest</Typography></Grid>                  
-              <Grid className={classes.toolbarInfo}><Typography className={classes.subtitle}>More tokens locked for longer <a className={classes.textEqual}>=</a> greater voting power <a className={classes.textEqual}>=</a> higher rewards</Typography></Grid>                    
+              <Grid xs={12} className={classes.toolbarInfo}><Typography className={classes.title}>Lock</Typography></Grid>                  
+              <Grid xs={12} className={classes.toolbarInfo1}><Typography className={classes.subtitle}>Lock VARA into veVARA to earn and govern. Vote with veVARA to earn bribes and trading fees.</Typography></Grid>                    
 
-              <Grid item xs={4}>
+              <Grid item xs={4} className={classes.toolbarInfo2}>
                 <Button className={ classes.buttonOverride } onClick={ onCreate }>
                   <Typography className={ classes.actionButtonText }>Create Lock</Typography>
                 </Button>   
               </Grid> 
 
             </Grid>   
-
             
             <Grid item display='flex' xs={4}>            
               <div className={classes.sphere}></div>  
             </Grid>
                                 
-          </Grid>  
-
-      </Grid>   
-      
-    </Toolbar>
+        </Grid>                    
   );
 };
 

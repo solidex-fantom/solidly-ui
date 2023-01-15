@@ -6,7 +6,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: block;
   border-width: thin;
   position: absolute;
-  left: -110px;
+  left: -115px;
   z-index: 9;
 }
 

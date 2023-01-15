@@ -53,9 +53,9 @@ function Vesting({ changeTheme }) {
         <Paper className={classes.notConnectedContent}>
           
           <div className={classes.contentFloat}>
-          <Typography className={classes.title} variant="h1">Vest</Typography>
+          <Typography className={classes.title} variant="h1">Lock</Typography>
           <Typography className={classes.subtitle} variant="h2">
-            More tokens locked for longer = greater voting power = higher rewards
+            Lock VARA into veVARA to earn and govern. Vote with veVARA to earn bribes and trading fees.
           </Typography>
           <Button
             disableElevation

@@ -373,12 +373,13 @@ const useStyles = makeStyles((theme) => ({
     
   },
   buttonOverride: {
-    color: '#0D142E',    
-    borderRadius: '30px',
-    background: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)',
-    marginTop: '15px',
-    marginBottom: '30px',
-    marginLeft: '30px'
+    fontWeight: '700 !important',
+    width: '75%',
+    height: '100%',
+    minWidth: '100px !important',
+    padding: '19px 24px',
+    color: '#0D142E',        
+    background: 'linear-gradient(to right, #CD74CC, #FFBD59, #70DD88)'    
   },
   
   toolbar: {
@@ -414,10 +415,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   actionButtonText: {
-    fontSize: '15px',
-    fontWeight: '300',
-    lineHeight: '1.5',
-    fontWeight: '100',
+    fontSize: '15px',    
+    lineHeight: '1.5',    
     letterSpacing: '1px'
   },
   filterContainer: {    
@@ -504,6 +503,16 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarInfo: {
     marginTop: '30px',
+    marginLeft: '30px',
+    letterSpacing: '6px'    
+  },
+  toolbarInfo1: {    
+    marginLeft: '30px',
+    letterSpacing: '6px'    
+  },
+  toolbarInfo2: {
+    marginTop: '10px',
+    marginBottom: '20px',
     marginLeft: '30px',
     letterSpacing: '6px'    
   },
@@ -625,22 +634,22 @@ const EnhancedTableToolbar = (props) => {
       <>        
         <Grid container xs={12} className={classes.gridBanner} justifyContent='space-between'>
 
-        <Grid direction="column" spacing={6} xs={8}>       
+          <Grid direction="column" spacing={6} xs={8}>       
 
-          <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Pools</Typography></Grid>
-          <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.subtitle}>Add liquidity and earn weekly rewards</Typography></Grid>
+            <Grid item xs={12} className={classes.toolbarInfo}><Typography className={classes.title} variant="h1">Liquidity</Typography></Grid>
+            <Grid item xs={12} className={classes.toolbarInfo1}><Typography className={classes.subtitle}>Pair your tokens to provide liquidity. Stake the LP tokens to earn VARA.</Typography></Grid>          
 
-            <Grid item xs={4}>
-              <Button className={ classes.buttonOverride } onClick={ onCreate }>
-                <Typography className={ classes.actionButtonText }>Manage Liquidity</Typography>
-              </Button>   
-            </Grid> 
+              <Grid item xs={4} className={classes.toolbarInfo2}>
+                <Button className={ classes.buttonOverride } onClick={ onCreate }>
+                  <Typography className={ classes.actionButtonText }>Add/Remove Liquidity</Typography>
+                </Button>   
+              </Grid> 
 
-           </Grid>   
+          </Grid>   
 
-            <Grid item sm={2} className={classes.gridSphere}>
-              <div className={classes.sphere}></div>
-            </Grid>
+          <Grid item sm={2} className={classes.gridSphere}>
+            <div className={classes.sphere}></div>
+          </Grid>
 
         </Grid>
       </>

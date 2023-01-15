@@ -3,14 +3,13 @@
   justify-content: space-evenly;
   align-items: center;
   min-height: calc(100vh - 423px);  
-  margin-top: 25%; 
+  margin-top: 10%; 
 }
 
 .swapContainer {
   padding: 35px;
   display: flex;
   flex-direction: column;  
-
   
   box-sizing: border-box;
   box-shadow: 10px 10px #0D142E;
@@ -23,7 +22,7 @@
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
     
   border: 1px solid transparent;  
-  border-radius: 30px !important;      
+  border-radius: 15px !important;      
 }
 
 

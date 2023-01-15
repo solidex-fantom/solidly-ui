@@ -79,18 +79,8 @@ function Swap({ changeTheme }) {
     return(
 
       <>
-      <Grid container alignItems="center" justifyContent="center" spacing={0}>
-
-          <Grid item alignItems="center" justifyContent="center" lg={6} xs={12} className={classes.titleContainer}>                          
-              <Typography className={classes.title} variant="h1">Swap</Typography>
-              <Typography className={classes.subtitle}>Minimal slippage, low swapping fees & deep liquidity</Typography>
-              <div className={classes.sphere}></div>                          
-          </Grid>
-
-          <Grid item xs={12} lg={6}>            
-            <SwapComponent />
-          </Grid>
-          
+      <Grid container xs={12} alignItems="center" justifyContent="center" spacing={0}>          
+            <SwapComponent />          
         </Grid>
       </>
 

@@ -55,7 +55,7 @@ function Rewards({ changeTheme }) {
           <div className={classes.contentFloat}>
             <Typography className={classes.title} variant='h1'>Rewards</Typography>
             <Typography className={classes.subtitle} variant='body2'>
-              Claim rewards for locking tokens, including new token emissions, bribes and a slice for the transaction fees from your pools
+              Choose your veVARA and claim your rewards.
             </Typography>
             <Button
             disableElevation

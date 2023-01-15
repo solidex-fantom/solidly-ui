@@ -82,11 +82,11 @@ function Navigation(props) {
           'swap',
         )}
         {renderSubNav(
-          'Pools',
+          'Liquidity',
           'liquidity',
         )}
         {renderSubNav(
-          'Vest',
+          'Lock',
           'vest',
         )}
         {renderSubNav(

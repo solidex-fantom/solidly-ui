@@ -48,12 +48,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
+  overflow-x: hidden !important;
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
-
+  
 }
+
 
 .actionButtons1{
   display: none;
@@ -149,12 +150,6 @@
   border: 1px solid rgba(104, 108, 122, 0.25);
   border-radius: 30px;
 }
-.middleTopContainer{
-  padding-left: 8px !important;
-  padding-right: 8px !important;
-
-  
-}
 
 .searchVote {
   flex: 1;
@@ -184,17 +179,23 @@
   flex: 1;
   display: flex;
   width: 100%;
-  padding: 0px 24px !important;  
+  margin-bottom: 10px !important;  
 }
 
-.topBarContainer {
-  
-  padding: 24px 0px;
+.topBarContainer {  
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  
+  width: 100%;  
+}
+
+.searchBarContainer {  
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;  
 }
 
 .mediumInputContainer {
@@ -251,24 +252,19 @@
 }
 
 .gridBanner {      
-  height: 220px;
-  margin: 10px;
-  padding: 18px;    
-  
+    
+  height: 100%;
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
     linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
   
   border: 1px solid transparent;  
-  border-radius: 30px;    
+  border-radius: 15px;    
+  margin-bottom: 20px;
 
 }
 
-.gridInfoVote {      
-  height: 100px;
-  margin: 10px;
-  padding-left: 50px;  
-  padding-right: 50px;  
+.gridInfoVote {        
   
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
@@ -276,6 +272,7 @@
   
   border: 1px solid transparent;  
   border-radius: 15px;    
+  margin-bottom: 20px;
 }
 
 .infoBanner {
@@ -288,29 +285,27 @@
   flex-wrap: wrap;
 }
 
-.sphere {    
-  width: 100%;
-  height: 200px;
+.sphere {      
+  height: 180px;
   background: url('/images/Hands_and_shadow.png') no-repeat right;
   background-size: contain;
   background-repeat: no-repeat;      
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.gridSphere {
-  
-  z-index: 1;
+  z-Index: 1;
+  position: relative;  
+  margin-bottom: 20px;
+  margin-right: 10px;
 }
 
 .toolbarInfo {    
-  margin-top: 70px !important;  
-  margin-left: 30px;    
+  margin-top: 30px !important;  
+  margin-left: 30px !important;     
+  letter-spacing: 6px    
 }
 
 .toolbarInfo1 {  
   margin-top: 5px;  
   margin-left: 30px;    
+  margin-left: 30px !important;     
 }
 
 .title {
@@ -333,6 +328,15 @@
   color: #FFFFFF;
 }
 
+.subtitle1 {  
+  font-family: 'Righteous' !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 27px;  
+  color: #FFFFFF;
+}
+
 .disclaimerDocs1 {
   font-size: 13px !important;
   color: white;
@@ -350,10 +354,11 @@
 }
 
 .toolbarText {  
+  margin: 10px !important;
   font-family: 'Arista' !important;
   font-style: normal !important;  
   font-size: 16px  !important;  
-  letter-spacing: 0.13em  !important;
+  letter-spacing: 0.1em  !important;
   color: #CD74CC  !important;
   text-align: justify  !important;  
 }
@@ -458,13 +463,8 @@
 
 @media screen and (max-width: 1600px) {
 
-  .gridBanner {      
-  
-    height: 170px;
-    margin: 10px;
-    padding: 8px;    
-    margin-top: 80px;
-   
+  .gridBanner {            
+    margin-top: 80px;   
   }
 
   .topBarContainer {
