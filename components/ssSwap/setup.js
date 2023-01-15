@@ -592,32 +592,36 @@ function Setup() {
         { renderSwapInformation() }
       </Grid>
       <Grid item xs={12}>
-        
-        { fromAmountValue && 
-          toAmountValue && 
-          fromAssetValue.address !== toAssetValue.address &&
-          <>
-            <RenderSwapButton/>
-          </>
-        }
-        { fromAmountValue && 
+        {
+          fromAmountValue && 
           toAmountValue && 
           fromAssetValue && 
           fromAssetValue.address == CONTRACTS.KAVA_ADDRESS && 
-          toAssetValue.address == CONTRACTS.WKAVA_ADDRESS &&
-          <>
-          <RenderWrapButton />
-          </>
+          toAssetValue.address == CONTRACTS.WKAVA_ADDRESS ?
+            <>
+            <RenderWrapButton />
+            </>
+          :
+          (
+            fromAmountValue && 
+            toAmountValue && 
+            toAssetValue && 
+            toAssetValue.address == CONTRACTS.KAVA_ADDRESS && 
+            fromAssetValue.address == CONTRACTS.WKAVA_ADDRESS ?
+              <>
+              <RenderUnwrapButton />
+              </>
+              :
+              ( fromAmountValue && 
+                toAmountValue && 
+                fromAssetValue.address !== toAssetValue.address &&
+                <>
+                <RenderSwapButton/>
+                </>
+              )
+          )
         }
-        { fromAmountValue && 
-          toAmountValue && 
-          toAssetValue && 
-          toAssetValue.address == CONTRACTS.KAVA_ADDRESS && 
-          fromAssetValue.address == CONTRACTS.WKAVA_ADDRESS &&
-          <>
-          <RenderUnwrapButton />
-          </>
-        }
+        
       </Grid>
     </Grid>
   )

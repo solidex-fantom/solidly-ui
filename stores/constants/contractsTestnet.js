@@ -15,7 +15,7 @@ export const VE_TOKEN_DECIMALS = 18;
 export const VE_TOKEN_LOGO = "https://github.com/equilibre-finance.png";
 export const VE_TOKEN_ABI = abis.veTokenABI;
 
-export const WKAVA_ADDRESS = "0x6C2A54580666D69CF904a82D8180F198C03ece67";
+export const WKAVA_ADDRESS = "0x6c2a54580666d69cf904a82d8180f198c03ece67";
 export const WKAVA_NAME = "Wrapped Kava";
 export const WKAVA_SYMBOL = "wKAVA";
 export const WKAVA_DECIMALS = 18;
