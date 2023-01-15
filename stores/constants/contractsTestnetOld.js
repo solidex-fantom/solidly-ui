@@ -1,14 +1,14 @@
-import abis from "../abis/abis";
+import abis from "../abis";
 
-export const GOV_TOKEN_ADDRESS = "0x73Ff151Ec6Ae40938Af88c0a621B9667c39E395E";
-export const GOV_TOKEN_NAME = "Vara";
+export const GOV_TOKEN_ADDRESS = "0xBfB032e2a9564e50E970c6aEf4C1E664d1F98D36";
+export const GOV_TOKEN_NAME = "Équilibre";
 export const GOV_TOKEN_SYMBOL = "VARA";
 export const GOV_TOKEN_DECIMALS = 18;
 export const GOV_TOKEN_LOGO = "https://github.com/equilibre-finance.png";
 export const GOV_TOKEN_ABI = abis.tokenABI;
 
 //VotingEscrow
-export const VE_TOKEN_ADDRESS = "0x970f9D17DFCC9DC9A1A5D68b87Ed6fDf9519B791";
+export const VE_TOKEN_ADDRESS = "0xb25b44233bA8F5f9A59f67855BaD4821564bAE82";
 export const VE_TOKEN_NAME = "veVARA";
 export const VE_TOKEN_SYMBOL = "veVARA";
 export const VE_TOKEN_DECIMALS = 18;
@@ -31,22 +31,23 @@ export const KAVA_LOGO =
   "https://assets.coingecko.com/coins/images/9761/large/kava.png";
 
 // PairFactory
-export const FACTORY_ADDRESS = "0x7Dfdc6870Ae42F07Ac033db3bFdeC48c90D90989";
+export const FACTORY_ADDRESS = "0x5Ba67865851e5918b31BFD010F50cf1d47164c58";
 export const FACTORY_ABI = abis.factoryABI;
 // Classic Router
-export const ROUTER_ADDRESS = "0xA282195A9FDf79aa780937d47BDb0d12bbB60a22";
+export const ROUTER_ADDRESS = "0x0754f8a15bD635dB8C47107Ae16c3aaa373593E1";
 export const ROUTER_ABI = abis.routerABI;
 //RewardsDistributor
-export const VE_DIST_ADDRESS = "0xb8d98f54d82CE22Ba3b744D7e7575eb88ac2ABA5";
+export const VE_DIST_ADDRESS = "0xB3EECC89f4F2c30ed455199F49e898aA18Add483";
+//export const VE_DIST_ADDRESS_FTM = "0xA5CEfAC8966452a78d6692837b2ba83d19b57d07";
 export const VE_DIST_ABI = abis.veDistABI;
 
-export const VOTER_ADDRESS = "0xF67Fee5Ea66Bd70254749DA98557E7B379d16BD0";
+export const VOTER_ADDRESS = "0x3b487BD74d6A7369cD41a65776cd8F9af43878a6";
 export const VOTER_ABI = abis.voterABI;
 
-export const LIBRARY_ADDRESS = "0x1c3Dd71a6d76d7e912Cda612CE54333947dB283b";
+export const LIBRARY_ADDRESS = "0x5341E6A0900cdCF828624C43Ea7f69C216e37f0B";
 export const LIBRARY_ABI = abis.solidlyLibraryABI;
 
-export const WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS = "0xA7EF5a86566A43a3031FfE38C88Cde7154C8E389";
+export const WRAPPED_EXTERNAL_BRIBE_FACTORY_ADDRESS = "0x6b261830725123a390909DBdca767C8252d3411D";
 
 export const ERC20_ABI = abis.erc20ABI;
 export const PAIR_ABI = abis.pairABI;
