@@ -802,12 +802,13 @@ export default function ssLiquidityManage() {
           </div>
           <div className={ classes.mediumInputAmount }>
             <TextField
+              type={'number'}
               placeholder='0.00'
               fullWidth
               value={ value }
               disabled={ true }
               InputProps={{
-                className: classes.mediumInput,
+                className: classes.mediumInput1,
               }}
             />
             <Typography color='textSecondary' className={ classes.smallestText }>{ symbol }</Typography>
@@ -857,6 +858,7 @@ export default function ssLiquidityManage() {
           <div className={ classes.massiveInputAmount }>
             <TextField
               inputRef={inputRef}
+              type={'number'}
               placeholder='0.00'
               fullWidth
               error={ amountError }
@@ -991,6 +993,7 @@ export default function ssLiquidityManage() {
       <div className={ classes.textField}>        
         <div className={ classes.smallInputContainer }>
           <TextField
+          type={'number'}
             placeholder='0.00'
             fullWidth            
             error={ amountError }
@@ -1259,7 +1262,7 @@ export default function ssLiquidityManage() {
                     disabled={ (amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading }
                     onClick={ onDepositAndStake }
                     >
-                    <Typography className={ classes.actionButtonText }>{ depositStakeLoading ? `Depositing` : `Deposit & Stake` }</Typography>
+                    <Typography className={ classes.actionButtonText }>{ depositStakeLoading ? `Depositing` : `Add & Stake` }</Typography>
                     { depositStakeLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
                   </Button>
                   { advanced &&
@@ -1272,7 +1275,7 @@ export default function ssLiquidityManage() {
                           disabled={ (amount0 === '' && amount1 === '') || depositLoading || stakeLoading || depositStakeLoading }
                           onClick={ onDeposit }
                           >
-                          <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Deposit LP` }</Typography>
+                          <Typography className={ classes.actionButtonText }>{ depositLoading ? `Depositing` : `Add LP` }</Typography>
                           { depositLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
                         </Button>
                         <Button
@@ -1320,7 +1323,7 @@ export default function ssLiquidityManage() {
                     disabled={ depositLoading || stakeLoading || depositStakeLoading || withdrawAmount === '' }
                     onClick={ onUnstakeAndWithdraw }
                     >
-                    <Typography className={ classes.actionButtonText }>{ depositStakeLoading ? `Withdrawing` : `Unstake and Withdraw` }</Typography>
+                    <Typography className={ classes.actionButtonText }>{ depositStakeLoading ? `Withdrawing` : `Unstake & Remove` }</Typography>
                     { depositStakeLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
                   </Button>
                   { advanced &&
@@ -1333,7 +1336,7 @@ export default function ssLiquidityManage() {
                           disabled={ withdrawAmount === '' || depositLoading || stakeLoading || depositStakeLoading }
                           onClick={ onUnstake }
                           >
-                          <Typography className={ classes.actionButtonText }>{ stakeLoading ? `Unstaking` : `Unstake LP` }</Typography>
+                          <Typography className={ classes.actionButtonText }>{ stakeLoading ? `Unstaking` : `Remove LP` }</Typography>
                           { stakeLoading && <CircularProgress size={10} className={ classes.loadingCircle } /> }
                         </Button>
                         <Button
@@ -1390,13 +1393,13 @@ export default function ssLiquidityManage() {
           
             <Grid item xs={6}>
               <Paper className={ `${activeTab === 'deposit' ? classes.buttonActive : classes.button} ${ classes.topLeftButton }` } onClick={ toggleDeposit } disabled={ depositLoading }>
-                <Typography variant='h5'>Deposit</Typography>
+                <Typography variant='h5'>Add</Typography>
                 <div className={ `${activeTab === 'deposit' ? classes.activeIcon : ''}` }></div>
               </Paper>
             </Grid>
             <Grid item xs={6}>
               <Paper className={ `${activeTab === 'withdraw' ? classes.buttonActive : classes.button}  ${ classes.bottomLeftButton }` } onClick={ toggleWithdraw } disabled={ depositLoading }>
-                <Typography variant='h5'>Withdraw</Typography>
+                <Typography variant='h5'>Remove</Typography>
                 <div className={ `${activeTab === 'withdraw' ? classes.activeIcon : ''}` }></div>
               </Paper>
             </Grid>

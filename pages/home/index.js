@@ -35,14 +35,13 @@ function Home({ changeTheme }) {
     <Grid container className={classes.headerContainer} alignItems='center' justifyContent='space-between'>
           
           <Grid item xs={2} justifyContent={{md:"flex-start"}} >                        
-            <Img alt="complex" src="/images/Linktree_icon.svg" width={30} onClick={handleLinkTree}/>
+          
           </Grid>     
           
           <Grid item xs={2} justifyContent={{md:"flex-end"}}>                
 
                 <Button className={ classes.buttonOverride } onClick={() => router.push('/swap')}>
-                  <Img alt="complex" src="/images/Small_Button.png" width={'70%'}  />
-                    <Typography className={ classes.actionButtonText }>Launch App</Typography>
+                    <Img alt="complex" src="/images/Linktree_icon.svg" width={50} onClick={handleLinkTree}/>
                 </Button>   
                    
           </Grid>
@@ -55,10 +54,16 @@ function Home({ changeTheme }) {
   const renderCenter = () => {
     return (
       <>
-         <Grid container alignItems='center' justifyContent='center' className={ classes.centerContainer }>
+         <Grid container alignItems='center' justifyContent='flex-start' className={ classes.centerContainer }>
               <a href="https://www.equilibrefinance.com/swap">
                   <img src="/images/Logo.png" alt="Équilibre" />    
               </a>        
+        </Grid>
+
+        <Grid container direction="column" alignItems='center' justifyContent='flex-end' className={ classes.centerContainer }>
+            <Grid className={ classes.centerContainer1 }>
+
+            </Grid>
         </Grid>
       </>
     )

@@ -449,6 +449,7 @@ function Setup() {
         </div>
         <div className={ classes.smallInputContainer }>
           <TextField
+            type={'number'}
             placeholder='0.00'
             fullWidth
             error={ amountError }

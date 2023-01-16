@@ -18,11 +18,11 @@ export default function Transaction({ transaction }) {
   const mapStatusToIcon = (status) => {
     switch (status) {
       case 'WAITING':
-        return <PauseIcon className={ classes.orangeIcon }  />
+        return <PauseIcon className={ classes.yellowIcon }  />
       case 'PENDING':
-        return <HourglassEmptyIcon className={ classes.greenIcon }  />
+        return <HourglassEmptyIcon className={ classes.yellowIcon }  />
       case 'SUBMITTED':
-        return <HourglassFullIcon className={ classes.greenIcon }  />
+        return <HourglassFullIcon className={ classes.yellowIcon }  />
       case 'CONFIRMED':
         return <CheckCircleIcon className={ classes.greenIcon }  />
       case 'REJECTED':

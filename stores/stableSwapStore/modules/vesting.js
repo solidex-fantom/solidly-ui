@@ -232,8 +232,7 @@ export async function createVest(payload) {
 
     const unlockString = moment().add(unlockTime, 'seconds').format('DD/MM/YYYY')
     
-
-    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Vest ${govToken.symbol} until ${unlockString}`, type: 'Vest', verb: 'Vest Created', transactions: [
+    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Lock ${govToken.symbol} until ${unlockString}`, type: 'Vest', verb: 'Lock Created', transactions: [
         {
           uuid: allowanceTXID,
           description: `Checking your ${govToken.symbol} allowance`,
@@ -241,7 +240,7 @@ export async function createVest(payload) {
         },
         {
           uuid: vestTXID,
-          description: `Vesting your tokens`,
+          description: `Locking your tokens`,
           status: 'WAITING'
         }
       ]})
@@ -342,6 +341,7 @@ export async function increaseVestAmount(payload) {
           status: 'WAITING'
         }
       ]})
+
 
 
     // CHECK ALLOWANCES AND SET TX DISPLAY

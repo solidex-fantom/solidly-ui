@@ -125,12 +125,12 @@ export default function ssRewards() {
   const id = open ? 'transitions-popper' : undefined;
 
   const useStyles = makeStyles((theme) => ({
-
+    
     container: {
-      marginTop: "10%",
+      marginTop: "10%",      
     },
     formControl: {
-      minWidth: 120,
+      minWidth: 120,    
     },
     label: {
       color: "#CD74CC",
@@ -144,10 +144,11 @@ export default function ssRewards() {
       },
       "& .MuiSvgIcon-root": {
         color: "#CD74CC",
-      },
-    },
-
-
+      },    
+      "& .MuiMenuItem-selected": {
+        color: "red",
+      }  
+    }
   }))
 
   const classesSelect = useStyles();
@@ -157,23 +158,24 @@ export default function ssRewards() {
       <div className={ classes.textField}>
         <Grid container className={ classes.mediumInputContainer}>
           <Grid item container>
-            <Grid item xs={4}>
-              <Typography variant="body2" className={ classes.helpText }>Please select your veVARA:</Typography>
-            </Grid>
             <Grid item xs={8}>
+              <Typography variant="body2" className={ classes.helpText }>Select a veVARA to view its rewards:</Typography>
+            </Grid>
+            <Grid item xs={4}>
             <div className={ classes.mediumInputAmount }>
               <Select
                 fullWidth
                 value={ value }
                 onChange={handleChange}
                 className={classesSelect.select}
+                
                 InputProps={{
                   className: classes.mediumInput,
                 }}
               >
                 { options && options.map((option) => {
                   return (
-                    <MenuItem key={option.id} value={option}>
+                    <MenuItem key={option.id} value={option} >
                       <div className={ classes.menuOption }>
                         <Typography>Token #{option.id}</Typography>
                         <div>
@@ -225,7 +227,7 @@ export default function ssRewards() {
         
 
           <Grid item xs={12} className={ classes.disclaimerContainer }>
-              <Typography className={ classes.disclaimerMain }>Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim. For details refer to our<a className={ classes.disclaimerDocs }>docs</a>.</Typography>                            
+              <Typography className={ classes.disclaimerMain }>Rewards displayed are an estimation of the trading fees, voting rewards are rebases that you can claim. For details refer to our<label className={ classes.disclaimerDocs }> docs</label>.</Typography>                            
           </Grid>
 
           <Grid item xs={12} className={classes.tableContainer}>

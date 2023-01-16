@@ -26,7 +26,7 @@ function WrongNetworkIcon(props) {
   const { color, className } = props;
   return (
     <SvgIcon viewBox="0 0 64 64" strokeWidth="1" className={className}>
-      <g strokeWidth="2" transform="translate(0, 0)"><path fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M33.994,42.339 C36.327,43.161,38,45.385,38,48c0,3.314-2.686,6-6,6c-2.615,0-4.839-1.673-5.661-4.006" strokeLinejoin="miter"></path> <path fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M47.556,32.444 C43.575,28.462,38.075,26,32,26c-6.075,0-11.575,2.462-15.556,6.444" strokeLinejoin="miter"></path> <path fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M59.224,21.276 C52.256,14.309,42.632,10,32,10c-10.631,0-20.256,4.309-27.224,11.276" strokeLinejoin="miter"></path> <line data-color="color-2" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" x1="10" y1="54" x2="58" y2="6" strokeLinejoin="miter"></line></g>
+      <g strokeWidth="2" transform="translate(0, 0)"><path fill="none" stroke="#CD74CC" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M33.994,42.339 C36.327,43.161,38,45.385,38,48c0,3.314-2.686,6-6,6c-2.615,0-4.839-1.673-5.661-4.006" strokeLinejoin="miter"></path> <path fill="none" stroke="#CD74CC" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M47.556,32.444 C43.575,28.462,38.075,26,32,26c-6.075,0-11.575,2.462-15.556,6.444" strokeLinejoin="miter"></path> <path fill="none" stroke="#CD74CC" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" d="M59.224,21.276 C52.256,14.309,42.632,10,32,10c-10.631,0-20.256,4.309-27.224,11.276" strokeLinejoin="miter"></path> <line data-color="color-2" fill="none" stroke="#CD74CC " strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" x1="10" y1="54" x2="58" y2="6" strokeLinejoin="miter"></line></g>
       </SvgIcon>
   );
 }
@@ -201,7 +201,7 @@ function Header(props) {
     }
   }
 
-  //window.addEventListener('scroll', listenScrollEvent)
+  window.addEventListener('scroll', listenScrollEvent)
 
 
 
@@ -450,9 +450,9 @@ function Header(props) {
               <div className={classes.ErrorContent}>
                 <WrongNetworkIcon className={ classes.networkIcon } />
                 <Typography className={classes.ErrorTxt}>
-                  The chain you're connected to isn't supported. Please check that your wallet is connected to KAVA Mainnet.
+                  The chain you're connected to isn't supported.
                 </Typography>
-                <Button className={classes.switchNetworkBtn} variant="contained" onClick={()=>switchChain()} >Switch to { process.env.NEXT_PUBLIC_CHAINID == '2221' ? 'KAVA Testnet' : 'KAVA Mainnet' }</Button>
+                <Button className={classes.switchNetworkBtn} variant="contained" onClick={()=>switchChain()} >Switch to { process.env.NEXT_PUBLIC_CHAINID == '2221' ? 'KAVA Testnet' : 'KAVA EVM' }</Button>
               </div>
             </div>
           ) : null}

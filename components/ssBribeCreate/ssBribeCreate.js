@@ -207,6 +207,7 @@ export default function ssBribeCreate() {
           </div>
           <div className={ classes.massiveInputAmount }>
             <TextField
+              type={'number'}
               placeholder='0.00'
               fullWidth
               error={ amountError }

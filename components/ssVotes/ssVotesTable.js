@@ -308,6 +308,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: '1px solid rgba(104,108,122,0.2) !important',
   },
   headerText: {
+    fontFamily: "Arista",
     fontWeight: '200',
     fontSize: '12px'
   },

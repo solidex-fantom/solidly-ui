@@ -13,6 +13,19 @@
   transform: translate(-50%, -50%);  
 }
 
+.centerContainer1 {
+  border-radius: 30px;    
+  background: 
+    linear-gradient(#131d42 0 0) padding-box, 
+    linear-gradient(to bottom, #CD74CC, #FFBD59 , #70DD88) border-box;
+  color: #313149;
+  border: 1px solid transparent;  
+  
+  width: 200px;
+  height: 100px;
+
+}
+
 .footerContainer {  
   position: fixed; 
   bottom: 0; 

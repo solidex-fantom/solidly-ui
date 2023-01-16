@@ -91,15 +91,15 @@
 .mediumInputContainer {
   display: flex;
   flex-wrap: wrap;
-  
-  
+    
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
   background: rgb(33, 43, 72);
-  padding: 10px;
+  
+  padding-right: 30px;
   padding-left: 30px;
-  min-height: 60px;
+  min-height: 40px;
 
   background: 
     linear-gradient(#141d40 0 0) padding-box, 
@@ -135,6 +135,10 @@
   font-size: 32px !important;
 }
 
+.menuOptionContainer{
+  background-color: green;
+}
+
 .menuOption {
   display: flex !important;
   align-items: center !important;
@@ -151,6 +155,7 @@
 .tokenIDContainer {
   padding-left: 0px !important;
 }
+
 
 .disclaimerContainer {
     
@@ -176,9 +181,7 @@
 .disclaimerDocs {
   font-family: 'Arista' !important;
   font-size: 12px !important;
-  color: #FFBD59;
-  padding-left: 5px !important;
-  padding-bottom: 21.5px !important;  
+  color: #FFBD59
 }
 
 .disclaimerMain {
@@ -232,7 +235,7 @@
 .title {
   font-family: 'Righteous' !important;
   font-style: normal !important;
-  font-weight: 400 !important;
+  font-weight: 800 !important;
   font-size: 32px !important;
   line-height: 62px !important ;
   letter-spacing: 0.13em !important;
@@ -242,10 +245,10 @@
 .subtitle {  
   font-family: 'Arista' !important;
   font-style: normal !important;
-  font-weight: 300 !important;
-  font-size: 20px;
+  font-weight: 700 !important;
+  font-size: 15px !important;
   line-height: 27px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.13em;
   color: #FFFFFF;
 }
 
