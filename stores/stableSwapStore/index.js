@@ -12,7 +12,7 @@ import stores from "../index"
 
 import BigNumber from "bignumber.js"
 import {LIQUIDITY_PAIRS} from "../constants/mocks";
-import {quoteSwap, swap} from "./modules/swap";
+import {quoteSwap, swap, wrap, unwrap} from "./modules/swap";
 import {createVest, getVestNFTs, increaseVestAmount, increaseVestDuration, withdrawVest} from "./modules/vesting";
 import {
   claimAllRewards,
@@ -100,6 +100,12 @@ class Store {
             break
           case ACTIONS.SWAP:
             this.swap(payload)
+            break
+          case ACTIONS.WRAP:
+            this.wrap(payload)
+            break
+          case ACTIONS.UNWRAP:
+            this.unwrap(payload)
             break
 
           // VESTING
@@ -2855,6 +2861,8 @@ class Store {
   // Swapping
   quoteSwap = quoteSwap
   swap = swap
+  wrap = wrap
+  unwrap = unwrap
 
   // Vesting
   getVestNFTs = getVestNFTs
@@ -3310,7 +3318,7 @@ class Store {
     }
   }
 
-  _callContractWait = (web3, contract, method, params, account, gasPrice, dispatchEvent, dispatchContent, uuid, callback, errorHandler, paddGasCost, sendValue = null) => {
+  _callContractWait = (web3, contract, method, params, account, gasPrice, dispatchEvent, dispatchContent, uuid, callback, errorHandler, sendValue = null) => {
     if (!errorHandler) {
       // Error handler deals with errors in the first call to the contract
       // by default, it's a noop
@@ -3333,7 +3341,8 @@ class Store {
 
         let sendGasAmount = BigNumber(gasAmount).times(1.5).toFixed(0)
         let sendGasPrice = BigNumber(gasPrice).times(1.5).toFixed(0)
-
+        
+        
         contract.methods[method](...params)
           .send({
             from: account.address,

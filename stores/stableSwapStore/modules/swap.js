@@ -34,6 +34,9 @@ function isWETHSwap(from, to) {
 }
 
 function _computeRoutesForToken(fromAddress, toAddress, pairs, maxLength, currentPath, allPaths) {
+  console.log("🚀 ~ file: swap.js:37 ~ _computeRoutesForToken ~ currentPath", currentPath)
+  console.log("🚀 ~ file: swap.js:37 ~ _computeRoutesForToken ~ allPaths", allPaths)
+
   for (let pair of pairs) {
     if (
         currentPath.indexOf(pair.address) !== -1 ||
@@ -41,6 +44,7 @@ function _computeRoutesForToken(fromAddress, toAddress, pairs, maxLength, curren
     ) continue;
 
     const newFromAddress = pair.token0.address === fromAddress ? pair.token1.address : pair.token0.address;
+    console.log("🚀 ~ file: swap.js:47 ~ _computeRoutesForToken ~ newFromAddress", newFromAddress)
 
     if (newFromAddress === toAddress) {
       allPaths.push([...currentPath, pair])
@@ -58,6 +62,9 @@ function _computeRoutesForToken(fromAddress, toAddress, pairs, maxLength, curren
 }
 
 function discoverRoutesForTokens(pairs, from, to) {
+  console.log("🚀 ~ file: swap.js:61 ~ discoverRoutesForTokens ~ to", to)
+  console.log("🚀 ~ file: swap.js:61 ~ discoverRoutesForTokens ~ from", from)
+  console.log("🚀 ~ file: swap.js:61 ~ discoverRoutesForTokens ~ pairs", pairs)
   const paths = []
 
   _computeRoutesForToken(
@@ -131,14 +138,19 @@ export async function quoteSwap(payload) {
       return quoteForWETH(this, fromAsset, toAsset, fromAmount);
     }
 
-    let addy0 = fromAsset.address
-    let addy1 = toAsset.address
+    let addy0 = fromAsset
+    let addy1 = toAsset
 
-    if(fromAsset.address === CONTRACTS.KAVA_ADDRESS || toAsset.address === CONTRACTS.KAVA_ADDRESS) {
-      return this.emitter.emit(ACTIONS.ERROR, 'No valid route found to complete modules')
+    // Whether input/output token is KAVA, we get the quote from WKAVA
+    if (addy0.address === CONTRACTS.KAVA_ADDRESS){
+      addy0 = await stores.stableSwapStore.getBaseAsset(CONTRACTS.WKAVA_ADDRESS, false, true)
     }
 
-    const routes = discoverRoutesForTokens(pairs, fromAsset, toAsset)
+    if (addy1.address === CONTRACTS.KAVA_ADDRESS){
+      addy1 = await stores.stableSwapStore.getBaseAsset(CONTRACTS.WKAVA_ADDRESS, false, true)
+    }
+
+    const routes = discoverRoutesForTokens(pairs, addy0, addy1)
     const amountsOut = []
 
     const multicall = await stores.accountStore.getMulticall()
@@ -150,8 +162,8 @@ export async function quoteSwap(payload) {
       amountsOut.push({
         receiveAmounts: receiveAmounts[i],
         finalValue: BigNumber(receiveAmounts[i][receiveAmounts[i].length - 1])
-            .div(10 ** toAsset.decimals)
-            .toFixed(toAsset.decimals),
+            .div(10 ** addy1.decimals)
+            .toFixed(addy1.decimals),
         routes: routes[i].rich,
         raw: routes[i].raw,
       })
@@ -165,7 +177,7 @@ export async function quoteSwap(payload) {
       }
       return (BigNumber(best.finalValue).gt(current.finalValue) ? best : current)
     }, 0)
-
+    
     if(!bestAmountOut) {
       this.emitter.emit(ACTIONS.ERROR, 'No valid route found to complete modules')
       return null
@@ -200,6 +212,118 @@ export async function quoteSwap(payload) {
   } catch(ex) {
     console.error(ex)
     this.emitter.emit(ACTIONS.QUOTE_SWAP_RETURNED, null)
+    this.emitter.emit(ACTIONS.ERROR, ex)
+  }
+}
+
+export async function wrap(payload) {
+  try{
+    const context = this
+    const account = stores.accountStore.getStore("account")
+    if(!account){
+      console.warn('account not found')
+      return null
+    }
+
+    const web3 = await stores.accountStore.getWeb3Provider()
+    if(!web3){
+      console.warn('web3 not found')
+      return null
+    }
+
+    const gasPrice = await stores.accountStore.getGasPrice()
+
+    const {fromAsset, toAsset, fromAmount, toAmount, quote, slippage} = payload.content
+
+    // ADD TRANSACTIONS TO TRANSACTION QUEUE DISPLAY
+    let allowanceTXID = this.getTXUUID()
+    let wrapTXID = this.getTXUUID()
+
+    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Wrap ${fromAsset.symbol} for ${toAsset.symbol}`, type: 'Wrap', verb: 'Wrap Successful', transactions: [
+      {
+        uuid: wrapTXID,
+        description: `Wrap ${formatCurrency(fromAmount)} ${fromAsset.symbol} for ${toAsset.symbol}`,
+        status: 'WAITING'
+      }
+    ]})
+
+    const tokenContract = new web3.eth.Contract(CONTRACTS.WKAVA_ABI, CONTRACTS.WKAVA_ADDRESS)
+    let sendValue = BigNumber(fromAmount).times(10**fromAsset.decimals).toFixed(0)
+    this._callContractWait(
+      web3,
+      tokenContract,
+      "deposit",
+      [],
+      account,
+      gasPrice,
+      null,
+      null,
+      wrapTXID,
+      (err) => {
+        if (err) {
+          return this.emitter.emit(ACTIONS.ERROR, err)
+        }
+        this._getSpecificAssetInfo(web3, account, fromAsset.address)
+        this._getSpecificAssetInfo(web3, account, toAsset.address)
+
+        this.emitter.emit(ACTIONS.SWAP_RETURNED)
+      },
+      null,
+      sendValue
+    )
+
+  }catch(ex){
+    console.error(ex)
+    this.emitter.emit(ACTIONS.ERROR, ex)
+  }
+}
+
+export async function unwrap(payload) {
+  try{
+    const context = this
+    const account = stores.accountStore.getStore("account")
+    if(!account){
+      console.warn('account not found')
+      return null
+    }
+
+    const web3 = await stores.accountStore.getWeb3Provider()
+    if(!web3){
+      console.warn('web3 not found')
+      return null
+    }
+
+    const gasPrice = await stores.accountStore.getGasPrice()
+
+    const {fromAsset, toAsset, fromAmount, toAmount, quote, slippage} = payload.content
+
+    // ADD TRANSACTIONS TO TRANSACTION QUEUE DISPLAY
+    let allowanceTXID = this.getTXUUID()
+    let unwrapTXID = this.getTXUUID()
+
+    this.emitter.emit(ACTIONS.TX_ADDED, { title: `Unwrap ${fromAsset.symbol} for ${toAsset.symbol}`, type: 'Unwrap', verb: 'Unwrap Successful', transactions: [
+      {
+        uuid: unwrapTXID,
+        description: `Unwrap ${formatCurrency(fromAmount)} ${fromAsset.symbol} for ${toAsset.symbol}`,
+        status: 'WAITING'
+      }
+    ]})
+
+    const tokenContract = new web3.eth.Contract(CONTRACTS.WKAVA_ABI, CONTRACTS.WKAVA_ADDRESS)
+    let sendValue = BigNumber(fromAmount).times(10**fromAsset.decimals).toFixed(0)
+
+    this._callContractWait(web3, tokenContract, "withdraw", [sendValue], account, gasPrice, null, null, unwrapTXID, (err) => {
+      if (err) {
+        return this.emitter.emit(ACTIONS.ERROR, err)
+      }
+      this._getSpecificAssetInfo(web3, account, fromAsset.address)
+      this._getSpecificAssetInfo(web3, account, toAsset.address)
+      this._getPairInfo(web3, account)
+
+      this.emitter.emit(ACTIONS.SWAP_RETURNED)
+    }, null, null)
+  }catch(ex){
+    console.error(ex)
     this.emitter.emit(ACTIONS.ERROR, ex)
   }
 }

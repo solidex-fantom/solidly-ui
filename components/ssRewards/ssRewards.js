@@ -59,7 +59,6 @@ export default function ssRewards() {
         setRewards([...re.bribes, ...re.fees, ...re.rewards, ...re.veDist])
       }
     }
-    setRewards(REWARDS)
   }
 
   useEffect(() => {
