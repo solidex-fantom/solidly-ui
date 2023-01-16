@@ -5,7 +5,7 @@
   left: 0;
   z-index: 9 !important;
   width: calc(100%);
-  transition: background-color 0.8s ease;
+
 }
 
 .iconWalletSmall{
@@ -68,6 +68,7 @@
 }
 
 .networkIcon {
+  color: #CD74CC !important;  
   font-size: 100px !important;
   margin-bottom: 20px;
 }
@@ -147,7 +148,7 @@
 
 
 .switchNetworkBtn {
-  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88, #FFBD59);
+  background: linear-gradient(to right, #CD74CC, #FFBD59, #70DD88);
   color: rgb(20 30 63) !important;
   border-radius: 60px !important;
   padding: 12px 24px 14px 24px !important;
@@ -289,8 +290,7 @@
 }
 
 .ErrorTxt {
-  color: #FFF;
-  max-width: 420px;
+  color: #CD74CC;  
   line-height: 1.5em !important;
   font-size: 1.4em !important;
 }

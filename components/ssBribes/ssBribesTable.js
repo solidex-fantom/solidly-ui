@@ -155,6 +155,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '12px'
   },
   headerText: {
+    fontFamily: "Arista",
     fontWeight: '200',
     fontSize: '12px'
   },

@@ -247,7 +247,7 @@ export default function ssVotes() {
 
     const localToggles = getLocalToggles()
 
-    switch (event.target.name) {
+    /*switch (event.target.name) {
       case 'toggleActive':
         setToggleActive(event.target.checked)
         props.setToggleActive(event.target.checked)
@@ -270,7 +270,7 @@ export default function ssVotes() {
         break;
       default:
 
-    }
+    }*/
 
     // set locally saved toggles
     try {

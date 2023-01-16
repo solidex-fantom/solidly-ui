@@ -235,7 +235,7 @@ export async function swap(payload) {
         },
         {
           uuid: swapTXID,
-          description: `Swap ${formatCurrency(fromAmount)} ${fromAsset.symbol} for ${toAsset.symbol}`,
+          description: `Swap ${fromAsset.symbol} for ${toAsset.symbol}`,
           status: 'WAITING'
         }
       ]})

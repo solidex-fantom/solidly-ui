@@ -135,14 +135,21 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '200',
     fontSize: '12px'
   },
-  textSpaced1: {
-    fontFamily:  'Arista !important',
+  textSpacedWarning: {
     lineHeight: '1.5',
     fontWeight: '200',
-    fontSize: '12px'
+    fontSize: '12px',
+    color: '#CD74CC'
+  },
+  textSpaced1: {
+    lineHeight: '1.5',
+    fontWeight: '200',
+    fontSize: '12px',
+    fontFamily:'Arista !important',
   },
   
   headerText: {
+    fontFamily: "Arista",
     fontWeight: '200',
     fontSize: '12px'
   },

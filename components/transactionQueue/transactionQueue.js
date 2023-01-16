@@ -138,17 +138,8 @@ export default function TransactionQueue({ setQueueLength }) {
       return null
     }
 
-    let lottie = <img src="/images/Equilibot.png" className={classes.warningIcon} />
-
-    if(type === 'Liquidity') 
-      lottie = <img src="/images/Toboganes_7.png" className={classes.warningIcon} />
-    
-    else if (type === 'Swap') 
-      lottie = <img src="/images/Balls_at_balance_-_Graphic.png" className={classes.warningIcon} />
-    
-    else if (type === 'Vest') 
-      lottie = <img src="/images/Rainbow_clock_4.png" className={classes.warningIcon} />
-    
+    let lottie = <img src="/images/Check.png" className={classes.warningIcon}  width='160px'  />
+    //console.log(type)    
 
     return (
       <div className={classes.successDialog}>

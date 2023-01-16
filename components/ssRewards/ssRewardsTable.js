@@ -215,7 +215,14 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: '12px',
   },
-  textSpaced: {
+  textSpaced: {    
+    fontFamily: "Righteous",
+    lineHeight: '1.5',
+    fontWeight: '200',
+    fontSize: '12px'
+  },
+  textSpacedSub: {
+    fontFamily: "Arista",
     lineHeight: '1.5',
     fontWeight: '200',
     fontSize: '12px'
@@ -226,7 +233,22 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '200',
     fontSize: '12px'
   },
+  textSpacedPadded1: {
+    paddingLeft: '10px',
+    lineHeight: '1.5',
+    fontWeight: '200',
+    fontSize: '12px',
+    fontFamily: "Arista",
+  },
+  
+  textSpaced1: {
+    lineHeight: '1.5',
+    fontWeight: '200',
+    fontSize: '12px',
+    fontFamily:'Arista !important',
+  },
   headerText: {
+    fontFamily: "Arista",
     fontWeight: '200',
     fontSize: '12px'
   },
@@ -502,7 +524,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                             <Typography variant='h2' noWrap className={classes.textSpaced}>
                               {row?.symbol}
                             </Typography>
-                            <Typography variant='h5' className={classes.textSpaced} color='textSecondary'>
+                            <Typography variant='h5' className={classes.textSpacedSub}>
                               {row?.rewardType}
                             </Typography>
                           </div>
@@ -527,7 +549,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                             <Typography variant='h2' noWrap className={classes.textSpaced}>
                               {row?.lockToken?.symbol}
                             </Typography>
-                            <Typography variant='h5' className={classes.textSpaced} color='textSecondary'>
+                            <Typography variant='h5' className={classes.textSpaced1}>
                               {row?.rewardType}
                             </Typography>
                           </div>
@@ -542,7 +564,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h2' className={classes.textSpaced}>
                                 {formatCurrency(BigNumber(row.gauge.balance).div(row.gauge.totalSupply).times(row.gauge.reserve0))}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 {row.token0.symbol}
                               </Typography>
                             </div>
@@ -550,7 +572,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h5' className={classes.textSpaced}>
                                 {formatCurrency(BigNumber(row.gauge.balance).div(row.gauge.totalSupply).times(row.gauge.reserve1))}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 {row.token1.symbol}
                               </Typography>
                             </div>
@@ -562,7 +584,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h2' className={classes.textSpaced}>
                                 {formatCurrency(BigNumber(row.balance).div(row.totalSupply).times(row.reserve0))}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 {row.token0.symbol}
                               </Typography>
                             </div>
@@ -570,7 +592,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h5' className={classes.textSpaced}>
                                 {formatCurrency(BigNumber(row.balance).div(row.totalSupply).times(row.reserve1))}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 {row.token1.symbol}
                               </Typography>
                             </div>
@@ -582,7 +604,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h2' className={classes.textSpaced}>
                                 {formatCurrency(BigNumber(row.gauge.balance).div(row.gauge.totalSupply).times(row.gauge.reserve0))}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 {row.token0.symbol}
                               </Typography>
                             </div>
@@ -590,7 +612,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h5' className={classes.textSpaced}>
                                 {formatCurrency(BigNumber(row.gauge.balance).div(row.gauge.totalSupply).times(row.gauge.reserve1))}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 {row.token1.symbol}
                               </Typography>
                             </div>
@@ -602,7 +624,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h5' className={classes.textSpaced}>
                                 {formatCurrency(row.token?.lockValue)}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 {row.lockToken.symbol}
                               </Typography>
                             </div>
@@ -616,21 +638,11 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                           row && row.rewardType === 'Bribe' && row.gauge && row.gauge.bribesEarned && row.gauge.bribesEarned.map((bribe) => {
                             return (
                               <div className={ classes.inlineEnd }>
-                                <img
-                                  className={classes.imgLogo}
-                                  src={ (bribe && bribe.token && bribe.token.logoURI) ? bribe.token.logoURI : `` }
-                                  width='24'
-                                  height='24'
-                                  alt=''
-                                  onError={(e) => {
-                                    e.target.onerror = null;
-                                    e.target.src = '/tokens/unknown-logo.png';
-                                  }}
-                                />
+                                
                                 <Typography variant='h2' className={classes.textSpacedPadded}>
                                   { formatCurrency(bribe.earned) }
                                 </Typography>
-                                <Typography variant='h5' className={classes.textSpacedPadded} color='textSecondary'>
+                                <Typography variant='h5' className={classes.textSpacedPadded1} color='textSecondary'>
                                   { bribe.token?.symbol }
                                 </Typography>
                               </div>
@@ -641,40 +653,20 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                           row && row.rewardType === 'Fees' &&
                             <>
                               <div className={ classes.inlineEnd }>
-                                <img
-                                  className={classes.imgLogo}
-                                  src={ (row.token0 && row.token0.logoURI) ? row.token0.logoURI : `` }
-                                  width='24'
-                                  height='24'
-                                  alt=''
-                                  onError={(e) => {
-                                    e.target.onerror = null;
-                                    e.target.src = '/tokens/unknown-logo.png';
-                                  }}
-                                />
+                                
                                 <Typography variant='h2' className={classes.textSpacedPadded}>
                                   { formatCurrency(row.claimable0) }
                                 </Typography>
-                                <Typography variant='h5' className={classes.textSpacedPadded} color='textSecondary'>
+                                <Typography variant='h5' className={classes.textSpacedPadded1} color='textSecondary'>
                                   { row.token0?.symbol }
                                 </Typography>
                                 </div>
                               <div className={ classes.inlineEnd }>
-                                <img
-                                  className={classes.imgLogo}
-                                  src={ (row.token1 && row.token1.logoURI) ? row.token1.logoURI : `` }
-                                  width='24'
-                                  height='24'
-                                  alt=''
-                                  onError={(e) => {
-                                    e.target.onerror = null;
-                                    e.target.src = '/tokens/unknown-logo.png';
-                                  }}
-                                />
+                                
                                 <Typography variant='h2' className={classes.textSpacedPadded}>
                                   { formatCurrency(row.claimable1) }
                                 </Typography>
-                                <Typography variant='h5' className={classes.textSpacedPadded} color='textSecondary'>
+                                <Typography variant='h5' className={classes.textSpacedPadded1} color='textSecondary'>
                                   { row.token1?.symbol }
                                 </Typography>
                               </div>
@@ -686,7 +678,7 @@ export default function EnhancedTable({ rewards, vestNFTs, tokenID }) {
                               <Typography variant='h2' className={classes.textSpaced}>
                                 {formatCurrency(row.gauge.rewardsEarned)}
                               </Typography>
-                              <Typography variant='h5' className={`${classes.textSpaced} ${classes.symbol}`} color='textSecondary'>
+                              <Typography variant='h5' className={`${classes.textSpaced1} ${classes.symbol}`} color='textSecondary'>
                                 VARA
                               </Typography>
                             </div>

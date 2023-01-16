@@ -270,8 +270,9 @@
   border-radius: 0px !important;
   flex: 1;
   transition: none !important;
-  opacity: 1;
-  background: none !important;
+  
+  background: none !important;  
+  
   
 }
 
@@ -357,27 +358,28 @@
 }
 
 .backIconContainer1 {
+  
   width: auto;  
   position: relative;
-  margin-top: 175px !important;          
+  margin-top: 180px !important;          
 }
 
 .backIconContainer2 {
   width: auto;  
   position: relative;
-  margin-top: 110px !important;            
+  margin-top: 110px !important;              
 }
 
 .backIconContainer3 {
   width: auto;         
   position: relative;
-  margin-top: 170px !important;            
+  margin-top: 165px !important;            
 }
 
 .backIconContainer4 {
   width: auto;  
   position: relative;
-  margin-top: 100px !important;            
+  margin-top: 90px !important;            
 }
 
 .assetSelectText {  
@@ -404,7 +406,7 @@
 .hr-icon {
   position: relative;
   top: 3px;
-  color: #ff0000;
+  
 }
 
 
@@ -419,7 +421,7 @@
 }
 
 .error {
-  border: 1px solid #dc3545;
+  
 }
 
 .massiveInputContainer {
@@ -506,7 +508,7 @@
   width: 100%;
   /* align-items: center;   */
   min-height: 50px;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .mediumInputAssetSelect {
@@ -519,6 +521,8 @@
   flex: 1;
   height: 100%;
 }
+
+
 
 .mediumInputAddress {
   min-width: 100%;
@@ -547,6 +551,11 @@
 .mediumInput {
   font-size: 32px !important;
 }
+
+.mediumInput1 {
+  font-size: 18px !important;
+}
+
 
 .receiveAssets {
   display: grid;
