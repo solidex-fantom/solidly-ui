@@ -8,18 +8,33 @@ export const gaugeABI = [
       },
       {
         "internalType": "address",
-        "name": "_bribe",
+        "name": "_internal_bribe",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "_ve",
+        "name": "_external_bribe",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "__ve",
         "type": "address"
       },
       {
         "internalType": "address",
         "name": "_voter",
         "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_forPair",
+        "type": "bool"
+      },
+      {
+        "internalType": "address[]",
+        "name": "_allowedRewardTokens",
+        "type": "address[]"
       }
     ],
     "stateMutability": "nonpayable",
@@ -70,12 +85,6 @@ export const gaugeABI = [
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "recepient",
-        "type": "address"
       }
     ],
     "name": "ClaimRewards",
@@ -89,6 +98,12 @@ export const gaugeABI = [
         "internalType": "address",
         "name": "from",
         "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
       },
       {
         "indexed": false,
@@ -131,46 +146,14 @@ export const gaugeABI = [
       {
         "indexed": true,
         "internalType": "address",
-        "name": "account",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "VeTokenLocked",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "VeTokenUnlocked",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
         "name": "from",
         "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
       },
       {
         "indexed": false,
@@ -181,6 +164,19 @@ export const gaugeABI = [
     ],
     "name": "Withdraw",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "_ve",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [
@@ -214,22 +210,27 @@ export const gaugeABI = [
         "type": "uint256"
       }
     ],
-    "name": "batchUpdateRewardPerToken",
+    "name": "batchRewardPerToken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "bribe",
-    "outputs": [
+    "inputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "token",
         "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxRuns",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "view",
+    "name": "batchUpdateRewardPerToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -254,7 +255,7 @@ export const gaugeABI = [
       },
       {
         "internalType": "uint256",
-        "name": "value",
+        "name": "balanceOf",
         "type": "uint256"
       }
     ],
@@ -387,6 +388,19 @@ export const gaugeABI = [
   },
   {
     "inputs": [],
+    "name": "external_bribe",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "fees0",
     "outputs": [
       {
@@ -502,6 +516,32 @@ export const gaugeABI = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "internal_bribe",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "isForPair",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -509,7 +549,7 @@ export const gaugeABI = [
         "type": "address"
       }
     ],
-    "name": "isRewardToken",
+    "name": "isReward",
     "outputs": [
       {
         "internalType": "bool",
@@ -534,6 +574,25 @@ export const gaugeABI = [
       }
     ],
     "name": "lastEarn",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "name": "lastTimeRewardApplicable",
     "outputs": [
       {
         "internalType": "uint256",
@@ -679,7 +738,7 @@ export const gaugeABI = [
       },
       {
         "internalType": "uint256",
-        "name": "value",
+        "name": "rewardPerToken",
         "type": "uint256"
       }
     ],
@@ -751,7 +810,7 @@ export const gaugeABI = [
         "type": "uint256"
       }
     ],
-    "name": "rewardTokens",
+    "name": "rewards",
     "outputs": [
       {
         "internalType": "address",
@@ -764,12 +823,25 @@ export const gaugeABI = [
   },
   {
     "inputs": [],
-    "name": "rewardTokensLength",
+    "name": "rewardsListLength",
     "outputs": [
       {
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stake",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -792,7 +864,7 @@ export const gaugeABI = [
       },
       {
         "internalType": "uint256",
-        "name": "value",
+        "name": "supply",
         "type": "uint256"
       }
     ],
@@ -810,6 +882,29 @@ export const gaugeABI = [
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "oldToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "newToken",
+        "type": "address"
+      }
+    ],
+    "name": "swapOutRewardToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -845,19 +940,6 @@ export const gaugeABI = [
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "underlying",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -876,19 +958,6 @@ export const gaugeABI = [
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "ve",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -944,1303 +1013,5 @@ export const gaugeABI = [
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
-  },{
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "reward",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    },
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "recepient",
-    "type": "address"
-    }
-  ],
-  "name": "ClaimRewards",
-  "type": "event"
-  },
-  {
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    }
-  ],
-  "name": "Deposit",
-  "type": "event"
-  },
-  {
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "reward",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    }
-  ],
-  "name": "NotifyReward",
-  "type": "event"
-  },
-  {
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    }
-  ],
-  "name": "Withdraw",
-  "type": "event"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "balanceOf",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "maxRuns",
-    "type": "uint256"
-    }
-  ],
-  "name": "batchUpdateRewardPerToken",
-  "outputs": [],
-  "stateMutability": "nonpayable",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "checkpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "value",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "account",
-    "type": "address"
-    }
-  ],
-  "name": "derivedBalance",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "derivedBalances",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "derivedSupply",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    },
-    {
-    "internalType": "address",
-    "name": "account",
-    "type": "address"
-    }
-  ],
-  "name": "earned",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "account",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    }
-  ],
-  "name": "getPriorBalanceIndex",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    }
-  ],
-  "name": "getPriorRewardPerToken",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    }
-  ],
-  "name": "getPriorSupplyIndex",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "isRewardToken",
-  "outputs": [
-    {
-    "internalType": "bool",
-    "name": "",
-    "type": "bool"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "lastEarn",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "lastUpdateTime",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    }
-  ],
-  "name": "left",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "numCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "periodFinish",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    }
-  ],
-  "name": "rewardPerToken",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "rewardPerTokenCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "value",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "rewardPerTokenNumCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "rewardPerTokenStored",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "rewardRate",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "rewardTokens",
-  "outputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "rewardTokensLength",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "supplyCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "value",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "supplyNumCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "totalSupply",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "underlying",
-  "outputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "userRewardPerTokenStored",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },{
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "reward",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    },
-    {
-    "indexed": false,
-    "internalType": "address",
-    "name": "recepient",
-    "type": "address"
-    }
-  ],
-  "name": "ClaimRewards",
-  "type": "event"
-  },
-  {
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    }
-  ],
-  "name": "Deposit",
-  "type": "event"
-  },
-  {
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "reward",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    }
-  ],
-  "name": "NotifyReward",
-  "type": "event"
-  },
-  {
-  "anonymous": false,
-  "inputs": [
-    {
-    "indexed": true,
-    "internalType": "address",
-    "name": "from",
-    "type": "address"
-    },
-    {
-    "indexed": false,
-    "internalType": "uint256",
-    "name": "amount",
-    "type": "uint256"
-    }
-  ],
-  "name": "Withdraw",
-  "type": "event"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "balanceOf",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "maxRuns",
-    "type": "uint256"
-    }
-  ],
-  "name": "batchUpdateRewardPerToken",
-  "outputs": [],
-  "stateMutability": "nonpayable",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "checkpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "value",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "account",
-    "type": "address"
-    }
-  ],
-  "name": "derivedBalance",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "derivedBalances",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "derivedSupply",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    },
-    {
-    "internalType": "address",
-    "name": "account",
-    "type": "address"
-    }
-  ],
-  "name": "earned",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "account",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    }
-  ],
-  "name": "getPriorBalanceIndex",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    }
-  ],
-  "name": "getPriorRewardPerToken",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    }
-  ],
-  "name": "getPriorSupplyIndex",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "isRewardToken",
-  "outputs": [
-    {
-    "internalType": "bool",
-    "name": "",
-    "type": "bool"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "lastEarn",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "lastUpdateTime",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    }
-  ],
-  "name": "left",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "numCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "periodFinish",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "token",
-    "type": "address"
-    }
-  ],
-  "name": "rewardPerToken",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "rewardPerTokenCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "value",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "rewardPerTokenNumCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "rewardPerTokenStored",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "rewardRate",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "rewardTokens",
-  "outputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "rewardTokensLength",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "name": "supplyCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "timestamp",
-    "type": "uint256"
-    },
-    {
-    "internalType": "uint256",
-    "name": "value",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "supplyNumCheckpoints",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "totalSupply",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [],
-  "name": "underlying",
-  "outputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-  },
-  {
-  "inputs": [
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    },
-    {
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-    }
-  ],
-  "name": "userRewardPerTokenStored",
-  "outputs": [
-    {
-    "internalType": "uint256",
-    "name": "",
-    "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
   }
 ]
